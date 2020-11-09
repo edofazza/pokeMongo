@@ -1,10 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class SignUp extends PokeSceneWithTitle {
     // LEFT SIDE
@@ -43,9 +40,13 @@ public class SignUp extends PokeSceneWithTitle {
 
         surnameTF = new TextField();
         surnameTF.relocate(350, 200);
-
+        surnameTF.setOnKeyTyped(e->handleMouseClicked());
         sceneNodes.getChildren().add(surnameLabel);
         sceneNodes.getChildren().add(surnameTF);
+    }
+
+    private void handleMouseClicked(){
+        System.out.println("Hello World");
     }
 
     private void displayNicknameFields() {
@@ -65,7 +66,7 @@ public class SignUp extends PokeSceneWithTitle {
         passwordLabel.relocate(350, 370);
         passwordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
-        passwordTF = new TextField();
+        passwordTF = new PasswordField();
         passwordTF.relocate(350, 400);
 
         sceneNodes.getChildren().add(passwordLabel);
@@ -114,9 +115,9 @@ public class SignUp extends PokeSceneWithTitle {
         confirmPasswordLabel.relocate(750, 370);
         confirmPasswordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
-        confirmPasswordTF = new TextField();
+        confirmPasswordTF = new PasswordField();
         confirmPasswordTF.relocate(750, 400);
-
+        confirmPasswordTF.setOnKeyTyped(e->handleConfirmPassword());
         sceneNodes.getChildren().add(confirmPasswordLabel);
         sceneNodes.getChildren().add(confirmPasswordTF);
     }
@@ -138,7 +139,7 @@ public class SignUp extends PokeSceneWithTitle {
         Button backButton = new Button("BACK");
         backButton.relocate(200, 600);
 
-        backButton.setOnAction((ActionEvent ev)->{ backButtonAction();});
+        backButton.setOnAction((ActionEvent ev)-> backButtonAction());
 
         sceneNodes.getChildren().add(backButton);
     }
@@ -152,5 +153,41 @@ public class SignUp extends PokeSceneWithTitle {
         submitButton.relocate(1000, 600);
 
         sceneNodes.getChildren().add(submitButton);
+    }
+
+
+    //TODO
+
+    private void handleName(){
+
+    }
+
+    private void handleSurname(){
+
+    }
+
+    private boolean isPersonNoun(String possibleNoun){
+        //TODO
+        return true;
+    }
+
+    /**
+     * Check if the password contains at least a capital letter and a number
+     */
+    private void handlePassword(){
+        //TODO
+    }
+
+    private void handleConfirmPassword(){
+        //TODO
+    }
+
+    private boolean checkPasswordsMatch(){
+        //TODO
+        return true;
+    }
+
+    private void handleSubmit(){
+        //TODO
     }
 }
