@@ -10,14 +10,19 @@ public class MusicPlayer {
     private AudioClip mediaPlayer;
 
     public MusicPlayer(String title) {
-        Media sound = new Media(new File(musicLocation + title).toURI().toString());
-        mediaPlayer = new AudioClip(sound.getSource());
-        mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
-        mediaPlayer.play();
+        setSong(title);
     }
 
     protected void changeSong(String title) {
         mediaPlayer.stop();
+        /*Media sound = new Media(new File(musicLocation + title).toURI().toString());
+        mediaPlayer = new AudioClip(sound.getSource());
+        mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
+        mediaPlayer.play();*/
+        setSong(title);
+    }
+
+    private void setSong(String title) {
         Media sound = new Media(new File(musicLocation + title).toURI().toString());
         mediaPlayer = new AudioClip(sound.getSource());
         mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
