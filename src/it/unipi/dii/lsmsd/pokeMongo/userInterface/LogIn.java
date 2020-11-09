@@ -6,7 +6,6 @@ import javafx.scene.control.TextField;
 
 public class LogIn extends PokeSceneWithBlastoiseCharizard {
     public LogIn() {
-        displayTitle();
         displayEmailFields();
         displayPasswordFields();
         displayLogInButton();

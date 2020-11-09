@@ -1,12 +1,25 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class SignIn extends PokeSceneWithTitle {
+    // LEFT SIDE
+    private TextField surnameTF;
+    private TextField nicknameTF;
+    private TextField passwordTF;
+    private DatePicker birthdayDP;
+
+    // RIGHT SIDE
+    private TextField nameTF;
+    private TextField emailTF;
+    private TextField confirmPasswordTF;
+    private TextField countryTF;
+
     public SignIn() {
-        displayTitle();
         displaySurnameFields();
         displayNameFields();
         displayNicknameFields();
@@ -15,6 +28,10 @@ public class SignIn extends PokeSceneWithTitle {
         displayConfirmPassword();
         displayBirthdayFields();
         displayCountryFields();
+
+        displayBackButton();
+        displaySubmitButton();
+
         setSceneMusic("pallet_town.mp3");
     }
 
@@ -24,7 +41,7 @@ public class SignIn extends PokeSceneWithTitle {
         surnameLabel.relocate(350, 170);
         surnameLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
-        TextField surnameTF = new TextField();
+        surnameTF = new TextField();
         surnameTF.relocate(350, 200);
 
         sceneNodes.getChildren().add(surnameLabel);
@@ -36,7 +53,7 @@ public class SignIn extends PokeSceneWithTitle {
         nicknameLabel.relocate(350, 270);
         nicknameLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
-        TextField nicknameTF = new TextField();
+        nicknameTF = new TextField();
         nicknameTF.relocate(350, 300);
 
         sceneNodes.getChildren().add(nicknameLabel);
@@ -48,7 +65,7 @@ public class SignIn extends PokeSceneWithTitle {
         passwordLabel.relocate(350, 370);
         passwordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
-        TextField passwordTF = new TextField();
+        passwordTF = new TextField();
         passwordTF.relocate(350, 400);
 
         sceneNodes.getChildren().add(passwordLabel);
@@ -60,11 +77,11 @@ public class SignIn extends PokeSceneWithTitle {
         passwordLabel.relocate(350, 470);
         passwordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
-        DatePicker datePicker = new DatePicker();
-        datePicker.relocate(350, 500);
+        birthdayDP = new DatePicker();
+        birthdayDP.relocate(350, 500);
 
         sceneNodes.getChildren().add(passwordLabel);
-        sceneNodes.getChildren().add(datePicker);
+        sceneNodes.getChildren().add(birthdayDP);
     }
 
     // RIGHT SIDE
@@ -73,7 +90,7 @@ public class SignIn extends PokeSceneWithTitle {
         nameLabel.relocate(750, 170);
         nameLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
-        TextField nameTF = new TextField();
+        nameTF = new TextField();
         nameTF.relocate(750, 200);
 
         sceneNodes.getChildren().add(nameLabel);
@@ -85,7 +102,7 @@ public class SignIn extends PokeSceneWithTitle {
         emailLabel.relocate(750, 270);
         emailLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
-        TextField emailTF = new TextField();
+        emailTF = new TextField();
         emailTF.relocate(750, 300);
 
         sceneNodes.getChildren().add(emailLabel);
@@ -97,7 +114,7 @@ public class SignIn extends PokeSceneWithTitle {
         confirmPasswordLabel.relocate(750, 370);
         confirmPasswordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
-        TextField confirmPasswordTF = new TextField();
+        confirmPasswordTF = new TextField();
         confirmPasswordTF.relocate(750, 400);
 
         sceneNodes.getChildren().add(confirmPasswordLabel);
@@ -109,10 +126,31 @@ public class SignIn extends PokeSceneWithTitle {
         countryLabel.relocate(750, 470);
         countryLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
-        TextField countryTF = new TextField();
+        countryTF = new TextField();
         countryTF.relocate(750, 500);
 
         sceneNodes.getChildren().add(countryLabel);
         sceneNodes.getChildren().add(countryTF);
+    }
+
+    // BUTTONS
+    private void displayBackButton() {
+        Button backButton = new Button("BACK");
+        backButton.relocate(200, 600);
+
+        backButton.setOnAction((ActionEvent ev)->{ backButtonAction();});
+
+        sceneNodes.getChildren().add(backButton);
+    }
+
+    private void backButtonAction() {
+        CurrentUI.changeScene(new LogIn());
+    }
+
+    private void displaySubmitButton() {
+        Button submitButton = new Button("SUBMIT");
+        submitButton.relocate(1000, 600);
+
+        sceneNodes.getChildren().add(submitButton);
     }
 }

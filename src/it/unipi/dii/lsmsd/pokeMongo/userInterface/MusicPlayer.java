@@ -15,10 +15,6 @@ public class MusicPlayer {
 
     protected void changeSong(String title) {
         mediaPlayer.stop();     // in order to be garbage collected
-        /*Media sound = new Media(new File(musicLocation + title).toURI().toString());
-        mediaPlayer = new AudioClip(sound.getSource());
-        mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
-        mediaPlayer.play();*/
         setSong(title);
     }
 
