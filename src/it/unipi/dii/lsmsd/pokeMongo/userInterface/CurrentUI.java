@@ -9,7 +9,7 @@ public class CurrentUI {
 
     public Scene initScene() {
         /*   LogIn   */
-        nodeWindow = new SignUp();
+        nodeWindow = new LogIn();
         root = nodeWindow.getNodes();
 
         return new Scene(root, 1280, 700);

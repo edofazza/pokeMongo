@@ -43,14 +43,20 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
         Button logInButton = new Button("LOG IN");
         logInButton.relocate(700, 370);
 
+        logInButton.setOnAction((ActionEvent ev)-> logInButtonAction());
+
         sceneNodes.getChildren().add(logInButton);
+    }
+
+    private void logInButtonAction() {
+        CurrentUI.changeScene(SceneNames.HOMEPAGE);
     }
 
     private void displaySignUpButton() {
         Button signUpButton = new Button("SIGN UP");
         signUpButton.relocate(500, 370);
 
-        signUpButton.setOnAction((ActionEvent ev)->{ signUpButtonAction();});
+        signUpButton.setOnAction((ActionEvent ev)-> signUpButtonAction());
 
         sceneNodes.getChildren().add(signUpButton);
     }
