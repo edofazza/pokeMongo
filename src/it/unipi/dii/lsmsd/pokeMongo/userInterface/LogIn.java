@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -49,6 +50,12 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
         Button signUpButton = new Button("SIGN UP");
         signUpButton.relocate(500, 370);
 
+        signUpButton.setOnAction((ActionEvent ev)->{ signUpButtonAction();});
+
         sceneNodes.getChildren().add(signUpButton);
+    }
+
+    private void signUpButtonAction() {
+        CurrentUI.changeScene(SceneNames.SIGNUP);
     }
 }

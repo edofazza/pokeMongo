@@ -9,15 +9,15 @@ public class CurrentUI {
 
     public Scene initScene() {
         /*   LogIn   */
-        nodeWindow = new SignIn();
+        nodeWindow = new SignUp();
         root = nodeWindow.getNodes();
 
         return new Scene(root, 1280, 700);
     }
 
-    public static void changeScene(PokeScene pScene) {
+    public static void changeScene(SceneNames sn) {
         root.getChildren().clear();
-        nodeWindow = new LogIn();
+        nodeWindow = sn.createNewScene(sn);
         root = nodeWindow.getNodes();
     }
 }

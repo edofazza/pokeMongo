@@ -6,7 +6,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class SignIn extends PokeSceneWithTitle {
+public class SignUp extends PokeSceneWithTitle {
     // LEFT SIDE
     private TextField surnameTF;
     private TextField nicknameTF;
@@ -19,7 +19,7 @@ public class SignIn extends PokeSceneWithTitle {
     private TextField confirmPasswordTF;
     private TextField countryTF;
 
-    public SignIn() {
+    public SignUp() {
         displaySurnameFields();
         displayNameFields();
         displayNicknameFields();
@@ -144,7 +144,7 @@ public class SignIn extends PokeSceneWithTitle {
     }
 
     private void backButtonAction() {
-        CurrentUI.changeScene(new LogIn());
+        CurrentUI.changeScene(SceneNames.LOGIN);
     }
 
     private void displaySubmitButton() {
