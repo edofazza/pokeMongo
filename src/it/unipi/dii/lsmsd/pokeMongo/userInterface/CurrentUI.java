@@ -10,7 +10,7 @@ public class CurrentUI {
         Group root;
 
         /*   LogIn   */
-        nodeWindow = new LogIn();
+        nodeWindow = new SignIn();
         root = nodeWindow.getNodes();
 
         return new Scene(root, 1280, 700);

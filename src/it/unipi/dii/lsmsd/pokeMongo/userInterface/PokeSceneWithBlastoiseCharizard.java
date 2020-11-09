@@ -2,7 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import javafx.scene.image.ImageView;
 
-public class PokeSceneWithBlastoiseCharizard extends PokeScene {
+public class PokeSceneWithBlastoiseCharizard extends PokeSceneWithTitle {
     private final String imgLocation = "file:img/";
 
     public PokeSceneWithBlastoiseCharizard() {
@@ -16,7 +16,7 @@ public class PokeSceneWithBlastoiseCharizard extends PokeScene {
         charizard.setFitHeight(400);
         charizard.relocate(800, 300);
 
-        logInNodes.getChildren().add(blastoise);
-        logInNodes.getChildren().add(charizard);
+        sceneNodes.getChildren().add(blastoise);
+        sceneNodes.getChildren().add(charizard);
     }
 }
