@@ -83,7 +83,6 @@ public class SignUp extends PokeSceneWithTitle {
         passwordLabel.relocate(350, 370);
         passwordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
-
         invalidPasswordLabel = new Label("Password must contain at least:\n8 characters, a letter and\na number");
         invalidPasswordLabel.relocate(510, 380);
         invalidPasswordLabel.setVisible(false);
@@ -115,7 +114,6 @@ public class SignUp extends PokeSceneWithTitle {
         Label nameLabel = new Label("Name");
         nameLabel.relocate(750, 170);
         nameLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
-
 
         invalidNameLabel = new Label("Name must only contain letters,\nspaces, dots and apostrophes");
         invalidNameLabel.relocate(910, 190);
@@ -202,6 +200,12 @@ public class SignUp extends PokeSceneWithTitle {
         sceneNodes.getChildren().add(submitButton);
     }
 
+    // FORM CHECKING
+
+    /**
+     * In this section are present the event handler for the 'setOnKeyReleased' event in the form.
+     */
+
     private void handleName(){
         if(isPersonNoun(nameTF.getText()))
             invalidNameLabel.setVisible(false);
@@ -216,6 +220,9 @@ public class SignUp extends PokeSceneWithTitle {
             invalidSurnameLabel.setVisible(true);
     }
 
+    /**
+     * Check if the string contains only letters, spaces, dots and apostrophes.
+     */
     private boolean isPersonNoun(String possibleNoun){
         Pattern pattern = Pattern.compile("^[a-zA-Z '.]*$");
         Matcher matcher = pattern.matcher(possibleNoun);
@@ -229,30 +236,21 @@ public class SignUp extends PokeSceneWithTitle {
             invalidEmailLabel.setVisible(true);
     }
 
+    /**
+     * Check if the email follows the format example@domain.tld
+     */
     private boolean isValidEmail(String possibleEmail){
         Pattern pattern = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
         Matcher matcher = pattern.matcher(possibleEmail);
         return matcher.find();
     }
 
-    /**
-     * Check if the password contains at least a capital letter and a number
-     */
+
     private void handlePassword(){
         if(isValidPassword(passwordTF.getText()))
             invalidPasswordLabel.setVisible(false);
         else
             invalidPasswordLabel.setVisible(true);
-
-    }
-
-    /**
-     * Checks if the password contains minimum eight characters, at least one letter and one number
-     */
-    private boolean isValidPassword(String possiblePassword){
-        Pattern pattern = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
-        Matcher matcher = pattern.matcher(possiblePassword);
-        return matcher.find();
     }
 
     private void handleConfirmPassword(){
@@ -264,7 +262,18 @@ public class SignUp extends PokeSceneWithTitle {
             invalidConfirmPasswordLabel.setVisible(true);
     }
 
+    /**
+     * Checks if the password contains minimum eight characters, at least one letter and one number.
+     */
+    private boolean isValidPassword(String possiblePassword){
+        Pattern pattern = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
+        Matcher matcher = pattern.matcher(possiblePassword);
+        return matcher.find();
+    }
+
+
+
     private void handleSubmit(){
-        //TODO
+        //TODO: query al database necessaria
     }
 }
