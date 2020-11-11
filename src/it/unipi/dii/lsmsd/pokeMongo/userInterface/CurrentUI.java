@@ -46,4 +46,8 @@ public class CurrentUI {
             return userLogged.getTeamname();
         return "No team name";
     }
+
+    protected static void userExit() {
+        userLogged = null;
+    }
 }
