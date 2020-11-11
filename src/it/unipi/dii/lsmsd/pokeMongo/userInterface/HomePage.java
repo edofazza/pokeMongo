@@ -14,7 +14,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
         setSceneMusic("professor_oak_theme.mp3");
     }
 
-    private void setCSS(Button b) {
+    private void setCSS(Button b) { //TODO: remove it with a final string or css file
         b.setStyle("-fx-font-size: 20px; " +
                 "-fx-font-family: 'Arial'; " +
                 "-fx-font-weight: bold; " +

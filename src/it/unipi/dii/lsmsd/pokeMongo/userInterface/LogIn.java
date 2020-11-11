@@ -15,7 +15,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
         setSceneMusic("opening.mp3");
     }
 
-    private void setCSS(Button b) {
+    private void setCSS(Button b) { //TODO: remove it with a final string or css file
         b.setStyle("-fx-font-size: 15px; " +
                 "-fx-font-family: 'Arial'; " +
                 "-fx-font-weight: bold; " +
