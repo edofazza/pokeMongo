@@ -1,8 +1,8 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class Settings extends PokeSceneWithHeader {
@@ -19,20 +19,20 @@ public class Settings extends PokeSceneWithHeader {
     public Settings() {
         displayNewEmail();
         displayConfirmEmail();
-        //displayOldPassword();
-        //displayNewPassword();
+        displayOldPassword();
+        displayNewPassword();
         displayConfirmPassword();
-        //displayCountry();
+        displayCountry();
 
         displayBackButton();
         displayConfirmButton();
+
+        setSceneMusic("gym.mp3");
     }
 
     // LEFT SIDE
     private void displayNewEmail() {
-        Label emailLabel = new Label("New Email");
-        emailLabel.relocate(350, 170);
-        emailLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel emailLabel = new FieldRelatedLabel("New Email", 350, 170);
 
         newEmailTF = new TextField();
         newEmailTF.relocate(350, 200);
@@ -41,10 +41,8 @@ public class Settings extends PokeSceneWithHeader {
         sceneNodes.getChildren().add(newEmailTF);
     }
 
-    private void displayConfirmEmail() {
-        Label oldPasswordLabel = new Label("Old Password");
-        oldPasswordLabel.relocate(350, 270);
-        oldPasswordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+    private void displayOldPassword() {
+        FieldRelatedLabel oldPasswordLabel = new FieldRelatedLabel("Old Password", 350, 270);
 
         oldPasswordTF = new TextField();
         oldPasswordTF.relocate(350, 300);
@@ -54,15 +52,44 @@ public class Settings extends PokeSceneWithHeader {
     }
 
     private void displayConfirmPassword() {
-        Label ConfirmPasswordLabel = new Label("Confirm Password");
-        ConfirmPasswordLabel.relocate(350, 370);
-        ConfirmPasswordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel confirmPasswordLabel = new FieldRelatedLabel("Confirm Password", 350, 370);
 
         confirmPasswordTF = new TextField();
         confirmPasswordTF.relocate(350, 400);
 
-        sceneNodes.getChildren().add(ConfirmPasswordLabel);
+        sceneNodes.getChildren().add(confirmPasswordLabel);
         sceneNodes.getChildren().add(confirmPasswordTF);
+    }
+
+    // RIGHT SIDE
+    private void displayConfirmEmail() {
+        FieldRelatedLabel confirmEmailLabel = new FieldRelatedLabel("Confirm Email", 750, 170);
+
+        confirmEmailTF = new TextField();
+        confirmEmailTF.relocate(750, 200);
+
+        sceneNodes.getChildren().add(confirmEmailLabel);
+        sceneNodes.getChildren().add(confirmEmailTF);
+    }
+
+    private void displayNewPassword() {
+        FieldRelatedLabel newPasswordLabel = new FieldRelatedLabel("New Password", 750, 270);
+
+        newPasswordTF = new TextField();
+        newPasswordTF.relocate(750, 300);
+
+        sceneNodes.getChildren().add(newPasswordLabel);
+        sceneNodes.getChildren().add(newPasswordTF);
+    }
+
+    private void displayCountry() {
+        FieldRelatedLabel newPasswordLabel = new FieldRelatedLabel("Country", 750, 370);
+
+        countryTF = new TextField();
+        countryTF.relocate(750, 400);
+
+        sceneNodes.getChildren().add(newPasswordLabel);
+        sceneNodes.getChildren().add(countryTF);
     }
 
     // BUTTONS

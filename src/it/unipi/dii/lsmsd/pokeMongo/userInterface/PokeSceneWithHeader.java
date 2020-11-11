@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
@@ -19,9 +20,7 @@ public class PokeSceneWithHeader extends PokeScene {
      *  displayUsername() mostra il nome utente prendendolo dalla CurrentUI.
      */
     private void displayUsername() {
-        Label username = new Label(CurrentUI.getUsername());
-        username.relocate(10,10);
-        username.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel username = new FieldRelatedLabel(CurrentUI.getUsername(), 10, 10);
 
         sceneNodes.getChildren().add(username);
     }
@@ -36,9 +35,7 @@ public class PokeSceneWithHeader extends PokeScene {
     }
 
     private void displayPokeBallsLabelNumber() {
-        Label pokeNumber = new Label("x" + Integer.toString(CurrentUI.getNumberOfPokeball()));
-        pokeNumber.relocate(1150,20);
-        pokeNumber.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel pokeNumber = new FieldRelatedLabel("x" + Integer.toString(CurrentUI.getNumberOfPokeball()), 1150, 20);
 
         sceneNodes.getChildren().add(pokeNumber);
     }

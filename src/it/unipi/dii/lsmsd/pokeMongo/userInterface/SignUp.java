@@ -1,5 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.SubmissionButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
@@ -59,9 +61,7 @@ public class SignUp extends PokeSceneWithTitle {
 
     // LEFT SIDE
     private void displaySurnameFields() {
-        Label surnameLabel = new Label("Surname");
-        surnameLabel.relocate(350, 170);
-        surnameLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel surnameLabel = new FieldRelatedLabel("Surname", 350, 170);
 
         invalidSurnameLabel = new Label("Surname must only contain letters,\nspaces, dots and apostrophes");
         invalidSurnameLabel.relocate(510, 190);
@@ -78,9 +78,7 @@ public class SignUp extends PokeSceneWithTitle {
     }
 
     private void displayNicknameFields() {
-        Label nicknameLabel = new Label("NickName");
-        nicknameLabel.relocate(350, 270);
-        nicknameLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel nicknameLabel = new FieldRelatedLabel("Nickname", 350, 270);
 
         nicknameTF = new TextField();
         nicknameTF.relocate(350, 300);
@@ -90,9 +88,7 @@ public class SignUp extends PokeSceneWithTitle {
     }
 
     private void displayPasswordFields() {
-        Label passwordLabel = new Label("Password");
-        passwordLabel.relocate(350, 370);
-        passwordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel passwordLabel = new FieldRelatedLabel("Password", 350, 370);
 
         invalidPasswordLabel = new Label("Password must contain at least:\n8 characters, a letter and\na number");
         invalidPasswordLabel.relocate(510, 380);
@@ -109,9 +105,7 @@ public class SignUp extends PokeSceneWithTitle {
     }
 
     private void displayBirthdayFields() {
-        Label passwordLabel = new Label("Birthday");
-        passwordLabel.relocate(350, 470);
-        passwordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel passwordLabel = new FieldRelatedLabel("Birthday", 350, 470);
 
         invalidBirthdayLabel = new Label("Birthday must not be\na day in the future");
         invalidBirthdayLabel.relocate(540, 490);
@@ -130,9 +124,7 @@ public class SignUp extends PokeSceneWithTitle {
 
     // RIGHT SIDE
     private void displayNameFields() {
-        Label nameLabel = new Label("Name");
-        nameLabel.relocate(750, 170);
-        nameLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel nameLabel = new FieldRelatedLabel("Name", 750, 170);
 
         invalidNameLabel = new Label("Name must only contain letters,\nspaces, dots and apostrophes");
         invalidNameLabel.relocate(910, 190);
@@ -149,9 +141,7 @@ public class SignUp extends PokeSceneWithTitle {
     }
 
     private void displayEmailFields() {
-        Label emailLabel = new Label("Email");
-        emailLabel.relocate(750, 270);
-        emailLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel emailLabel = new FieldRelatedLabel("Email", 750, 270);
 
         invalidEmailLabel = new Label("Email must follow the format:\nexample@domain.tld");
         invalidEmailLabel.relocate(910, 290);
@@ -168,9 +158,7 @@ public class SignUp extends PokeSceneWithTitle {
     }
 
     private void displayConfirmPassword() {
-        Label confirmPasswordLabel = new Label("Confirm Password");
-        confirmPasswordLabel.relocate(750, 370);
-        confirmPasswordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel confirmPasswordLabel = new FieldRelatedLabel("Confirm Password", 750, 370);
 
         invalidConfirmPasswordLabel = new Label("Does not match with the other password");
         invalidConfirmPasswordLabel.relocate(910, 400);
@@ -187,9 +175,7 @@ public class SignUp extends PokeSceneWithTitle {
     }
 
     private void displayCountryFields() {
-        Label countryLabel = new Label("Country");
-        countryLabel.relocate(750, 470);
-        countryLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel countryLabel = new FieldRelatedLabel("Country", 750, 470);
 
         countryTF = new TextField();
         countryTF.relocate(750, 500);
@@ -200,10 +186,7 @@ public class SignUp extends PokeSceneWithTitle {
 
     // BUTTONS
     private void displayBackButton() {
-        Button backButton = new Button("BACK");
-        backButton.relocate(200, 600);
-
-        setCSS(backButton);
+        SubmissionButton backButton = new SubmissionButton("BACK", 200, 600);
 
         backButton.setOnAction((ActionEvent ev)-> backButtonAction());
 
@@ -215,10 +198,7 @@ public class SignUp extends PokeSceneWithTitle {
     }
 
     private void displaySubmitButton() {
-        Button submitButton = new Button("SUBMIT");
-        submitButton.relocate(1000, 600);
-
-        setCSS(submitButton);
+        SubmissionButton submitButton = new SubmissionButton("SUBMIT", 1000, 600);
 
         sceneNodes.getChildren().add(submitButton);
     }

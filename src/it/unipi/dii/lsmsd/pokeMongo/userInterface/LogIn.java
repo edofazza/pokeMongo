@@ -1,32 +1,24 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.SubmissionButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class LogIn extends PokeSceneWithBlastoiseCharizard {
     public LogIn() {
         displayEmailFields();
         displayPasswordFields();
+
         displayLogInButton();
         displaySignUpButton();
 
         setSceneMusic("opening.mp3");
     }
 
-    private void setCSS(Button b) { //TODO: remove it with a final string or css file
-        b.setStyle("-fx-font-size: 15px; " +
-                "-fx-font-family: 'Arial'; " +
-                "-fx-font-weight: bold; " +
-                "-fx-background-color: transparent; " +
-                "-fx-border-color: #000000;");
-    }
-
+    ////////////////////////  FIELDS  ////////////////////////
     private void displayEmailFields() {
-        Label emailLabel = new Label("Email");
-        emailLabel.relocate(550, 170);
-        emailLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel emailLabel = new FieldRelatedLabel("Email", 550, 170);
 
         TextField emailTF = new TextField();
         emailTF.relocate(550, 200);
@@ -36,9 +28,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
     }
 
     private void displayPasswordFields() {
-        Label passwordLabel = new Label("Password");
-        passwordLabel.relocate(550, 270);
-        passwordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
+        FieldRelatedLabel passwordLabel = new FieldRelatedLabel("Password", 550, 270);
 
         TextField passwordTF = new TextField();
         passwordTF.relocate(550, 300);
@@ -47,10 +37,9 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
         sceneNodes.getChildren().add(passwordTF);
     }
 
+    ////////////////////////  BUTTONS  ////////////////////////
     private void displayLogInButton() {
-        Button logInButton = new Button("LOG IN");
-        logInButton.relocate(700, 370);
-        setCSS(logInButton);
+        SubmissionButton logInButton = new SubmissionButton("LOG IN", 700, 370);
 
         logInButton.setOnAction((ActionEvent ev)-> logInButtonAction());
 
@@ -62,9 +51,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
     }
 
     private void displaySignUpButton() {
-        Button signUpButton = new Button("SIGN UP");
-        signUpButton.relocate(500, 370);
-        setCSS(signUpButton);
+        SubmissionButton signUpButton = new SubmissionButton("SIGN UP", 500, 370);
 
         signUpButton.setOnAction((ActionEvent ev)-> signUpButtonAction());
 

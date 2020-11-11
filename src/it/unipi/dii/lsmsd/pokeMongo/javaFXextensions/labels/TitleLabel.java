@@ -1,4 +1,4 @@
-package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions;
+package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels;
 
 import javafx.scene.control.Label;
 
