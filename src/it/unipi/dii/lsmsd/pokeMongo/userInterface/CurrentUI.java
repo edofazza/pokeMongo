@@ -14,7 +14,9 @@ public class CurrentUI {
         nodeWindow = new LogIn();
         root = nodeWindow.getNodes();
 
-        return new Scene(root, 1280, 700);
+        Scene scene = new Scene(root, 1280, 700);
+        scene.getStylesheets().add("file:css/pokemongoStyle.css");
+        return scene;
     }
 
     protected static void changeScene(SceneNames sn) {

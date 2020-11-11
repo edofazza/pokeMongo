@@ -1,0 +1,6 @@
+.TitleLabel {
+    -fx-font-family: 'Arial Black';
+    -fx-font-size: 50px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #a30014;
+}
