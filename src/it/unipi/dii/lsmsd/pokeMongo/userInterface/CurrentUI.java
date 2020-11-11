@@ -40,4 +40,10 @@ public class CurrentUI {
             return userLogged.isAdmin();
         return false;
     }
+
+    protected static String getTeamName() {
+        if (userLogged != null)
+            return userLogged.getTeamname();
+        return "No team name";
+    }
 }

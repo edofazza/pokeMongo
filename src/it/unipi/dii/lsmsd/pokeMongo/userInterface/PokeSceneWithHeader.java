@@ -4,7 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 public class PokeSceneWithHeader extends PokeScene {
-    private final String imgLocation = "file:img/";
+    protected final String imgLocation = "file:img/";
 
     public PokeSceneWithHeader() {
         displayUsername();

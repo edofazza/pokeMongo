@@ -40,7 +40,6 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void displayPokedexButton() {
         Button pokedexButton = new Button("POKEDEX");
-        //pokedexButton.relocate(500, 200);
 
         setCSS(pokedexButton);
 
@@ -49,7 +48,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void displayTeamButton() {
         Button teamButton = new Button("TEAM");
-        //teamButton.relocate(500, 250);
+        teamButton.setOnAction((ActionEvent ev)-> teamButtonAction());
 
         setCSS(teamButton);
 
@@ -58,7 +57,6 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void displayCatchemAllButton() {
         Button catchemAllButton = new Button("CATCH'EM ALL");
-        //catchemAllButton.relocate(500, 300);
 
         setCSS(catchemAllButton);
 
@@ -67,7 +65,6 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void displayRankingButton() {
         Button rankingButton = new Button("RANKING");
-        //rankingButton.relocate(500, 350);
 
         setCSS(rankingButton);
 
@@ -76,7 +73,6 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void displaySettingsButton() {
         Button settingButton = new Button("SETTINGS");
-        //settingButton.relocate(500, 400);
 
         setCSS(settingButton);
 
@@ -85,7 +81,6 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void displayAddRemovePokemonButton() {
         Button logOutButton = new Button("ADD/REMOVE POKEMON");
-        //logOutButton.relocate(500, 400);
 
         setCSS(logOutButton);
 
@@ -96,7 +91,6 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void displayLogOutButton() {
         Button logOutButton = new Button("LOG OUT");
-        //logOutButton.relocate(500, 450);
 
         setCSS(logOutButton);
 
@@ -105,9 +99,14 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
         sceneNodes.getChildren().add(logOutButton);
     }
 
+    ///////////////// ACTIONS /////////////////
     private void logOutButtonAction() {
         CurrentUI.changeScene(SceneNames.LOGIN);
 
         // TODO: exit from the account
+    }
+
+    private void teamButtonAction() {
+        CurrentUI.changeScene(SceneNames.TEAM);
     }
 }
