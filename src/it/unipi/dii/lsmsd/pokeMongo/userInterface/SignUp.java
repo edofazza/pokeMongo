@@ -2,6 +2,8 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+
+import java.time.LocalDate;
 import java.util.regex.*;
 
 public class SignUp extends PokeSceneWithTitle {
@@ -13,6 +15,7 @@ public class SignUp extends PokeSceneWithTitle {
 
     private Label invalidSurnameLabel;
     private Label invalidPasswordLabel;
+    private Label invalidBirthdayLabel;
 
     // RIGHT SIDE
     private TextField nameTF;
@@ -110,10 +113,18 @@ public class SignUp extends PokeSceneWithTitle {
         passwordLabel.relocate(350, 470);
         passwordLabel.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 20px; -fx-font-weight: bold;");
 
+        invalidBirthdayLabel = new Label("Birthday must not be\na day in the future");
+        invalidBirthdayLabel.relocate(540, 490);
+        invalidBirthdayLabel.setVisible(false);
+        invalidBirthdayLabel.setStyle(styleInvalidFormEntry);
+
         birthdayDP = new DatePicker();
         birthdayDP.relocate(350, 500);
+        birthdayDP.setOnAction(e->handleBirthday());
+
 
         sceneNodes.getChildren().add(passwordLabel);
+        sceneNodes.getChildren().add(invalidBirthdayLabel);
         sceneNodes.getChildren().add(birthdayDP);
     }
 
@@ -281,6 +292,22 @@ public class SignUp extends PokeSceneWithTitle {
         Pattern pattern = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
         Matcher matcher = pattern.matcher(possiblePassword);
         return matcher.find();
+    }
+
+
+    /**
+     * Checks if the birthday date selected is valid: future dates cannot be picked
+     */
+    private void handleBirthday(){
+        LocalDate localDate = birthdayDP.getValue();
+        LocalDate today = LocalDate.now();
+        System.out.println(today);
+
+        if(localDate.isAfter(today)){
+            invalidBirthdayLabel.setVisible(true);
+        } else {
+            invalidBirthdayLabel.setVisible(false);
+        }
     }
 
 
