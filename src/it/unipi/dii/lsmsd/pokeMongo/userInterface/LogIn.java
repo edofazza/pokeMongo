@@ -15,6 +15,14 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
         setSceneMusic("opening.mp3");
     }
 
+    private void setCSS(Button b) {
+        b.setStyle("-fx-font-size: 15px; " +
+                "-fx-font-family: 'Arial'; " +
+                "-fx-font-weight: bold; " +
+                "-fx-background-color: transparent; " +
+                "-fx-border-color: #000000;");
+    }
+
     private void displayEmailFields() {
         Label emailLabel = new Label("Email");
         emailLabel.relocate(550, 170);
@@ -42,6 +50,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
     private void displayLogInButton() {
         Button logInButton = new Button("LOG IN");
         logInButton.relocate(700, 370);
+        setCSS(logInButton);
 
         logInButton.setOnAction((ActionEvent ev)-> logInButtonAction());
 
@@ -55,6 +64,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
     private void displaySignUpButton() {
         Button signUpButton = new Button("SIGN UP");
         signUpButton.relocate(500, 370);
+        setCSS(signUpButton);
 
         signUpButton.setOnAction((ActionEvent ev)-> signUpButtonAction());
 
