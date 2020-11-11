@@ -8,8 +8,11 @@ public class PokeSceneWithHeader extends PokeScene {
 
     public PokeSceneWithHeader() {
         displayUsername();
-        displayPokeBallsImage();
-        displayPokeBallsLabelNumber();
+
+        if (!CurrentUI.isAdmin()) {
+            displayPokeBallsImage();
+            displayPokeBallsLabelNumber();
+        }
     }
 
     /*
@@ -39,4 +42,6 @@ public class PokeSceneWithHeader extends PokeScene {
 
         sceneNodes.getChildren().add(pokeNumber);
     }
+
+    // TODO: if the number of pokeballs changes reload the correct number, it should be automatic
 }

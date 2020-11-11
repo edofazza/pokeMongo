@@ -1,7 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 public enum SceneNames {
-    LOGIN, SIGNUP, HOMEPAGE;
+    LOGIN, SIGNUP, HOMEPAGE, POKEDEX, CATCHEMALL, RANKING, SETTINGS, ADD_REMOVE;
 
     protected PokeScene createNewScene(SceneNames sn) {
         switch (sn) {

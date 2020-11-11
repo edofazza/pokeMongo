@@ -34,4 +34,10 @@ public class CurrentUI {
             return userLogged.getNumberOfPokeball();
         return 0;
     }
+
+    protected static boolean isAdmin() {
+        if (userLogged != null)
+            return userLogged.isAdmin();
+        return false;
+    }
 }
