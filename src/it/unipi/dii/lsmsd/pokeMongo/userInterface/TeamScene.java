@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import javafx.event.ActionEvent;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -40,6 +41,7 @@ public class TeamScene extends PokeSceneWithHeader {
     private void displayTeamName() {
         teamNameTF = new TextField(CurrentUI.getTeamName());
         teamNameTF.relocate(450, 50);
+        teamNameTF.setAlignment(Pos.CENTER);
 
         teamNameTF.setStyle("-fx-font-size: 50px; " +
                 "-fx-font-family: 'Arial'; " +
