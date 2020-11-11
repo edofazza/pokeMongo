@@ -13,6 +13,8 @@ public enum SceneNames {
                 return new HomePage();
             case TEAM:
                 return new TeamScene();
+            case SETTINGS:
+                return new Settings();
             default:
                 return null;
         }

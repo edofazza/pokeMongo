@@ -73,6 +73,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void displaySettingsButton() {
         Button settingButton = new Button("SETTINGS");
+        settingButton.setOnAction((ActionEvent ev)-> settingButtonAction());
 
         setCSS(settingButton);
 
@@ -108,5 +109,9 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void teamButtonAction() {
         CurrentUI.changeScene(SceneNames.TEAM);
+    }
+
+    private void settingButtonAction() {
+        CurrentUI.changeScene(SceneNames.SETTINGS);
     }
 }
