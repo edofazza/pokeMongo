@@ -1,6 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
-import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.SubmissionButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -178,7 +178,7 @@ public class SignUp extends PokeSceneWithTitle {
 
     // BUTTONS
     private void displayBackButton() {
-        SubmissionButton backButton = new SubmissionButton("BACK", 200, 600);
+        RegularButton backButton = new RegularButton("BACK", 200, 600);
 
         backButton.setOnAction((ActionEvent ev)-> backButtonAction());
 
@@ -190,7 +190,7 @@ public class SignUp extends PokeSceneWithTitle {
     }
 
     private void displaySubmitButton() {
-        SubmissionButton submitButton = new SubmissionButton("SUBMIT", 1000, 600);
+        RegularButton submitButton = new RegularButton("SUBMIT", 1000, 600);
 
         sceneNodes.getChildren().add(submitButton);
     }

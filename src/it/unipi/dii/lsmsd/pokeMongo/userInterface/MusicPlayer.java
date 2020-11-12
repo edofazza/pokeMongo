@@ -24,4 +24,8 @@ public class MusicPlayer {
         mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
         mediaPlayer.play();
     }
+
+    public void stopMusic() {
+        mediaPlayer.stop();
+    }
 }

@@ -1,13 +1,12 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
-import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.SubmissionButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.TeamNameTextField;
 import javafx.event.ActionEvent;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 
 public class TeamScene extends PokeSceneWithHeader {
-    private TextField teamNameTF;
+    private TeamNameTextField teamNameTF;
 
     public TeamScene() {
         displayTeamName();
@@ -20,6 +19,7 @@ public class TeamScene extends PokeSceneWithHeader {
         setSceneMusic("pokemon_center.mp3");
     }
 
+    // TODO: fare il trash button come una classe e attribuirgli il css
     private void displayPokemon() {
         Button trashcanButton = new Button();
         trashcanButton.setPrefWidth(30);
@@ -40,23 +40,13 @@ public class TeamScene extends PokeSceneWithHeader {
     }
 
     private void displayTeamName() {
-        teamNameTF = new TextField(CurrentUI.getTeamName());
-        teamNameTF.relocate(450, 50);
-        teamNameTF.setAlignment(Pos.CENTER);
-
-        teamNameTF.setStyle("-fx-font-size: 50px; " +
-                "-fx-font-family: 'Arial'; " +
-                "-fx-font-weight: bold; " +
-                "-fx-background-color: transparent; " +
-                "-fx-border-color: #FFFFFF;" +
-                "-fx-text-fill: #015478;" +
-                "-fx-max-width: 350;");
+        teamNameTF = new TeamNameTextField(CurrentUI.getTeamName(), 450, 50);
 
         sceneNodes.getChildren().add(teamNameTF);
     }
 
     private void displayBackButton() {
-        SubmissionButton backButton = new SubmissionButton("BACK", 200, 600);
+        RegularButton backButton = new RegularButton("BACK", 200, 600);
 
         backButton.setOnAction((ActionEvent ev)-> backButtonAction());
 
@@ -64,7 +54,7 @@ public class TeamScene extends PokeSceneWithHeader {
     }
 
     private void displaySaveButton() {
-        SubmissionButton saveButton = new SubmissionButton("SAVE", 1000, 600);
+        RegularButton saveButton = new RegularButton("SAVE", 1000, 600);
 
         // TODO: ADD ACTION
 

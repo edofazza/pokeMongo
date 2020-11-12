@@ -1,6 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
-import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.SubmissionButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
@@ -39,7 +39,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
 
     ////////////////////////  BUTTONS  ////////////////////////
     private void displayLogInButton() {
-        SubmissionButton logInButton = new SubmissionButton("LOG IN", 700, 370);
+        RegularButton logInButton = new RegularButton("LOG IN", 700, 370);
 
         logInButton.setOnAction((ActionEvent ev)-> logInButtonAction());
 
@@ -51,7 +51,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
     }
 
     private void displaySignUpButton() {
-        SubmissionButton signUpButton = new SubmissionButton("SIGN UP", 500, 370);
+        RegularButton signUpButton = new RegularButton("SIGN UP", 500, 370);
 
         signUpButton.setOnAction((ActionEvent ev)-> signUpButtonAction());
 

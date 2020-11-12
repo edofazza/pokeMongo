@@ -1,0 +1,10 @@
+.TeamNameTextField {
+    -fx-font-size: 50px;
+    -fx-font-family: 'Arial';
+    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    -fx-border-color: #FFFFFF;
+    -fx-text-fill: #015478;
+    -fx-max-width: 350;
+    -fx-alignment: center;
+}

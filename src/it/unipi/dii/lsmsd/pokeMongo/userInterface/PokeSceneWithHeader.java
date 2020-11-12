@@ -1,7 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.imageviews.BackgroundImage;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
-import javafx.scene.image.ImageView;
 
 public class PokeSceneWithHeader extends PokeScene {
     protected final String imgLocation = "file:img/";
@@ -25,10 +25,7 @@ public class PokeSceneWithHeader extends PokeScene {
     }
 
     private void displayPokeBallsImage() {
-        ImageView pokeball = new ImageView(imgLocation + "pokeball.png");
-        pokeball.setFitWidth(40);
-        pokeball.setFitHeight(40);
-        pokeball.relocate(1100, 10);
+        BackgroundImage pokeball = new BackgroundImage("pokeball.png", 40, 1100, 10);
 
         sceneNodes.getChildren().add(pokeball);
     }
