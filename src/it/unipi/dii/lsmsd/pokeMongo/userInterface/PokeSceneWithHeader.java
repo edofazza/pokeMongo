@@ -1,7 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 public class PokeSceneWithHeader extends PokeScene {
@@ -35,7 +34,7 @@ public class PokeSceneWithHeader extends PokeScene {
     }
 
     private void displayPokeBallsLabelNumber() {
-        FieldRelatedLabel pokeNumber = new FieldRelatedLabel("x" + Integer.toString(CurrentUI.getNumberOfPokeball()), 1150, 20);
+        FieldRelatedLabel pokeNumber = new FieldRelatedLabel("x" + CurrentUI.getNumberOfPokeball(), 1150, 20);
 
         sceneNodes.getChildren().add(pokeNumber);
     }

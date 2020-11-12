@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.HomePageCentralButton;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
@@ -39,61 +40,67 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
     }
 
     private void displayPokedexButton() {
-        Button pokedexButton = new Button("POKEDEX");
+        /*Button pokedexButton = new Button("POKEDEX");
 
-        setCSS(pokedexButton);
+        setCSS(pokedexButton);*/
+        HomePageCentralButton pokedexButton = new HomePageCentralButton("POKEDEX");
 
         sceneNodes.getChildren().add(pokedexButton);
     }
 
     private void displayTeamButton() {
-        Button teamButton = new Button("TEAM");
+        //Button teamButton = new Button("TEAM");
+        HomePageCentralButton teamButton = new HomePageCentralButton("TEAM");
         teamButton.setOnAction((ActionEvent ev)-> teamButtonAction());
 
-        setCSS(teamButton);
+        //setCSS(teamButton);
 
         sceneNodes.getChildren().add(teamButton);
     }
 
     private void displayCatchemAllButton() {
-        Button catchemAllButton = new Button("CATCH'EM ALL");
+        /*Button catchemAllButton = new Button("CATCH'EM ALL");
 
-        setCSS(catchemAllButton);
+        setCSS(catchemAllButton);*/
+        HomePageCentralButton catchemAllButton = new HomePageCentralButton("CATCH'EM ALL");
 
         sceneNodes.getChildren().add(catchemAllButton);
     }
 
     private void displayRankingButton() {
-        Button rankingButton = new Button("RANKING");
+        /*Button rankingButton = new Button("RANKING");
 
-        setCSS(rankingButton);
+        setCSS(rankingButton);*/
+        HomePageCentralButton rankingButton = new HomePageCentralButton("RANKING");
 
         sceneNodes.getChildren().add(rankingButton);
     }
 
     private void displaySettingsButton() {
-        Button settingButton = new Button("SETTINGS");
+        //Button settingButton = new Button("SETTINGS");
+        HomePageCentralButton settingButton = new HomePageCentralButton("SETTINGS");
+
         settingButton.setOnAction((ActionEvent ev)-> settingButtonAction());
 
-        setCSS(settingButton);
+        //setCSS(settingButton);
 
         sceneNodes.getChildren().add(settingButton);
     }
 
     private void displayAddRemovePokemonButton() {
-        Button logOutButton = new Button("ADD/REMOVE POKEMON");
+        /*Button logOutButton = new Button("ADD/REMOVE POKEMON");
 
-        setCSS(logOutButton);
+        setCSS(logOutButton);*/
+        HomePageCentralButton addRemoveButton = new HomePageCentralButton("ADD/REMOVE POKEMON");
 
-        logOutButton.setOnAction((ActionEvent ev)-> logOutButtonAction());
-
-        sceneNodes.getChildren().add(logOutButton);
+        sceneNodes.getChildren().add(addRemoveButton);
     }
 
     private void displayLogOutButton() {
-        Button logOutButton = new Button("LOG OUT");
+        /*Button logOutButton = new Button("LOG OUT");
 
-        setCSS(logOutButton);
+        setCSS(logOutButton);*/
+        HomePageCentralButton logOutButton = new HomePageCentralButton("LOG OUT");
 
         logOutButton.setOnAction((ActionEvent ev)-> logOutButtonAction());
 

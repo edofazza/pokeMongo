@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.SubmissionButton;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -25,7 +26,7 @@ public class TeamScene extends PokeSceneWithHeader {
         trashcanButton.setPrefHeight(30);
         trashcanButton.setStyle("-fx-border-color: transparent;" +
                 "-fx-background-color: transparent;" +
-                "-fx-background-image: url(file:img/trash.png);" +
+                "-fx-background-image: url("+ imgLocation+"trash.png);" +
                 "-fx-background-size: 20px 20x;" +
                 "-fx-background-repeat: no-repeat;" +
                 "-fx-background-position: center;");
@@ -54,19 +55,8 @@ public class TeamScene extends PokeSceneWithHeader {
         sceneNodes.getChildren().add(teamNameTF);
     }
 
-    private void setBackButtonCSS(Button b) { //TODO: remove it with a final string or css file
-        b.setStyle("-fx-font-size: 15px; " +
-                "-fx-font-family: 'Arial'; " +
-                "-fx-font-weight: bold; " +
-                "-fx-background-color: transparent; " +
-                "-fx-border-color: #000000;");
-    }
-
     private void displayBackButton() {
-        Button backButton = new Button("BACK");
-        backButton.relocate(200, 600);
-
-        setBackButtonCSS(backButton);
+        SubmissionButton backButton = new SubmissionButton("BACK", 200, 600);
 
         backButton.setOnAction((ActionEvent ev)-> backButtonAction());
 
@@ -74,10 +64,7 @@ public class TeamScene extends PokeSceneWithHeader {
     }
 
     private void displaySaveButton() {
-        Button saveButton = new Button("SAVE");
-        saveButton.relocate(1000, 600);
-
-        setBackButtonCSS(saveButton);
+        SubmissionButton saveButton = new SubmissionButton("SAVE", 1000, 600);
 
         // TODO: ADD ACTION
 

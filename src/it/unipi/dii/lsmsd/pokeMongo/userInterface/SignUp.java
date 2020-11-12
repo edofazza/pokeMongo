@@ -35,14 +35,6 @@ public class SignUp extends PokeSceneWithTitle {
             " -fx-border-radius: 15px; -fx-background-radius: 15px; -fx-border-width: 0.06em;" +
             " -fx-border-color: black;";
 
-    private void setCSS(Button b) { //TODO: remove it with a final string or css file
-        b.setStyle("-fx-font-size: 15px; " +
-                "-fx-font-family: 'Arial'; " +
-                "-fx-font-weight: bold; " +
-                "-fx-background-color: transparent; " +
-                "-fx-border-color: #000000;");
-    }
-
     public SignUp() {
         displaySurnameFields();
         displayNameFields();
