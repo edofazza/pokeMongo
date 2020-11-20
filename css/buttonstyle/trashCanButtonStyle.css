@@ -1,0 +1,6 @@
+.TrashCanButton {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-size: 30;
+    -fx-background-image: url("file:img/trash.png");
+}

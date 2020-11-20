@@ -1,9 +1,9 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.TrashCanButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.TeamNameTextField;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
 
 public class TeamScene extends PokeSceneWithHeader {
     private TeamNameTextField teamNameTF;
@@ -21,17 +21,7 @@ public class TeamScene extends PokeSceneWithHeader {
 
     // TODO: fare il trash button come una classe e attribuirgli il css
     private void displayPokemon() {
-        Button trashcanButton = new Button();
-        trashcanButton.setPrefWidth(30);
-        trashcanButton.setPrefHeight(30);
-        trashcanButton.setStyle("-fx-border-color: transparent;" +
-                "-fx-background-color: transparent;" +
-                "-fx-background-image: url("+ imgLocation+"trash.png);" +
-                "-fx-background-size: 20px 20x;" +
-                "-fx-background-repeat: no-repeat;" +
-                "-fx-background-position: center;");
-
-        trashcanButton.relocate(200,200);
+        TrashCanButton trashcanButton = new TrashCanButton(200, 200);
 
         // TODO: create correct action
         trashcanButton.setOnAction((ActionEvent ev)-> System.out.println("pippo"));
