@@ -1,12 +1,15 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
-import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.TrashCanButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokemonPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.TeamNameTextField;
 import javafx.event.ActionEvent;
 
 public class TeamScene extends PokeSceneWithHeader {
     private TeamNameTextField teamNameTF;
+
+    // TODO: SEE IF IT IS REALLY HELPFUL
+    private PokemonPane[] pokePaneArray = new PokemonPane[6];
 
     public TeamScene() {
         displayTeamName();
@@ -21,12 +24,19 @@ public class TeamScene extends PokeSceneWithHeader {
 
     // TODO: fare il trash button come una classe e attribuirgli il css
     private void displayPokemon() {
-        TrashCanButton trashcanButton = new TrashCanButton(200, 200);
+        for (int i = 0; i < 3; ++i){
+            PokemonPane pp = new PokemonPane(150, 180 + i*110);
+            pokePaneArray[i] = pp;
 
-        // TODO: create correct action
-        trashcanButton.setOnAction((ActionEvent ev)-> System.out.println("pippo"));
+            sceneNodes.getChildren().add(pp);
+        }
 
-        sceneNodes.getChildren().add(trashcanButton);
+        for (int i = 0; i < 3; ++i){
+            PokemonPane pp = new PokemonPane(700, 180 + i*110);
+            pokePaneArray[i+3] = pp;
+
+            sceneNodes.getChildren().add(pp);
+        }
     }
 
     private void displayTeamName() {
