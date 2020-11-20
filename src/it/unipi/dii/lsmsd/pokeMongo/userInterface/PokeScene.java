@@ -8,9 +8,11 @@ public class PokeScene {
     protected static MusicPlayer mp = null;
     private static boolean musicOn = true;
     private static String currentTitle;
+    private static MusicButton musicButton;
 
     public PokeScene() {
-        MusicButton musicButton =  new MusicButton(1250, 670);
+        musicButton =  new MusicButton(1250, 670);
+        musicButton.setImage(!musicOn);
 
         musicButton.setOnAction(event -> handleMusic());
 
@@ -26,7 +28,7 @@ public class PokeScene {
 
         if (!musicOn)
             return;
-        
+
         if (mp == null)
             mp = new MusicPlayer(title);
 
@@ -38,6 +40,9 @@ public class PokeScene {
             mp.stopMusic();
         else
             mp = new MusicPlayer(currentTitle);
+
+        musicButton.setImage(musicOn);
+
         musicOn = !musicOn;
     }
 }
