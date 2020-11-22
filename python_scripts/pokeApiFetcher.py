@@ -4,23 +4,31 @@ import json
 
 
 # 1° generation
-"""
+new_json = []
+
 for i in range(1, 151):
     response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{i}/")
     work_string_json = response.json()
-    print(response.content)
-    print(work_string_json)
-"""
-response = requests.get(f"https://pokeapi.co/api/v2/pokemon/1/")
-work_string_json = response.json()
-print(work_string_json)
-print(work_string_json['id'])
-print(work_string_json['name'])
-print(work_string_json['height'])
-print(work_string_json['weight'])
-print(work_string_json['types'])
-print(work_string_json['sprites']['other']['official-artwork']['front_default'])
-print(work_string_json['sprites']['front_default'])
+    
+    curr_json = {
+        "id": work_string_json['id'],
+        "name": work_string_json['name'],
+        "weight": work_string_json['weight'],
+        "types": [],
+        "portrait": work_string_json['sprites']['other']['official-artwork']['front_default'],
+        "sprite": work_string_json['sprites']['front_default']
+    }
 
-new_json_
+    for i in work_string_json['types']:
+        curr_json["types"].append(i['type']['name'])
 
+    new_json.append(curr_json)
+    print(new_json)
+
+
+
+
+
+
+with open('pokemon.json', 'w', encoding='utf-8') as f:
+    json.dump(new_json, f, ensure_ascii=False, indent=4)
