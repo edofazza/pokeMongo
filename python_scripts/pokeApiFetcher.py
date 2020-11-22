@@ -9,12 +9,15 @@ new_json = []
 for i in range(1, 152):
     response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{i}/")
     work_string_json = response.json()
-    
+    response = requests.get(f"https://pokeapi.co/api/v2/pokemon-species/{i}/")
+    work_string_json2 = response.json()
+
     curr_json = {
         "id": work_string_json['id'],
         "name": work_string_json['name'],
         "weight": work_string_json['weight'],
         "height": work_string_json['height'],
+        "capture_rate": work_string_json2['capture_rate'],
         "types": [],
         "portrait": work_string_json['sprites']['other']['official-artwork']['front_default'],
         "sprite": work_string_json['sprites']['front_default']
