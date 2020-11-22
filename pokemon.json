@@ -3,6 +3,7 @@
         "id": 1,
         "name": "bulbasaur",
         "weight": 69,
+        "height": 7,
         "types": [
             "grass",
             "poison"
@@ -14,6 +15,7 @@
         "id": 2,
         "name": "ivysaur",
         "weight": 130,
+        "height": 10,
         "types": [
             "grass",
             "poison"
@@ -25,6 +27,7 @@
         "id": 3,
         "name": "venusaur",
         "weight": 1000,
+        "height": 20,
         "types": [
             "grass",
             "poison"
@@ -36,6 +39,7 @@
         "id": 4,
         "name": "charmander",
         "weight": 85,
+        "height": 6,
         "types": [
             "fire"
         ],
@@ -46,6 +50,7 @@
         "id": 5,
         "name": "charmeleon",
         "weight": 190,
+        "height": 11,
         "types": [
             "fire"
         ],
@@ -56,6 +61,7 @@
         "id": 6,
         "name": "charizard",
         "weight": 905,
+        "height": 17,
         "types": [
             "fire",
             "flying"
@@ -67,6 +73,7 @@
         "id": 7,
         "name": "squirtle",
         "weight": 90,
+        "height": 5,
         "types": [
             "water"
         ],
@@ -77,6 +84,7 @@
         "id": 8,
         "name": "wartortle",
         "weight": 225,
+        "height": 10,
         "types": [
             "water"
         ],
@@ -87,6 +95,7 @@
         "id": 9,
         "name": "blastoise",
         "weight": 855,
+        "height": 16,
         "types": [
             "water"
         ],
@@ -97,6 +106,7 @@
         "id": 10,
         "name": "caterpie",
         "weight": 29,
+        "height": 3,
         "types": [
             "bug"
         ],
@@ -107,6 +117,7 @@
         "id": 11,
         "name": "metapod",
         "weight": 99,
+        "height": 7,
         "types": [
             "bug"
         ],
@@ -117,6 +128,7 @@
         "id": 12,
         "name": "butterfree",
         "weight": 320,
+        "height": 11,
         "types": [
             "bug",
             "flying"
@@ -128,6 +140,7 @@
         "id": 13,
         "name": "weedle",
         "weight": 32,
+        "height": 3,
         "types": [
             "bug",
             "poison"
@@ -139,6 +152,7 @@
         "id": 14,
         "name": "kakuna",
         "weight": 100,
+        "height": 6,
         "types": [
             "bug",
             "poison"
@@ -150,6 +164,7 @@
         "id": 15,
         "name": "beedrill",
         "weight": 295,
+        "height": 10,
         "types": [
             "bug",
             "poison"
@@ -161,6 +176,7 @@
         "id": 16,
         "name": "pidgey",
         "weight": 18,
+        "height": 3,
         "types": [
             "normal",
             "flying"
@@ -172,6 +188,7 @@
         "id": 17,
         "name": "pidgeotto",
         "weight": 300,
+        "height": 11,
         "types": [
             "normal",
             "flying"
@@ -183,6 +200,7 @@
         "id": 18,
         "name": "pidgeot",
         "weight": 395,
+        "height": 15,
         "types": [
             "normal",
             "flying"
@@ -194,6 +212,7 @@
         "id": 19,
         "name": "rattata",
         "weight": 35,
+        "height": 3,
         "types": [
             "normal"
         ],
@@ -204,6 +223,7 @@
         "id": 20,
         "name": "raticate",
         "weight": 185,
+        "height": 7,
         "types": [
             "normal"
         ],
@@ -214,6 +234,7 @@
         "id": 21,
         "name": "spearow",
         "weight": 20,
+        "height": 3,
         "types": [
             "normal",
             "flying"
@@ -225,6 +246,7 @@
         "id": 22,
         "name": "fearow",
         "weight": 380,
+        "height": 12,
         "types": [
             "normal",
             "flying"
@@ -236,6 +258,7 @@
         "id": 23,
         "name": "ekans",
         "weight": 69,
+        "height": 20,
         "types": [
             "poison"
         ],
@@ -246,6 +269,7 @@
         "id": 24,
         "name": "arbok",
         "weight": 650,
+        "height": 35,
         "types": [
             "poison"
         ],
@@ -256,6 +280,7 @@
         "id": 25,
         "name": "pikachu",
         "weight": 60,
+        "height": 4,
         "types": [
             "electric"
         ],
@@ -266,6 +291,7 @@
         "id": 26,
         "name": "raichu",
         "weight": 300,
+        "height": 8,
         "types": [
             "electric"
         ],
@@ -276,6 +302,7 @@
         "id": 27,
         "name": "sandshrew",
         "weight": 120,
+        "height": 6,
         "types": [
             "ground"
         ],
@@ -286,6 +313,7 @@
         "id": 28,
         "name": "sandslash",
         "weight": 295,
+        "height": 10,
         "types": [
             "ground"
         ],
@@ -296,6 +324,7 @@
         "id": 29,
         "name": "nidoran-f",
         "weight": 70,
+        "height": 4,
         "types": [
             "poison"
         ],
@@ -306,6 +335,7 @@
         "id": 30,
         "name": "nidorina",
         "weight": 200,
+        "height": 8,
         "types": [
             "poison"
         ],
@@ -316,6 +346,7 @@
         "id": 31,
         "name": "nidoqueen",
         "weight": 600,
+        "height": 13,
         "types": [
             "poison",
             "ground"
@@ -327,6 +358,7 @@
         "id": 32,
         "name": "nidoran-m",
         "weight": 90,
+        "height": 5,
         "types": [
             "poison"
         ],
@@ -337,6 +369,7 @@
         "id": 33,
         "name": "nidorino",
         "weight": 195,
+        "height": 9,
         "types": [
             "poison"
         ],
@@ -347,6 +380,7 @@
         "id": 34,
         "name": "nidoking",
         "weight": 620,
+        "height": 14,
         "types": [
             "poison",
             "ground"
@@ -358,6 +392,7 @@
         "id": 35,
         "name": "clefairy",
         "weight": 75,
+        "height": 6,
         "types": [
             "fairy"
         ],
@@ -368,6 +403,7 @@
         "id": 36,
         "name": "clefable",
         "weight": 400,
+        "height": 13,
         "types": [
             "fairy"
         ],
@@ -378,6 +414,7 @@
         "id": 37,
         "name": "vulpix",
         "weight": 99,
+        "height": 6,
         "types": [
             "fire"
         ],
@@ -388,6 +425,7 @@
         "id": 38,
         "name": "ninetales",
         "weight": 199,
+        "height": 11,
         "types": [
             "fire"
         ],
@@ -398,6 +436,7 @@
         "id": 39,
         "name": "jigglypuff",
         "weight": 55,
+        "height": 5,
         "types": [
             "normal",
             "fairy"
@@ -409,6 +448,7 @@
         "id": 40,
         "name": "wigglytuff",
         "weight": 120,
+        "height": 10,
         "types": [
             "normal",
             "fairy"
@@ -420,6 +460,7 @@
         "id": 41,
         "name": "zubat",
         "weight": 75,
+        "height": 8,
         "types": [
             "poison",
             "flying"
@@ -431,6 +472,7 @@
         "id": 42,
         "name": "golbat",
         "weight": 550,
+        "height": 16,
         "types": [
             "poison",
             "flying"
@@ -442,6 +484,7 @@
         "id": 43,
         "name": "oddish",
         "weight": 54,
+        "height": 5,
         "types": [
             "grass",
             "poison"
@@ -453,6 +496,7 @@
         "id": 44,
         "name": "gloom",
         "weight": 86,
+        "height": 8,
         "types": [
             "grass",
             "poison"
@@ -464,6 +508,7 @@
         "id": 45,
         "name": "vileplume",
         "weight": 186,
+        "height": 12,
         "types": [
             "grass",
             "poison"
@@ -475,6 +520,7 @@
         "id": 46,
         "name": "paras",
         "weight": 54,
+        "height": 3,
         "types": [
             "bug",
             "grass"
@@ -486,6 +532,7 @@
         "id": 47,
         "name": "parasect",
         "weight": 295,
+        "height": 10,
         "types": [
             "bug",
             "grass"
@@ -497,6 +544,7 @@
         "id": 48,
         "name": "venonat",
         "weight": 300,
+        "height": 10,
         "types": [
             "bug",
             "poison"
@@ -508,6 +556,7 @@
         "id": 49,
         "name": "venomoth",
         "weight": 125,
+        "height": 15,
         "types": [
             "bug",
             "poison"
@@ -519,6 +568,7 @@
         "id": 50,
         "name": "diglett",
         "weight": 8,
+        "height": 2,
         "types": [
             "ground"
         ],
@@ -529,6 +579,7 @@
         "id": 51,
         "name": "dugtrio",
         "weight": 333,
+        "height": 7,
         "types": [
             "ground"
         ],
@@ -539,6 +590,7 @@
         "id": 52,
         "name": "meowth",
         "weight": 42,
+        "height": 4,
         "types": [
             "normal"
         ],
@@ -549,6 +601,7 @@
         "id": 53,
         "name": "persian",
         "weight": 320,
+        "height": 10,
         "types": [
             "normal"
         ],
@@ -559,6 +612,7 @@
         "id": 54,
         "name": "psyduck",
         "weight": 196,
+        "height": 8,
         "types": [
             "water"
         ],
@@ -569,6 +623,7 @@
         "id": 55,
         "name": "golduck",
         "weight": 766,
+        "height": 17,
         "types": [
             "water"
         ],
@@ -579,6 +634,7 @@
         "id": 56,
         "name": "mankey",
         "weight": 280,
+        "height": 5,
         "types": [
             "fighting"
         ],
@@ -589,6 +645,7 @@
         "id": 57,
         "name": "primeape",
         "weight": 320,
+        "height": 10,
         "types": [
             "fighting"
         ],
@@ -599,6 +656,7 @@
         "id": 58,
         "name": "growlithe",
         "weight": 190,
+        "height": 7,
         "types": [
             "fire"
         ],
@@ -609,6 +667,7 @@
         "id": 59,
         "name": "arcanine",
         "weight": 1550,
+        "height": 19,
         "types": [
             "fire"
         ],
@@ -619,6 +678,7 @@
         "id": 60,
         "name": "poliwag",
         "weight": 124,
+        "height": 6,
         "types": [
             "water"
         ],
@@ -629,6 +689,7 @@
         "id": 61,
         "name": "poliwhirl",
         "weight": 200,
+        "height": 10,
         "types": [
             "water"
         ],
@@ -639,6 +700,7 @@
         "id": 62,
         "name": "poliwrath",
         "weight": 540,
+        "height": 13,
         "types": [
             "water",
             "fighting"
@@ -650,6 +712,7 @@
         "id": 63,
         "name": "abra",
         "weight": 195,
+        "height": 9,
         "types": [
             "psychic"
         ],
@@ -660,6 +723,7 @@
         "id": 64,
         "name": "kadabra",
         "weight": 565,
+        "height": 13,
         "types": [
             "psychic"
         ],
@@ -670,6 +734,7 @@
         "id": 65,
         "name": "alakazam",
         "weight": 480,
+        "height": 15,
         "types": [
             "psychic"
         ],
@@ -680,6 +745,7 @@
         "id": 66,
         "name": "machop",
         "weight": 195,
+        "height": 8,
         "types": [
             "fighting"
         ],
@@ -690,6 +756,7 @@
         "id": 67,
         "name": "machoke",
         "weight": 705,
+        "height": 15,
         "types": [
             "fighting"
         ],
@@ -700,6 +767,7 @@
         "id": 68,
         "name": "machamp",
         "weight": 1300,
+        "height": 16,
         "types": [
             "fighting"
         ],
@@ -710,6 +778,7 @@
         "id": 69,
         "name": "bellsprout",
         "weight": 40,
+        "height": 7,
         "types": [
             "grass",
             "poison"
@@ -721,6 +790,7 @@
         "id": 70,
         "name": "weepinbell",
         "weight": 64,
+        "height": 10,
         "types": [
             "grass",
             "poison"
@@ -732,6 +802,7 @@
         "id": 71,
         "name": "victreebel",
         "weight": 155,
+        "height": 17,
         "types": [
             "grass",
             "poison"
@@ -743,6 +814,7 @@
         "id": 72,
         "name": "tentacool",
         "weight": 455,
+        "height": 9,
         "types": [
             "water",
             "poison"
@@ -754,6 +826,7 @@
         "id": 73,
         "name": "tentacruel",
         "weight": 550,
+        "height": 16,
         "types": [
             "water",
             "poison"
@@ -765,6 +838,7 @@
         "id": 74,
         "name": "geodude",
         "weight": 200,
+        "height": 4,
         "types": [
             "rock",
             "ground"
@@ -776,6 +850,7 @@
         "id": 75,
         "name": "graveler",
         "weight": 1050,
+        "height": 10,
         "types": [
             "rock",
             "ground"
@@ -787,6 +862,7 @@
         "id": 76,
         "name": "golem",
         "weight": 3000,
+        "height": 14,
         "types": [
             "rock",
             "ground"
@@ -798,6 +874,7 @@
         "id": 77,
         "name": "ponyta",
         "weight": 300,
+        "height": 10,
         "types": [
             "fire"
         ],
@@ -808,6 +885,7 @@
         "id": 78,
         "name": "rapidash",
         "weight": 950,
+        "height": 17,
         "types": [
             "fire"
         ],
@@ -818,6 +896,7 @@
         "id": 79,
         "name": "slowpoke",
         "weight": 360,
+        "height": 12,
         "types": [
             "water",
             "psychic"
@@ -829,6 +908,7 @@
         "id": 80,
         "name": "slowbro",
         "weight": 785,
+        "height": 16,
         "types": [
             "water",
             "psychic"
@@ -840,6 +920,7 @@
         "id": 81,
         "name": "magnemite",
         "weight": 60,
+        "height": 3,
         "types": [
             "electric",
             "steel"
@@ -851,6 +932,7 @@
         "id": 82,
         "name": "magneton",
         "weight": 600,
+        "height": 10,
         "types": [
             "electric",
             "steel"
@@ -862,6 +944,7 @@
         "id": 83,
         "name": "farfetchd",
         "weight": 150,
+        "height": 8,
         "types": [
             "normal",
             "flying"
@@ -873,6 +956,7 @@
         "id": 84,
         "name": "doduo",
         "weight": 392,
+        "height": 14,
         "types": [
             "normal",
             "flying"
@@ -884,6 +968,7 @@
         "id": 85,
         "name": "dodrio",
         "weight": 852,
+        "height": 18,
         "types": [
             "normal",
             "flying"
@@ -895,6 +980,7 @@
         "id": 86,
         "name": "seel",
         "weight": 900,
+        "height": 11,
         "types": [
             "water"
         ],
@@ -905,6 +991,7 @@
         "id": 87,
         "name": "dewgong",
         "weight": 1200,
+        "height": 17,
         "types": [
             "water",
             "ice"
@@ -916,6 +1003,7 @@
         "id": 88,
         "name": "grimer",
         "weight": 300,
+        "height": 9,
         "types": [
             "poison"
         ],
@@ -926,6 +1014,7 @@
         "id": 89,
         "name": "muk",
         "weight": 300,
+        "height": 12,
         "types": [
             "poison"
         ],
@@ -936,6 +1025,7 @@
         "id": 90,
         "name": "shellder",
         "weight": 40,
+        "height": 3,
         "types": [
             "water"
         ],
@@ -946,6 +1036,7 @@
         "id": 91,
         "name": "cloyster",
         "weight": 1325,
+        "height": 15,
         "types": [
             "water",
             "ice"
@@ -957,6 +1048,7 @@
         "id": 92,
         "name": "gastly",
         "weight": 1,
+        "height": 13,
         "types": [
             "ghost",
             "poison"
@@ -968,6 +1060,7 @@
         "id": 93,
         "name": "haunter",
         "weight": 1,
+        "height": 16,
         "types": [
             "ghost",
             "poison"
@@ -979,6 +1072,7 @@
         "id": 94,
         "name": "gengar",
         "weight": 405,
+        "height": 15,
         "types": [
             "ghost",
             "poison"
@@ -990,6 +1084,7 @@
         "id": 95,
         "name": "onix",
         "weight": 2100,
+        "height": 88,
         "types": [
             "rock",
             "ground"
@@ -1001,6 +1096,7 @@
         "id": 96,
         "name": "drowzee",
         "weight": 324,
+        "height": 10,
         "types": [
             "psychic"
         ],
@@ -1011,6 +1107,7 @@
         "id": 97,
         "name": "hypno",
         "weight": 756,
+        "height": 16,
         "types": [
             "psychic"
         ],
@@ -1021,6 +1118,7 @@
         "id": 98,
         "name": "krabby",
         "weight": 65,
+        "height": 4,
         "types": [
             "water"
         ],
@@ -1031,6 +1129,7 @@
         "id": 99,
         "name": "kingler",
         "weight": 600,
+        "height": 13,
         "types": [
             "water"
         ],
@@ -1041,6 +1140,7 @@
         "id": 100,
         "name": "voltorb",
         "weight": 104,
+        "height": 5,
         "types": [
             "electric"
         ],
@@ -1051,6 +1151,7 @@
         "id": 101,
         "name": "electrode",
         "weight": 666,
+        "height": 12,
         "types": [
             "electric"
         ],
@@ -1061,6 +1162,7 @@
         "id": 102,
         "name": "exeggcute",
         "weight": 25,
+        "height": 4,
         "types": [
             "grass",
             "psychic"
@@ -1072,6 +1174,7 @@
         "id": 103,
         "name": "exeggutor",
         "weight": 1200,
+        "height": 20,
         "types": [
             "grass",
             "psychic"
@@ -1083,6 +1186,7 @@
         "id": 104,
         "name": "cubone",
         "weight": 65,
+        "height": 4,
         "types": [
             "ground"
         ],
@@ -1093,6 +1197,7 @@
         "id": 105,
         "name": "marowak",
         "weight": 450,
+        "height": 10,
         "types": [
             "ground"
         ],
@@ -1103,6 +1208,7 @@
         "id": 106,
         "name": "hitmonlee",
         "weight": 498,
+        "height": 15,
         "types": [
             "fighting"
         ],
@@ -1113,6 +1219,7 @@
         "id": 107,
         "name": "hitmonchan",
         "weight": 502,
+        "height": 14,
         "types": [
             "fighting"
         ],
@@ -1123,6 +1230,7 @@
         "id": 108,
         "name": "lickitung",
         "weight": 655,
+        "height": 12,
         "types": [
             "normal"
         ],
@@ -1133,6 +1241,7 @@
         "id": 109,
         "name": "koffing",
         "weight": 10,
+        "height": 6,
         "types": [
             "poison"
         ],
@@ -1143,6 +1252,7 @@
         "id": 110,
         "name": "weezing",
         "weight": 95,
+        "height": 12,
         "types": [
             "poison"
         ],
@@ -1153,6 +1263,7 @@
         "id": 111,
         "name": "rhyhorn",
         "weight": 1150,
+        "height": 10,
         "types": [
             "ground",
             "rock"
@@ -1164,6 +1275,7 @@
         "id": 112,
         "name": "rhydon",
         "weight": 1200,
+        "height": 19,
         "types": [
             "ground",
             "rock"
@@ -1175,6 +1287,7 @@
         "id": 113,
         "name": "chansey",
         "weight": 346,
+        "height": 11,
         "types": [
             "normal"
         ],
@@ -1185,6 +1298,7 @@
         "id": 114,
         "name": "tangela",
         "weight": 350,
+        "height": 10,
         "types": [
             "grass"
         ],
@@ -1195,6 +1309,7 @@
         "id": 115,
         "name": "kangaskhan",
         "weight": 800,
+        "height": 22,
         "types": [
             "normal"
         ],
@@ -1205,6 +1320,7 @@
         "id": 116,
         "name": "horsea",
         "weight": 80,
+        "height": 4,
         "types": [
             "water"
         ],
@@ -1215,6 +1331,7 @@
         "id": 117,
         "name": "seadra",
         "weight": 250,
+        "height": 12,
         "types": [
             "water"
         ],
@@ -1225,6 +1342,7 @@
         "id": 118,
         "name": "goldeen",
         "weight": 150,
+        "height": 6,
         "types": [
             "water"
         ],
@@ -1235,6 +1353,7 @@
         "id": 119,
         "name": "seaking",
         "weight": 390,
+        "height": 13,
         "types": [
             "water"
         ],
@@ -1245,6 +1364,7 @@
         "id": 120,
         "name": "staryu",
         "weight": 345,
+        "height": 8,
         "types": [
             "water"
         ],
@@ -1255,6 +1375,7 @@
         "id": 121,
         "name": "starmie",
         "weight": 800,
+        "height": 11,
         "types": [
             "water",
             "psychic"
@@ -1266,6 +1387,7 @@
         "id": 122,
         "name": "mr-mime",
         "weight": 545,
+        "height": 13,
         "types": [
             "psychic",
             "fairy"
@@ -1277,6 +1399,7 @@
         "id": 123,
         "name": "scyther",
         "weight": 560,
+        "height": 15,
         "types": [
             "bug",
             "flying"
@@ -1288,6 +1411,7 @@
         "id": 124,
         "name": "jynx",
         "weight": 406,
+        "height": 14,
         "types": [
             "ice",
             "psychic"
@@ -1299,6 +1423,7 @@
         "id": 125,
         "name": "electabuzz",
         "weight": 300,
+        "height": 11,
         "types": [
             "electric"
         ],
@@ -1309,6 +1434,7 @@
         "id": 126,
         "name": "magmar",
         "weight": 445,
+        "height": 13,
         "types": [
             "fire"
         ],
@@ -1319,6 +1445,7 @@
         "id": 127,
         "name": "pinsir",
         "weight": 550,
+        "height": 15,
         "types": [
             "bug"
         ],
@@ -1329,6 +1456,7 @@
         "id": 128,
         "name": "tauros",
         "weight": 884,
+        "height": 14,
         "types": [
             "normal"
         ],
@@ -1339,6 +1467,7 @@
         "id": 129,
         "name": "magikarp",
         "weight": 100,
+        "height": 9,
         "types": [
             "water"
         ],
@@ -1349,6 +1478,7 @@
         "id": 130,
         "name": "gyarados",
         "weight": 2350,
+        "height": 65,
         "types": [
             "water",
             "flying"
@@ -1360,6 +1490,7 @@
         "id": 131,
         "name": "lapras",
         "weight": 2200,
+        "height": 25,
         "types": [
             "water",
             "ice"
@@ -1371,6 +1502,7 @@
         "id": 132,
         "name": "ditto",
         "weight": 40,
+        "height": 3,
         "types": [
             "normal"
         ],
@@ -1381,6 +1513,7 @@
         "id": 133,
         "name": "eevee",
         "weight": 65,
+        "height": 3,
         "types": [
             "normal"
         ],
@@ -1391,6 +1524,7 @@
         "id": 134,
         "name": "vaporeon",
         "weight": 290,
+        "height": 10,
         "types": [
             "water"
         ],
@@ -1401,6 +1535,7 @@
         "id": 135,
         "name": "jolteon",
         "weight": 245,
+        "height": 8,
         "types": [
             "electric"
         ],
@@ -1411,6 +1546,7 @@
         "id": 136,
         "name": "flareon",
         "weight": 250,
+        "height": 9,
         "types": [
             "fire"
         ],
@@ -1421,6 +1557,7 @@
         "id": 137,
         "name": "porygon",
         "weight": 365,
+        "height": 8,
         "types": [
             "normal"
         ],
@@ -1431,6 +1568,7 @@
         "id": 138,
         "name": "omanyte",
         "weight": 75,
+        "height": 4,
         "types": [
             "rock",
             "water"
@@ -1442,6 +1580,7 @@
         "id": 139,
         "name": "omastar",
         "weight": 350,
+        "height": 10,
         "types": [
             "rock",
             "water"
@@ -1453,6 +1592,7 @@
         "id": 140,
         "name": "kabuto",
         "weight": 115,
+        "height": 5,
         "types": [
             "rock",
             "water"
@@ -1464,6 +1604,7 @@
         "id": 141,
         "name": "kabutops",
         "weight": 405,
+        "height": 13,
         "types": [
             "rock",
             "water"
@@ -1475,6 +1616,7 @@
         "id": 142,
         "name": "aerodactyl",
         "weight": 590,
+        "height": 18,
         "types": [
             "rock",
             "flying"
@@ -1486,6 +1628,7 @@
         "id": 143,
         "name": "snorlax",
         "weight": 4600,
+        "height": 21,
         "types": [
             "normal"
         ],
@@ -1496,6 +1639,7 @@
         "id": 144,
         "name": "articuno",
         "weight": 554,
+        "height": 17,
         "types": [
             "ice",
             "flying"
@@ -1507,6 +1651,7 @@
         "id": 145,
         "name": "zapdos",
         "weight": 526,
+        "height": 16,
         "types": [
             "electric",
             "flying"
@@ -1518,6 +1663,7 @@
         "id": 146,
         "name": "moltres",
         "weight": 600,
+        "height": 20,
         "types": [
             "fire",
             "flying"
@@ -1529,6 +1675,7 @@
         "id": 147,
         "name": "dratini",
         "weight": 33,
+        "height": 18,
         "types": [
             "dragon"
         ],
@@ -1539,6 +1686,7 @@
         "id": 148,
         "name": "dragonair",
         "weight": 165,
+        "height": 40,
         "types": [
             "dragon"
         ],
@@ -1549,6 +1697,7 @@
         "id": 149,
         "name": "dragonite",
         "weight": 2100,
+        "height": 22,
         "types": [
             "dragon",
             "flying"
@@ -1560,10 +1709,22 @@
         "id": 150,
         "name": "mewtwo",
         "weight": 1220,
+        "height": 20,
         "types": [
             "psychic"
         ],
         "portrait": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png",
         "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png"
+    },
+    {
+        "id": 151,
+        "name": "mew",
+        "weight": 40,
+        "height": 4,
+        "types": [
+            "psychic"
+        ],
+        "portrait": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png"
     }
 ]
