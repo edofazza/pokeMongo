@@ -1,0 +1,14 @@
+{
+	"Pokemon":[
+		{
+			"Name":"",
+			"Type":["",""],
+			"Generation":"",
+			"pokedexIndex":0,
+			"catchRate":0.1,
+			"points":0,
+			"height":0,
+			"weight":1
+		}
+	]
+}
