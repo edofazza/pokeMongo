@@ -1,6 +1,5 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
-import it.unipi.dii.lsmsd.pokeMongo.userInterface.MusicPlayer;
 import javafx.scene.control.Button;
 
 public class MusicButton extends Button {

@@ -15,6 +15,8 @@ public enum SceneNames {
                 return new TeamScene();
             case SETTINGS:
                 return new Settings();
+            case CATCHEMALL:
+                return new CatchEmAll();
             default:
                 return null;
         }
