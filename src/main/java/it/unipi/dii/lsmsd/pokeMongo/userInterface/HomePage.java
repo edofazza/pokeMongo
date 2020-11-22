@@ -1,8 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.HomePageCentralButton;
-import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
 
 public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard {
     private int buttonPosition = 0;
@@ -35,14 +33,14 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void displayTeamButton() {
         HomePageCentralButton teamButton = new HomePageCentralButton("TEAM");
-        teamButton.setOnAction((ActionEvent ev)-> teamButtonAction());
+        teamButton.setOnAction(e -> teamButtonAction());
 
         sceneNodes.getChildren().add(teamButton);
     }
 
     private void displayCatchemAllButton() {
         HomePageCentralButton catchemAllButton = new HomePageCentralButton("CATCH'EM ALL");
-        catchemAllButton.setOnAction((ActionEvent ev)-> catchemAllButtonAction());
+        catchemAllButton.setOnAction(e -> catchemAllButtonAction());
 
         sceneNodes.getChildren().add(catchemAllButton);
     }
@@ -56,7 +54,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
     private void displaySettingsButton() {
         HomePageCentralButton settingButton = new HomePageCentralButton("SETTINGS");
 
-        settingButton.setOnAction((ActionEvent ev)-> settingButtonAction());
+        settingButton.setOnAction(e-> settingButtonAction());
 
         sceneNodes.getChildren().add(settingButton);
     }
@@ -64,13 +62,15 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
     private void displayAddRemovePokemonButton() {
         HomePageCentralButton addRemoveButton = new HomePageCentralButton("ADD/REMOVE POKEMON");
 
+        addRemoveButton.setOnAction(e-> addRemovePokemonAction());
+
         sceneNodes.getChildren().add(addRemoveButton);
     }
 
     private void displayLogOutButton() {
         HomePageCentralButton logOutButton = new HomePageCentralButton("LOG OUT");
 
-        logOutButton.setOnAction((ActionEvent ev)-> logOutButtonAction());
+        logOutButton.setOnAction(e-> logOutButtonAction());
 
         sceneNodes.getChildren().add(logOutButton);
     }
@@ -93,5 +93,9 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void catchemAllButtonAction() {
         CurrentUI.changeScene(SceneNames.CATCHEMALL);
+    }
+
+    private void addRemovePokemonAction() {
+        CurrentUI.changeScene(SceneNames.ADD_REMOVE);
     }
 }
