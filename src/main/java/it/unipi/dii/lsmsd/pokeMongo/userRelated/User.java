@@ -4,7 +4,7 @@ public class User {
     private String username;
     private int numberOfPokeball = 10;
     private String teamname = "My team";
-    private boolean admin = true;
+    private boolean admin = false;
 
     public User(String username) {  //TODO: da eliminare quando si mette MongoDB
         this.username = username;

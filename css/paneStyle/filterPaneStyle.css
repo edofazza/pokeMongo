@@ -1,0 +1,6 @@
+.FilterPane {
+    -fx-background-color: #d9d5d5;
+    -fx-pref-height: 200;
+    -fx-pref-width: 1000;
+    -fx-background-radius: 20;
+}

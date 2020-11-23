@@ -27,6 +27,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void displayPokedexButton() {
         HomePageCentralButton pokedexButton = new HomePageCentralButton("POKEDEX");
+        pokedexButton.setOnAction(e -> pokedexButtonAction());
 
         sceneNodes.getChildren().add(pokedexButton);
     }
@@ -81,6 +82,10 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
         CurrentUI.changeScene(SceneNames.LOGIN);
 
         // TODO: exit from the account
+    }
+
+    private void pokedexButtonAction() {
+        CurrentUI.changeScene(SceneNames.POKEDEX);
     }
 
     private void teamButtonAction() {

@@ -19,6 +19,8 @@ public enum SceneNames {
                 return new CatchEmAll();
             case ADD_REMOVE:
                 return new AddRemovePokemon();
+            case POKEDEX:
+                return new Pokedex();
             default:
                 return null;
         }
