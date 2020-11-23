@@ -4,9 +4,21 @@ import java.util.ArrayList;
 
 
 /**
- * Shared interface among Databases, defines structures of basic CRUD operations
+ * Shared interface among Databases, defines remote connections and structures of basic CRUD operations
  */
 public interface Database {
+
+    /**
+     * starts the connection with the remote Database
+     */
+    void startConnection();
+
+    /**
+     * closes the connection with the remote Database
+     */
+    void closeConnection();
+
+
     /**
      * insert 1 ore more objects into the database
      * @param toInsert ArrayList of arbitrary objects to insert into the Database
