@@ -8,6 +8,8 @@ public class AddRemovePokemon extends PokeSceneWithHeader {
         displayAddPokemon();
 
         displayBackButton();
+
+        setSceneMusic("catchemAll.mp3");
     }
 
     private void displayAddPokemon() {
