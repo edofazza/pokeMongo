@@ -1,0 +1,7 @@
+.CatchEmAllTextField {
+    -fx-pref-width: 230;
+    -fx-pref-height: 40;
+    -fx-alignment: center;
+    -fx-font-family: 'Arial';
+    -fx-font-weight: bold;
+}

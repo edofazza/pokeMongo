@@ -1,0 +1,5 @@
+.CircleButton {
+    -fx-pref-width: 10px;
+    -fx-pref-height: 10px;
+    -fx-background-color: transparent;
+}

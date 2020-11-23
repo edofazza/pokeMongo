@@ -14,7 +14,7 @@ public class HomePageCentralButton extends Button {
         relocate(x, y + position*delta);
         position++;
 
-        // IN CASE OF RELOAD OF THE PAGE THIS IF RESET THE
+        // IN CASE OF RELOAD OF THE PAGE THIS WILL RESET THE
         // POSITIONS IN THE CORRECT WAY
         if (text.equals("LOG OUT"))
             position = 0;

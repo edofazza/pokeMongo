@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
+import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -62,7 +63,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         surnameTF = new TextField();
         surnameTF.relocate(350, 200);
-        surnameTF.setOnKeyReleased(e->handleSurname());
+        surnameTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleName(surnameTF, invalidSurnameLabel));
 
         sceneNodes.getChildren().add(surnameLabel);
         sceneNodes.getChildren().add(invalidSurnameLabel);
@@ -89,7 +90,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         passwordTF = new PasswordField();
         passwordTF.relocate(350, 400);
-        passwordTF.setOnKeyReleased(e->handlePassword());
+        passwordTF.setOnKeyReleased(e->FormValidatorPokeMongo.handlePassword(passwordTF, invalidPasswordLabel));
 
         sceneNodes.getChildren().add(passwordLabel);
         sceneNodes.getChildren().add(invalidPasswordLabel);
@@ -106,8 +107,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         birthdayDP = new DatePicker();
         birthdayDP.relocate(350, 500);
-        birthdayDP.setOnAction(e->handleBirthday());
-
+        birthdayDP.setOnAction(e->FormValidatorPokeMongo.handleBirthday(birthdayDP, invalidBirthdayLabel));
 
         sceneNodes.getChildren().add(passwordLabel);
         sceneNodes.getChildren().add(invalidBirthdayLabel);
@@ -125,7 +125,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         nameTF = new TextField();
         nameTF.relocate(750, 200);
-        nameTF.setOnKeyReleased(e->handleName()); //TODO: maybe setOnKeyReleased event trigger it's not the best choice
+        nameTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleName(nameTF, invalidNameLabel)); //TODO: maybe setOnKeyReleased event trigger it's not the best choice
 
         sceneNodes.getChildren().add(nameLabel);
         sceneNodes.getChildren().add(invalidNameLabel);
@@ -142,7 +142,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         emailTF = new TextField();
         emailTF.relocate(750, 300);
-        emailTF.setOnKeyReleased(e->handleEmail());
+        emailTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleEmail(emailTF, invalidEmailLabel));
 
         sceneNodes.getChildren().add(emailLabel);
         sceneNodes.getChildren().add(invalidEmailLabel);
@@ -159,7 +159,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         confirmPasswordTF = new PasswordField();
         confirmPasswordTF.relocate(750, 400);
-        confirmPasswordTF.setOnKeyReleased(e->handleConfirmPassword());
+        confirmPasswordTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleConfirmField(passwordTF, confirmPasswordTF, invalidConfirmPasswordLabel));
 
         sceneNodes.getChildren().add(confirmPasswordLabel);
         sceneNodes.getChildren().add(invalidConfirmPasswordLabel);
@@ -194,94 +194,6 @@ public class SignUp extends PokeSceneWithTitle {
 
         sceneNodes.getChildren().add(submitButton);
     }
-
-    // FORM CHECKING
-
-    /**
-     * In this section are present the event handler for the 'setOnKeyReleased' event in the form.
-     */
-
-    private void handleName(){
-        if(isPersonNoun(nameTF.getText()))
-            invalidNameLabel.setVisible(false);
-        else
-            invalidNameLabel.setVisible(true);
-    }
-
-    private void handleSurname(){
-        if(isPersonNoun(surnameTF.getText()))
-            invalidSurnameLabel.setVisible(false);
-        else
-            invalidSurnameLabel.setVisible(true);
-    }
-
-    /**
-     * Check if the string contains only letters, spaces, dots and apostrophes.
-     */
-    private boolean isPersonNoun(String possibleNoun){
-        Pattern pattern = Pattern.compile("^[a-zA-Z '.]*$");
-        Matcher matcher = pattern.matcher(possibleNoun);
-        return matcher.find();
-    }
-
-    private void handleEmail(){
-        if(isValidEmail(emailTF.getText()))
-            invalidEmailLabel.setVisible(false);
-        else
-            invalidEmailLabel.setVisible(true);
-    }
-
-    /**
-     * Check if the email follows the format example@domain.tld
-     */
-    private boolean isValidEmail(String possibleEmail){
-        Pattern pattern = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
-        Matcher matcher = pattern.matcher(possibleEmail);
-        return matcher.find();
-    }
-
-
-    private void handlePassword(){
-        if(isValidPassword(passwordTF.getText()))
-            invalidPasswordLabel.setVisible(false);
-        else
-            invalidPasswordLabel.setVisible(true);
-    }
-
-    private void handleConfirmPassword(){
-        String password = passwordTF.getText(), confirmPassword = confirmPasswordTF.getText();
-
-        if(password.equals(confirmPassword))
-            invalidConfirmPasswordLabel.setVisible(false);
-        else
-            invalidConfirmPasswordLabel.setVisible(true);
-    }
-
-    /**
-     * Checks if the password contains minimum eight characters, at least one letter and one number.
-     */
-    private boolean isValidPassword(String possiblePassword){
-        Pattern pattern = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
-        Matcher matcher = pattern.matcher(possiblePassword);
-        return matcher.find();
-    }
-
-
-    /**
-     * Checks if the birthday date selected is valid: future dates cannot be picked
-     */
-    private void handleBirthday(){
-        LocalDate localDate = birthdayDP.getValue();
-        LocalDate today = LocalDate.now();
-        System.out.println(today);
-
-        if(localDate.isAfter(today)){
-            invalidBirthdayLabel.setVisible(true);
-        } else {
-            invalidBirthdayLabel.setVisible(false);
-        }
-    }
-
 
 
     private void handleSubmit(){
