@@ -1,0 +1,8 @@
+.FilterTextField {
+    -fx-font-family: Arial;
+    -fx-font-size: 10;
+    -fx-pref-width: 84;
+    -fx-pref-height: 10;
+    -fx-background-color: white;
+    -fx-border-color: black;
+}
