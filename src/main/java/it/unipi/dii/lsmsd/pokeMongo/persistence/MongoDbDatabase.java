@@ -33,8 +33,13 @@ public class MongoDbDatabase implements Database{
         return getDatabase().getCollection(name);
     }
 
+    public static void dropCollection(String name){
+        getCollection(name).drop();
+    }
+
     @Override
     public boolean insert(ArrayList<Object> toInsert) {
+
         return false;
     }
 
