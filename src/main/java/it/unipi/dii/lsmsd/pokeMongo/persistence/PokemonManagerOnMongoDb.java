@@ -14,7 +14,7 @@ import java.util.List;
 import static com.mongodb.client.model.Filters.*;
 
 public class PokemonManagerOnMongoDb extends MongoDbDatabase{
-    private String collectionName = "pokemon";
+    private final String collectionName = "pokemon";
 
     private Document PokemonToDocument(Pokemon p){
         return Document.parse(new Gson().toJson(p));
@@ -48,7 +48,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase{
     @Override
     public boolean remove(Object o) {
         MongoCollection<Document> collection = getCollection(collectionName);
-        DeleteResult dr=null;
+        DeleteResult dr;
         if (o instanceof Pokemon){
             dr = collection.deleteOne(eq("pokedexIndex", ((Pokemon) o).getPokedexIndex()));
         }
@@ -88,7 +88,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase{
     @Override
     public boolean update(Object target, Object newValue) {
         MongoCollection<Document> collection = getCollection(collectionName);
-        UpdateResult ur=null;
+        UpdateResult ur;
         if (target instanceof Pokemon){
             ur = collection.updateOne(eq("pokedexIndex", ((Pokemon) target).getPokedexIndex()),(Bson)newValue);
         }
