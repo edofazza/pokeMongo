@@ -1,12 +1,17 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
-import com.google.gson.Gson;
-import com.mongodb.client.MongoCollection;
+import com.google.gson.*;
+import com.mongodb.client.*;
+import com.mongodb.client.result.*;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import org.bson.Document;
+import org.bson.conversions.Bson;
+
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.mongodb.client.model.Filters.*;
 
 public class PokemonManagerOnMongoDb extends MongoDbDatabase{
     private String collectionName = "pokemon";
@@ -21,10 +26,10 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase{
 
     @Override
     public boolean insert(ArrayList<Object> toInsert) {
-        MongoCollection<Document> collection = getCollection(collectionName);
         if(toInsert.size()==0)
             return false;
-        else if(toInsert.size()==1){
+        MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
+        if(toInsert.size()==1){
             Document doc = PokemonToDocument((Pokemon)toInsert.get(0));
             collection.insertOne(doc);
         }
@@ -36,13 +41,26 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase{
             }
             collection.insertMany(l);
         }
+        closeConnection();
         return true;
     }
 
     @Override
     public boolean remove(Object o) {
         MongoCollection<Document> collection = getCollection(collectionName);
-        return false;
+        DeleteResult dr=null;
+        if (o instanceof Pokemon){
+            dr = collection.deleteOne(eq("pokedexIndex", ((Pokemon) o).getPokedexIndex()));
+        }
+        else if(o instanceof Bson){
+            dr = collection.deleteMany((Bson)o);
+        }
+        else {
+            closeConnection();
+            return false;
+        }
+        closeConnection();
+        return dr.getDeletedCount()>0;
     }
 
     @Override
@@ -50,18 +68,38 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase{
         List<Document> docs= getCollection(collectionName).find().into(new ArrayList<>());
         ArrayList<Object> pokemons = new ArrayList<>();
         for(Document d:docs){
-            pokemons.add((Object)DocumentToPokemon(d));
+            pokemons.add(DocumentToPokemon(d));
         }
+        closeConnection();
         return pokemons;
     }
 
     @Override
     public ArrayList<Object> getWithFilter(Object filter) {
-        return null;
+        List<Document> docs= getCollection(collectionName).find((Bson)filter).into(new ArrayList<>());
+        ArrayList<Object> pokemons = new ArrayList<>();
+        for(Document d:docs){
+            pokemons.add(DocumentToPokemon(d));
+        }
+        closeConnection();
+        return pokemons;
     }
 
     @Override
     public boolean update(Object target, Object newValue) {
-        return false;
+        MongoCollection<Document> collection = getCollection(collectionName);
+        UpdateResult ur=null;
+        if (target instanceof Pokemon){
+            ur = collection.updateOne(eq("pokedexIndex", ((Pokemon) target).getPokedexIndex()),(Bson)newValue);
+        }
+        else if(target instanceof Bson){
+            ur = collection.updateMany((Bson)target, (Bson)newValue);
+        }
+        else {
+            closeConnection();
+            return false;
+        }
+        closeConnection();
+        return ur.getModifiedCount()>0;
     }
 }

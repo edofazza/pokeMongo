@@ -21,8 +21,10 @@ public abstract class MongoDbDatabase implements Database{
 
     @Override
     public void closeConnection() {
-        connection.close();
-        connection=null;
+        if(connection!=null) {
+            connection.close();
+            connection = null;
+        }
     }
 
     private MongoClient getConnection() {
@@ -32,7 +34,7 @@ public abstract class MongoDbDatabase implements Database{
     }
 
     private MongoDatabase getDatabase(){
-        return connection.getDatabase(dbName);
+        return getConnection().getDatabase(dbName);
     }
 
     public MongoCollection<Document> getCollection(String name){
