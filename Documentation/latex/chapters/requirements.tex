@@ -1,0 +1,68 @@
+\chapter{Requirements}
+\section{Something}
+\begin{itemize}
+    \item An \textit{unregistered user} can
+    \begin{itemize}
+        \item Register
+    \end{itemize}
+    \item A \textit{registered user} can
+    \begin{itemize}
+        \item Login
+        \item Consult Pokèdex
+        \begin{itemize}
+            \item Search by name
+            \item Search by type(s)
+            \item Search by Pokédex ID
+            \item Search by generation  
+            \item Search by Pokemon characteristics (i.e, height, weight,..)	
+        \end{itemize}
+        \item Consult ranking:
+        \begin{itemize}
+            \item Most popular pokemon
+            \item Best team
+        \end{itemize}
+        \item Team handling:
+        \begin{itemize}
+            \item Remove Pokemon from the team
+            \item View team
+            \item Save modified team
+            \item View the value of the team
+        \end{itemize}
+        \item Catching:
+        \begin{itemize}
+            \item Try to catch a Pokemon to add to his team
+        \end{itemize}
+        \item Settings:
+        \begin{itemize}
+            \item Change email
+            \item Change password
+            \item Change country
+        \end{itemize}
+        \item Logout:
+        \begin{itemize}
+            \item Exit from the account
+            \item Return to the sign in windo
+        \end{itemize}
+    \end{itemize}
+    \item An \textit{admin} can
+    \begin{itemize}
+        \item Add pokemon to the Pokédex
+        \item Remove pokemon from the Pokédex
+    \end{itemize}
+    \item The \textit{system} should
+    \begin{itemize}
+        \item Daily update Pokeball number of each user
+    \end{itemize}
+\end{itemize}
+\section{Non-functional Requirements}
+//To define
+\section{UML relation diagram}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{img/Picture7.png}
+    \caption{Login Mockup}
+\end{figure}
+
+A user can build up only 1 team: of course, each team has just one owner.
+A team is composed of a maximum of 6 Pokemons, every Pokemon can be caught by anyone, so can belong to many teams.

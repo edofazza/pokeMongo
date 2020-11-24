@@ -1,0 +1,154 @@
+\chapter{Introduction}
+\textbf{\textit{PokèMongo}} is a gaming application in which users compete each other to build up the best Team choosing from the set of Pokemon available in the environment. Every user can make just one single Team. 
+
+\section{Description}
+Every Team is composed by up to 6 distinct Pokemons and is assigned to a numerical value based on features and properties of the chosen Pokemons, for ranking purposes.
+
+Users can also navigate through the ranking in order to visualize the best teams (according to the values cited before), most used/caught Pokemons.
+
+The user can also search a specific Pokemon using the Pokedex tool, in which he/she can browse Pokemons according to specific search filters (e.g. Pokemon name, Type, Points…).
+
+Moreover, as a “real” Pokemon Trainer, the user is invited to “Catch ‘em ‘all”, i.e. to catch Pokemon in order to create/update his own team. Thus, it is provided to the user a prefix number of daily Pokeball to be used to try to catch them. 
+
+At each Pokemon is associated a probability to catch it, the higher the Pokemon’s value, the lower the probability.
+
+Under discussion are the following ideas:
+\begin{itemize}
+    \item Creating a “social” structure in which users can follow each other in order to share his/her own team
+    \item Creating a chat system to pair with the social structure 
+    \item Reduce catchable Pokemons to a daily subset of the entire Pokemon Database
+\end{itemize} 
+
+\section{Code Snippets}
+Other things: let's show some code snippets!
+
+\begin{lstlisting}[language=Python, caption=Python example]
+    import requests
+    import json
+    
+    
+    #exampleW
+    new_json = []
+    description = ""
+    
+    for i in range(500, 894):
+        response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{i}/")
+        work_string_json = response.json()
+        response = requests.get(f"https://pokeapi.co/api/v2/pokemon-species/{i}/")
+        work_string_json2 = response.json()
+    
+        for desc in work_string_json2['flavor_text_entries']:
+            if(desc['language']['name'] == "en"):
+                description = desc['flavor_text']
+                break
+    
+        curr_json = {
+            "id": work_string_json['id'],
+            "name": work_string_json['name'],
+            "weight": work_string_json['weight'],
+            "height": work_string_json['height'],
+            "capture_rate": work_string_json2['capture_rate'],
+            "biology": description,
+            "types": [],
+            "portrait": work_string_json['sprites']['other']['official-artwork']['front_default'],
+            "sprite": work_string_json['sprites']['front_default']
+        }
+    
+        print(i)
+        for i in work_string_json['types']:
+            curr_json["types"].append(i['type']['name'])
+    
+        new_json.append(curr_json)
+        
+    with open('pokemon2.json', 'a', encoding='utf-8') as f:
+        json.dump(new_json, f, ensure_ascii=False, indent=4)
+    
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java, caption=Java example]
+    package it.unipi.dii.lsmsd.pokeMongo.utils;
+
+import java.time.LocalDate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javafx.scene.control.*;
+
+public class FormValidatorPokeMongo {
+
+    /**
+     * In this section are present the event handler for the 'setOnKeyReleased' event in the form.
+     */
+    public static void handleName(TextField nameTF, Label invalidNameLabel){
+        if(FormValidatorPokeMongo.isPersonNoun(nameTF.getText()))
+            invalidNameLabel.setVisible(false);
+        else
+            invalidNameLabel.setVisible(true);
+    }
+
+    /**
+     * Check if the string contains only letters, spaces, dots and apostrophes.
+     */
+    public static boolean isPersonNoun(String possibleNoun){
+        Pattern pattern = Pattern.compile("^[a-zA-Z '.]*$");
+        Matcher matcher = pattern.matcher(possibleNoun);
+        return matcher.find();
+    }
+
+    public static void handleEmail(TextField emailTF, Label invalidEmailLabel){
+        if(FormValidatorPokeMongo.isValidEmail(emailTF.getText()))
+            invalidEmailLabel.setVisible(false);
+        else
+            invalidEmailLabel.setVisible(true);
+    }
+
+    /**
+     * Check if the email follows the format example@domain.tld
+     */
+    public static boolean isValidEmail(String possibleEmail){
+        Pattern pattern = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+        Matcher matcher = pattern.matcher(possibleEmail);
+        return matcher.find();
+    }
+
+    public static void handlePassword(TextField passwordTF, Label invalidPasswordLabel){
+        if(FormValidatorPokeMongo.isValidPassword(passwordTF.getText()))
+            invalidPasswordLabel.setVisible(false);
+        else
+            invalidPasswordLabel.setVisible(true);
+    }
+
+    /**
+     * Checks if the password contains minimum eight characters, at least one letter and one number.
+     */
+    public static boolean isValidPassword(String possiblePassword){
+        Pattern pattern = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
+        Matcher matcher = pattern.matcher(possiblePassword);
+        return matcher.find();
+    }
+
+    public static void handleConfirmField(TextField fieldTF, TextField confirmFieldTF, Label invalidConfirmFieldLabel){
+        String password = fieldTF.getText(), confirmPassword = confirmFieldTF.getText();
+
+        if(password.equals(confirmPassword))
+            invalidConfirmFieldLabel.setVisible(false);
+        else
+            invalidConfirmFieldLabel.setVisible(true);
+    }
+
+    /**
+     * Checks if the birthday date selected is valid: future dates cannot be picked
+     */
+    public static void handleBirthday(DatePicker birthdayDP, Label invalidBirthdayLabel){
+        LocalDate localDate = birthdayDP.getValue();
+        LocalDate today = LocalDate.now();
+        System.out.println(today);
+
+        if(localDate.isAfter(today)){
+            invalidBirthdayLabel.setVisible(true);
+        } else {
+            invalidBirthdayLabel.setVisible(false);
+        }
+    }
+}
+
+\end{lstlisting}

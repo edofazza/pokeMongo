@@ -1,0 +1,79 @@
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{mathtools}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[english]{babel}
+\usepackage[labelfont=bf]{caption}
+\captionsetup{labelfont=bf}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{orange},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\includeonly{
+    chapters/introduction,
+    chapters/interface_mockup,
+    chapters/requirements,
+    chapters/queries_and_database_structure
+}
+
+
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \begin{figure}
+            \includegraphics[width=\textwidth]{img/marchio_unipi_pant541-eps-converted-to.pdf}         
+        \end{figure}
+        {\Large
+        Computer Engineering, Artificial Intelligence and Data Engineering\\
+        \vspace{5mm} %5mm vertical space
+        Large-Scale and Multi-Structured Database}\\
+        \vspace{30mm} %5mm vertical space
+        {\Huge\textbf{\textit{PokèMongo}}}\\
+        \vspace{10mm} %5mm vertical space
+        {\Large Project Documentation}\\
+        \par\noindent\rule{\textwidth}{0.4pt}
+            \begin{flushright}
+                \textit{TEAM MEMBERS}:\\
+                Edoardo Fazzari\\ 
+                Mirco Ramo\\ 
+                Olgerti Xhanej\\
+                
+            \end{flushright}
+            \vfill
+        Academic Year: 2020/2021\\        
+    \end{center}
+\end{titlepage}    
+\tableofcontents
+
+\include{chapters/introduction}
+\include{chapters/interface_mockup}
+\include{chapters/requirements}
+\include{chapters/queries_and_database_structure}
+
+
+\end{document}
