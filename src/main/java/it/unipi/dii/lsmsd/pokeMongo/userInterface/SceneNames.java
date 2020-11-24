@@ -21,6 +21,8 @@ public enum SceneNames {
                 return new AddRemovePokemon();
             case POKEDEX:
                 return new Pokedex();
+            case RANKING:
+                return new RankingScene();
             default:
                 return null;
         }

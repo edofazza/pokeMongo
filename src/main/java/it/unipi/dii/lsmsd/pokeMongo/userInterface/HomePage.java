@@ -48,6 +48,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void displayRankingButton() {
         HomePageCentralButton rankingButton = new HomePageCentralButton("RANKING");
+        rankingButton.setOnAction(e -> rankingButtonAction());
 
         sceneNodes.getChildren().add(rankingButton);
     }
@@ -94,6 +95,10 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
     private void settingButtonAction() {
         CurrentUI.changeScene(SceneNames.SETTINGS);
+    }
+
+    private void rankingButtonAction() {
+        CurrentUI.changeScene(SceneNames.RANKING);
     }
 
     private void catchemAllButtonAction() {

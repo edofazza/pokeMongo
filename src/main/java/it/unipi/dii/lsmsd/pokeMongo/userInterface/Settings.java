@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class Settings extends PokeSceneWithHeader {
+public class Settings extends PokeSceneWithHeaderAndBackButton {
     // LEFT
     private TextField newEmailTF;
     private TextField oldPasswordTF;
@@ -38,7 +38,6 @@ public class Settings extends PokeSceneWithHeader {
         displayConfirmPassword();
         displayCountry();
 
-        displayBackButton();
         displayConfirmButton();
 
         setSceneMusic("gym.mp3");
@@ -137,18 +136,6 @@ public class Settings extends PokeSceneWithHeader {
     }
 
     // BUTTONS
-    private void displayBackButton() {
-        RegularButton backButton = new RegularButton("BACK", 200, 600);
-
-        backButton.setOnAction((ActionEvent ev)-> backButtonAction());
-
-        sceneNodes.getChildren().add(backButton);
-    }
-
-    private void backButtonAction() {
-        CurrentUI.changeScene(SceneNames.HOMEPAGE);
-    }
-
     private void displayConfirmButton() {
         RegularButton submitButton = new RegularButton("CONFIRM", 1000, 600);
 

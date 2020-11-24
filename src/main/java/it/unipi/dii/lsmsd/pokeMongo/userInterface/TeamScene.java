@@ -3,9 +3,8 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokemonPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.TeamNameTextField;
-import javafx.event.ActionEvent;
 
-public class TeamScene extends PokeSceneWithHeader {
+public class TeamScene extends PokeSceneWithHeaderAndBackButton {
     private TeamNameTextField teamNameTF;
 
     // TODO: SEE IF IT IS REALLY HELPFUL
@@ -16,7 +15,6 @@ public class TeamScene extends PokeSceneWithHeader {
 
         displayPokemon();
 
-        displayBackButton();
         displaySaveButton();
 
         setSceneMusic("pokemon_center.mp3");
@@ -45,24 +43,11 @@ public class TeamScene extends PokeSceneWithHeader {
         sceneNodes.getChildren().add(teamNameTF);
     }
 
-    private void displayBackButton() {
-        RegularButton backButton = new RegularButton("BACK", 200, 600);
-
-        backButton.setOnAction((ActionEvent ev)-> backButtonAction());
-
-        sceneNodes.getChildren().add(backButton);
-    }
-
     private void displaySaveButton() {
         RegularButton saveButton = new RegularButton("SAVE", 1000, 600);
 
         // TODO: ADD ACTION
 
         sceneNodes.getChildren().add(saveButton);
-    }
-
-    // ACTIONS
-    private void backButtonAction() {
-        CurrentUI.changeScene(SceneNames.HOMEPAGE);
     }
 }

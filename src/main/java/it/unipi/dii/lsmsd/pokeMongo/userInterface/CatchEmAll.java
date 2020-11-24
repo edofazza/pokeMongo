@@ -7,7 +7,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.TitleLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 
-public class CatchEmAll extends PokeSceneWithHeader {
+public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
     private CatchEmAllTextField selectPokemon;
     private ChooseSlotNumber selectSlot;
 
@@ -17,7 +17,6 @@ public class CatchEmAll extends PokeSceneWithHeader {
 
     public CatchEmAll() {
         displayTitle();
-        displayBackButton();
 
         displaySelectPokemon();
         displaySelectSlot();
@@ -64,18 +63,5 @@ public class CatchEmAll extends PokeSceneWithHeader {
         RegularButton tryToCatch = new RegularButton("TRY TO CATCH", 580, 510);
 
         sceneNodes.getChildren().add(tryToCatch);
-    }
-
-    private void displayBackButton() {
-        RegularButton backButton = new RegularButton("BACK", 200, 600);
-
-        backButton.setOnAction(e -> backButtonAction());
-
-        sceneNodes.getChildren().add(backButton);
-    }
-
-    // ACTIONS
-    private void backButtonAction() {
-        CurrentUI.changeScene(SceneNames.HOMEPAGE);
     }
 }
