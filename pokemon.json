@@ -184,6 +184,7 @@
             "bug",
             "poison"
         ],
+        "biology": "Kakuna is a yellow, cocoon-like Pokémon. Kakuna has a dome-shaped head and black, triangular eyes with glowing white pupils. It has two scythe-like arms in the middle of its body. When it comes close to evolving, its body gives off heat that makes it warm to the touch. Kakuna remains virtually immobile and waits for evolution often hanging from tree branches by long strands of silk. When attacked, however, it can extend its poison barbs. Kakuna nests in temperate forests and misty wooded areas",
         "portrait": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png",
         "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/14.png"
     },
@@ -197,6 +198,7 @@
             "bug",
             "poison"
         ],
+        "biology": "Beedrill mostly resembles a bipedal, yellow wasp; however, it only has four legs instead of six and lacks pigment pits. Beedrill's head is round with a slightly pointed mouth, large, red eyes, and black antennae with a sharp bend in the middle. Its forelegs are tipped with long, conical stingers. It stands on its other two legs, which are long, segmented, and insectoid in shape. Beedrill has two pairs of rounded, veined wings, and another stinger on its yellow-and-black striped abdomen.\nBeedrill is highly territorial and unlike real bees, Beedrill live in colonies rather than true \"hives\", and they work together to solve basic problems regarding food, territory and reproduction.Beedrill seems to be especially concerned with the welfare of Weedle and Kakuna and it will respond aggressively to those that disturb them. Disturbing one Beedrill will cause the whole colony to attack. It flies at high speed and attacks using the large venomous stingers on its forelegs and abdomen. The two stingers on its forelimbs allow it to use its former signature move, Twineedle. It will take the victims of its attacks back to its nest for food. Beedrill nests in temperate forests and misty wooded areas.",
         "portrait": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
         "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png"
     },
@@ -210,6 +212,7 @@
             "normal",
             "flying"
         ],
+        "biology": "Pidgey is a small, plump-bodied avian Pokémon. It is primarily brown with a cream-colored face, underside, and flight feathers. On top of its head is a short crest of three tufts. The center crest feathers are brown and the outer two tufts are cream-colored. Just under its crest are its narrow eyes which have white sclera and pupil along with its black irises. Angular black marking extend from behind its eyes and continue down its cheeks. It has a short, stubby beak and feet with two toes in front and one in back. Both its beak and feet are a grayish-pink. It has a short, brown tail made of three feathers.\nPidgey has an extremely sharp sense of direction and homing instincts. It can travel straight back to its nest regardless of how far away they might have flown. It is a docile Pokémon and generally prefers to flee from its enemies rather than fight them. By flapping its wings rapidly, it can whip up dust clouds and create whirlwinds to protect itself and flush out potential prey. Gust and Feather Dance are its former signature moves. Pidgey is very common throughout its range and can often be seen in meadows and temperate forests. Ekans and Sneasel are natural predators of Pidgey. Pidgey preys on Seedot.",
         "portrait": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
         "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png"
     },
@@ -223,6 +226,7 @@
             "normal",
             "flying"
         ],
+        "biology": "Pidgeotto is a raptor-like avian Pokémon. It is covered with brown feathers, has a cream-colored face, underside, and flight feathers. It has a crest of pinkish-red feathers on its head and black, angular markings behind its black eyes. The plumage of its tail has alternating red and yellow feathers with ragged tips. Its beak and legs are pink. Two of its toes point forward, while one points backward. Additionally, it has powerful, sharp talons that it uses to grasp prey.\nPidgeotto is a powerful flier capable of carrying prey several miles to its nest. It has amazing vision, which helps it locate preferred prey Pokémon such as Exeggcute and Magikarp. The anime has also depicted it preying on Caterpie. Pidgeotto claims a sprawling territory of more than 60 miles (100 kilometers), which it defends fiercely. Its nest is usually in the center of its territory and it circles its territory throughout the day, looking out for food and intruders. It is most often found in temperate forests. Gust and Feather Dance are its former signature moves.",
         "portrait": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
         "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png"
     },
@@ -236,6 +240,7 @@
             "normal",
             "flying"
         ],
+        "biology": "Pidgeot is an avian Pokémon with large wings, sharp talons, and a short, hooked beak. Its glossy plumage is mostly brown with cream-colored underparts and flight feathers. Its head has a decorated crest that is nearly as long as its body. The center feathers of its crest are yellow, while the outer feathers are red. The fan-like feathers of its tail are red or brown. Its beak and legs are pink, and there are three forward-facing toes and one backward-facing toe on each foot. Behind each eye is an angular black marking.\nPidgeot's powerful wings are capable of stirring up windstorms in just a few flaps, and it may spread its wings to intimidate enemies. This Pokémon is capable of flying faster than the speed of sound. Its plumage is often described as beautiful, making it a popular choice for skilled Trainers. Gust and Feather Dance are its former signature moves. Pidgeot typically dwells in temperate forests with thick growth and large trees. It is known to prey on Magikarp, which it can spot from great heights.",
         "portrait": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
         "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png"
     },
@@ -248,6 +253,7 @@
         "types": [
             "normal"
         ],
+        "biology": "Rattata is a small, quadrupedal rodent Pokémon. It has purple fur with a cream-colored face, paws, and underbelly. It has narrow eyes containing white sclera and pupil with red irises, rounded ears with cream-colored insides, and a single whisker on each cheek. Its long tail is tightly curled at the end. Its most notable feature is its large teeth. Like most rodents, its teeth grow continuously throughout its life and must be worn down by gnawing. A female Rattata will have shorter whiskers and lighter fur.\nRattata can live wherever it can find food, which it searches for most of the day. Thanks to its sharp fangs, it is able to chew on nearly anything. When it is threatened, Rattata can deliver a powerful bite. Its large teeth are also useful when using its former signature moves, Hyper Fang and Super Fang. Rattata constantly keep their ears up and will immediately scurry away from the slightest sound. Furret is the natural predator of Rattata. Its hardiness lets it live in many environments, although it mainly lives on plains and savannas. Because it reproduces so quickly, a pair of Rattata can quickly colonize an area.\nRattata are non-native to Alola and arrived in cargo ships. The Rattata population in Alola was booming until Yungoos was imported as a control measure. In order to avoid these new predators, Rattata altered its habits. It moved to more urban areas, became nocturnal, and formed large nests led by Raticate. Alolan Rattata searches out fresh food by smell and ignore anything spoiled. It has even been known to sneak into people's homes to find food. It has dark gray fur and grayish-purple ear insides. There are two tufts of fur on each ear and near the tip of its tail. Its long, thin whiskers are replaced by shorter, thicker tufts of fur as well. The line where its cream underbelly meets its gray fur is ragged instead of smooth. This variant of Rattata is the shortest Dark-type.",
         "portrait": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
         "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19.png"
     },
@@ -260,6 +266,7 @@
         "types": [
             "normal"
         ],
+        "biology": "Raticate is a large, rodent-like Pokémon. Although it is often depicted on its hind legs, it is a quadruped. It is primarily tawny-colored with a cream underside. It has narrow black eyes, ears with ragged edges and dark insides, and large incisors that grow constantly. There are three whiskers on each side of its face, which it uses to maintain balance. It has short arms with three-fingered hands and webbed feet with three toes. The webbing on its feet allows it to swim. Its tail is long and scaly. A female will have shorter whiskers and lighter fur.\nIf attacked, Raticate stands up on its hind legs, bares its fangs and shrieks in an intimidating manner at its enemy. It is willing to take on larger foes if provoked enough. Its teeth are strong enough to gnaw through steel and their constant growth means it often needs to gnaw on something, like rocks and logs. It may even chew on the walls of houses, and is capable of chewing through cinderblocks and toppling concrete buildings. Its large incisors are also used for its former signature moves Hyper Fang and Super Fang. This Pokémon typically lives in plains and savannas.\nIn Alola, Raticate has become heavier and darker due to its urban environment and higher calorie diet. Its fur is mostly black with a brown, leaf-shaped patch on its belly and brown inside its ears. Its hands, feet, cheeks, and tail are a whitish-cream color, and its hands are much smaller. It has large, puffy cheeks with four whiskers under its chin and two sprouting sideways from the top of each cheek. Its large incisors are still visible, but its eyes are now red. This variant uses its nest as a food stockpile, and generally prefers to have the Alolan Rattata it commands to go out and forage for food while it remains in its nest and eats. It is selective in what it eats, however, only eating fresh, high-quality foods, such as fruits. Rumor has it that a certain high-class restaurant even exploits this selectivity, bringing Raticate along to buy ingredients and letting it taste test new dishes.",
         "portrait": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
         "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png"
     },
@@ -273,6 +280,7 @@
             "normal",
             "flying"
         ],
+        "biology": "Spearow is an avian Pokémon that is very small. It has rough, brown plumage on its head and three brown tail feathers. It has narrow, dark brown eyes with white pupils and a short, hooked beak that is light pink. The feathers covering its wings are pinkish-red with lighter tips, and it has a beige underside with two thin, horizontal stripes. Its light pink feet have two toes in front and one in the back. Black feathers cover its back.\nAlthough inept at other aspects of its flying, such as height and distance, Spearow is still capable of flying quickly to protect its territory. However, it must flap its wings at high speeds to stay aloft. Spearow's loud shrieks can be heard over half a mile (one kilometer) away, and are used to warn other of its kind of danger. In the anime, Spearow is revealed to see in black and white and will chase its foes in a large flock. Spearow are found naturally in open habitats with warmer climates, mainly desolate wastelands and fields, where it hunts for insects. Ekans is a natural predator of Spearow.",
         "portrait": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png",
         "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/21.png"
     },
