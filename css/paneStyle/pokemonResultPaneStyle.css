@@ -1,0 +1,6 @@
+.PokemonResultPane {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-pref-width: 300;
+    -fx-pref-height: 50;
+}
