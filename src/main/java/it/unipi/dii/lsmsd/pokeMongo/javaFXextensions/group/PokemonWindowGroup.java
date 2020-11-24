@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.PokemonWindowLabel;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -31,52 +32,47 @@ public class PokemonWindowGroup extends Group {
 
     private void displaySprite(String url) {
         ImageView sprite = new ImageView(url);
-        sprite.setFitWidth(50);
-        sprite.setFitHeight(50);
-        sprite.relocate(240, 20);
+        sprite.setFitWidth(60);
+        sprite.setFitHeight(60);
+        sprite.relocate(230, 10);
 
         getChildren().add(sprite);
     }
 
     private void displayPokemonName(String name) {
         Label pokeName = new Label(name);
-        pokeName.relocate(280, 30);
-        pokeName.setStyle("-fx-font-family: 'Arial Black'; -fx-font-size: 18; -fx-font-weight: bold;");
+        pokeName.relocate(280, 22);
+        pokeName.setStyle("-fx-font-family: 'Arial Black'; -fx-font-size: 25; -fx-font-weight: bold;");
 
         getChildren().add(pokeName);
     }
 
     private void displayTypes(String types) {
-        Label typesLabel = new Label("Type: " + types);
-        typesLabel.relocate(240, 80);
+        PokemonWindowLabel typesLabel = new PokemonWindowLabel("TYPE: " + types, 250, 80);
 
         getChildren().add(typesLabel);
     }
 
     private void displayWeight(String weight) {
-        Label weightLabel = new Label("Weight: " + weight);
-        weightLabel.relocate(240, 100);
+        PokemonWindowLabel weightLabel = new PokemonWindowLabel("WEIGHT: " + weight, 250, 110);
 
         getChildren().add(weightLabel);
     }
 
     private void displayHeight(String height) {
-        Label heightLabel = new Label("Height: " + height);
-        heightLabel.relocate(240, 120);
+        PokemonWindowLabel heightLabel = new PokemonWindowLabel("HEIGHT: " + height, 250, 140);
 
         getChildren().add(heightLabel);
     }
 
     private void displayCatchRate(String catchRate) {
-        Label catchRateLabel = new Label("Height: " + catchRate);
-        catchRateLabel.relocate(240, 140);
+        PokemonWindowLabel catchRateLabel = new PokemonWindowLabel("CATCH RATE: " + catchRate, 250, 170);
 
         getChildren().add(catchRateLabel);
     }
 
     private void displayPoints(String points) {
-        Label pointsLabel = new Label("Points: " + points);
-        pointsLabel.relocate(240, 160);
+        PokemonWindowLabel pointsLabel = new PokemonWindowLabel("POINTS: " + points, 250, 200);
 
         getChildren().add(pointsLabel);
     }
@@ -87,6 +83,7 @@ public class PokemonWindowGroup extends Group {
         biologyText.relocate(20, 250);
         biologyText.setWrapText(true);
         biologyText.setEditable(false);
+        biologyText.setStyle("-fx-focus-color: -fx-control-inner-background; -fx-faint-focus-color: -fx-control-inner-background; -fx-border-color: grey;");
 
         Label biologyTitle = new Label("Biology");
         biologyTitle.relocate(20, 220);
