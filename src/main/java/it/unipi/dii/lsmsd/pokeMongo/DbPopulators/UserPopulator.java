@@ -1,23 +1,22 @@
 package it.unipi.dii.lsmsd.pokeMongo.DbPopulators;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 public class UserPopulator {
-    private static String pathNames;
-    private static String pathSurnames;
-    private static String pathCountries;
+    private static String pathNames="names.txt";
+    private static String pathSurnames="surnames.txt";
+    private static String pathCountries="countries.txt";
 
     public static void main(String[] args){
-        List<User> l = new ArrayList<>();
+        ArrayList<Object> l = new ArrayList<>();
         String name, surname, country, email, username, password;
         Boolean admin=false;
         Date birthday;
-        for(int i=0; i<20000; i++){
+        for(int i=0; i<(250*1000); i++){
             try(RandomAccessFile nameFile = new RandomAccessFile(pathNames, "r");
                 RandomAccessFile surnamesFile = new RandomAccessFile(pathSurnames, "r");
                 RandomAccessFile countriesFile = new RandomAccessFile(pathCountries, "r"))
@@ -31,12 +30,15 @@ public class UserPopulator {
                 email = name + "." + surname + "@lsmdb.unipi.it";
                 username=name + "_" + surname;
                 password = name + surname + "000";
-                birthday = new Date((long)new Date().getTime() - (long)Math.random()*3*1000*1000*1000);
+                birthday = new Date(new Date().getTime() - (long)(Math.random()*1600000000000L));
+                User u = new User(admin, surname, name, username, password, email, birthday, country);
+                l.add(u);
             }
             catch(Exception ioe){i--; continue;}
             if(i%20 == 0) {
-                //make the insertMany
-                //empty l
+                UserManagerOnMongoDb managerOnMongoDb = new UserManagerOnMongoDb();
+                managerOnMongoDb.insert(l);
+                l.clear();
             }
         }
     }
