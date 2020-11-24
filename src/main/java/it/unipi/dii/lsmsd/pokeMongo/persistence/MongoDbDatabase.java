@@ -8,53 +8,53 @@ import org.bson.Document;
 
 import java.util.ArrayList;
 
-public class MongoDbDatabase implements Database{
-    private static MongoClient connection;
-    private static String host="localhost";
-    private static int port = 27017;
-    private static String dbName="pokeMongo";
+public abstract class MongoDbDatabase implements Database{
+    private MongoClient connection;
+    private String host="localhost";
+    private int port = 27017;
+    private String dbName="pokeMongo";
 
-    private static MongoClient getConnection() {
-        if(connection==null)
-            connection=MongoClients.create("mongodb://" + host + ":" + port);
-        return connection;
+    @Override
+    public void startConnection(){
+        connection=MongoClients.create("mongodb://" + host + ":" + port);
     }
 
-    public static void closeConnection() {
+    @Override
+    public void closeConnection() {
         connection.close();
         connection=null;
     }
 
-    private static MongoDatabase getDatabase(){
+    private MongoClient getConnection() {
+        if(connection==null)
+            startConnection();
+        return connection;
+    }
+
+    private MongoDatabase getDatabase(){
         return connection.getDatabase(dbName);
     }
 
-    public static MongoCollection<Document> getCollection(String name){
+    public MongoCollection<Document> getCollection(String name){
         return getDatabase().getCollection(name);
     }
 
-    @Override
-    public boolean insert(ArrayList<Object> toInsert) {
-        return false;
+    public void dropCollection(String name){
+        getCollection(name).drop();
     }
 
     @Override
-    public boolean remove(Object o) {
-        return false;
-    }
+    public abstract boolean insert(ArrayList<Object> toInsert);
 
     @Override
-    public ArrayList<Object> getAll() {
-        return null;
-    }
+    public abstract boolean remove(Object o);
 
     @Override
-    public ArrayList<Object> getWithFilter(Object filter) {
-        return null;
-    }
+    public abstract ArrayList<Object> getAll();
 
     @Override
-    public boolean update(Object target, Object newValue) {
-        return false;
-    }
+    public abstract ArrayList<Object> getWithFilter(Object filter);
+
+    @Override
+    public abstract boolean update(Object target, Object newValue);
 }
