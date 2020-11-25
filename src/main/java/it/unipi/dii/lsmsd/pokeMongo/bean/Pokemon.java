@@ -2,32 +2,38 @@ package it.unipi.dii.lsmsd.pokeMongo.bean;
 
 public class Pokemon {
     private String name;
-    private String[] type;
+    private String[] types;
     private int generation;
-    private int pokedexIndex;
-    private double catchRate;
+    private int id;
+    private double capture_rate;
     private int points;
     private double height;
     private double weight;
+    private String biology;
+    private String portrait;
+    private String sprite;
 
-    public Pokemon(String name, String[] type, int generation, int pokedexIndex, double catchRate,
-                   int points, double height, double weight){
+    public Pokemon(String name, String[] types, int generation, int pokedexIndex, double catchRate,
+                   int points, double height, double weight, String bio, String portrait, String sprite){
         this.name=name;
-        this.type=type;
+        this.types=types;
         this.generation=generation;
-        this.pokedexIndex=pokedexIndex;
-        this.catchRate=catchRate;
+        this.id=pokedexIndex;
+        this.capture_rate=catchRate;
         this.points=points;
         this.height=height;
         this.weight=weight;
+        this.biology=bio;
+        this.portrait=portrait;
+        this.sprite=sprite;
     }
 
     public String getName() {
         return name;
     }
 
-    public double getCatchRate() {
-        return catchRate;
+    public double getCapture_rate() {
+        return capture_rate;
     }
 
     public double getHeight() {
@@ -46,20 +52,47 @@ public class Pokemon {
         return points;
     }
 
-    public int getPokedexIndex() {
-        return pokedexIndex;
+    public int getId() {
+        return id;
     }
 
-    public String[] getType() {
-        return type;
+    public String[] getTypes() {
+        return types;
     }
 
-    public void setCatchRate(double catchRate) {
-        this.catchRate = catchRate;
+    public String getBiology() {
+        return biology;
+    }
+
+    public String getPortrait() {
+        return portrait;
+    }
+
+    public String getSprite() {
+        return sprite;
+    }
+
+    public void setBiology(String biology) {
+        this.biology = biology;
+    }
+
+    public void setCapture_rate(double capture_rate) {
+        this.capture_rate = capture_rate;
     }
 
     public void setPoints(int points) {
         this.points = points;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSprite(String sprite) {
+        this.sprite = sprite;
+    }
+
+    public void setPortrait(String portrait) {
+        this.portrait = portrait;
+    }
 }

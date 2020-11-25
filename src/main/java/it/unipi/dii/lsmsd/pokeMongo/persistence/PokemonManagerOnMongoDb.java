@@ -50,7 +50,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase{
         MongoCollection<Document> collection = getCollection(collectionName);
         DeleteResult dr;
         if (o instanceof Pokemon){
-            dr = collection.deleteOne(eq("pokedexIndex", ((Pokemon) o).getPokedexIndex()));
+            dr = collection.deleteOne(eq("id", ((Pokemon) o).getId()));
         }
         else if(o instanceof Bson){
             dr = collection.deleteMany((Bson)o);
@@ -90,7 +90,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase{
         MongoCollection<Document> collection = getCollection(collectionName);
         UpdateResult ur;
         if (target instanceof Pokemon){
-            ur = collection.updateOne(eq("pokedexIndex", ((Pokemon) target).getPokedexIndex()),(Bson)newValue);
+            ur = collection.updateOne(eq("id", ((Pokemon) target).getId()),(Bson)newValue);
         }
         else if(target instanceof Bson){
             ur = collection.updateMany((Bson)target, (Bson)newValue);
