@@ -49,6 +49,9 @@ public abstract class MongoDbDatabase implements Database{
     public abstract boolean insert(ArrayList<Object> toInsert);
 
     @Override
+    public abstract boolean insert(Object toInsert);
+
+    @Override
     public abstract boolean remove(Object o);
 
     @Override

@@ -46,6 +46,17 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase{
     }
 
     @Override
+    public boolean insert(Object toInsert) {
+        if(toInsert==null)
+            return false;
+        MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
+        Document doc = PokemonToDocument((Pokemon)toInsert);
+        collection.insertOne(doc);
+        closeConnection();
+        return true;
+    }
+
+    @Override
     public boolean remove(Object o) {
         MongoCollection<Document> collection = getCollection(collectionName);
         DeleteResult dr;
