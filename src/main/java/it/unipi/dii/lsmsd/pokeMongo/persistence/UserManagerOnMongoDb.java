@@ -137,16 +137,27 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public boolean changeEmail(User target, String newEmail) {
-        return false;
+        return update(target, set("email", newEmail));
     }
 
     @Override
     public boolean changePassword(User target, String newPassword) {
-        return false;
+        return update(target, set("password", newPassword));
     }
 
     @Override
     public boolean changeCountry(User target, String newCountry) {
-        return false;
+        return update(target, set("country", newCountry));
+    }
+
+    @Override
+    public boolean removeUser(User target) {
+        return remove(target);
+    }
+
+    @Override
+    public boolean removeUser(String username) {
+        Bson query = eq("username", username);
+        return remove(query);
     }
 }

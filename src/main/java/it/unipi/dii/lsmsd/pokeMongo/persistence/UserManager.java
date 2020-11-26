@@ -19,16 +19,15 @@ public interface UserManager {
      */
     User login(User toLog);
 
-
     /**
-     *
+     * registers a user into the system
      * @param toRegister User to add to the system
      * @return true if user is correctly added
      */
     boolean register(User toRegister);
 
     /**
-     *
+     * changes email to a user
      * @param target user we want to change email
      * @param newEmail new email to set
      * @return true if email is correctly updated
@@ -36,7 +35,7 @@ public interface UserManager {
     boolean changeEmail(User target, String newEmail);
 
     /**
-     *
+     * changes password to a user
      * @param target user we want to change password
      * @param newPassword new encrypted password to set
      * @return true if password is correctly updated
@@ -44,12 +43,24 @@ public interface UserManager {
     boolean changePassword(User target, String newPassword);
 
     /**
-     *
+     * changes country to a user
      * @param target user we want to change country
      * @param newCountry new encrypted country to set
      * @return true if country is correctly updated
      */
     boolean changeCountry(User target, String newCountry);
 
+    /**
+     * removes an user from the system
+     * @param target user to eliminate (at least username must be set)
+     * @return true if user is removed correctly
+     */
+    boolean removeUser(User target);
 
+    /**
+     * removes an user from the system
+     * @param username username of the  user to eliminate
+     * @return true if user is removed correctly
+     */
+    boolean removeUser(String username);
 }
