@@ -1,21 +1,17 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.result.DeleteResult;
-import com.mongodb.client.result.UpdateResult;
+import com.mongodb.client.result.*;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import static com.mongodb.client.model.Filters.and;
-import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Updates.set;
+import static com.mongodb.client.model.Filters.*;
+import static com.mongodb.client.model.Updates.*;
 
 public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager{
     private final String collectionName = "user";
@@ -132,5 +128,25 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     @Override
     public User login(User toLog) {
         return login(toLog.getUsername(), toLog.getPassword());
+    }
+
+    @Override
+    public boolean register(User toRegister) {
+        return insert(toRegister);
+    }
+
+    @Override
+    public boolean changeEmail(User target, String newEmail) {
+        return false;
+    }
+
+    @Override
+    public boolean changePassword(User target, String newPassword) {
+        return false;
+    }
+
+    @Override
+    public boolean changeCountry(User target, String newCountry) {
+        return false;
     }
 }
