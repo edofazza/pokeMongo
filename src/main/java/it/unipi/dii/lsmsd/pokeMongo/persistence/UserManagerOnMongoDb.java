@@ -10,10 +10,12 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Updates.set;
 
 public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager{
     private final String collectionName = "user";
@@ -122,6 +124,8 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         ArrayList<Object> matched = getWithFilter(query);
         if(matched.size()!=1)
             return null;
+        Date now = new Date();
+        update(query, set("lastLogin", now));
         return (User)matched.get(0);
     }
 
