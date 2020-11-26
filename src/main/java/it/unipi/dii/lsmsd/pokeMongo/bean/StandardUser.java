@@ -27,6 +27,10 @@ public class StandardUser extends GeneralUser {
         this.dailyPokeball=10;
     }
 
+    public StandardUser(String username, String password){
+        this(false, null, null, username, password, null, null, null);
+    }
+
     public String getSurname(){
         return surname;
     }
