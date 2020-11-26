@@ -8,4 +8,8 @@ public class AdminUser extends GeneralUser {
         this.email = email;
         this.password = password;
     }
+
+    public AdminUser(String username, String password){
+        this(true, username, password, null);
+    }
 }
