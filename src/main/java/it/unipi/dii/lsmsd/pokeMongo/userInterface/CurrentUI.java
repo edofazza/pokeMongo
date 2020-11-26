@@ -1,6 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
-import it.unipi.dii.lsmsd.pokeMongo.bean.StandardUser;
+import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 
@@ -12,7 +12,7 @@ import java.util.Date;
 public class CurrentUI {
     private static PokeScene nodeWindow;
     private static Group root;
-    private static StandardUser userLogged = new StandardUser(false, "Fazzari", "Edoardo", "edofazza",
+    private static User userLogged = new User(false, "Fazzari", "Edoardo", "edofazza",
             "donaldDuck98", "edo@i.com", new Date("10/11/1998"), "Italy");
 
     /**

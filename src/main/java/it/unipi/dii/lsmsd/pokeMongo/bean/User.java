@@ -1,39 +1,105 @@
 package it.unipi.dii.lsmsd.pokeMongo.bean;
 
-public interface User {
-    /**
-     * Check if the user is an admin
-     * @return true if the user is an admin, false otherwise
-     */
-    boolean isAdmin();
+import java.util.Date;
 
-    /**
-     * Get the user's username
-     * @return A String containing the user's username
-     */
-    String getUsername();
+public class User {
+    private boolean admin;
+    private String username;
+    private String email;
+    private String password;
+    private String surname;
+    private String name;
+    private Date birthDay;
+    private String country;
+    private String teamName;
+    //private int[] Team;
+    private Date lastLogin;
+    private int dailyPokeball;
 
-    /**
-     * Get the user's password
-     * @return A String containing the user's password
-     */
-    String getPassword();
+    public User(boolean admin, String surname, String name, String username, String password, String email,
+                        Date birthDay, String country){
+        this.admin=admin;
+        this.surname=surname;
+        this.name=name;
+        this.username=username;
+        this.password=password;
+        this.email=email;
+        this.birthDay=birthDay;
+        this.country=country;
+        this.teamName="Team name";
+        this.lastLogin=new Date();
+        this.dailyPokeball=10;
+    }
 
-    /**
-     * Get the user's email
-     * @return A String containing the user's username
-     */
-    String getEmail();
+    public User(String username, String password){
+        this(false, null, null, username, password, null, null, null);
+    }
 
-    /**
-     * Set the new user's email
-     * @param email A String containing the new email we want to set.
-     */
-    void setEmail(String email);
+    public boolean isAdmin() {
+        return admin;
+    }
 
-    /**
-     * Set the new user's password
-     * @param password A String containg the new password we want to set.
-     */
-    void setPassword(String password);
+    public String getUsername() {
+        return  username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSurname(){
+        return surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public Date getBirthDay() {
+        return birthDay;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public Date getLastLogin() {
+        return lastLogin;
+    }
+
+    public int getDailyPokeball() {
+        return dailyPokeball;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public void resetDailyPokeball() {
+        this.dailyPokeball = 10;
+    }
+
+    public void decrementDailyPokeball() {
+        this.dailyPokeball--;
+    }
 }
