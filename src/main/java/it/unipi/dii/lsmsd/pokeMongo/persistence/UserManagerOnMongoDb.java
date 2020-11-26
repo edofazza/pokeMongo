@@ -5,6 +5,7 @@ import com.google.gson.*;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.*;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -29,6 +30,13 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         if(toInsert.size()==0)
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
+
+        //TODO: Added Password Encryption, watch effects
+        for(Object o: toInsert){
+            User userToInsert = (User)o;
+            userToInsert.setPassword(PasswordEncryptor.encryptPassword(userToInsert.getPassword()));
+        }
+
         if(toInsert.size()==1){
             Document doc = UserToDocument((User)toInsert.get(0));
             collection.insertOne(doc);
@@ -50,7 +58,11 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         if(toInsert==null)
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
-        Document doc = UserToDocument((User)toInsert);
+
+        //TODO: Added Password Encryption, watch effects
+        User userToInsert = (User)toInsert;
+        userToInsert.setPassword(PasswordEncryptor.encryptPassword(userToInsert.getPassword()));
+        Document doc = UserToDocument(userToInsert);
         collection.insertOne(doc);
         closeConnection();
         return true;
@@ -116,7 +128,8 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public User login(String username, String password) {
-        Bson query = and(eq("username", username), eq("password", password));
+        //TODO: Added Password Encryption, watch effects
+        Bson query = and(eq("username", username), eq("password", PasswordEncryptor.encryptPassword(password)));
         ArrayList<Object> matched = getWithFilter(query);
         if(matched.size()!=1)
             return null;
@@ -146,7 +159,8 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public boolean changePassword(User target, String newPassword) {
-        return update(target, set("password", newPassword));
+        //TODO: Added Password Encryption, watch effects
+        return update(target, set("password", PasswordEncryptor.encryptPassword(newPassword)));
     }
 
     @Override
