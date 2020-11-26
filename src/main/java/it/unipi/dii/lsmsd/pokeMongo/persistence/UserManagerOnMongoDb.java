@@ -178,4 +178,13 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         Bson query = eq("username", username);
         return remove(query);
     }
+
+    @Override
+    public boolean verifyOldPassword(User involved, String password) {
+        Bson query = eq("username", involved.getUsername());
+        ArrayList<Object> matches=getWithFilter(query);
+        if(matches.size()!=1)
+            return false;
+        return ((User)matches.get(0)).getPassword().equals(PasswordEncryptor.encryptPassword(password));
+    }
 }
