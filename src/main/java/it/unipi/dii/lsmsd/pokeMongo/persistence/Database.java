@@ -27,6 +27,13 @@ public interface Database {
     boolean insert(ArrayList<Object> toInsert);
 
     /**
+     * insert 1 object into the database
+     * @param toInsert ArrayList of arbitrary objects to insert into the Database
+     * @return true if exactly one element has been added
+     */
+    boolean insert(Object toInsert);
+
+    /**
      * remove 1 ore more objects from the database
      * @param o is an Object to remove or a query to submit
      * @return true if at least one element has been removed

@@ -6,8 +6,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
-import org.bson.*;
-import org.bson.conversions.*;
+import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +42,17 @@ public class UserManagerOnMongoDb extends MongoDbDatabase{
             }
             collection.insertMany(l);
         }
+        closeConnection();
+        return true;
+    }
+
+    @Override
+    public boolean insert(Object toInsert) {
+        if(toInsert==null)
+            return false;
+        MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
+        Document doc = UserToDocument((User)toInsert);
+        collection.insertOne(doc);
         closeConnection();
         return true;
     }
