@@ -7,7 +7,10 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -228,6 +231,7 @@ public class SignUp extends PokeSceneWithTitle {
                 !passwordTF.getText().equals("") && !nameTF.getText().equals("") && !emailTF.getText().equals("") &&
                 !confirmPasswordTF.getText().equals("") && !countryTF.getText().equals("")
         ) {
+            Scene scene;
             // Get the Date
             LocalDate localDate = birthdayDP.getValue();
             Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
@@ -235,7 +239,7 @@ public class SignUp extends PokeSceneWithTitle {
 
             // Create a connection to MongoDB and insert the user
             UserManager userManager = new UserManagerOnMongoDb();
-            userManager.register(
+            if(userManager.register(
                     new User(
                             false,
                             surnameTF.getText(),
@@ -245,7 +249,14 @@ public class SignUp extends PokeSceneWithTitle {
                             emailTF.getText(),
                             date,
                             countryTF.getText())
-            );
+            ))
+                scene = new Scene(new Group( new Label("Sign up successfully done")), 185, 30);
+            else
+                scene = new Scene(new Group( new Label("Username already present")), 185, 30);
+            Stage stage = new Stage();
+            stage.setTitle("Sign up result");
+            stage.setScene(scene);
+            stage.show();
         }
 
     }
