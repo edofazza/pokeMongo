@@ -6,15 +6,17 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import it.unipi.dii.lsmsd.pokeMongo.bean.StandardUser;
+import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 
-public class UserManagerOnMongoDb extends MongoDbDatabase{
+public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager{
     private final String collectionName = "user";
 
     private Document UserToDocument(StandardUser p){
@@ -113,5 +115,19 @@ public class UserManagerOnMongoDb extends MongoDbDatabase{
         }
         closeConnection();
         return ur.getModifiedCount()>0;
+    }
+
+    @Override
+    public User login(String username, String password) {
+        Bson query = and(eq("username", username), eq("password", password));
+        ArrayList<Object> matched = getWithFilter(query);
+        if(matched.size()!=1)
+            return null;
+        return (User)matched.get(0);
+    }
+
+    @Override
+    public User login(User toLog) {
+        return login(toLog.getUsername(), toLog.getPassword());
     }
 }
