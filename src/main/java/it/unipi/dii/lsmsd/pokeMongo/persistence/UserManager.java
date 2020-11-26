@@ -63,4 +63,12 @@ public interface UserManager {
      * @return true if user is removed correctly
      */
     boolean removeUser(String username);
+
+    /**
+     * Compares the password of a User object with the one memorized on DB
+     * @param involved user to which compare password
+     * @param password PLAIN TEXT password to compare with the encrypted one stored in db
+     * @return true if password are equal
+     */
+    boolean verifyOldPassword(User involved, String password);
 }
