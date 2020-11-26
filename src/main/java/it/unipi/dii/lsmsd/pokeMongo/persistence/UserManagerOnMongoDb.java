@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
-import it.unipi.dii.lsmsd.pokeMongo.bean.AdminUser;
 import it.unipi.dii.lsmsd.pokeMongo.bean.StandardUser;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import org.bson.Document;
@@ -20,20 +19,12 @@ import static com.mongodb.client.model.Filters.eq;
 public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager{
     private final String collectionName = "user";
 
-    private Document StandardUserToDocument(StandardUser s){
-        return Document.parse(new Gson().toJson(s));
+    private Document UserToDocument(StandardUser p){
+        return Document.parse(new Gson().toJson(p));
     }
 
-    private StandardUser DocumentToStandardUser(Document doc){
+    private StandardUser DocumentToUser(Document doc){
         return new Gson().fromJson(doc.toJson(), StandardUser.class);
-    }
-
-    private Document AdminUserToDocument(AdminUser a) {
-        return Document.parse(new Gson().toJson(a));
-    }
-
-    private AdminUser DocumentToAdminUser(Document doc){
-        return new Gson().fromJson(doc.toJson(), AdminUser.class);
     }
 
     @Override
@@ -42,28 +33,13 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
         if(toInsert.size()==1){
-            Object toAdd = toInsert.get(0);
-            if(toAdd instanceof  StandardUser) {
-                Document doc = StandardUserToDocument((StandardUser) toAdd);
-                collection.insertOne(doc);
-            }
-            else if(toAdd instanceof AdminUser){
-                Document doc = AdminUserToDocument((AdminUser) toAdd);
-                collection.insertOne(doc);
-            }
+            Document doc = UserToDocument((StandardUser)toInsert.get(0));
+            collection.insertOne(doc);
         }
         else{
             List<Document> l = new ArrayList<>();
             for(Object o:toInsert){
-                Document doc;
-                if(o instanceof  StandardUser) {
-                    doc = StandardUserToDocument((StandardUser) o);
-                }
-                else if (o instanceof AdminUser){
-                    doc = AdminUserToDocument((AdminUser) o);
-                }
-                else
-                    continue;
+                Document doc = UserToDocument((StandardUser)o);
                 l.add(doc);
             }
             collection.insertMany(l);
@@ -77,16 +53,8 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         if(toInsert==null)
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
-        Document doc;
-        if(toInsert instanceof  StandardUser) {
-            doc = StandardUserToDocument((StandardUser) toInsert);
-            collection.insertOne(doc);
-        }
-        else if (toInsert instanceof AdminUser){
-            doc = AdminUserToDocument((AdminUser) toInsert);
-            collection.insertOne(doc);
-        }
-
+        Document doc = UserToDocument((StandardUser)toInsert);
+        collection.insertOne(doc);
         closeConnection();
         return true;
     }
@@ -114,7 +82,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         List<Document> docs= getCollection(collectionName).find().into(new ArrayList<>());
         ArrayList<Object> users = new ArrayList<>();
         for(Document d:docs){
-            users.add(DocumentToStandardUser(d));
+            users.add(DocumentToUser(d));
         }
         closeConnection();
         return users;
@@ -125,7 +93,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         List<Document> docs= getCollection(collectionName).find((Bson)filter).into(new ArrayList<>());
         ArrayList<Object> users = new ArrayList<>();
         for(Document d:docs){
-            users.add(DocumentToStandardUser(d));
+            users.add(DocumentToUser(d));
         }
         closeConnection();
         return users;
