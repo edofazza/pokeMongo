@@ -104,7 +104,7 @@ public class SignUp extends PokeSceneWithTitle {
     private void displayBirthdayFields() {
         FieldRelatedLabel passwordLabel = new FieldRelatedLabel("Birthday", 350, 470);
 
-        invalidBirthdayLabel = new InvalidFormEntryLabel("Birthday must not be\na day in the future", 540, 490, false);
+        invalidBirthdayLabel = new InvalidFormEntryLabel("Birthday must not be\na day in the future", 540, 490, true);
 
         birthdayDP = new DatePicker();
         birthdayDP.relocate(350, 500);
@@ -204,6 +204,7 @@ public class SignUp extends PokeSceneWithTitle {
      */
     private void displaySubmitButton() {
         RegularButton submitButton = new RegularButton("SUBMIT", 1000, 600);
+        submitButton.setOnAction(e -> handleSubmit());
 
         sceneNodes.getChildren().add(submitButton);
     }
@@ -212,6 +213,15 @@ public class SignUp extends PokeSceneWithTitle {
      * Manages the information given by the user in order to create a new account.
      */
     private void handleSubmit(){
-        //TODO: query al database necessaria
+        // Check if the fields are the properly inserted (no label displayed and no empty fields)
+        if (!invalidBirthdayLabel.isVisible() && !invalidConfirmPasswordLabel.isVisible() &&
+                !invalidEmailLabel.isVisible() && !invalidNameLabel.isVisible() && !invalidPasswordLabel.isVisible() &&
+                !invalidSurnameLabel.isVisible() && !surnameTF.getText().equals("") && !usernameTF.getText().equals("") &&
+                !passwordTF.getText().equals("") && !nameTF.getText().equals("") && !emailTF.getText().equals("") &&
+                !confirmPasswordTF.getText().equals("") && !countryTF.getText().equals("")
+        ) {
+            System.out.println("okay");
+        }
+
     }
 }
