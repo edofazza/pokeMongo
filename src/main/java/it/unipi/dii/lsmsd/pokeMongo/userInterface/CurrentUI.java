@@ -12,8 +12,8 @@ import java.util.Date;
 public class CurrentUI {
     private static PokeScene nodeWindow;
     private static Group root;
-    private static User userLogged = new User(false, "Fazzari", "Edoardo", "edofazza",
-            "donaldDuck98", "edo@i.com", new Date("10/11/1998"), "Italy");
+    private static User userLogged; /*= new User(false, "Fazzari", "Edoardo", "edofazza",
+            "donaldDuck98", "edo@i.com", new Date("10/11/1998"), "Italy");*/
 
     /**
      * Create the default scene (<em>LogIn</em>) and set the dimension of it
@@ -47,6 +47,13 @@ public class CurrentUI {
         if (userLogged != null)
             return userLogged.getUsername();
         return "username";
+    }
+
+    /**
+     *
+     */
+    protected static void setUser(User user) {
+        userLogged = user;
     }
 
     /**

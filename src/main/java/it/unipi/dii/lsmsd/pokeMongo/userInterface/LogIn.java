@@ -1,7 +1,11 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 
@@ -9,6 +13,9 @@ import javafx.scene.control.TextField;
  * Class scene related to the Log In page
  */
 public class LogIn extends PokeSceneWithBlastoiseCharizard {
+    private TextField emailTF;
+    private TextField passwordTF;
+
     /**
      * Constructor. Called a series of functions to add all the <code>Node</code> needed.
      * It also sets the music.
@@ -31,7 +38,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
     private void displayEmailFields() {
         FieldRelatedLabel emailLabel = new FieldRelatedLabel("Email", 550, 170);
 
-        TextField emailTF = new TextField();
+        emailTF = new TextField();
         emailTF.relocate(550, 200);
 
         sceneNodes.getChildren().add(emailLabel);
@@ -44,7 +51,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
     private void displayPasswordFields() {
         FieldRelatedLabel passwordLabel = new FieldRelatedLabel("Password", 550, 270);
 
-        TextField passwordTF = new TextField();
+        passwordTF = new TextField();
         passwordTF.relocate(550, 300);
 
         sceneNodes.getChildren().add(passwordLabel);
@@ -68,6 +75,17 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
      * Checks if the fields filled by the user are correct and if so, it goes to his homepage.
      */
     private void logInButtonAction() {
+        // Check the information given
+        UserManager userManager = new UserManagerOnMongoDb();
+        User user = userManager.login(emailTF.getText(), passwordTF.getText());
+
+        // set the user, to
+        if(user != null)
+            CurrentUI.setUser(user);
+
+        System.out.println(user);
+
+        // Change the scene
         CurrentUI.changeScene(SceneNames.HOMEPAGE);
     }
 
