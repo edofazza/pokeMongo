@@ -1,10 +1,18 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import javafx.scene.control.*;
+
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 /**
  * This class is used to display the <code>Node</code> concerning the Settings.
@@ -220,7 +228,24 @@ public class SignUp extends PokeSceneWithTitle {
                 !passwordTF.getText().equals("") && !nameTF.getText().equals("") && !emailTF.getText().equals("") &&
                 !confirmPasswordTF.getText().equals("") && !countryTF.getText().equals("")
         ) {
-            System.out.println("okay");
+            // Get the Date
+            LocalDate localDate = birthdayDP.getValue();
+            Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+            Date date = Date.from(instant);
+
+            // Create a connection to MongoDB and insert the user
+            UserManager userManager = new UserManagerOnMongoDb();
+            userManager.register(
+                    new User(
+                            false,
+                            surnameTF.getText(),
+                            nameTF.getText(),
+                            usernameTF.getText(),
+                            passwordTF.getText(),
+                            emailTF.getText(),
+                            date,
+                            countryTF.getText())
+            );
         }
 
     }
