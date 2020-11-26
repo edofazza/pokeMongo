@@ -18,6 +18,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
         if(!CurrentUI.isAdmin()) {
             displayTeamButton();
             displayCatchemAllButton();
+            displayFriendsButton();
         }
 
         displayRankingButton();
@@ -43,7 +44,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
     }
 
     /**
-     * Add to <code>sceneNodes</code> the button to view the Team. Only normal user.
+     * Add to <code>sceneNodes</code> the button to view the Team. Only standard user.
      */
     private void displayTeamButton() {
         HomePageCentralButton teamButton = new HomePageCentralButton("TEAM");
@@ -53,13 +54,23 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
     }
 
     /**
-     * Add to <code>sceneNodes</code> the button to go to the CatchEmAll scene. Only normal user.
+     * Add to <code>sceneNodes</code> the button to go to the CatchEmAll scene. Only standard user.
      */
     private void displayCatchemAllButton() {
         HomePageCentralButton catchemAllButton = new HomePageCentralButton("CATCH'EM ALL");
         catchemAllButton.setOnAction(e -> catchemAllButtonAction());
 
         sceneNodes.getChildren().add(catchemAllButton);
+    }
+
+    /**
+     * Add to <code>sceneNodes</code> the button to go to the Friends scene. Only standard user.
+     */
+    private void displayFriendsButton() {
+        HomePageCentralButton friendsButton = new HomePageCentralButton("FRIENDS");
+        friendsButton.setOnAction(e -> friendsButtonAction());
+
+        sceneNodes.getChildren().add(friendsButton);
     }
 
     /**
@@ -73,7 +84,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
     }
 
     /**
-     * Add to <code>sceneNodes</code> the button to view to change the settings. Only normal user.
+     * Add to <code>sceneNodes</code> the button to view to change the settings. Only standard user.
      */
     private void displaySettingsButton() {
         HomePageCentralButton settingButton = new HomePageCentralButton("SETTINGS");
@@ -128,6 +139,13 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
      */
     private void teamButtonAction() {
         CurrentUI.changeScene(SceneNames.TEAM);
+    }
+
+    /**
+     * Change the scene to Friends
+     */
+    private void friendsButtonAction() {
+        CurrentUI.changeScene(SceneNames.FRIENDS);
     }
 
     /**

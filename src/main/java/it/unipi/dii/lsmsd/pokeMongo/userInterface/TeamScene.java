@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokemonPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.TeamNameTextField;
 
@@ -9,6 +10,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.TeamNameTextFiel
  */
 public class TeamScene extends PokeSceneWithHeaderAndBackButton {
     private TeamNameTextField teamNameTF;
+    private FieldRelatedLabel points;
 
     // TODO: SEE IF IT IS REALLY HELPFUL
     private PokemonPane[] pokePaneArray = new PokemonPane[6];
@@ -21,6 +23,8 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
         displayTeamName();
 
         displayPokemon();
+
+        displayPoints();
 
         displaySaveButton();
 
@@ -54,6 +58,15 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
         teamNameTF = new TeamNameTextField(CurrentUI.getTeamName(), 450, 50);
 
         sceneNodes.getChildren().add(teamNameTF);
+    }
+
+    /**
+     * Adds to the scene the points of the team
+     */
+    private void displayPoints() {
+        points = new FieldRelatedLabel("Points: ", 570, 590);
+
+        sceneNodes.getChildren().add(points);
     }
 
     /**

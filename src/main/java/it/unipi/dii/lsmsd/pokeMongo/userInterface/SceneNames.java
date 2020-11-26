@@ -4,7 +4,7 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
  * Contains all the names of the scenes.
  */
 public enum SceneNames {
-    LOGIN, SIGNUP, HOMEPAGE, POKEDEX, TEAM, CATCHEMALL, RANKING, SETTINGS, ADD_REMOVE;
+    LOGIN, SIGNUP, HOMEPAGE, POKEDEX, TEAM, CATCHEMALL, RANKING, SETTINGS, ADD_REMOVE, FRIENDS;
 
     /**
      * This function handles the creation of the class scene asked.

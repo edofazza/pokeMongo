@@ -1,6 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.DbPopulators;
 
-import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.bean.StandardUser;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 
 import java.io.*;
@@ -45,7 +45,7 @@ public class UserPopulator {
                 username = name + "_" + surname;
                 password = name + surname + "000";
                 birthday = new Date(new Date().getTime() - (long) (Math.random() * 1500000000000D + 100000000000D));
-                User u = new User(admin, surname, name, username, password, email, birthday, country);
+                StandardUser u = new StandardUser(admin, surname, name, username, password, email, birthday, country);
                 l.add(u);
 
                 if (i % 20 == 0) {
