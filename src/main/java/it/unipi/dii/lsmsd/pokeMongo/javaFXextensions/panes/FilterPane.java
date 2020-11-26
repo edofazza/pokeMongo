@@ -5,6 +5,9 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FilterLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.FilterTextField;
 import javafx.scene.layout.Pane;
 
+/**
+ * Specific pane showing the elements needed in the filter (Pokedex)
+ */
 public class FilterPane extends Pane {
     private FilterTextField nameTF;
     private FilterTextField idTF;
@@ -21,6 +24,11 @@ public class FilterPane extends Pane {
     private FilterTextField minPointsTF;
     private FilterTextField maxPointsTF;
 
+    /**
+     * Relocates the pane
+     * @param x the x axis position
+     * @param y the x axis position
+     */
     public FilterPane(int x, int y) {
         relocate(x, y);
 
@@ -29,6 +37,9 @@ public class FilterPane extends Pane {
         getStyleClass().add("FilterPane");
     }
 
+    /**
+     * Calls a series of function in order to add to the scene all the <code>Node</code>
+     */
     private void displayFields() {
         displayName();
         displayID();
@@ -40,6 +51,10 @@ public class FilterPane extends Pane {
         displayFilterButton();
     }
 
+    /**
+     * Adds to the pane the fields related to the name (<code>FilterLabel</code> and
+     * <code>FilterTextField</code>)
+     */
     private void displayName() {
         FilterLabel name = new FilterLabel("Name", 78, 17);
 
@@ -48,6 +63,10 @@ public class FilterPane extends Pane {
         getChildren().addAll(name, nameTF);
     }
 
+    /**
+     * Adds to the pane the fields related to the ID (<code>FilterLabel</code> and
+     * <code>FilterTextField</code>)
+     */
     private void displayID() {
         FilterLabel id = new FilterLabel("Pokedex ID", 280, 17);
 
@@ -56,6 +75,10 @@ public class FilterPane extends Pane {
         getChildren().addAll(id, idTF);
     }
 
+    /**
+     * Adds to the pane the fields related to the weight, min and max (2 <code>FilterLabel</code> and
+     * 2 <code>FilterTextField</code>)
+     */
     private void displayWeight() {
         // MIN
         FilterLabel minWeight = new FilterLabel("Min Weight", 483, 17);
@@ -68,6 +91,10 @@ public class FilterPane extends Pane {
         getChildren().addAll(minWeight, weightMinTF, maxWeight, weightMaxTF);
     }
 
+    /**
+     * Adds to the pane the fields related to the height, min and max (2 <code>FilterLabel</code> and
+     * 2 <code>FilterTextField</code>)
+     */
     private void displayHeight() {
         FilterLabel heightMin = new FilterLabel("Min Height", 48, 60);
         heightMinTF = new FilterTextField(120, 60);
@@ -78,6 +105,10 @@ public class FilterPane extends Pane {
         getChildren().addAll(heightMin, heightMinTF, heightMax, heightMaxTF);
     }
 
+    /**
+     * Adds to the pane the fields related to the types (2 <code>FilterLabel</code> and
+     * 2 <code>FilterTextField</code>)
+     */
     private void displayTypes() {
         // TYPE 1
         FilterLabel type1 = new FilterLabel("Type1", 515, 60);
@@ -90,6 +121,10 @@ public class FilterPane extends Pane {
         getChildren().addAll(type1, type1TF, type2, type2TF);
     }
 
+    /**
+     * Adds to the pane the fields related to the catch rate, min and max (2 <code>FilterLabel</code> and
+     * 2 <code>FilterTextField</code>)
+     */
     private void displayCatchRate() {
         // MIN CATCH RATE
         FilterLabel minCatchRate = new FilterLabel("Min Catch Rate", 20, 103);
@@ -102,6 +137,10 @@ public class FilterPane extends Pane {
         getChildren().addAll(minCatchRate, catchRateMinTF, maxCatchRate, getCatchRateMaxTF);
     }
 
+    /**
+     * Adds to the pane the fields related to the points, min and max (2 <code>FilterLabel</code> and
+     * 2 <code>FilterTextField</code>)
+     */
     private void displayPoints() {
         // MIN POINTS
         FilterLabel minPoints = new FilterLabel("Min Points", 488, 103);
@@ -114,6 +153,9 @@ public class FilterPane extends Pane {
         getChildren().addAll(minPoints, minPointsTF, maxPoints, maxPointsTF);
     }
 
+    /**
+     * Adds to the pane the button to confirm filtering
+     */
     private void displayFilterButton() {
         RegularButton filterButton = new RegularButton("filter", 900, 160);
 

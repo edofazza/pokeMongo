@@ -1,35 +1,36 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
-import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+/**
+ * This class is used to display the <code>Node</code> concerning the Settings.
+ */
 public class Settings extends PokeSceneWithHeaderAndBackButton {
     // LEFT
     private TextField newEmailTF;
     private TextField oldPasswordTF;
     private TextField confirmPasswordTF;
 
-    private Label invalidEmailLabel;
-    private Label invalidConfirmPasswordLabel;
+    private InvalidFormEntryLabel invalidEmailLabel;
+    private InvalidFormEntryLabel invalidConfirmPasswordLabel;
 
     // RIGHT
     private TextField confirmEmailTF;
     private TextField newPasswordTF;
     private TextField countryTF;
 
-    private Label invalidConfirmEmailLabel;
-    private Label invalidPasswordLabel;
+    private InvalidFormEntryLabel invalidConfirmEmailLabel;
+    private InvalidFormEntryLabel invalidPasswordLabel;
 
-    private final String styleInvalidFormEntry = "-fx-font-family: 'Arial'; -fx-font-size: 12px; " +
-            "-fx-background-color: rgb(255, 33, 26); -fx-text-fill: white; -fx-max-width: 230; -fx-padding: 3;" +
-            " -fx-border-radius: 15px; -fx-background-radius: 15px; -fx-border-width: 0.06em;" +
-            " -fx-border-color: black;";
-
+    /**
+     * Calls series of functions in order to display all the fields. It sets
+     * also the music
+     */
     public Settings() {
         displayNewEmail();
         displayConfirmEmail();
@@ -44,13 +45,14 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
     }
 
     // LEFT SIDE
+
+    /**
+     * Adds to the scene the <code>Node</code> concerning the new email
+     */
     private void displayNewEmail() {
         FieldRelatedLabel emailLabel = new FieldRelatedLabel("New Email", 350, 170);
 
-        invalidEmailLabel = new Label("Email must follow the format:\nexample@domain.tld");
-        invalidEmailLabel.relocate(510, 190);
-        invalidEmailLabel.setVisible(false);
-        invalidEmailLabel.setStyle(styleInvalidFormEntry);
+        invalidEmailLabel = new InvalidFormEntryLabel("Email must follow the format:\nexample@domain.tld", 510, 190, false);
 
         newEmailTF = new TextField();
         newEmailTF.relocate(350, 200);
@@ -61,6 +63,9 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().add(newEmailTF);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> concerning the old password
+     */
     private void displayOldPassword() {
         FieldRelatedLabel oldPasswordLabel = new FieldRelatedLabel("Old Password", 350, 270);
 
@@ -73,13 +78,13 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().add(oldPasswordTF);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> in order to confirm the password
+     */
     private void displayConfirmPassword() {
         FieldRelatedLabel confirmPasswordLabel = new FieldRelatedLabel("Confirm Password", 350, 370);
 
-        invalidConfirmPasswordLabel = new Label("Does not match with the other password");
-        invalidConfirmPasswordLabel.relocate(510, 400);
-        invalidConfirmPasswordLabel.setVisible(false);
-        invalidConfirmPasswordLabel.setStyle(styleInvalidFormEntry);
+        invalidConfirmPasswordLabel = new InvalidFormEntryLabel("Does not match with the other password", 510, 400, false);
 
         confirmPasswordTF = new PasswordField();
         confirmPasswordTF.relocate(350, 400);
@@ -90,14 +95,14 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().add(confirmPasswordTF);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> in order to confirm the email
+     */
     // RIGHT SIDE
     private void displayConfirmEmail() {
         FieldRelatedLabel confirmEmailLabel = new FieldRelatedLabel("Confirm Email", 750, 170);
 
-        invalidConfirmEmailLabel = new Label("Does not match with the other email");
-        invalidConfirmEmailLabel.relocate(910, 200);
-        invalidConfirmEmailLabel.setVisible(false);
-        invalidConfirmEmailLabel.setStyle(styleInvalidFormEntry);
+        invalidConfirmEmailLabel = new InvalidFormEntryLabel("Does not match with the other email", 910, 200, false);
 
         confirmEmailTF = new TextField();
         confirmEmailTF.relocate(750, 200);
@@ -108,13 +113,13 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().add(confirmEmailTF);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> concerning the new password
+     */
     private void displayNewPassword() {
         FieldRelatedLabel newPasswordLabel = new FieldRelatedLabel("New Password", 750, 270);
 
-        invalidPasswordLabel = new Label("Password must contain at least:\n8 characters, a letter and\na number");
-        invalidPasswordLabel.relocate(910, 285);
-        invalidPasswordLabel.setVisible(false);
-        invalidPasswordLabel.setStyle(styleInvalidFormEntry);
+        invalidPasswordLabel = new InvalidFormEntryLabel("Password must contain at least:\n8 characters, a letter and\na number", 910, 285, false);
 
         newPasswordTF = new PasswordField();
         newPasswordTF.relocate(750, 300);
@@ -125,6 +130,9 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().add(newPasswordTF);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> concerning the country
+     */
     private void displayCountry() {
         FieldRelatedLabel newPasswordLabel = new FieldRelatedLabel("Country", 750, 370);
 
@@ -135,6 +143,9 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().add(countryTF);
     }
 
+    /**
+     * Adds to the scene the <code>RegularButton</code> for confirming the fields.
+     */
     // BUTTONS
     private void displayConfirmButton() {
         RegularButton submitButton = new RegularButton("CONFIRM", 1000, 600);

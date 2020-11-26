@@ -1,8 +1,16 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+/**
+ * Contains all the names of the scenes.
+ */
 public enum SceneNames {
     LOGIN, SIGNUP, HOMEPAGE, POKEDEX, TEAM, CATCHEMALL, RANKING, SETTINGS, ADD_REMOVE;
 
+    /**
+     * This function handles the creation of the class scene asked.
+     * @param sn is the SceneName we want to create.
+     * @return The class scene asked.
+     */
     protected PokeScene createNewScene(SceneNames sn) {
         switch (sn) {
             case LOGIN:

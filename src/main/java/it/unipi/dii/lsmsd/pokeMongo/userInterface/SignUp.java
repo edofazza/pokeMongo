@@ -1,24 +1,24 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
-import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
-import java.time.LocalDate;
-import java.util.regex.*;
-
+/**
+ * This class is used to display the <code>Node</code> concerning the Settings.
+ */
 public class SignUp extends PokeSceneWithTitle {
     // LEFT SIDE
     private TextField surnameTF;
-    private TextField nicknameTF;
+    private TextField usernameTF;
     private TextField passwordTF;
     private DatePicker birthdayDP;
 
-    private Label invalidSurnameLabel;
-    private Label invalidPasswordLabel;
-    private Label invalidBirthdayLabel;
+    private InvalidFormEntryLabel invalidSurnameLabel;
+    private InvalidFormEntryLabel invalidPasswordLabel;
+    private InvalidFormEntryLabel invalidBirthdayLabel;
 
     // RIGHT SIDE
     private TextField nameTF;
@@ -26,16 +26,14 @@ public class SignUp extends PokeSceneWithTitle {
     private TextField confirmPasswordTF;
     private TextField countryTF;
 
-    private Label invalidNameLabel;
-    private Label invalidEmailLabel;
-    private Label invalidConfirmPasswordLabel;
+    private InvalidFormEntryLabel invalidNameLabel;
+    private InvalidFormEntryLabel invalidEmailLabel;
+    private InvalidFormEntryLabel invalidConfirmPasswordLabel;
 
-
-    private final String styleInvalidFormEntry = "-fx-font-family: 'Arial'; -fx-font-size: 12px; " +
-            "-fx-background-color: rgb(255, 33, 26); -fx-text-fill: white; -fx-max-width: 230; -fx-padding: 3;" +
-            " -fx-border-radius: 15px; -fx-background-radius: 15px; -fx-border-width: 0.06em;" +
-            " -fx-border-color: black;";
-
+    /**
+     * Calls a series of function in order to display all the fields. It sets
+     * also the music.
+     */
     public SignUp() {
         displaySurnameFields();
         displayNameFields();
@@ -52,14 +50,14 @@ public class SignUp extends PokeSceneWithTitle {
         setSceneMusic("pallet_town.mp3");
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> concerning the surname
+     */
     // LEFT SIDE
     private void displaySurnameFields() {
         FieldRelatedLabel surnameLabel = new FieldRelatedLabel("Surname", 350, 170);
 
-        invalidSurnameLabel = new Label("Surname must only contain letters,\nspaces, dots and apostrophes");
-        invalidSurnameLabel.relocate(510, 190);
-        invalidSurnameLabel.setVisible(false);
-        invalidSurnameLabel.setStyle(styleInvalidFormEntry);
+        invalidSurnameLabel = new InvalidFormEntryLabel("Surname must only contain letters,\nspaces, dots and apostrophes", 510, 190, false);
 
         surnameTF = new TextField();
         surnameTF.relocate(350, 200);
@@ -70,23 +68,26 @@ public class SignUp extends PokeSceneWithTitle {
         sceneNodes.getChildren().add(surnameTF);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> concerning the username
+     */
     private void displayNicknameFields() {
-        FieldRelatedLabel nicknameLabel = new FieldRelatedLabel("Nickname", 350, 270);
+        FieldRelatedLabel usernameLabel = new FieldRelatedLabel("Username", 350, 270);
 
-        nicknameTF = new TextField();
-        nicknameTF.relocate(350, 300);
+        usernameTF = new TextField();
+        usernameTF.relocate(350, 300);
 
-        sceneNodes.getChildren().add(nicknameLabel);
-        sceneNodes.getChildren().add(nicknameTF);
+        sceneNodes.getChildren().add(usernameLabel);
+        sceneNodes.getChildren().add(usernameTF);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> concerning the password
+     */
     private void displayPasswordFields() {
         FieldRelatedLabel passwordLabel = new FieldRelatedLabel("Password", 350, 370);
 
-        invalidPasswordLabel = new Label("Password must contain at least:\n8 characters, a letter and\na number");
-        invalidPasswordLabel.relocate(510, 380);
-        invalidPasswordLabel.setVisible(false);
-        invalidPasswordLabel.setStyle(styleInvalidFormEntry);
+        invalidPasswordLabel = new InvalidFormEntryLabel("Password must contain at least:\n8 characters, a letter and\na number", 510, 380, false);
 
         passwordTF = new PasswordField();
         passwordTF.relocate(350, 400);
@@ -97,13 +98,13 @@ public class SignUp extends PokeSceneWithTitle {
         sceneNodes.getChildren().add(passwordTF);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> concerning the birthday
+     */
     private void displayBirthdayFields() {
         FieldRelatedLabel passwordLabel = new FieldRelatedLabel("Birthday", 350, 470);
 
-        invalidBirthdayLabel = new Label("Birthday must not be\na day in the future");
-        invalidBirthdayLabel.relocate(540, 490);
-        invalidBirthdayLabel.setVisible(false);
-        invalidBirthdayLabel.setStyle(styleInvalidFormEntry);
+        invalidBirthdayLabel = new InvalidFormEntryLabel("Birthday must not be\na day in the future", 540, 490, false);
 
         birthdayDP = new DatePicker();
         birthdayDP.relocate(350, 500);
@@ -114,14 +115,14 @@ public class SignUp extends PokeSceneWithTitle {
         sceneNodes.getChildren().add(birthdayDP);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> concerning the name
+     */
     // RIGHT SIDE
     private void displayNameFields() {
         FieldRelatedLabel nameLabel = new FieldRelatedLabel("Name", 750, 170);
 
-        invalidNameLabel = new Label("Name must only contain letters,\nspaces, dots and apostrophes");
-        invalidNameLabel.relocate(910, 190);
-        invalidNameLabel.setVisible(false);
-        invalidNameLabel.setStyle(styleInvalidFormEntry);
+        invalidNameLabel = new InvalidFormEntryLabel("Name must only contain letters,\nspaces, dots and apostrophes", 910, 190, false);
 
         nameTF = new TextField();
         nameTF.relocate(750, 200);
@@ -132,13 +133,13 @@ public class SignUp extends PokeSceneWithTitle {
         sceneNodes.getChildren().add(nameTF);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> concerning the email
+     */
     private void displayEmailFields() {
         FieldRelatedLabel emailLabel = new FieldRelatedLabel("Email", 750, 270);
 
-        invalidEmailLabel = new Label("Email must follow the format:\nexample@domain.tld");
-        invalidEmailLabel.relocate(910, 290);
-        invalidEmailLabel.setVisible(false);
-        invalidEmailLabel.setStyle(styleInvalidFormEntry);
+        invalidEmailLabel = new InvalidFormEntryLabel("Email must follow the format:\nexample@domain.tld", 910, 290, false);
 
         emailTF = new TextField();
         emailTF.relocate(750, 300);
@@ -149,13 +150,13 @@ public class SignUp extends PokeSceneWithTitle {
         sceneNodes.getChildren().add(emailTF);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> to confirm the password
+     */
     private void displayConfirmPassword() {
         FieldRelatedLabel confirmPasswordLabel = new FieldRelatedLabel("Confirm Password", 750, 370);
 
-        invalidConfirmPasswordLabel = new Label("Does not match with the other password");
-        invalidConfirmPasswordLabel.relocate(910, 400);
-        invalidConfirmPasswordLabel.setVisible(false);
-        invalidConfirmPasswordLabel.setStyle(styleInvalidFormEntry);
+        invalidConfirmPasswordLabel = new InvalidFormEntryLabel("Does not match with the other password", 910, 400, false);
 
         confirmPasswordTF = new PasswordField();
         confirmPasswordTF.relocate(750, 400);
@@ -166,6 +167,9 @@ public class SignUp extends PokeSceneWithTitle {
         sceneNodes.getChildren().add(confirmPasswordTF);
     }
 
+    /**
+     * Adds to the scene the <code>Node</code> concerning the country
+     */
     private void displayCountryFields() {
         FieldRelatedLabel countryLabel = new FieldRelatedLabel("Country", 750, 470);
 
@@ -176,26 +180,37 @@ public class SignUp extends PokeSceneWithTitle {
         sceneNodes.getChildren().add(countryTF);
     }
 
+    /**
+     * Adds to the scene the <code>RegularButton</code> for going back to the login in scene.
+     */
     // BUTTONS
     private void displayBackButton() {
         RegularButton backButton = new RegularButton("BACK", 200, 600);
 
-        backButton.setOnAction((ActionEvent ev)-> backButtonAction());
+        backButton.setOnAction(e -> backButtonAction());
 
         sceneNodes.getChildren().add(backButton);
     }
 
+    /**
+     * Comes back to the login scene
+     */
     private void backButtonAction() {
         CurrentUI.changeScene(SceneNames.LOGIN);
     }
 
+    /**
+     * Adds to the scene the <code>RegularButton</code> for submitting.
+     */
     private void displaySubmitButton() {
         RegularButton submitButton = new RegularButton("SUBMIT", 1000, 600);
 
         sceneNodes.getChildren().add(submitButton);
     }
 
-
+    /**
+     * Manages the information given by the user in order to create a new account.
+     */
     private void handleSubmit(){
         //TODO: query al database necessaria
     }

@@ -5,7 +5,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+/**
+ * Specific <code>Pane</code> for instantiating a single result
+ */
 public class PokemonResultPanePokedex extends Pane {
+    /**
+     * Adds to the pane the elements passed as arguments
+     * @param sprite the url for the pokemon sprite
+     * @param name the name of the pokemon
+     * @param id the pokedex id
+     */
     public PokemonResultPanePokedex(String sprite, String name, String id) {  // TODO: id can be an int, change it in case
         ImageView img = new ImageView(sprite);
         img.setFitWidth(60);

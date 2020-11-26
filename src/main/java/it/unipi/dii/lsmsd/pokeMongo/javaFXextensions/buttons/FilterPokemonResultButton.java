@@ -1,12 +1,22 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group.PokemonWindowGroup;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * This particular Button is used for the name of the pokemon in the filter result.
+ */
 public class FilterPokemonResultButton extends Button {
+
+    /**
+     * Instantiates a Button and associates it with a class style
+     * (<code>FilterPokemonResultButton</code>)
+     * @param name what will be written in the Button
+     * @param x the x axis position
+     * @param y the y axis position
+     */
     public FilterPokemonResultButton(String name, int x, int y) {
         super(name);
         relocate(x, y);
@@ -15,6 +25,10 @@ public class FilterPokemonResultButton extends Button {
         getStyleClass().add("FilterPokemonResultButton");
     }
 
+    /**
+     * Open a new window with the information concerning a pokemon.
+     * @param name contains the name of the pokemon in order to use it as the title for the Stage
+     */
     private void createNewWindow(String name) {
         PokemonWindowGroup root = new PokemonWindowGroup(
                 "file:img/portraits/7.png",

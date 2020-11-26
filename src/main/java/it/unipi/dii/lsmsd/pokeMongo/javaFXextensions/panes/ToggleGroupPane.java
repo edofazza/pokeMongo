@@ -7,12 +7,22 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 
+/**
+ * Specific Pane with the Circle Button related to the admin's actions.
+ */
 public class ToggleGroupPane extends Pane {
     ToggleGroup toggleGroup;
     AdminAddRemovePane currentPane;
     CircleButton add;
     CircleButton remove;
 
+    /**
+     * Instantiate the TogglePane using the specific texts.
+     * @param labelText text related to the first CircleButton
+     * @param labelText2 text related to the second CircleButton
+     * @param x the x axis position
+     * @param y the y axis position
+     */
     public ToggleGroupPane(String labelText, String labelText2, int x, int y) {
         currentPane = new AdminAddRemovePane(300, 200);
 
@@ -37,6 +47,10 @@ public class ToggleGroupPane extends Pane {
         getChildren().addAll(add, remove, description, description2, currentPane);
     }
 
+    /**
+     * Changes the center of the scene, depending of the action selected in the Toggle pane
+     * @param action
+     */
     private void changePane(AdminAction action) {
         currentPane.setNodes(action);
     }

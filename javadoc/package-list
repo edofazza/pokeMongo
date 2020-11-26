@@ -1,0 +1,14 @@
+it.unipi.dii.lsmsd.pokeMongo
+it.unipi.dii.lsmsd.pokeMongo.DbPopulators
+it.unipi.dii.lsmsd.pokeMongo.bean
+it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons
+it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.choiceBox
+it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group
+it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.imageviews
+it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels
+it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes
+it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.addRemove
+it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields
+it.unipi.dii.lsmsd.pokeMongo.persistence
+it.unipi.dii.lsmsd.pokeMongo.userInterface
+it.unipi.dii.lsmsd.pokeMongo.utils
