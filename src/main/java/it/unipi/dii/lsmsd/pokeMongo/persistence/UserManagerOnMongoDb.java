@@ -9,6 +9,7 @@ import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static com.mongodb.client.model.Filters.*;
@@ -133,8 +134,10 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         ArrayList<Object> matched = getWithFilter(query);
         if(matched.size()!=1)
             return null;
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss aa");
         Date now = new Date();
-       // update(query, set("lastLogin", now));
+        String dateString = sdf.format(now);
+        update(query, set("lastLogin", dateString.substring(0,1).toUpperCase() + dateString.substring(1)));
         return (User)matched.get(0);
     }
 
