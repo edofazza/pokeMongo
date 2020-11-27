@@ -134,7 +134,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         if(matched.size()!=1)
             return null;
         Date now = new Date();
-        update(query, set("lastLogin", now));
+       // update(query, set("lastLogin", now));
         return (User)matched.get(0);
     }
 
