@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
@@ -12,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -35,7 +37,7 @@ public class SignUp extends PokeSceneWithTitle {
     private TextField nameTF;
     private TextField emailTF;
     private TextField confirmPasswordTF;
-    private TextField countryTF;
+    private CountryComboBox country;
 
     private InvalidFormEntryLabel invalidNameLabel;
     private InvalidFormEntryLabel invalidEmailLabel;
@@ -88,8 +90,7 @@ public class SignUp extends PokeSceneWithTitle {
         usernameTF = new TextField();
         usernameTF.relocate(350, 300);
 
-        sceneNodes.getChildren().add(usernameLabel);
-        sceneNodes.getChildren().add(usernameTF);
+        sceneNodes.getChildren().addAll(usernameLabel, usernameTF);
     }
 
     /**
@@ -104,9 +105,7 @@ public class SignUp extends PokeSceneWithTitle {
         passwordTF.relocate(350, 400);
         passwordTF.setOnKeyReleased(e->FormValidatorPokeMongo.handlePassword(passwordTF, invalidPasswordLabel));
 
-        sceneNodes.getChildren().add(passwordLabel);
-        sceneNodes.getChildren().add(invalidPasswordLabel);
-        sceneNodes.getChildren().add(passwordTF);
+        sceneNodes.getChildren().addAll(passwordLabel, invalidPasswordLabel, passwordTF);
     }
 
     /**
@@ -121,9 +120,7 @@ public class SignUp extends PokeSceneWithTitle {
         birthdayDP.relocate(350, 500);
         birthdayDP.setOnAction(e->FormValidatorPokeMongo.handleBirthday(birthdayDP, invalidBirthdayLabel));
 
-        sceneNodes.getChildren().add(passwordLabel);
-        sceneNodes.getChildren().add(invalidBirthdayLabel);
-        sceneNodes.getChildren().add(birthdayDP);
+        sceneNodes.getChildren().addAll(passwordLabel, invalidBirthdayLabel, birthdayDP);
     }
 
     /**
@@ -139,9 +136,7 @@ public class SignUp extends PokeSceneWithTitle {
         nameTF.relocate(750, 200);
         nameTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleName(nameTF, invalidNameLabel)); //TODO: maybe setOnKeyReleased event trigger it's not the best choice
 
-        sceneNodes.getChildren().add(nameLabel);
-        sceneNodes.getChildren().add(invalidNameLabel);
-        sceneNodes.getChildren().add(nameTF);
+        sceneNodes.getChildren().addAll(nameLabel, invalidNameLabel, nameTF);
     }
 
     /**
@@ -156,9 +151,7 @@ public class SignUp extends PokeSceneWithTitle {
         emailTF.relocate(750, 300);
         emailTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleEmail(emailTF, invalidEmailLabel));
 
-        sceneNodes.getChildren().add(emailLabel);
-        sceneNodes.getChildren().add(invalidEmailLabel);
-        sceneNodes.getChildren().add(emailTF);
+        sceneNodes.getChildren().addAll(emailLabel, invalidEmailLabel, emailTF);
     }
 
     /**
@@ -173,9 +166,7 @@ public class SignUp extends PokeSceneWithTitle {
         confirmPasswordTF.relocate(750, 400);
         confirmPasswordTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleConfirmField(passwordTF, confirmPasswordTF, invalidConfirmPasswordLabel));
 
-        sceneNodes.getChildren().add(confirmPasswordLabel);
-        sceneNodes.getChildren().add(invalidConfirmPasswordLabel);
-        sceneNodes.getChildren().add(confirmPasswordTF);
+        sceneNodes.getChildren().addAll(confirmPasswordLabel, invalidConfirmPasswordLabel, confirmPasswordTF);
     }
 
     /**
@@ -183,12 +174,13 @@ public class SignUp extends PokeSceneWithTitle {
      */
     private void displayCountryFields() {
         FieldRelatedLabel countryLabel = new FieldRelatedLabel("Country", 750, 470);
+        try {
+            country = new CountryComboBox(750, 500);
+            sceneNodes.getChildren().add(country);
+        } catch (IOException e) { e.printStackTrace(); }
 
-        countryTF = new TextField();
-        countryTF.relocate(750, 500);
 
-        sceneNodes.getChildren().add(countryLabel);
-        sceneNodes.getChildren().add(countryTF);
+        sceneNodes.getChildren().addAll(countryLabel);
     }
 
     /**
@@ -229,7 +221,7 @@ public class SignUp extends PokeSceneWithTitle {
                 !invalidEmailLabel.isVisible() && !invalidNameLabel.isVisible() && !invalidPasswordLabel.isVisible() &&
                 !invalidSurnameLabel.isVisible() && !surnameTF.getText().equals("") && !usernameTF.getText().equals("") &&
                 !passwordTF.getText().equals("") && !nameTF.getText().equals("") && !emailTF.getText().equals("") &&
-                !confirmPasswordTF.getText().equals("") && !countryTF.getText().equals("")
+                !confirmPasswordTF.getText().equals("") && !country.getValue().toString().equals("")
         ) {
             Scene scene;
             // Get the Date
@@ -248,7 +240,7 @@ public class SignUp extends PokeSceneWithTitle {
                             passwordTF.getText(),
                             emailTF.getText(),
                             date,
-                            countryTF.getText())
+                            country.getValue().toString())
             ))
                 scene = new Scene(new Group( new Label("Sign up successfully done")), 185, 30);
             else

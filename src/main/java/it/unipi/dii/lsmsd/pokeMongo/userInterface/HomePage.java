@@ -123,8 +123,6 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
     private void logOutButtonAction() {
         CurrentUI.userExit();
         CurrentUI.changeScene(SceneNames.LOGIN);
-
-        // TODO: exit from the account
     }
 
     /**

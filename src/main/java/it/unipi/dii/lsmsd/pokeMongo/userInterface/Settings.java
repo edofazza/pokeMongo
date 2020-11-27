@@ -58,9 +58,7 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         newEmailTF.relocate(350, 200);
         newEmailTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleEmail(newEmailTF, invalidEmailLabel));
 
-        sceneNodes.getChildren().add(emailLabel);
-        sceneNodes.getChildren().add(invalidEmailLabel);
-        sceneNodes.getChildren().add(newEmailTF);
+        sceneNodes.getChildren().addAll(emailLabel, invalidEmailLabel, newEmailTF);
     }
 
     /**
@@ -74,8 +72,7 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         oldPasswordTF = new PasswordField();
         oldPasswordTF.relocate(350, 300);
 
-        sceneNodes.getChildren().add(oldPasswordLabel);
-        sceneNodes.getChildren().add(oldPasswordTF);
+        sceneNodes.getChildren().addAll(oldPasswordLabel, oldPasswordTF);
     }
 
     /**
@@ -90,9 +87,7 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         confirmPasswordTF.relocate(350, 400);
         confirmPasswordTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleConfirmField(newPasswordTF, confirmPasswordTF, invalidConfirmPasswordLabel));
 
-        sceneNodes.getChildren().add(confirmPasswordLabel);
-        sceneNodes.getChildren().add(invalidConfirmPasswordLabel);
-        sceneNodes.getChildren().add(confirmPasswordTF);
+        sceneNodes.getChildren().addAll(confirmPasswordLabel, invalidConfirmPasswordLabel, confirmPasswordTF);
     }
 
     /**
@@ -108,9 +103,7 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         confirmEmailTF.relocate(750, 200);
         confirmEmailTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleConfirmField(newEmailTF, confirmEmailTF, invalidConfirmEmailLabel));
 
-        sceneNodes.getChildren().add(confirmEmailLabel);
-        sceneNodes.getChildren().add(invalidConfirmEmailLabel);
-        sceneNodes.getChildren().add(confirmEmailTF);
+        sceneNodes.getChildren().addAll(confirmEmailLabel, invalidConfirmEmailLabel, confirmEmailTF);
     }
 
     /**
@@ -125,9 +118,7 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         newPasswordTF.relocate(750, 300);
         newPasswordTF.setOnKeyReleased(e->FormValidatorPokeMongo.handlePassword(newPasswordTF, invalidPasswordLabel));
 
-        sceneNodes.getChildren().add(newPasswordLabel);
-        sceneNodes.getChildren().add(invalidPasswordLabel);
-        sceneNodes.getChildren().add(newPasswordTF);
+        sceneNodes.getChildren().addAll(newPasswordLabel, invalidPasswordLabel, newPasswordTF);
     }
 
     /**
@@ -139,8 +130,7 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         countryTF = new TextField();
         countryTF.relocate(750, 400);
 
-        sceneNodes.getChildren().add(newPasswordLabel);
-        sceneNodes.getChildren().add(countryTF);
+        sceneNodes.getChildren().addAll(newPasswordLabel, countryTF);
     }
 
     /**
