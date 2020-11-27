@@ -1,11 +1,14 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 /**
  * This class is used to display the <code>Node</code> concerning the Settings.
@@ -22,7 +25,7 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
     // RIGHT
     private TextField confirmEmailTF;
     private TextField newPasswordTF;
-    private TextField countryTF;
+    private CountryComboBox countryCB;
 
     private InvalidFormEntryLabel invalidConfirmEmailLabel;
     private InvalidFormEntryLabel invalidPasswordLabel;
@@ -127,10 +130,12 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
     private void displayCountry() {
         FieldRelatedLabel newPasswordLabel = new FieldRelatedLabel("Country", 750, 370);
 
-        countryTF = new TextField();
-        countryTF.relocate(750, 400);
+        try {
+            countryCB = new CountryComboBox(750, 400);
+            sceneNodes.getChildren().add(countryCB);
+        } catch (IOException e) { e.printStackTrace(); }
 
-        sceneNodes.getChildren().addAll(newPasswordLabel, countryTF);
+        sceneNodes.getChildren().addAll(newPasswordLabel);
     }
 
     /**

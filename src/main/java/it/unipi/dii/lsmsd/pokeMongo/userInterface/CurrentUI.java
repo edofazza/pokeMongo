@@ -50,7 +50,16 @@ public class CurrentUI {
     }
 
     /**
-     *
+     * Get the user logged
+     * @return the user logged
+     */
+    protected static User getUser() {
+        return userLogged;
+    }
+
+    /**
+     * Sets the user logged
+     * @param user the user logged
      */
     protected static void setUser(User user) {
         userLogged = user;
