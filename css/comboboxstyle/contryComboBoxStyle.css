@@ -1,0 +1,5 @@
+.CountryComboBox {
+    -fx-background-color: transparent;
+    -fx-border-color: grey;
+    -fx-pref-width: 170;
+}

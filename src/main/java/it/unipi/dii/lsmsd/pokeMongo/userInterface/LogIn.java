@@ -8,6 +8,7 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import javafx.event.ActionEvent;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
@@ -15,7 +16,7 @@ import javafx.scene.control.TextField;
  */
 public class LogIn extends PokeSceneWithBlastoiseCharizard {
     private TextField usernameTF;
-    private TextField passwordTF;
+    private PasswordField passwordTF;
 
     /**
      * Constructor. Called a series of functions to add all the <code>Node</code> needed.
@@ -42,8 +43,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
         usernameTF = new TextField();
         usernameTF.relocate(550, 200);
 
-        sceneNodes.getChildren().add(usernameLabel);
-        sceneNodes.getChildren().add(usernameTF);
+        sceneNodes.getChildren().addAll(usernameLabel, usernameTF);
     }
 
     /**
@@ -52,11 +52,10 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
     private void displayPasswordFields() {
         FieldRelatedLabel passwordLabel = new FieldRelatedLabel("Password", 550, 270);
 
-        passwordTF = new TextField();
+        passwordTF = new PasswordField();
         passwordTF.relocate(550, 300);
 
-        sceneNodes.getChildren().add(passwordLabel);
-        sceneNodes.getChildren().add(passwordTF);
+        sceneNodes.getChildren().addAll(passwordLabel, passwordTF);
     }
 
     ////////////////////////  BUTTONS  ////////////////////////
@@ -83,8 +82,10 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
         // set the user, to
         if(user != null) {
             CurrentUI.setUser(user);
-            CurrentUI.changeScene(SceneNames.HOMEPAGE);
-        }/* else {
+
+        }
+        CurrentUI.changeScene(SceneNames.HOMEPAGE);
+        /* else {
             //InvalidFormEntryLabel loginError = new InvalidFormEntryLabel("Username/password incorrect", 600, 400, true);
             //sceneNodes.getChildren().add(loginError);
         }*/
