@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.cache;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
+import com.google.common.annotations.VisibleForTesting;
 import javafx.scene.image.Image;
 import com.github.benmanes.caffeine.cache.Cache;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +18,7 @@ public class PokeMongoImageCache implements PokeMongoCache {
         return instance;
     }
 
+    @VisibleForTesting
     PokeMongoImageCache(){
         cache = Caffeine.newBuilder()
                 .expireAfterAccess(10, TimeUnit.MINUTES) //After this time without read/write the resource is deallocated

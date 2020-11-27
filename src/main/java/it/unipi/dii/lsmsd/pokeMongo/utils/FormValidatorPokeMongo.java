@@ -3,6 +3,8 @@ package it.unipi.dii.lsmsd.pokeMongo.utils;
 import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.google.common.annotations.VisibleForTesting;
 import javafx.scene.control.*;
 
 public class FormValidatorPokeMongo {
@@ -20,8 +22,9 @@ public class FormValidatorPokeMongo {
     /**
      * Check if the string contains only letters, spaces, dots and apostrophes.
      */
+    @VisibleForTesting
     public static boolean isPersonNoun(String possibleNoun){
-        Pattern pattern = Pattern.compile("^[a-zA-Z '.]*$");
+        Pattern pattern = Pattern.compile("^[a-zA-Z '.]+$");
         Matcher matcher = pattern.matcher(possibleNoun);
         return matcher.find();
     }
@@ -36,6 +39,7 @@ public class FormValidatorPokeMongo {
     /**
      * Check if the email follows the format example@domain.tld
      */
+    @VisibleForTesting
     public static boolean isValidEmail(String possibleEmail){
         Pattern pattern = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
         Matcher matcher = pattern.matcher(possibleEmail);
@@ -52,6 +56,7 @@ public class FormValidatorPokeMongo {
     /**
      * Checks if the password contains minimum eight characters, at least one letter and one number.
      */
+    @VisibleForTesting
     public static boolean isValidPassword(String possiblePassword){
         Pattern pattern = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
         Matcher matcher = pattern.matcher(possiblePassword);
