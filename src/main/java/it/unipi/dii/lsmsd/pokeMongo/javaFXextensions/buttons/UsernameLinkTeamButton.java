@@ -23,6 +23,7 @@ public class UsernameLinkTeamButton extends Button {
         TeamUserWindowGroup root = new TeamUserWindowGroup();
 
         Scene scene = new Scene(root, 600, 400);
+        scene.getStylesheets().add("file:css/pokemongoStyle.css");
         Stage stage = new Stage();
         stage.setTitle(name);
         stage.setScene(scene);
