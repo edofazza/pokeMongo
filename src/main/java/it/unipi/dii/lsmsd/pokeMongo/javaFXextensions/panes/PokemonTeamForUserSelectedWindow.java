@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.FilterPokemonResultButton;
+import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
@@ -21,7 +22,7 @@ public class PokemonTeamForUserSelectedWindow extends Pane {
     }
 
     private void displayPokemonSprite() {
-        ImageView sprite = new ImageView("file:img/sprites/7.png");
+        ImageView sprite = new ImageView(CurrentUI.getImage("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"));
         sprite.setFitHeight(90);
         sprite.setFitWidth(90);
 

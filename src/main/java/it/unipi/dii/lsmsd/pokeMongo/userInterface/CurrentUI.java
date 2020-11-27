@@ -1,10 +1,10 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.cache.PokeMongoImageCache;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-
-import java.util.Date;
+import javafx.scene.image.Image;
 
 /**
  * <em>CurrentUI</em> handles the scene showed to the user
@@ -12,8 +12,8 @@ import java.util.Date;
 public class CurrentUI {
     private static PokeScene nodeWindow;
     private static Group root;
-    private static User userLogged; /*= new User(false, "Fazzari", "Edoardo", "edofazza",
-            "donaldDuck98", "edo@i.com", new Date("10/11/1998"), "Italy");*/
+    private static User userLogged;
+    private static PokeMongoImageCache pokeMongoImageCache = new PokeMongoImageCache();
 
     /**
      * Create the default scene (<em>LogIn</em>) and set the dimension of it
@@ -98,5 +98,11 @@ public class CurrentUI {
     // TODO: handle exit
     protected static void userExit() {
         userLogged = null;
+    }
+
+
+    /////////////////////// IMAGE //////////////////////////
+    public static Image getImage(String url) {
+        return pokeMongoImageCache.getDataIfPresent(url);
     }
 }
