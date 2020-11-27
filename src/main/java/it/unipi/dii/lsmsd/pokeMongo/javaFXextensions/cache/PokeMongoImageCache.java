@@ -10,15 +10,14 @@ public class PokeMongoImageCache implements PokeMongoCache {
     private static PokeMongoImageCache instance;
     private Cache<String, Image> cache;
 
-    public PokeMongoImageCache getInstance() {
+    public static PokeMongoImageCache getInstance() {
         if (instance == null) {
-            this.initializeCache();
             instance = new PokeMongoImageCache();
         }
         return instance;
     }
 
-    private void initializeCache(){
+    PokeMongoImageCache(){
         cache = Caffeine.newBuilder()
                 .expireAfterAccess(10, TimeUnit.MINUTES) //After this time without read/write the resource is deallocated
                 .maximumSize(200) //In numero di immagini
@@ -27,6 +26,7 @@ public class PokeMongoImageCache implements PokeMongoCache {
     }
 
     public Image getDataIfPresent(String url){
+        System.out.println(cache);
         Image image = cache.getIfPresent(url);
         if(image == null){
             image = new Image(url);

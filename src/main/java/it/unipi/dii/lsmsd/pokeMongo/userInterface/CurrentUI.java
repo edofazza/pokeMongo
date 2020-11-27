@@ -13,7 +13,7 @@ public class CurrentUI {
     private static PokeScene nodeWindow;
     private static Group root;
     private static User userLogged;
-    private static PokeMongoImageCache pokeMongoImageCache = new PokeMongoImageCache();
+    private static PokeMongoImageCache pokeMongoImageCache = PokeMongoImageCache.getInstance();
 
     /**
      * Create the default scene (<em>LogIn</em>) and set the dimension of it
