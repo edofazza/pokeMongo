@@ -1,4 +1,4 @@
-package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.cache;
+package it.unipi.dii.lsmsd.pokeMongo.cache;
 
 /**
  * EXAMPLE OF USAGE OF ImageCache

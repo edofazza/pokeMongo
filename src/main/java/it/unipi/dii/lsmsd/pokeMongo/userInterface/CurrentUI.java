@@ -1,7 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
-import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.cache.PokeMongoImageCache;
+import it.unipi.dii.lsmsd.pokeMongo.cache.PokeMongoImageCache;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

@@ -11,12 +11,11 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextFi
  * Scene related to the catch of pokemon.
  */
 public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
-    private CatchEmAllTextField selectPokemon;
+    private CatchEmAllTextField selectPokemonTF;
     private ChooseSlotNumber selectSlot;
-
     private FieldRelatedLabel oddLabel;
-
     private BackgroundImage selectedPokemon;
+
 
     /**
      * <em>Constructor</em>. Called a series of function in order to create the <em>Node</em>
@@ -50,9 +49,13 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
      * wants to catch.
      */
     private void displaySelectPokemon() {
-        selectPokemon = new CatchEmAllTextField("SELECT POKEMON", 530, 200);
+        selectPokemonTF = new CatchEmAllTextField("", 530, 200);
 
-        sceneNodes.getChildren().add(selectPokemon);
+        //For text Hint
+        selectPokemonTF.setPromptText("Type pokemon name"); //to set the hint text
+
+        selectPokemonTF.setOnKeyReleased(e->loadPokemonInfoByName(selectPokemonTF.getText()));
+        sceneNodes.getChildren().add(selectPokemonTF);
     }
 
     /**
@@ -61,7 +64,6 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
      */
     private void displaySelectSlot() {
         selectSlot = new ChooseSlotNumber(620, 260);
-
         sceneNodes.getChildren().add(selectSlot);
     }
 
@@ -72,7 +74,6 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
     // TODO: change it every time the selectPokemon changes
     private void displaySelectedPokemon() {
         selectedPokemon = new BackgroundImage("portraits/0.png", 130, 580, 320);
-
         sceneNodes.getChildren().add(selectedPokemon);
     }
 
@@ -82,7 +83,6 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
      */
     private void displayOdd() {
         oddLabel = new FieldRelatedLabel("Odd: ", 560, 475);
-
         sceneNodes.getChildren().add(oddLabel);
     }
 
@@ -92,7 +92,28 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
      */
     private void displayTryToCatch() {
         RegularButton tryToCatch = new RegularButton("TRY TO CATCH", 580, 510);
-
         sceneNodes.getChildren().add(tryToCatch);
     }
+
+
+    //---------------------------------------
+    // METHODS TO BE PLACED SOMEWHERE ELSE
+    //---------------------------------------
+
+    private void loadPokemonInfoByName(String pokemonName){
+        System.out.println(pokemonName);
+        String urlImage;
+        double odd = 0.12321423423; //TODO remove after adding implementation of db query
+
+        //QUERY AL DB
+        // urlImage = getUrlFromDb(pokemonName)
+        // ... handle possible null
+        // odd = getOddFromDb(pokemonName)
+
+        //CHANGE OLD
+        //selectedPokemon.setImage(CurrentUI.getImage(urlImage));
+        
+        oddLabel.setText("ODD: " + String.format("%.2f", (odd *100)) + "%");
+    }
+
 }

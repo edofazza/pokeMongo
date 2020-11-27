@@ -1,4 +1,4 @@
-package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.cache;
+package it.unipi.dii.lsmsd.pokeMongo.cache;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
 import javafx.scene.image.Image;
