@@ -7,17 +7,18 @@ import java.util.concurrent.TimeUnit;
 
 public class PokeMongoImageCache implements PokeMongoCache {
     //Singleton
-    private PokeMongoImageCache instance;
+    private static PokeMongoImageCache instance;
     private Cache<String, Image> cache;
 
     public PokeMongoImageCache getInstance() {
         if (instance == null) {
+            this.initializeCache();
             instance = new PokeMongoImageCache();
         }
         return instance;
     }
 
-    public void initializeCache(){
+    private void initializeCache(){
         cache = Caffeine.newBuilder()
                 .expireAfterAccess(10, TimeUnit.MINUTES) //After this time without read/write the resource is deallocated
                 .maximumSize(200) //In numero di immagini

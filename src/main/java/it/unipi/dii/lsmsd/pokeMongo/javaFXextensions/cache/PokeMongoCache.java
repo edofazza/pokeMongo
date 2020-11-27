@@ -11,10 +11,6 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.cache;
  * ImageView imageView = new ImageView(image); //or just imageView.setImage(image) if already initialized
  */
 public interface PokeMongoCache {
-    /**
-     * Initialize a Cache system, should be used at the beginning of the running program
-     */
-    public void initializeCache();
 
     /**
      * Perform a fetch into the Cache, if there is present the object associated to the url,
