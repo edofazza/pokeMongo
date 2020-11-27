@@ -71,4 +71,6 @@ public interface UserManager {
      * @return true if password are equal
      */
     boolean verifyOldPassword(User involved, String password);
+
+    void logout(User toLogOut);
 }

@@ -187,4 +187,9 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
             return false;
         return ((User)matches.get(0)).getPassword().equals(PasswordEncryptor.encryptPassword(password));
     }
+
+    @Override
+    public void logout(User toLogOut) {
+        update(toLogOut, set("dailyPokeball", toLogOut.getDailyPokeball()));
+    }
 }
