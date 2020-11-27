@@ -32,13 +32,13 @@ public class PokedexResultScrollPane extends ScrollPane {
      */
     // TODO: THE QUERY on mongo db will add element in the VBox
     public void addResult() {
-        PokemonResultPanePokedex prpp = new PokemonResultPanePokedex("file:img/sprites/7.png", "Squirtle", "7");
-        PokemonResultPanePokedex prpp1 = new PokemonResultPanePokedex("file:img/sprites/7.png", "Squirtle", "7");
-        PokemonResultPanePokedex prpp2 = new PokemonResultPanePokedex("file:img/sprites/7.png", "Squirtle", "7");
-        PokemonResultPanePokedex prpp3 = new PokemonResultPanePokedex("file:img/sprites/7.png", "Squirtle", "7");
-        PokemonResultPanePokedex prpp4 = new PokemonResultPanePokedex("file:img/sprites/7.png", "Squirtle", "7");
-        PokemonResultPanePokedex prpp5 = new PokemonResultPanePokedex("file:img/sprites/7.png", "Squirtle", "7");
-        PokemonResultPanePokedex prpp6 = new PokemonResultPanePokedex("file:img/sprites/7.png", "Squirtle", "7");
+        PokemonSingleResultPane prpp = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
+        PokemonSingleResultPane prpp1 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
+        PokemonSingleResultPane prpp2 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
+        PokemonSingleResultPane prpp3 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
+        PokemonSingleResultPane prpp4 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
+        PokemonSingleResultPane prpp5 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
+        PokemonSingleResultPane prpp6 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
 
         root.getChildren().addAll(prpp, prpp1, prpp2, prpp3, prpp4, prpp5, prpp6);
     }

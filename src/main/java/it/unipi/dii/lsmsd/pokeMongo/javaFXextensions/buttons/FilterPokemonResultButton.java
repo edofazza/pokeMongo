@@ -20,7 +20,7 @@ public class FilterPokemonResultButton extends Button {
     public FilterPokemonResultButton(String name, int x, int y) {
         super(name);
         relocate(x, y);
-        setOnAction(e -> createNewWindow(name)); // TODO: popup window
+        setOnAction(e -> createNewWindow(name));
 
         getStyleClass().add("FilterPokemonResultButton");
     }

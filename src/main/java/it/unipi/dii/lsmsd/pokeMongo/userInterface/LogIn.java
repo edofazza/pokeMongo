@@ -82,13 +82,11 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
         // set the user, to
         if(user != null) {
             CurrentUI.setUser(user);
-
+            CurrentUI.changeScene(SceneNames.HOMEPAGE);
+        } else {
+            InvalidFormEntryLabel loginError = new InvalidFormEntryLabel("Username/password incorrect", 600, 400, true);
+            sceneNodes.getChildren().add(loginError);
         }
-        CurrentUI.changeScene(SceneNames.HOMEPAGE);
-        /* else {
-            //InvalidFormEntryLabel loginError = new InvalidFormEntryLabel("Username/password incorrect", 600, 400, true);
-            //sceneNodes.getChildren().add(loginError);
-        }*/
     }
 
     /**

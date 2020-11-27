@@ -31,6 +31,8 @@ public enum SceneNames {
                 return new Pokedex();
             case RANKING:
                 return new RankingScene();
+            case FRIENDS:
+                return new Friends();
             default:
                 return null;
         }
