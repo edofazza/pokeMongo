@@ -15,7 +15,6 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage primaryStage) {
-        //Commento di prova
         Scene scene = new CurrentUI().initScene();
         primaryStage.setTitle("pokeMongo");
         primaryStage.setScene(scene);
