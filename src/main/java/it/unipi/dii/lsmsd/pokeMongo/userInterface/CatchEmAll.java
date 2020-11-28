@@ -1,11 +1,17 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.choiceBox.ChooseSlotNumber;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.imageviews.BackgroundImage;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.TitleLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Scene related to the catch of pokemon.
@@ -16,6 +22,7 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
     private FieldRelatedLabel oddLabel;
     private BackgroundImage selectedPokemon;
 
+    private Pokemon pokemon;
 
     /**
      * <em>Constructor</em>. Called a series of function in order to create the <em>Node</em>
@@ -92,6 +99,8 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
      */
     private void displayTryToCatch() {
         RegularButton tryToCatch = new RegularButton("TRY TO CATCH", 580, 510);
+        tryToCatch.setOnAction(e -> tryToCatchAction());
+
         sceneNodes.getChildren().add(tryToCatch);
     }
 
@@ -101,19 +110,32 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
     //---------------------------------------
 
     private void loadPokemonInfoByName(String pokemonName){
-        System.out.println(pokemonName);
-        String urlImage;
-        double odd = 0.12321423423; //TODO remove after adding implementation of db query
+        HashMap<Filter, String> hashMap = new HashMap<>();
+        hashMap.put(Filter.NAME, pokemonName);
 
-        //QUERY AL DB
-        // urlImage = getUrlFromDb(pokemonName)
-        // ... handle possible null
-        // odd = getOddFromDb(pokemonName)
+        PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
+        ArrayList<Pokemon> arrayList = pokemonManagerOnMongoDb.searchWithFilter(hashMap);
 
-        //CHANGE OLD
-        //selectedPokemon.setImage(CurrentUI.getImage(urlImage));
-        
-        oddLabel.setText("ODD: " + String.format("%.2f", (odd *100)) + "%");
+        if (arrayList.size() != 0) {
+            pokemon = arrayList.get(0);
+            selectedPokemon.setImage(CurrentUI.getImage(pokemon.getPortrait()));
+            oddLabel.setText("ODD: " + String.format("%.2f", (pokemon.getCapture_rate() *100/255)) + "%");
+        } else {
+            selectedPokemon.setImage(CurrentUI.getImage(imgLocation + "portraits/0.png"));
+            pokemon = null;
+            oddLabel.setText("ODD: ");
+        }
     }
 
+    private void tryToCatchAction() {
+        if (pokemon != null) {
+            // DECREMENT POKEBALL FROM THE USER
+            CurrentUI.decrementPokeball();
+
+            // UPDATE LABEL
+            updatePokeBallsLabelNumber();
+
+            // TODO: ADD THE POKEMON IF CAPTURED
+        }
+    }
 }

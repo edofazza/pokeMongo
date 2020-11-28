@@ -65,6 +65,10 @@ public class CurrentUI {
         userLogged = user;
     }
 
+    protected static void decrementPokeball() {
+        userLogged.decrementDailyPokeball();
+    }
+
     /**
      * Get the number of pokeball currently hold by the user
      * @return number of pokeball currently hold by the user

@@ -9,6 +9,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
  */
 public class PokeSceneWithHeader extends PokeScene {
     protected final String imgLocation = "file:img/";
+    private FieldRelatedLabel pokeNumber;
 
     /**
      * Calls a series of function to add the appropriate <code>Node</code> to the scene.
@@ -44,10 +45,15 @@ public class PokeSceneWithHeader extends PokeScene {
      * Adds to the scene the number of pokemon hold by the user (called only if the user is a normal user).
      */
     private void displayPokeBallsLabelNumber() {
-        FieldRelatedLabel pokeNumber = new FieldRelatedLabel("x" + CurrentUI.getNumberOfPokeball(), 1150, 20);
+        pokeNumber = new FieldRelatedLabel("x" + CurrentUI.getNumberOfPokeball(), 1150, 20);
 
         sceneNodes.getChildren().add(pokeNumber);
     }
 
-    // TODO: if the number of pokeballs changes reload the correct number, it should be automatic
+    /**
+     * Update number of pokeballs
+     */
+    public void updatePokeBallsLabelNumber() {
+        pokeNumber.setText("x" + CurrentUI.getNumberOfPokeball());
+    }
 }
