@@ -176,16 +176,16 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
 
     @Override
     public boolean addPokemon(Pokemon toAdd) {
-        return false;
+        return insert(toAdd);
     }
 
     @Override
     public boolean addPokemon(List<Pokemon> toAdd) {
-        return false;
+        return insert(toAdd);
     }
 
     @Override
     public boolean removePokemon(Pokemon toRemove) {
-        return false;
+        return remove(toRemove);
     }
 }
