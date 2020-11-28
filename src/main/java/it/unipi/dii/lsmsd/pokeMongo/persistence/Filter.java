@@ -1,9 +1,12 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
+import com.google.common.annotations.VisibleForTesting;
+
 public enum Filter {
     NAME, POKEDEX_ID, MIN_WEIGHT, MAX_WEIGHT, MIN_HEIGHT, MAX_HEIGHT,
     TYPE1, TYPE2, MIN_CATCH_RATE, MAX_CATCH_RATE, MIN_POINTS, MAX_POINTS;
 
+    @VisibleForTesting
     public static Filter interfaceStringToFilter(String field){
         try {
             switch (field) {
@@ -32,6 +35,7 @@ public enum Filter {
                 case "Max Points":
                     return MAX_POINTS;
                 default:
+                    System.out.println("Prova");
                     throw new Exception("String not recognized");
             }
         }catch (Exception e){
@@ -40,6 +44,7 @@ public enum Filter {
         return null;
     }
 
+    @VisibleForTesting
     public static String FilterToInterfaceString(Filter f){
         try {
             switch (f) {
@@ -68,7 +73,7 @@ public enum Filter {
                 case MAX_POINTS:
                     return "Max Points";
                 default:
-                    throw new Exception("String not recognized");
+                    throw new Exception("Filter not recognized");
             }
         }catch (Exception e){
             System.out.println(e.getMessage());

@@ -20,9 +20,25 @@ public class PasswordEncryptorTest {
     }
 
     @Test
+    public void WHEN_encrypt_password_invoked_twice_with_different_input_THEN_different_output_returned(){
+        String out1 = PasswordEncryptor.encryptPassword("prova1");
+        String out2 = PasswordEncryptor.encryptPassword("prova2");
+        Assertions.assertNotEquals(out1, out2);
+    }
+
+
+    @Test
     public void WHEN_encrypt_password_invoked_with_empty_string_THEN_non_empty_output_returned(){
         String out = PasswordEncryptor.encryptPassword("");
         Assertions.assertNotEquals(out, "");
+    }
+
+    @Test
+    public void WHEN_encrypt_password_invoked_with_not_String_arg_THEN_ClassCastException_thrown(){
+        Assertions.assertThrows(ClassCastException.class, ()->{
+            Object c = new Character('c');
+            String out = PasswordEncryptor.encryptPassword((String)c);
+        });
     }
 
 

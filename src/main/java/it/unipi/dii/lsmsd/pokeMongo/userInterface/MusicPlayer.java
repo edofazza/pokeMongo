@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import com.google.common.annotations.VisibleForTesting;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import java.io.File;
@@ -15,6 +16,7 @@ public class MusicPlayer {
      * Simply call <code>setSong(String title)</code>.
      * @param title contains the filename of the mp3 to load
      */
+    @VisibleForTesting
     public MusicPlayer(String title) {
         setSong(title);
     }
@@ -23,6 +25,7 @@ public class MusicPlayer {
      * Stop the music and then call <code>setSong(String title)</code>, in order to change the music.
      * @param title contains the filename of the mp3 to load
      */
+    @VisibleForTesting
     protected void changeSong(String title) {
         mediaPlayer.stop();     // in order to be garbage collected
         setSong(title);
@@ -33,6 +36,7 @@ public class MusicPlayer {
      * <code>mediaPlayer</code> cycle count to indefinite, and plays it.
      * @param title contains the filename of the mp3 to load
      */
+    @VisibleForTesting
     private void setSong(String title) {
         Media sound = new Media(new File(musicLocation + title).toURI().toString());
         mediaPlayer = new AudioClip(sound.getSource());
@@ -43,6 +47,7 @@ public class MusicPlayer {
     /**
      * Stop the <code>mediaPlayer</code>.
      */
+    @VisibleForTesting
     public void stopMusic() {
         mediaPlayer.stop();
     }
