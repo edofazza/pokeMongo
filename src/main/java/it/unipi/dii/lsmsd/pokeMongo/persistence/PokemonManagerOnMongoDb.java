@@ -29,27 +29,27 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
                 case NAME:
                     return eq("name", value);
                 case POKEDEX_ID:
-                    return eq("id", value);
+                    return eq("id", Integer.parseInt(value));
                 case MIN_WEIGHT:
-                    return gte("weight", value);
+                    return gte("weight", Integer.parseInt(value));
                 case MAX_WEIGHT:
-                    return lte("weight", value);
+                    return lte("weight", Integer.parseInt(value));
                 case MIN_HEIGHT:
-                    return gte("height", value);
+                    return gte("height", Integer.parseInt(value));
                 case MAX_HEIGHT:
-                    return lte("height", value);
+                    return lte("height", Integer.parseInt(value));
                 case TYPE1:
                     return in("types", value);
                 case TYPE2:
                     return in("types", value);
                 case MIN_CATCTH_RATE:
-                    return gte("capture_rate", value);
+                    return gte("capture_rate", Double.parseDouble(value));
                 case MAX_CATCH_RATE:
-                    return lte("capture_rate", value);
-                case MIN_POINTS:
-                    return gte("capture_rate", value);
+                    return lte("capture_rate", Double.parseDouble(value));
+                /*case MIN_POINTS:
+                    return gte("capture_rate", Double.parseDouble(value));
                 case MAX_POINTS:
-                    return lte("capture_rate", value);
+                    return lte("capture_rate", Double.parseDouble(value));*/
                 default:
                     throw new Exception("String not recognized");
             }
