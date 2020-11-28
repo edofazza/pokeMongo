@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.gson.*;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.*;
@@ -27,6 +28,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     }
 
     @Override
+    @VisibleForTesting
     public boolean insert(ArrayList<Object> toInsert) {
         if(toInsert.size()==0)
             return false;
@@ -55,6 +57,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     }
 
     @Override
+    @VisibleForTesting
     public boolean insert(Object toInsert) {
         if(toInsert==null)
             return false;
@@ -70,6 +73,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     }
 
     @Override
+    @VisibleForTesting
     public boolean remove(Object o) {
         MongoCollection<Document> collection = getCollection(collectionName);
         DeleteResult dr;
@@ -99,6 +103,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     }
 
     @Override
+    @VisibleForTesting
     public ArrayList<Object> getWithFilter(Object filter) {
         List<Document> docs= getCollection(collectionName).find((Bson)filter).into(new ArrayList<>());
         ArrayList<Object> users = new ArrayList<>();
@@ -110,6 +115,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     }
 
     @Override
+    @VisibleForTesting
     public boolean update(Object target, Object newValue) {
         MongoCollection<Document> collection = getCollection(collectionName);
         UpdateResult ur;
