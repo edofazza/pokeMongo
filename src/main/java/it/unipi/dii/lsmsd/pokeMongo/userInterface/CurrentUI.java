@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import com.google.common.annotations.VisibleForTesting;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.cache.PokeMongoImageCache;
 import javafx.scene.Group;
@@ -33,6 +34,7 @@ public class CurrentUI {
      * Clears all the nodes from the scene, and then adds the nodes regarding the new one
      * @param sn is a <em>SceneNames</em> which indicates the new scene
      */
+    @VisibleForTesting
     protected static void changeScene(SceneNames sn) {
         root.getChildren().clear();
         nodeWindow = sn.createNewScene(sn);
