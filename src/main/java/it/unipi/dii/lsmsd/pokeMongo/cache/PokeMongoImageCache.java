@@ -18,7 +18,6 @@ public class PokeMongoImageCache implements PokeMongoCache {
         return instance;
     }
 
-    @VisibleForTesting
     PokeMongoImageCache(){
         cache = Caffeine.newBuilder()
                 .expireAfterAccess(10, TimeUnit.MINUTES) //After this time without read/write the resource is deallocated
