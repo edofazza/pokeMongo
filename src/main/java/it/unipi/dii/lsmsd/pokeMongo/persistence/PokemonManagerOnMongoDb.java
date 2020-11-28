@@ -10,10 +10,11 @@ import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static com.mongodb.client.model.Filters.*;
 
-public class PokemonManagerOnMongoDb extends MongoDbDatabase{
+public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
     private final String collectionName = "pokemon";
 
     private Document PokemonToDocument(Pokemon p){
@@ -112,5 +113,26 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase{
         }
         closeConnection();
         return ur.getModifiedCount()>0;
+    }
+
+
+    @Override
+    public ArrayList<Pokemon> searchWithFilter(Map<Filter, String> parameters) {
+        return null;
+    }
+
+    @Override
+    public boolean addPokemon(Pokemon toAdd) {
+        return false;
+    }
+
+    @Override
+    public boolean addPokemon(List<Pokemon> toAdd) {
+        return false;
+    }
+
+    @Override
+    public boolean removePokemon(Pokemon toRemove) {
+        return false;
     }
 }
