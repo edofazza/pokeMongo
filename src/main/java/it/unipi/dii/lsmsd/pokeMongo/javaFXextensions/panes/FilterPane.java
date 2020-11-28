@@ -1,17 +1,14 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
-import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FilterLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.FilterTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -223,14 +220,8 @@ public class FilterPane extends Pane {
             tmpFilterMap.put(Filter.MAX_POINTS, maxPointsTF.getText());
 
         // CALL MONGODB FUNCTION
-        PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
-        System.out.println(tmpFilterMap.size());
 
         // DISPLAY RESULTS
-        ArrayList<Pokemon> pokemonArray = pokemonManagerOnMongoDb.searchWithFilter(tmpFilterMap);
-        /*for (Pokemon p: pokemonArray)
-            System.out.println(p.getName());*/
-        System.out.println(pokemonArray.size());
     }
 
 
