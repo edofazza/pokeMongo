@@ -2,7 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 public enum Filter {
     NAME, POKEDEX_ID, MIN_WEIGHT, MAX_WEIGHT, MIN_HEIGHT, MAX_HEIGHT,
-    TYPE1, TYPE2, MIN_CATCTH_RATE, MAX_CATCH_RATE, MIN_POINTS, MAX_POINTS;
+    TYPE1, TYPE2, MIN_CATCH_RATE, MAX_CATCH_RATE, MIN_POINTS, MAX_POINTS;
 
     public static Filter interfaceStringToFilter(String field){
         try {
@@ -24,7 +24,7 @@ public enum Filter {
                 case "Type2":
                     return TYPE2;
                 case "Min Catch Rate":
-                    return MIN_CATCTH_RATE;
+                    return MIN_CATCH_RATE;
                 case "Max Catch Rate":
                     return MAX_CATCH_RATE;
                 case "Min Points":
@@ -59,7 +59,7 @@ public enum Filter {
                     return "Type1";
                 case TYPE2:
                     return "Type2";
-                case MIN_CATCTH_RATE:
+                case MIN_CATCH_RATE:
                     return "Min Catch Rate";
                 case MAX_CATCH_RATE:
                     return "Max Catch Rate";

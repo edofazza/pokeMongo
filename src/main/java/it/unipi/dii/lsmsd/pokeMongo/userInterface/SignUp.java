@@ -223,7 +223,7 @@ public class SignUp extends PokeSceneWithTitle {
                 !passwordTF.getText().equals("") && !nameTF.getText().equals("") && !emailTF.getText().equals("") &&
                 !confirmPasswordTF.getText().equals("") && !country.getValue().toString().equals("")
         ) {
-            Scene scene;
+            InvalidFormEntryLabel resultLabel;
             // Get the Date
             LocalDate localDate = birthdayDP.getValue();
             Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
@@ -241,14 +241,14 @@ public class SignUp extends PokeSceneWithTitle {
                             emailTF.getText(),
                             date,
                             country.getValue().toString())
-            ))
-                scene = new Scene(new Group( new Label("Sign up successfully done")), 185, 30);
+            )) {
+                resultLabel = new InvalidFormEntryLabel("Sign up successfully done", 800, 600, true);
+                resultLabel.setStyle("-fx-background-color: green;");
+            }
             else
-                scene = new Scene(new Group( new Label("Username already present")), 185, 30);
-            Stage stage = new Stage();
-            stage.setTitle("Sign up result");
-            stage.setScene(scene);
-            stage.show();
+                resultLabel = new InvalidFormEntryLabel("Username already exists", 800, 600, true);
+
+            sceneNodes.getChildren().add(resultLabel);
         }
 
     }

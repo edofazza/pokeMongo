@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.FilterPokemonResultButton;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
@@ -37,6 +38,9 @@ public class PokemonTeamForUserSelectedWindow extends Pane {
     }
 
     private void displayPokemonPoints() {
+        Label pokemonpoints = new Label("Pts: " + "255");
+        pokemonpoints.relocate(210, 32);
 
+        getChildren().add(pokemonpoints);
     }
 }
