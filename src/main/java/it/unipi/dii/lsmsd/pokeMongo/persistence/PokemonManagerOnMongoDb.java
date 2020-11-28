@@ -42,7 +42,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
                     return in("types", value);
                 case TYPE2:
                     return in("types", value);
-                case MIN_CATCTH_RATE:
+                case MIN_CATCH_RATE:
                     return gte("capture_rate", Double.parseDouble(value));
                 case MAX_CATCH_RATE:
                     return lte("capture_rate", Double.parseDouble(value));
@@ -162,6 +162,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
                 conditions[i] = translateToBson(key, parameters.get(key));
             }
             query = and(conditions);
+
         }
         else{
             Filter key = keys.get(0);
