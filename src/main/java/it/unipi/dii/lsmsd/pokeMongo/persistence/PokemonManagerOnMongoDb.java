@@ -1,16 +1,14 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
-import com.google.gson.*;
-import com.mongodb.client.*;
-import com.mongodb.client.result.*;
+import com.google.gson.Gson;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.mongodb.client.model.Filters.*;
 
@@ -24,6 +22,43 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
     private Pokemon DocumentToPokemon(Document doc){
         return new Gson().fromJson(doc.toJson(), Pokemon.class);
     }
+
+    private Bson translateToBson(Filter f, String value){
+        try{
+            switch(f){
+                case NAME:
+                    return eq("name", value);
+                case POKEDEX_ID:
+                    return eq("id", value);
+                case MIN_WEIGHT:
+                    return gte("weight", value);
+                case MAX_WEIGHT:
+                    return lte("weight", value);
+                case MIN_HEIGHT:
+                    return gte("height", value);
+                case MAX_HEIGHT:
+                    return lte("height", value);
+                case TYPE1:
+                    return in("types", value);
+                case TYPE2:
+                    return in("types", value);
+                case MIN_CATCTH_RATE:
+                    return gte("capture_rate", value);
+                case MAX_CATCH_RATE:
+                    return lte("capture_rate", value);
+                case MIN_POINTS:
+                    return gte("capture_rate", value);
+                case MAX_POINTS:
+                    return lte("capture_rate", value);
+                default:
+                    throw new Exception("String not recognized");
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
 
     @Override
     public boolean insert(ArrayList<Object> toInsert) {
@@ -118,7 +153,25 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
 
     @Override
     public ArrayList<Pokemon> searchWithFilter(Map<Filter, String> parameters) {
-        return null;
+        ArrayList<Filter> keys = new ArrayList<>(parameters.keySet());
+        Bson query;
+        if(parameters.size()>1){
+            Bson[] conditions= new Bson[parameters.size()];
+            for(int i=0; i< parameters.size(); i++){
+                Filter key = keys.get(0);
+                conditions[i] = translateToBson(key, parameters.get(key));
+            }
+            query = and(conditions);
+        }
+        else{
+            Filter key = keys.get(0);
+            query = translateToBson(key,parameters.get(key));
+        }
+        ArrayList<Pokemon> result = new ArrayList<>();
+        ArrayList<Object> matched = getWithFilter(query);
+        for(Object o:matched)
+            result.add((Pokemon)o);
+        return result;
     }
 
     @Override
