@@ -25,7 +25,7 @@ public class PokemonSingleResultPane extends Pane {
         img.setFitWidth(60);
         img.setFitHeight(60);
 
-        FilterPokemonResultButton pokemonName = new FilterPokemonResultButton(pokemon, 90, 12);
+        FilterPokemonResultButton pokemonName = new FilterPokemonResultButton(pokemon, 70, 12);
 
         Label pokemonId = new Label(text);
         pokemonId.relocate(190, 18);

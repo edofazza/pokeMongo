@@ -230,7 +230,7 @@ public class FilterPane extends Pane {
         /*for (Pokemon p: pokemonArray)
             System.out.println(p.getName());
         System.out.println(pokemonArray.size());*/
-
+        PokedexResultScrollPane.clearVBox();
         if (pokemonArray.size() != 0)
             PokedexResultScrollPane.addResult(pokemonArray);
     }

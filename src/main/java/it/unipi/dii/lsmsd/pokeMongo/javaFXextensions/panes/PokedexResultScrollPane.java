@@ -44,9 +44,14 @@ public class PokedexResultScrollPane extends ScrollPane {
         PokemonSingleResultPane prpp6 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
 
         root.getChildren().addAll(prpp, prpp1, prpp2, prpp3, prpp4, prpp5, prpp6);*/
+
         for (Pokemon p: result) {
             PokemonSingleResultPane prpp = new PokemonSingleResultPane(p, p.getSprite(), p.getName(), "Pokedex ID: " + p.getId());
             root.getChildren().add(prpp);
         }
+    }
+
+    public static void clearVBox() {
+        root.getChildren().clear();
     }
 }
