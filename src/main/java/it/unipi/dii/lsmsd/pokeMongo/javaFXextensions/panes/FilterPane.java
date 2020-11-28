@@ -228,8 +228,8 @@ public class FilterPane extends Pane {
 
         // DISPLAY RESULTS
         ArrayList<Pokemon> pokemonArray = pokemonManagerOnMongoDb.searchWithFilter(tmpFilterMap);
-        /*for (Pokemon p: pokemonArray)
-            System.out.println(p.getName());*/
+        for (Pokemon p: pokemonArray)
+            System.out.println(p.getName());
         System.out.println(pokemonArray.size());
     }
 
