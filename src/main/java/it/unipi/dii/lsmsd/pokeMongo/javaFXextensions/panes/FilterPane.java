@@ -224,13 +224,15 @@ public class FilterPane extends Pane {
 
         // CALL MONGODB FUNCTION
         PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
-        System.out.println(tmpFilterMap.size());
 
         // DISPLAY RESULTS
         ArrayList<Pokemon> pokemonArray = pokemonManagerOnMongoDb.searchWithFilter(tmpFilterMap);
-        for (Pokemon p: pokemonArray)
+        /*for (Pokemon p: pokemonArray)
             System.out.println(p.getName());
-        System.out.println(pokemonArray.size());
+        System.out.println(pokemonArray.size());*/
+
+        if (pokemonArray.size() != 0)
+            PokedexResultScrollPane.addResult(pokemonArray);
     }
 
 

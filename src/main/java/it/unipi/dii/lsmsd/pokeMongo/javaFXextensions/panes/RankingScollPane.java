@@ -24,7 +24,7 @@ public class RankingScollPane extends ScrollPane {
     private void addDefaultResult() {
         switch (rankingTypes) {
             case BESTPOKEMON:
-                PokemonSingleResultPane prpp = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: " + "71");
+                /*PokemonSingleResultPane prpp = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: " + "71");
                 PokemonSingleResultPane prpp1 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: " + "70");
                 PokemonSingleResultPane prpp2 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: "  + "12");
                 PokemonSingleResultPane prpp3 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: "  + "37");
@@ -32,7 +32,7 @@ public class RankingScollPane extends ScrollPane {
                 PokemonSingleResultPane prpp5 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: "  + "17");
                 PokemonSingleResultPane prpp6 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: "  + "7");
 
-                root.getChildren().addAll(prpp, prpp1, prpp2, prpp3, prpp4, prpp5, prpp6);
+                root.getChildren().addAll(prpp, prpp1, prpp2, prpp3, prpp4, prpp5, prpp6);*/
                 break;
             case BESTTEAM:
                 RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult("Ducange", "Jail Team", 2000);

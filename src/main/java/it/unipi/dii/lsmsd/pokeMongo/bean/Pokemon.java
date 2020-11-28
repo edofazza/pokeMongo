@@ -95,4 +95,10 @@ public class Pokemon {
     public void setPortrait(String portrait) {
         this.portrait = portrait;
     }
+
+    public String getTypeSingleString() {
+        if (types.length > 1)
+            return types[0] + ", " + types[1];
+        return types[0];
+    }
 }

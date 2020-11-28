@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.PokemonWindowLabel;
+import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -43,7 +44,7 @@ public class PokemonWindowGroup extends Group {
      * @param url contains the url for the pokemon portrait
      */
     private void displayPortrait(String url) {
-        ImageView portrait = new ImageView(url);
+        ImageView portrait = new ImageView(CurrentUI.getImage(url));
         portrait.setFitWidth(170);
         portrait.setFitHeight(170);
         portrait.relocate(20, 30);
@@ -56,7 +57,7 @@ public class PokemonWindowGroup extends Group {
      * @param url contains the url for the pokemon sprite
      */
     private void displaySprite(String url) {
-        ImageView sprite = new ImageView(url);
+        ImageView sprite = new ImageView(CurrentUI.getImage(url));
         sprite.setFitWidth(60);
         sprite.setFitHeight(60);
         sprite.relocate(230, 10);
