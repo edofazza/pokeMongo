@@ -8,9 +8,12 @@ import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-import static com.mongodb.client.model.Filters.*;
+import static com.mongodb.client.model.Filters.eq;
+import static it.unipi.dii.lsmsd.pokeMongo.persistence.Filter.*;
 
 public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
     private final String collectionName = "pokemon";
@@ -23,40 +26,41 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
         return new Gson().fromJson(doc.toJson(), Pokemon.class);
     }
 
-    private Document translateToDocument(Filter f, String value, Document query){
-        try{
-            switch(f){
-                case NAME:
-                    return query.append("name", value);
-                case POKEDEX_ID:
-                    return query.append("id", Integer.parseInt(value));
-                case MIN_WEIGHT:
-                    return query.append("weight", new Document("$gte", Integer.parseInt(value)));
-                case MAX_WEIGHT:
-                    return query.append("weight", new Document("$lte", Integer.parseInt(value)));
-                case MIN_HEIGHT:
-                    return query.append("height", new Document("$gte", Integer.parseInt(value)));
-                case MAX_HEIGHT:
-                    return query.append("height", new Document("$lte", Integer.parseInt(value)));
-                case TYPE1:
-                    return query.append("types", value);
-                case TYPE2:
-                    return query.append("types", value);
-                case MIN_CATCH_RATE:
-                    return query.append("capture_rate", new Document("$gte", Integer.parseInt(value)));
-                case MAX_CATCH_RATE:
-                    return query.append("capture_rate", new Document("$lte", Integer.parseInt(value)));
-                /*case MIN_POINTS:
-                    return gte("capture_rate", Double.parseDouble(value));
-                case MAX_POINTS:
-                    return lte("capture_rate", Double.parseDouble(value));*/
-                default:
-                    throw new Exception("String not recognized");
-            }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        return null;
+    private Bson queryBuilder(Map<Filter, String> params){
+       Document toReturn=new Document();
+       if(params.get(NAME)!=null)
+           toReturn.append("name", params.get(NAME));
+
+       if(params.get(POKEDEX_ID)!=null)
+           toReturn.append("id", Integer.parseInt(params.get(POKEDEX_ID)));
+
+       if(params.get(MIN_WEIGHT)!=null && params.get(MAX_WEIGHT)!=null)
+           toReturn.append("weight", new Document("$gte", Integer.parseInt(params.get(MIN_WEIGHT))).append("$lte", Integer.parseInt(params.get(MAX_WEIGHT))));
+       else if(params.get(MIN_WEIGHT)!=null)
+           toReturn.append("weight", new Document("$gte", Integer.parseInt(params.get(MIN_WEIGHT))));
+       else if(params.get(MAX_WEIGHT)!=null)
+           toReturn.append("weight", new Document("$lte", Integer.parseInt(params.get(MAX_WEIGHT))));
+
+
+        if(params.get(MIN_HEIGHT)!=null && params.get(MAX_HEIGHT)!=null)
+            toReturn.append("height", new Document("$gte", Integer.parseInt(params.get(MIN_HEIGHT))).append("$lte", Integer.parseInt(params.get(MAX_HEIGHT))));
+        else if(params.get(MIN_HEIGHT)!=null)
+            toReturn.append("height", new Document("$gte", Integer.parseInt(params.get(MIN_HEIGHT))));
+        else if(params.get(MAX_HEIGHT)!=null)
+            toReturn.append("height", new Document("$lte", Integer.parseInt(params.get(MAX_HEIGHT))));
+
+        if(params.get(TYPE1)!=null)
+            toReturn.append("types", params.get(TYPE1));
+        if(params.get(TYPE2)!=null)
+            toReturn.append("types", params.get(TYPE2));
+
+        if(params.get(MIN_CATCH_RATE)!=null && params.get(MAX_CATCH_RATE)!=null)
+            toReturn.append("capture_rate", new Document("$gte", Integer.parseInt(params.get(MIN_CATCH_RATE))).append("$lte", Integer.parseInt(params.get(MAX_CATCH_RATE))));
+        else if(params.get(MIN_CATCH_RATE)!=null)
+            toReturn.append("capture_rate", new Document("$gte", Integer.parseInt(params.get(MIN_CATCH_RATE))));
+        else if(params.get(MAX_CATCH_RATE)!=null)
+            toReturn.append("capture_rate", new Document("$lte", Integer.parseInt(params.get(MAX_CATCH_RATE))));
+       return toReturn;
     }
 
 
@@ -123,7 +127,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
 
     @Override
     public ArrayList<Object> getWithFilter(Object filter) {
-        List<Document> docs= getCollection(collectionName).find((Bson)filter).into(new ArrayList<>());
+        List<Document> docs= getCollection(collectionName).find((Bson) filter).into(new ArrayList<>());
         ArrayList<Object> pokemons = new ArrayList<>();
         for(Document d:docs){
             pokemons.add(DocumentToPokemon(d));
@@ -154,18 +158,8 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
     @Override
     public ArrayList<Pokemon> searchWithFilter(Map<Filter, String> parameters) {
         ArrayList<Filter> keys = new ArrayList<>(parameters.keySet());
-        Document query = new Document();
-        if(parameters.size()>1){
-            for(int i=0; i< parameters.size(); i++){
-                Filter key = keys.get(i);
-                query=translateToDocument(key, parameters.get(key), query);
-            }
-
-        }
-        else{
-            Filter key = keys.get(0);
-            query = translateToDocument(key,parameters.get(key), query);
-        }
+        Bson query = queryBuilder(parameters);
+        //System.out.println(query);
         ArrayList<Pokemon> result = new ArrayList<>();
         ArrayList<Object> matched = getWithFilter(query);
         for(Object o:matched)
