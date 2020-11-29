@@ -72,12 +72,16 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
         if(toInsert.size()==1){
+            if(!(toInsert.get(0) instanceof Pokemon))
+                return false;
             Document doc = PokemonToDocument((Pokemon)toInsert.get(0));
             collection.insertOne(doc);
         }
         else{
             List<Document> l = new ArrayList<>();
             for(Object o:toInsert){
+                if(!(o instanceof Pokemon))
+                    return false;
                 Document doc = PokemonToDocument((Pokemon)o);
                 l.add(doc);
             }
@@ -90,7 +94,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
     @Override
     @VisibleForTesting
     public boolean insert(Object toInsert) {
-        if(toInsert==null)
+        if(toInsert==null || !(toInsert instanceof Pokemon))
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
         Document doc = PokemonToDocument((Pokemon)toInsert);
@@ -131,6 +135,8 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
     @Override
     @VisibleForTesting
     public ArrayList<Object> getWithFilter(Object filter) {
+        if(!(filter instanceof Bson ) || !(filter instanceof Document))
+            return null;
         List<Document> docs= getCollection(collectionName).find((Bson) filter).into(new ArrayList<>());
         ArrayList<Object> pokemons = new ArrayList<>();
         for(Document d:docs){
@@ -143,6 +149,8 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
     @Override
     @VisibleForTesting
     public boolean update(Object target, Object newValue) {
+        if(!(newValue instanceof Bson))
+            return false;
         MongoCollection<Document> collection = getCollection(collectionName);
         UpdateResult ur;
         if (target instanceof Pokemon){
