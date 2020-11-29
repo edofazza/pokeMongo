@@ -2,10 +2,12 @@ package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 
 import com.google.common.annotations.VisibleForTesting;
-import com.google.gson.*;
+import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.result.*;
+import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRanker;
 import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -13,10 +15,14 @@ import org.bson.conversions.Bson;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static com.mongodb.client.model.Aggregates.*;
 import static com.mongodb.client.model.Filters.*;
-import static com.mongodb.client.model.Updates.*;
+import static com.mongodb.client.model.Projections.*;
+import static com.mongodb.client.model.Sorts.descending;
+import static com.mongodb.client.model.Updates.inc;
+import static com.mongodb.client.model.Updates.set;
 
-public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager{
+public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager, UserRanker {
     private final String collectionName = "user";
 
     private Document UserToDocument(User u){
@@ -25,6 +31,17 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     private User DocumentToUser(Document doc){
         return new Gson().fromJson(doc.toJson(), User.class);
+    }
+
+    private List<User> aggregate(List<Bson> steps){
+        MongoCollection<Document> collection = getCollection(collectionName);
+        List<Document> result = collection.aggregate(steps).into(new ArrayList<>());
+        List<User> toReturn = new ArrayList<>();
+        for(Document d:result){
+            toReturn.add(DocumentToUser(d));
+        }
+        closeConnection();
+        return toReturn;
     }
 
     @Override
@@ -141,6 +158,11 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         return ur.getModifiedCount()>0;
     }
 
+
+
+
+
+
     @Override
     public User login(String username, String password) {
         //TODO: Added Password Encryption, watch effects
@@ -251,5 +273,35 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     @Override
     public void logout(User toLogOut) {
         update(toLogOut, set("dailyPokeball", toLogOut.getDailyPokeball()));
+    }
+
+
+
+
+    @Override
+    public List<User> bestWorldTeams() {
+        Bson sort = sort(descending("points", "birthDay"));
+        Bson limit = limit(20);
+        Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
+        return aggregate(Arrays.asList(sort, limit, project));
+    }
+
+    @Override
+    public List<User> bestFriendsTeams(User current) {
+        Bson sort = sort(descending("points", "birthDay"));
+        Bson limit = limit(20);
+        List<User> friends = /*getFriends(User current)*/new ArrayList<>();
+        Bson match = match(in("username", friends));
+        Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
+        return aggregate(Arrays.asList(match, sort, limit, project));
+    }
+
+    @Override
+    public List<User> bestCountryTeams(String country) {
+        Bson match = match(eq("country", country));
+        Bson sort = sort(descending("points", "birthDay"));
+        Bson limit = limit(20);
+        Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
+        return aggregate(Arrays.asList(match, sort, limit, project));
     }
 }
