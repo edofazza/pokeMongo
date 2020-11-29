@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo;
 
+import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage primaryStage) {
+
         Scene scene = new CurrentUI().initScene();
         primaryStage.setTitle("pokeMongo");
         primaryStage.setScene(scene);
@@ -26,6 +28,7 @@ public class Main extends Application {
      * @param args no args present
      */
     public static void main(String[] args) {
+        //ConfigDataHandler configDataHandler = ConfigDataHandler.getInstance();
         launch(args);
     }
 }

@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 import com.google.common.annotations.VisibleForTesting;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.cache.PokeMongoImageCache;
+import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
