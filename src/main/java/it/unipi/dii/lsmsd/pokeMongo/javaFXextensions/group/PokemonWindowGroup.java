@@ -44,12 +44,13 @@ public class PokemonWindowGroup extends Group {
      * @param url contains the url for the pokemon portrait
      */
     private void displayPortrait(String url) {
-        ImageView portrait = new ImageView(CurrentUI.getImage(url));
+        ImageView portrait = new ImageView();
         portrait.setFitWidth(170);
         portrait.setFitHeight(170);
         portrait.relocate(20, 30);
-
         getChildren().add(portrait);
+
+        CurrentUI.getImage(url).thenAccept(k -> {portrait.setImage(k);}); //TODO not fx thread error
     }
 
     /**
@@ -57,12 +58,14 @@ public class PokemonWindowGroup extends Group {
      * @param url contains the url for the pokemon sprite
      */
     private void displaySprite(String url) {
-        ImageView sprite = new ImageView(CurrentUI.getImage(url));
+        ImageView sprite = new ImageView();
         sprite.setFitWidth(60);
         sprite.setFitHeight(60);
         sprite.relocate(230, 10);
 
         getChildren().add(sprite);
+
+        CurrentUI.getImage(url).thenAccept(k -> {sprite.setImage(k);}); //TODO not fx thread error
     }
 
     /**

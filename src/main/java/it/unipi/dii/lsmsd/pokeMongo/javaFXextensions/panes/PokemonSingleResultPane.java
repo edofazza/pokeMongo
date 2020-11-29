@@ -21,7 +21,8 @@ public class PokemonSingleResultPane extends Pane {
      */
     public PokemonSingleResultPane(Pokemon pokemon, String sprite, String name, String text) {  // TODO: id can be an int, change it in case
         this.pokemon = pokemon;
-        ImageView img = new ImageView(CurrentUI.getImage(sprite));
+        ImageView img = new ImageView();
+        CurrentUI.getImage(sprite).thenAccept(k -> img.setImage(k)); //TODO not fx thread exception
         img.setFitWidth(60);
         img.setFitHeight(60);
 
