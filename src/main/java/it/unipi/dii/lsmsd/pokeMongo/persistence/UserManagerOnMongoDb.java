@@ -148,11 +148,12 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         ArrayList<Object> matched = getWithFilter(query);
         if(matched.size()!=1)
             return null;
+        User logger = (User)matched.get(0);
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss aa");
         Date now = new Date();
 
         // Compare dates and update pokeball in case
-        Date oldLastLogin = ((User)matched.get(0)).getLastLogin();
+        Date oldLastLogin = logger.getLastLogin();
         Calendar oldCal = Calendar.getInstance();
         oldCal.setTime(oldLastLogin);
         oldCal.add(Calendar.DATE, 1);
@@ -164,14 +165,14 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         newCal.setTime(new Date());
 
         if(newCal.after(oldCal)) {
-            updateNumberOfPokeballTo10((User) matched.get(0));
-            ((User) matched.get(0)).resetDailyPokeball();
+            updateNumberOfPokeballTo10(logger);
+            logger.resetDailyPokeball();
         }
         // End
 
         String dateString = sdf.format(now);
         update(query, set("lastLogin", dateString.substring(0,1).toUpperCase() + dateString.substring(1)));
-        return (User)matched.get(0);
+        return logger;
     }
 
     @Override
