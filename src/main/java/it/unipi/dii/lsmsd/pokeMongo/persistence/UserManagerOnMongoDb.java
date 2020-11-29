@@ -230,7 +230,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     }
 
     @Override
-    public boolean updatePoints(User target, int points) {
+    public boolean updatePoints(User target, double points) {
         return update(target, set("points", points));
     }
 

@@ -74,7 +74,7 @@ public interface UserManager {
 
     boolean changeTeamName(User involved, String newName);
 
-    boolean updatePoints(User target, int points);
+    boolean updatePoints(User target, double points);
 
     /**
      * updates number of daily Pokeball of the user, for cheat-prevention
