@@ -72,5 +72,9 @@ public interface UserManager {
      */
     boolean verifyOldPassword(User involved, String password);
 
+    boolean updateNumberOfPokeball(User target);
+
+    boolean updateNumberOfPokeballTo10(User target);
+
     void logout(User toLogOut);
 }

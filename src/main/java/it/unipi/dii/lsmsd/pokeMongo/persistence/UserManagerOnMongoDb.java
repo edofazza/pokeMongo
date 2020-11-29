@@ -142,6 +142,25 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
             return null;
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss aa");
         Date now = new Date();
+
+        // Compare dates and update pokeball in case
+        Date oldLastLogin = ((User)matched.get(0)).getLastLogin();
+        Calendar oldCal = Calendar.getInstance();
+        oldCal.setTime(oldLastLogin);
+        oldCal.add(Calendar.DATE, 1);
+        oldCal.set(Calendar.HOUR_OF_DAY, 0);
+        oldCal.set(Calendar.MINUTE, 0);
+        oldCal.set(Calendar.MILLISECOND, 0);
+
+        Calendar newCal = Calendar.getInstance();
+        newCal.setTime(new Date());
+
+        if(newCal.after(oldCal)) {
+            updateNumberOfPokeballTo10((User) matched.get(0));
+            ((User) matched.get(0)).resetDailyPokeball();
+        }
+        // End
+
         String dateString = sdf.format(now);
         update(query, set("lastLogin", dateString.substring(0,1).toUpperCase() + dateString.substring(1)));
         return (User)matched.get(0);
@@ -195,6 +214,16 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         if(matches.size()!=1)
             return false;
         return ((User)matches.get(0)).getPassword().equals(PasswordEncryptor.encryptPassword(password));
+    }
+
+    @Override
+    public boolean updateNumberOfPokeball(User target) {
+        return update(target, set("dailyPokeball", target.getDailyPokeball()));
+    }
+
+    @Override
+    public boolean updateNumberOfPokeballTo10(User target) {
+        return update(target, set("dailyPokeball", 10));
     }
 
     @Override

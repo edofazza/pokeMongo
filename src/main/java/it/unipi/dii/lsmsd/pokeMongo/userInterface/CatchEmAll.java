@@ -5,10 +5,12 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.choiceBox.ChooseSlotNumber;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.imageviews.BackgroundImage;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.TitleLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +25,7 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
     private BackgroundImage selectedPokemon;
 
     private Pokemon pokemon;
+    private InvalidFormEntryLabel invalidFormEntryLabel;
 
     /**
      * <em>Constructor</em>. Called a series of function in order to create the <em>Node</em>
@@ -38,6 +41,8 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
         displayOdd();
 
         displayTryToCatch();
+
+        displayResultLabel();
 
         setSceneMusic("catchemAll.mp3");
     }
@@ -104,12 +109,20 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().add(tryToCatch);
     }
 
+    private void displayResultLabel() {
+        invalidFormEntryLabel = new InvalidFormEntryLabel("", 600, 550, false);
+        sceneNodes.getChildren().add(invalidFormEntryLabel);
+    }
+
 
     //---------------------------------------
     // METHODS TO BE PLACED SOMEWHERE ELSE
     //---------------------------------------
 
     private void loadPokemonInfoByName(String pokemonName){
+        if (invalidFormEntryLabel.isVisible())
+            invalidFormEntryLabel.setVisible(false);
+
         HashMap<Filter, String> hashMap = new HashMap<>();
         hashMap.put(Filter.NAME, pokemonName);
 
@@ -128,14 +141,29 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
     }
 
     private void tryToCatchAction() {
-        if (pokemon != null) {
+        if (pokemon != null && CurrentUI.getNumberOfPokeball() != 0) {
             // DECREMENT POKEBALL FROM THE USER
             CurrentUI.decrementPokeball();
-
-            // UPDATE LABEL
             updatePokeBallsLabelNumber();
 
-            // TODO: ADD THE POKEMON IF CAPTURED
+            // DECREMENT ALSO IN THE DB
+            UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
+            userManagerOnMongoDb.updateNumberOfPokeball(CurrentUI.getUser());
+
+            if ((Math.random() * 254 + 1) < pokemon.getCapture_rate()) {
+                invalidFormEntryLabel.setText(pokemon.getName() + " caught");
+                invalidFormEntryLabel.setVisible(true);
+                invalidFormEntryLabel.setStyle("-fx-background-color: green");
+
+                // TODO: ADD THE POKEMON TO TEAM
+
+            } else {
+                invalidFormEntryLabel.setText(pokemon.getName() + " uncaught");
+                invalidFormEntryLabel.setVisible(true);
+                invalidFormEntryLabel.setStyle("-fx-background-color: #FF211A");
+            }
         }
     }
+
+
 }
