@@ -103,7 +103,10 @@ public class SignUp extends PokeSceneWithTitle {
 
         passwordTF = new PasswordField();
         passwordTF.relocate(350, 400);
-        passwordTF.setOnKeyReleased(e->FormValidatorPokeMongo.handlePassword(passwordTF, invalidPasswordLabel));
+        passwordTF.setOnKeyReleased(e->{
+            FormValidatorPokeMongo.handlePassword(passwordTF, invalidPasswordLabel);
+            FormValidatorPokeMongo.handleConfirmField(passwordTF, confirmPasswordTF, invalidConfirmPasswordLabel);
+        });
 
         sceneNodes.getChildren().addAll(passwordLabel, invalidPasswordLabel, passwordTF);
     }
@@ -149,7 +152,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         emailTF = new TextField();
         emailTF.relocate(750, 300);
-        emailTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleEmail(emailTF, invalidEmailLabel));
+        emailTF.setOnKeyReleased(e->{FormValidatorPokeMongo.handleEmail(emailTF, invalidEmailLabel); });
 
         sceneNodes.getChildren().addAll(emailLabel, invalidEmailLabel, emailTF);
     }
