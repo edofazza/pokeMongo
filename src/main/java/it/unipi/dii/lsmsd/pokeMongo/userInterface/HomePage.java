@@ -1,7 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.HomePageCentralButton;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 
 /**
@@ -27,8 +26,11 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
 
         if(!CurrentUI.isAdmin())
             displaySettingsButton();
-        else
+        else {
+            displayAnalytics();
             displayAddRemovePokemonButton();
+            displayRemoveUserScene();
+        }
 
         displayLogOutButton();
 
@@ -108,6 +110,28 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
     }
 
     /**
+     * Add to <code>sceneNodes</code> the button to view to Analytics scene. Only admin user.
+     */
+    private void displayAnalytics() {
+        HomePageCentralButton analyticsButton = new HomePageCentralButton("ANALYTICS");
+
+        analyticsButton.setOnAction(e-> analyticsButtonAction());
+
+        sceneNodes.getChildren().add(analyticsButton);
+    }
+
+    /**
+     * Add to <code>sceneNodes</code> the button to view to Analytics scene. Only admin user.
+     */
+    private void displayRemoveUserScene() {
+        HomePageCentralButton removeUserButton = new HomePageCentralButton("REMOVE USER");
+
+        removeUserButton.setOnAction(e-> analyticsButtonAction());
+
+        sceneNodes.getChildren().add(removeUserButton);
+    }
+
+    /**
      * Add to <code>sceneNodes</code> the button to log out from the account.
      */
     private void displayLogOutButton() {
@@ -176,5 +200,19 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
      */
     private void addRemovePokemonAction() {
         CurrentUI.changeScene(SceneNames.ADD_REMOVE);
+    }
+
+    /**
+     * Change the scene to AnalyticsScene.
+     */
+    private void analyticsButtonAction() {
+        CurrentUI.changeScene(SceneNames.ANALYTICS);
+    }
+
+    /**
+     * Change the scene to RemoveUserScene.
+     */
+    private void removeUserButtonACtion() {
+        CurrentUI.changeScene(SceneNames.REMOVEUSER);
     }
 }
