@@ -126,7 +126,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
     private void displayRemoveUserScene() {
         HomePageCentralButton removeUserButton = new HomePageCentralButton("REMOVE USER");
 
-        removeUserButton.setOnAction(e-> analyticsButtonAction());
+        removeUserButton.setOnAction(e-> removeUserButtonAction());
 
         sceneNodes.getChildren().add(removeUserButton);
     }
@@ -212,7 +212,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
     /**
      * Change the scene to RemoveUserScene.
      */
-    private void removeUserButtonACtion() {
+    private void removeUserButtonAction() {
         CurrentUI.changeScene(SceneNames.REMOVEUSER);
     }
 }
