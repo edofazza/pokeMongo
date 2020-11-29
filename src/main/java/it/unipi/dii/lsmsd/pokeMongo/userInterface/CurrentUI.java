@@ -8,6 +8,8 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 
+import java.util.concurrent.CompletableFuture;
+
 /**
  * <em>CurrentUI</em> handles the scene showed to the user
  */
@@ -109,7 +111,7 @@ public class CurrentUI {
 
 
     /////////////////////// IMAGE //////////////////////////
-    public static Image getImage(String url) {
+    public static CompletableFuture<Image> getImage(String url) {
         return pokeMongoImageCache.getDataIfPresent(url);
     }
 }

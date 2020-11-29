@@ -23,8 +23,10 @@ public class PokemonTeamForUserSelectedWindow extends Pane {
     }
 
     private void displayPokemonSprite() {
-        ImageView sprite = new ImageView(CurrentUI.getImage("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"));
 
+        ImageView sprite = new ImageView();
+        CurrentUI.getImage("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png")
+                .thenAccept(k -> sprite.setImage(k)); //TODO not fx thread
         sprite.setFitHeight(90);
         sprite.setFitWidth(90);
 

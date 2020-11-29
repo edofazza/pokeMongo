@@ -131,12 +131,12 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
 
         if (arrayList.size() != 0) {
             pokemon = arrayList.get(0);
-            selectedPokemon.setImage(CurrentUI.getImage(pokemon.getPortrait()));
             oddLabel.setText("ODD: " + String.format("%.2f", (pokemon.getCapture_rate() *100/255)) + "%");
+            CurrentUI.getImage(pokemon.getPortrait()).thenAccept(k -> selectedPokemon.setImage(k)); //TODO not fx thread error
         } else {
-            selectedPokemon.setImage(CurrentUI.getImage(imgLocation + "portraits/0.png"));
             pokemon = null;
             oddLabel.setText("ODD: ");
+            CurrentUI.getImage(imgLocation + "portraits/0.png").thenAccept(k -> selectedPokemon.setImage(k)); //TODO not fx thread error
         }
     }
 
