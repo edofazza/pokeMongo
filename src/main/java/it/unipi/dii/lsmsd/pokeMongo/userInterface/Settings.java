@@ -2,6 +2,8 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
@@ -30,6 +32,8 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
     private InvalidFormEntryLabel invalidConfirmEmailLabel;
     private InvalidFormEntryLabel invalidPasswordLabel;
 
+    // RESULT OF THE UPDATE LABEL
+    private InvalidFormEntryLabel resultUpdateLabel;
     /**
      * Calls series of functions in order to display all the fields. It sets
      * also the music
@@ -43,6 +47,7 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         displayCountry();
 
         displayConfirmButton();
+        displayResultLabel();
 
         setSceneMusic("gym.mp3");
     }
@@ -68,7 +73,7 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
      * Adds to the scene the <code>Node</code> concerning the old password
      */
     private void displayOldPassword() {
-        FieldRelatedLabel oldPasswordLabel = new FieldRelatedLabel("Old Password", 350, 270);
+        FieldRelatedLabel oldPasswordLabel = new FieldRelatedLabel("Old Password*", 350, 270);
 
         //TODO: query to db to find if the password matches with the old one
 
@@ -138,13 +143,119 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().addAll(newPasswordLabel);
     }
 
+    // RESULT LABEL
+    private void displayResultLabel() {
+        resultUpdateLabel = new InvalidFormEntryLabel("pippo", 1100, 600, false);
+
+        sceneNodes.getChildren().add(resultUpdateLabel);
+    }
+
+
     /**
      * Adds to the scene the <code>RegularButton</code> for confirming the fields.
      */
     // BUTTONS
     private void displayConfirmButton() {
         RegularButton submitButton = new RegularButton("CONFIRM", 1000, 600);
+        submitButton.setOnAction(e -> submitbuttonAction());
 
         sceneNodes.getChildren().add(submitButton);
     }
+
+    private void submitbuttonAction() {
+        resultUpdateLabel.setStyle("-fx-background-color: #FF211A;");
+
+        boolean moreThanOne = false;
+
+        if (oldPasswordTF.getText().equals("") || !PasswordEncryptor.encryptPassword(oldPasswordTF.getText()).equals(CurrentUI.getUser().getPassword())) {
+            resultUpdateLabel.setText("To update insert\nold password");
+            resultUpdateLabel.setVisible(true);
+        } else {
+            // Remove the visibility of the previous banner
+            resultUpdateLabel.setVisible(false);
+
+            // change email
+            if(!newEmailTF.getText().equals("") && !confirmEmailTF.getText().equals("")) {
+                if (!invalidEmailLabel.isVisible() && !invalidConfirmEmailLabel.isVisible()) {
+                    UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
+                    userManagerOnMongoDb.changeEmail(CurrentUI.getUser(), newEmailTF.getText());
+
+                    // locally
+                    CurrentUI.getUser().setEmail(newEmailTF.getText());
+
+                    resultUpdateLabel.setText("Email updated");
+                    resultUpdateLabel.setStyle("-fx-background-color: green;");
+                    resultUpdateLabel.setVisible(true);
+
+                    moreThanOne = true;
+                } else {
+                    resultUpdateLabel.setText("Emails fields not\nproperly inserted");
+                    resultUpdateLabel.setVisible(true);
+                }
+            } else if (!newEmailTF.getText().equals("") || !confirmEmailTF.getText().equals("")) {
+                resultUpdateLabel.setText("Emails fields not\nproperly inserted");
+                resultUpdateLabel.setVisible(true);
+
+                moreThanOne = true;
+            }
+
+
+            // CHANGE PASSWORD
+            if(!newPasswordTF.getText().equals("") && !confirmPasswordTF.getText().equals("")) {
+                if (!invalidPasswordLabel.isVisible() && !invalidConfirmPasswordLabel.isVisible()) {
+                    UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
+                    userManagerOnMongoDb.changePassword(CurrentUI.getUser(), newPasswordTF.getText());
+
+                    // locally
+                    CurrentUI.getUser().setPassword(PasswordEncryptor.encryptPassword(newPasswordTF.getText()));
+
+                    if (moreThanOne)
+                        resultUpdateLabel.setText( resultUpdateLabel.getText() + "\nPassword updated");
+                    else
+                        resultUpdateLabel.setText("Password updated");
+
+                    resultUpdateLabel.setStyle("-fx-background-color: green;");
+                    resultUpdateLabel.setVisible(true);
+
+                    moreThanOne = true;
+                } else {
+                    if (moreThanOne)
+                        resultUpdateLabel.setText(resultUpdateLabel.getText() + "\nPassword fields not\nproperly inserted");
+                    else
+                        resultUpdateLabel.setText("Password fields not\nproperly inserted");
+                    resultUpdateLabel.setVisible(true);
+
+                    moreThanOne = true;
+                }
+            } else if (!newPasswordTF.getText().equals("") || !confirmPasswordTF.getText().equals("")) {
+                if (moreThanOne)
+                    resultUpdateLabel.setText(resultUpdateLabel.getText() + "\nPassword fields not\nproperly inserted");
+                else
+                    resultUpdateLabel.setText("Password fields not\nproperly inserted");
+                resultUpdateLabel.setVisible(true);
+
+                moreThanOne = true;
+            }
+
+            // CHANGE COUNTRY
+            if (!countryCB.getValue().toString().equals("")) {
+                String newCountry = countryCB.getValue().toString();
+
+                UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
+                userManagerOnMongoDb.changeCountry(CurrentUI.getUser(), newCountry);
+
+                //locally
+                CurrentUI.getUser().setCountry(newCountry);
+
+                resultUpdateLabel.setStyle("-fx-background-color: green;");
+                if (moreThanOne)
+                    resultUpdateLabel.setText(resultUpdateLabel.getText() + "\nCountry updated");
+                else
+                    resultUpdateLabel.setText("Country updated");
+                resultUpdateLabel.setVisible(true);
+            }
+        }
+    }
+
+
 }
