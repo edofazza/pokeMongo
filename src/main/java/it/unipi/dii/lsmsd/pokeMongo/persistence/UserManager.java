@@ -72,6 +72,10 @@ public interface UserManager {
      */
     boolean verifyOldPassword(User involved, String password);
 
+    boolean changeTeamName(User involved, String newName);
+
+    boolean updatePoints(User target, int points);
+
     /**
      * updates number of daily Pokeball of the user, for cheat-prevention
      * @param target user to update

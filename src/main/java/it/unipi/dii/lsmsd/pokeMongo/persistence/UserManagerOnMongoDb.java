@@ -225,6 +225,16 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     }
 
     @Override
+    public boolean changeTeamName(User involved, String newName) {
+        return update(involved, set("teamName", newName));
+    }
+
+    @Override
+    public boolean updatePoints(User target, int points) {
+        return update(target, set("points", points));
+    }
+
+    @Override
     public boolean updateNumberOfPokeball(User target) {
         return update(target, set("dailyPokeball", target.getDailyPokeball()));
     }
