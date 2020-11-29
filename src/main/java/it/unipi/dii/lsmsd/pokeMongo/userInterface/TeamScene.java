@@ -4,6 +4,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokemonPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.TeamNameTextField;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 
 /**
  * This class is used to display the <code>Node</code> concerning the Team.
@@ -74,9 +75,16 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
      */
     private void displaySaveButton() {
         RegularButton saveButton = new RegularButton("SAVE", 1000, 600);
-
-        // TODO: ADD ACTION
+        saveButton.setOnAction(e -> saveButtonAction());
 
         sceneNodes.getChildren().add(saveButton);
+    }
+
+    private void saveButtonAction() {
+        // save the team name
+        UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
+        userManagerOnMongoDb.changeTeamName(CurrentUI.getUser(), teamNameTF.getText());
+
+        // TODO: save pokemons
     }
 }
