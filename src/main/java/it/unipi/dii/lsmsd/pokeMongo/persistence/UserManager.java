@@ -72,9 +72,31 @@ public interface UserManager {
      */
     boolean verifyOldPassword(User involved, String password);
 
+    /**
+     * updates number of daily Pokeball of the user, for cheat-prevention
+     * @param target user to update
+     * @return true if update is successful
+     */
     boolean updateNumberOfPokeball(User target);
 
+    /**
+     * restores the default value of the available Pokeball for the target user
+     * @param target user to update
+     * @return true if update is successful
+     */
     boolean updateNumberOfPokeballTo10(User target);
 
+    /**
+     * decrements by 1 the number of Pokeball associated to the target user
+     * @param target user to update
+     * @return true if update is successful
+     */
+    boolean decrementPokeball(User target);
+
+
+    /**
+     * logouts the user from the system
+     * @param toLogOut user to logout
+     */
     void logout(User toLogOut);
 }

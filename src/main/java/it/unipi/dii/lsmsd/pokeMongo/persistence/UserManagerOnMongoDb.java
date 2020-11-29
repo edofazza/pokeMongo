@@ -235,6 +235,9 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     }
 
     @Override
+    public boolean decrementPokeball(User target) {return update(target, inc("dailyPokeball", -1));}
+
+    @Override
     public void logout(User toLogOut) {
         update(toLogOut, set("dailyPokeball", toLogOut.getDailyPokeball()));
     }
