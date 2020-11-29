@@ -36,6 +36,10 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
         //TODO: Added Password Encryption, watch effects
         for(Object o: toInsert){
+            if(!(o instanceof User)){
+                closeConnection();
+                return false;
+            }
             User userToInsert = (User)o;
             userToInsert.setPassword(PasswordEncryptor.encryptPassword(userToInsert.getPassword()));
         }
@@ -59,7 +63,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     @Override
     @VisibleForTesting
     public boolean insert(Object toInsert) {
-        if(toInsert==null)
+        if(!(toInsert instanceof User))
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
 
@@ -105,6 +109,8 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     @Override
     @VisibleForTesting
     public ArrayList<Object> getWithFilter(Object filter) {
+        if(!(filter instanceof Bson))
+            return null;
         List<Document> docs= getCollection(collectionName).find((Bson)filter).into(new ArrayList<>());
         ArrayList<Object> users = new ArrayList<>();
         for(Document d:docs){
@@ -117,6 +123,8 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     @Override
     @VisibleForTesting
     public boolean update(Object target, Object newValue) {
+        if(!(newValue instanceof Bson))
+            return false;
         MongoCollection<Document> collection = getCollection(collectionName);
         UpdateResult ur;
         if (target instanceof User){

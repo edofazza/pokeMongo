@@ -72,8 +72,10 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
         if(toInsert.size()==1){
-            if(!(toInsert.get(0) instanceof Pokemon))
+            if(!(toInsert.get(0) instanceof Pokemon)){
+                closeConnection();
                 return false;
+            }
             Document doc = PokemonToDocument((Pokemon)toInsert.get(0));
             collection.insertOne(doc);
         }
@@ -94,7 +96,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
     @Override
     @VisibleForTesting
     public boolean insert(Object toInsert) {
-        if(toInsert==null || !(toInsert instanceof Pokemon))
+        if(!(toInsert instanceof Pokemon))
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
         Document doc = PokemonToDocument((Pokemon)toInsert);
@@ -135,7 +137,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
     @Override
     @VisibleForTesting
     public ArrayList<Object> getWithFilter(Object filter) {
-        if(!(filter instanceof Bson ) || !(filter instanceof Document))
+        if(!(filter instanceof Bson ))
             return null;
         List<Document> docs= getCollection(collectionName).find((Bson) filter).into(new ArrayList<>());
         ArrayList<Object> pokemons = new ArrayList<>();
