@@ -280,10 +280,11 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public List<User> bestWorldTeams() {
+        Bson match = eq("admin", false);
         Bson sort = sort(descending("points", "birthDay"));
         Bson limit = limit(20);
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
-        return aggregate(Arrays.asList(sort, limit, project));
+        return aggregate(Arrays.asList(match, sort, limit, project));
     }
 
     @Override
@@ -291,14 +292,14 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         Bson sort = sort(descending("points", "birthDay"));
         Bson limit = limit(20);
         List<User> friends = /*getFriends(User current)*/new ArrayList<>();
-        Bson match = match(in("username", friends));
+        Bson match = match(and(in("username", friends), eq("admin", false)));
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
         return aggregate(Arrays.asList(match, sort, limit, project));
     }
 
     @Override
     public List<User> bestCountryTeams(String country) {
-        Bson match = match(eq("country", country));
+        Bson match = match(and(eq("country", country), eq("admin", false)));
         Bson sort = sort(descending("points", "birthDay"));
         Bson limit = limit(20);
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
