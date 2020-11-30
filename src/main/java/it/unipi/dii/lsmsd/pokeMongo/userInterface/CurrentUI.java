@@ -58,7 +58,7 @@ public class CurrentUI {
      * Get the user logged
      * @return the user logged
      */
-    protected static User getUser() {
+    public static User getUser() {
         return userLogged;
     }
 

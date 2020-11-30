@@ -1,8 +1,14 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
+import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
+import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.RankingTypes;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+
+import java.util.List;
 
 public class RankingScollPane extends ScrollPane {
     private VBox root;
@@ -18,7 +24,8 @@ public class RankingScollPane extends ScrollPane {
         root.setSpacing(5);
         setContent(root);
 
-        addDefaultResult();
+        //addDefaultResult();
+        changeCountry("");
     }
 
     private void addDefaultResult() {
@@ -35,10 +42,16 @@ public class RankingScollPane extends ScrollPane {
                 root.getChildren().addAll(prpp, prpp1, prpp2, prpp3, prpp4, prpp5, prpp6);*/
                 break;
             case BESTTEAM:
-                RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult("Ducange", "Jail Team", 2000);
+                /*RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult("Ducange", "Jail Team", 2000);
                 RankingSingleUserResult rankingSingleUserResult1 = new RankingSingleUserResult("Gionatan", "Control rotella", 2000);
 
-                root.getChildren().addAll(rankingSingleUserResult, rankingSingleUserResult1);
+                root.getChildren().addAll(rankingSingleUserResult, rankingSingleUserResult1);*/
+                List<User> userList = ( new UserManagerOnMongoDb() ).bestWorldTeams();
+
+                for (User user: userList) {
+                    RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user.getUsername(), user.getTeamName(), 2000); // TODO POINTS
+                    root.getChildren().add(rankingSingleUserResult);
+                }
                 break;
             case FRIENDS:
                 RankingSingleUserResult rankingSingleUserResult10 = new RankingSingleUserResult("Ducange", "Jail Team", 2000);
@@ -56,9 +69,41 @@ public class RankingScollPane extends ScrollPane {
     /**
      * To be called everytime that country changes.
      */
-    public void changeCountry() {
+    public void changeCountry(String country) {
         clearResults();
 
-        // TODO: add the result by country
+        // IN CASE OF BESTTEAM
+        if (rankingTypes == RankingTypes.BESTTEAM){
+            UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
+            List<User> userList = null;
+            // TODO: add the result by country
+            if (country.equals("")) { // WORLD
+                userList = userManagerOnMongoDb.bestWorldTeams();
+            } else {
+                userList = userManagerOnMongoDb.bestCountryTeams(country);
+            }
+
+            for (User user : userList) {
+                RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user.getUsername(), user.getTeamName(), 2000); // TODO POINTS
+                root.getChildren().add(rankingSingleUserResult);
+            }
+        }
+        /*
+        // TODO: BEST POKEMON
+        if (rankingTypes == RankingTypes.BESTPOKEMON){
+            PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
+            List<Pokemon> pokemonList = null;
+            // TODO: add the result by country
+            if (country.equals("")) { // WORLD
+                pokemonList = pokemonManagerOnMongoDb.;
+            } else {
+                pokemonList = pokemonManagerOnMongoDb.(country);
+            }
+
+            for (Pokemon pokemon : pokemonList) {
+                PokemonSingleResultPane prpp = new PokemonSingleResultPane(pokemon, "Hold by: " + "71");
+                root.getChildren().add(prpp);
+            }
+        }*/
     }
 }

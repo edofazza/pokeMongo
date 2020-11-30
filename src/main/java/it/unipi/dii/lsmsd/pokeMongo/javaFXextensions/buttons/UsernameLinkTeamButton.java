@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group.TeamUserWindowGroup;
+import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -19,7 +20,7 @@ public class UsernameLinkTeamButton extends Button {
      * @param name contains the name of the user in order to use it as the title for the Stage
      */
     private void createNewWindow(String name) {
-        TeamUserWindowGroup root = new TeamUserWindowGroup();
+        TeamUserWindowGroup root = new TeamUserWindowGroup(CurrentUI.getUser());
 
         Scene scene = new Scene(root, 600, 400);
         scene.getStylesheets().add("file:css/pokemongoStyle.css");
