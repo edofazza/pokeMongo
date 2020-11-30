@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.FilterPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokedexResultScrollPane;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 /**
  * Class scene related to the Podekex
@@ -11,6 +12,7 @@ public class Pokedex extends PokeSceneWithHeaderAndBackButton {
      * Calls a series of function to set up the scene. It sets also the music.
      */
     public Pokedex() {
+        Logger.log("SHOWING POKEDEX");
         displayFilterPane();
 
         displayResultScrollPane();

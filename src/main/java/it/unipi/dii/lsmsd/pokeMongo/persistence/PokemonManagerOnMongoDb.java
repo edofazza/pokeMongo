@@ -6,6 +6,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -20,14 +21,17 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
     private final String collectionName = "pokemon";
 
     private Document PokemonToDocument(Pokemon p){
+        Logger.vvlog("Getting document from Pokemon\nDocument: " + new Gson().toJson(p));
         return Document.parse(new Gson().toJson(p));
     }
 
     private Pokemon DocumentToPokemon(Document doc){
+        Logger.vvlog("Getting Pokemon from Document\nDocument: " + doc.toJson());
         return new Gson().fromJson(doc.toJson(), Pokemon.class);
     }
 
     private Bson queryBuilder(Map<Filter, String> params){
+
        Document toReturn=new Document();
        if(params.get(NAME)!=null)
            toReturn.append("name", params.get(NAME));
@@ -61,7 +65,8 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
             toReturn.append("capture_rate", new Document("$gte", Integer.parseInt(params.get(MIN_CATCH_RATE))));
         else if(params.get(MAX_CATCH_RATE)!=null)
             toReturn.append("capture_rate", new Document("$lte", Integer.parseInt(params.get(MAX_CATCH_RATE))));
-       return toReturn;
+        Logger.vlog("Query built: " + toReturn.toJson());
+        return toReturn;
     }
 
 
@@ -77,6 +82,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
                 return false;
             }
             Document doc = PokemonToDocument((Pokemon)toInsert.get(0));
+            Logger.vvlog("ADDED " + doc.toJson());
             collection.insertOne(doc);
         }
         else{
@@ -85,6 +91,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
                 if(!(o instanceof Pokemon))
                     return false;
                 Document doc = PokemonToDocument((Pokemon)o);
+                Logger.vvlog("ADDED " + doc.toJson());
                 l.add(doc);
             }
             collection.insertMany(l);
@@ -100,6 +107,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
         Document doc = PokemonToDocument((Pokemon)toInsert);
+        Logger.vvlog("ADDED " + doc.toJson());
         collection.insertOne(doc);
         closeConnection();
         return true;
@@ -120,6 +128,8 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
             return false;
         }
         closeConnection();
+
+        Logger.vvlog("DELETED " + dr.getDeletedCount() + " pokemon");
         return dr.getDeletedCount()>0;
     }
 
@@ -166,6 +176,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
             return false;
         }
         closeConnection();
+        Logger.vvlog("UPDATED " + ur.getModifiedCount() + " pokemon");
         return ur.getModifiedCount()>0;
     }
 
@@ -174,7 +185,7 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
     public ArrayList<Pokemon> searchWithFilter(Map<Filter, String> parameters) {
         ArrayList<Filter> keys = new ArrayList<>(parameters.keySet());
         Bson query = queryBuilder(parameters);
-        //System.out.println(query);
+        Logger.vvlog("SEARCH WITH FILTER query: " + query);
         ArrayList<Pokemon> result = new ArrayList<>();
         ArrayList<Object> matched = getWithFilter(query);
         for(Object o:matched)

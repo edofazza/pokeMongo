@@ -7,6 +7,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabe
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.event.ActionEvent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -23,6 +24,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
      * It also sets the music.
      */
     public LogIn() {
+        Logger.log("SHOWING LOGIN PAGE");
         displayEmailFields();
         displayPasswordFields();
 

@@ -7,6 +7,7 @@ import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -39,6 +40,8 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
      * also the music
      */
     public Settings() {
+        Logger.log("SHOWING SETTINGS PAGE");
+
         displayNewEmail();
         displayConfirmEmail();
         displayOldPassword();

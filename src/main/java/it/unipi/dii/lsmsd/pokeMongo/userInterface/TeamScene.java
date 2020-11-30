@@ -5,6 +5,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokemonPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.TeamNameTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 /**
  * This class is used to display the <code>Node</code> concerning the Team.
@@ -21,6 +22,7 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
      * It also sets the music.
      */
     public TeamScene() {
+        Logger.log("SHOWING TEAM PAGE");
         displayTeamName();
 
         displayPokemon();

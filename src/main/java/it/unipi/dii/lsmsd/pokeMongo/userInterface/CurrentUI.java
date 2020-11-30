@@ -26,7 +26,6 @@ public class CurrentUI {
      */
     public Scene initScene() {
         /*   LogIn   */
-        Logger.log("SHOWING LOGIN PAGE");
 
         nodeWindow = new LogIn();
         root = nodeWindow.getNodes();
@@ -42,6 +41,8 @@ public class CurrentUI {
      */
     @VisibleForTesting
     protected static void changeScene(SceneNames sn) {
+
+        Logger.log("CHANGE OF SCENE");
         root.getChildren().clear();
         nodeWindow = sn.createNewScene(sn);
         root = nodeWindow.getNodes();

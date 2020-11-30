@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.ToggleGroupPane;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 /**
  * It initializes the scene, only visible to an admin user, for removing
@@ -12,6 +13,7 @@ public class AddRemovePokemon extends PokeSceneWithHeaderAndBackButton {
      * in order to create all the <em>Node</em> needed. It also sets the music.
      */
     public AddRemovePokemon() {
+        Logger.log("SHOWING ADD/REMOVE PAGE");
         displayAddRemovePokemon();
 
         setSceneMusic("catchemAll.mp3");

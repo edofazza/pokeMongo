@@ -5,6 +5,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.RankingScollPane;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Separator;
 
@@ -22,6 +23,8 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
      * It also sets the music.
      */
     public RankingScene() {
+        Logger.log("SHOWING RANKING SCENE");
+
         displayCountryButton();
 
         displayMostUsedPokemon();

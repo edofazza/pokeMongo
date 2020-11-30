@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import com.google.common.annotations.VisibleForTesting;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import java.io.File;
@@ -27,6 +28,8 @@ public class MusicPlayer {
      */
     @VisibleForTesting
     protected void changeSong(String title) {
+
+        Logger.vlog("CHANGING SONG");
         mediaPlayer.stop();     // in order to be garbage collected
         setSong(title);
     }
@@ -38,6 +41,7 @@ public class MusicPlayer {
      */
     @VisibleForTesting
     private void setSong(String title) {
+        Logger.vlog("Setting song: " + title);
         Media sound = new Media(new File(musicLocation + title).toURI().toString());
         mediaPlayer = new AudioClip(sound.getSource());
         mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
@@ -49,6 +53,7 @@ public class MusicPlayer {
      */
     @VisibleForTesting
     public void stopMusic() {
+        Logger.vlog("Stopping song");
         mediaPlayer.stop();
     }
 }

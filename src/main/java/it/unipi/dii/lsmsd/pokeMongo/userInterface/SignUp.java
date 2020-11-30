@@ -8,6 +8,7 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -48,6 +49,8 @@ public class SignUp extends PokeSceneWithTitle {
      * also the music.
      */
     public SignUp() {
+        Logger.log("SHOWING SIGN-UP PAGE");
+
         displaySurnameFields();
         displayNameFields();
         displayNicknameFields();

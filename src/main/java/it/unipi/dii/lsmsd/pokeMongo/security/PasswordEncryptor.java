@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.security;
 
 import com.google.common.annotations.VisibleForTesting;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class PasswordEncryptor {
@@ -9,6 +10,7 @@ public class PasswordEncryptor {
     public static String encryptPassword(String plainPassword){
         String s = "randomSalt";
         String encryptedPassword = cipher(plainPassword, s);
+        Logger.vlog("ENCRYPTION | encrypt-pw: " + encryptedPassword);
         return encryptedPassword;
     }
 

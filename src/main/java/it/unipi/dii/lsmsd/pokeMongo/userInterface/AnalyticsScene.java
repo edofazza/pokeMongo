@@ -1,11 +1,14 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
 public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
     public AnalyticsScene() {
+
+        Logger.log("SHOWING ANALYTICS PAGE");
         for (int i = 0; i < 3; i++)
             chart(80+i*400, 140);
 

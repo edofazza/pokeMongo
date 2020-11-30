@@ -4,12 +4,15 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 public class RemoveUserScene extends PokeSceneWithHeaderAndBackButton {
     private CatchEmAllTextField username;
     private InvalidFormEntryLabel operationResultLabel;
 
     public RemoveUserScene() {
+        Logger.log("SHOWING REMOVE USER SCENE");
+
         displayUsernameTextField();
         displayRemoveButton();
         addToBeDisplayedOperationResultButton();

@@ -11,6 +11,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextFi
 import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +33,8 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
      * needed to set the scene up. It also sets the music.
      */
     public CatchEmAll() {
+
+        Logger.log("SHOWING CATCH'EM ALL PAGE");
         displayTitle();
 
         displaySelectPokemon();

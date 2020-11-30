@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.HomePageCentralButton;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 /**
  * <em>HomePage</em> is the principal scene showed to the user. It handles both the admin and normal user scene.
@@ -14,6 +15,8 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
      * It also sets the music.
      */
     public HomePage() {
+
+        Logger.log("SHOWING HOMEPAGE");
         displayPokedexButton();
 
         if(!CurrentUI.isAdmin()) {
