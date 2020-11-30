@@ -17,4 +17,5 @@ public class ConfigData {
         this.pokemonDbArchitecture = pokemonDbArchitecture;
         this.teamDbArchitecture = teamDbArchitecture;
     }
+
 }
