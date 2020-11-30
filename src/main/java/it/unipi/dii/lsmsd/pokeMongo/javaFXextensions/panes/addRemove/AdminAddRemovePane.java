@@ -65,9 +65,22 @@ public class AdminAddRemovePane extends Pane {
         displayPoints();
         displaySpriteUrl();
 
-        RegularButton addButton = new RegularButton("ADD", 650, 400);
+        displayAddButton();
+        //
+        //
+
+        //
+    }
+
+    private void displayAddButton() {
+        RegularButton addButton = new RegularButton("ADD", 650, 310);
+        addButton.setOnAction(e -> addButtonAction());
 
         getChildren().add(addButton);
+    }
+
+    private void addButtonAction() {
+
     }
 
     /**
