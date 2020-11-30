@@ -196,4 +196,9 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
     public boolean removePokemon(Pokemon toRemove) {
         return remove(toRemove);
     }
+
+    @Override
+    public boolean removePokemon(String name) {
+        return remove(eq("name", name));
+    }
 }
