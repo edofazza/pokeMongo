@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.TypeForFilteringComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FilterLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.FilterTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
@@ -9,6 +10,7 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,8 +25,8 @@ public class FilterPane extends Pane {
 
     private FilterTextField heightMinTF;
     private FilterTextField heightMaxTF;
-    private FilterTextField type1TF;
-    private FilterTextField type2TF;
+    private TypeForFilteringComboBox type1CB;
+    private TypeForFilteringComboBox type2CB;
 
     private FilterTextField catchRateMinTF;
     private FilterTextField catchRateMaxTF;
@@ -124,15 +126,20 @@ public class FilterPane extends Pane {
     private void displayTypes() {
         // TYPE 1
         FilterLabel type1 = new FilterLabel("Type1", 515, 60);
-        type1TF = new FilterTextField(560, 60);
-        addOnlyLetter(type1TF);
+;
+        try {
+            type1CB = new TypeForFilteringComboBox(560, 60);
+            getChildren().add(type1CB);
+        } catch (IOException e) { e.printStackTrace(); }
 
         // TYPE 2
         FilterLabel type2 = new FilterLabel("Type2", 730, 60);
-        type2TF = new FilterTextField(775, 60);
-        addOnlyLetter(type2TF);
+        try {
+            type2CB = new TypeForFilteringComboBox(775, 60);
+            getChildren().add(type2CB);
+        } catch (IOException e) { e.printStackTrace(); }
 
-        getChildren().addAll(type1, type1TF, type2, type2TF);
+        getChildren().addAll(type1, type2);
     }
 
     /**
@@ -202,11 +209,11 @@ public class FilterPane extends Pane {
         if (!heightMaxTF.getText().equals(""))
             tmpFilterMap.put(Filter.MAX_HEIGHT, heightMaxTF.getText());
 
-        if (!type1TF.getText().equals(""))
-            tmpFilterMap.put(Filter.TYPE1, type1TF.getText());
+        if (!type1CB.getValue().toString().equals(""))
+            tmpFilterMap.put(Filter.TYPE1, type1CB.getValue().toString());
 
-        if (!type2TF.getText().equals(""))
-            tmpFilterMap.put(Filter.TYPE2, type2TF.getText());
+        if (!type2CB.getValue().toString().equals(""))
+            tmpFilterMap.put(Filter.TYPE2, type2CB.getValue().toString());
 
         if (!catchRateMinTF.getText().equals(""))
             tmpFilterMap.put(Filter.MIN_CATCH_RATE, catchRateMinTF.getText());
@@ -237,15 +244,6 @@ public class FilterPane extends Pane {
         t.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
                 t.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
-    }
-
-    ///////////////////// TEXT FIELD ONLY ALPHABETIC PROPERTY //////////////////////
-    private void addOnlyLetter(TextField t) {
-        t.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("^[a-zA-Z]+$")) {
-                t.setText(newValue.replaceAll("\\d", ""));
             }
         });
     }
