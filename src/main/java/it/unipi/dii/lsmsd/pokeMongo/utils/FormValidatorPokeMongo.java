@@ -26,6 +26,7 @@ public class FormValidatorPokeMongo {
     public static boolean isPersonNoun(String possibleNoun){
         Pattern pattern = Pattern.compile("^[a-zA-Z '.]+$");
         Matcher matcher = pattern.matcher(possibleNoun);
+        Logger.vvlog("isPersonNoun() -> " + possibleNoun + (matcher.find() ? "-> V" : "-> X"));
         return matcher.find();
     }
 
@@ -43,6 +44,7 @@ public class FormValidatorPokeMongo {
     public static boolean isValidEmail(String possibleEmail){
         Pattern pattern = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
         Matcher matcher = pattern.matcher(possibleEmail);
+        Logger.vvlog("isValidEmail() -> " + possibleEmail + (matcher.find() ? "-> V" : "-> X"));
         return matcher.find();
     }
 
@@ -60,6 +62,7 @@ public class FormValidatorPokeMongo {
     public static boolean isValidPassword(String possiblePassword){
         Pattern pattern = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$");
         Matcher matcher = pattern.matcher(possiblePassword);
+        Logger.vvlog("isValidPassword() -> " + possiblePassword + (matcher.find() ? "-> V" : "-> X"));
         return matcher.find();
     }
 

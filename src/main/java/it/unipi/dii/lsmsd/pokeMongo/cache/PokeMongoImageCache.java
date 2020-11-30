@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.cache;
 import com.github.benmanes.caffeine.cache.AsyncLoadingCache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.google.common.annotations.VisibleForTesting;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.image.Image;
 import com.github.benmanes.caffeine.cache.Cache;
 
@@ -25,11 +26,12 @@ public class PokeMongoImageCache implements PokeMongoCache {
         cache = Caffeine.newBuilder()
                 .expireAfterAccess(10, TimeUnit.MINUTES) //After this time without read/write the resource is deallocated
                 .maximumSize(1000) //In numero di immagini
-                .recordStats() //Should be commented at release stage, now it could be useful
+                .recordStats() //TODO: Should be commented at release stage, now it could be useful
                 .buildAsync(k -> PokemonImage.get(k));
     }
 
     public CompletableFuture<Image> getDataIfPresent(String url){
+        Logger.vlog("Attemp to get image at: " + url);
         return cache.get(url);
     }
 }

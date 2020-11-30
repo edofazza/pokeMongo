@@ -22,7 +22,7 @@ public class ConfigDataHandler {
             BufferedReader br = new BufferedReader(new FileReader("config/configFile.json"));
             configData = new Gson().fromJson(br, ConfigData.class);
         } catch (IOException ioe){
-            configData = new ConfigData(10, "", "", "", "", "");
+            configData = new ConfigData(10, "", "", "", "", "", 1);
             ioe.printStackTrace();
         }
 

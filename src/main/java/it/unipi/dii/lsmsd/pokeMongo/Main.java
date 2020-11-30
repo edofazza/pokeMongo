@@ -1,7 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo;
 
-import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -28,7 +28,7 @@ public class Main extends Application {
      * @param args no args present
      */
     public static void main(String[] args) {
-        //ConfigDataHandler configDataHandler = ConfigDataHandler.getInstance();
+        Logger.log("Starting of the application");
         launch(args);
     }
 }
