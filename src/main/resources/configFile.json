@@ -1,5 +1,8 @@
 {
   "numRows": 1,
   "usernameSpeedLogin": "ciaomamma",
-  "passwordSpeedLogin": "ciaomamma2"
+  "passwordSpeedLogin": "ciaomamma2",
+  "userDbArchitecture": "MongoDb",
+  "pokemonDbArchitecture": "MongoDb",
+  "teamDbArchitecture": "Neo4J"
 }

@@ -1,10 +1,9 @@
-package it.unipi.dii.lsmsd.pokeMongo.dataAnalysis;
+package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 import it.unipi.dii.lsmsd.pokeMongo.config.*;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.*;
 
-public class RankerFactory {
-    public static UserRanker buildRanker(){
+public class UserManagerFactory {
+    public static UserManager buildManager(){
         String technology = getConfiguration();
         switch (technology){
             case "MongoDb":

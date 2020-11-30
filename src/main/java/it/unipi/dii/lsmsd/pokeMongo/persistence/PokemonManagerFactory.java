@@ -1,14 +1,13 @@
-package it.unipi.dii.lsmsd.pokeMongo.dataAnalysis;
+package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 import it.unipi.dii.lsmsd.pokeMongo.config.*;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.*;
 
-public class RankerFactory {
-    public static UserRanker buildRanker(){
+public class PokemonManagerFactory {
+    public static PokemonManager buildManager(){
         String technology = getConfiguration();
         switch (technology){
             case "MongoDb":
-                return new UserManagerOnMongoDb();
+                return new PokemonManagerOnMongoDb();
             default:
                 try{
                     throw new IllegalArgumentException();
@@ -21,6 +20,6 @@ public class RankerFactory {
     }
 
     public static String getConfiguration(){
-        return ConfigDataHandler.getInstance().configData.userDbArchitecture;
+        return ConfigDataHandler.getInstance().configData.pokemonDbArchitecture;
     }
 }
