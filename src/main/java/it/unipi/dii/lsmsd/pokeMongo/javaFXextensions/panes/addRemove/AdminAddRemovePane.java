@@ -108,9 +108,9 @@ public class AdminAddRemovePane extends Pane {
                             Integer.parseInt(idTF.getText()),
                             Double.parseDouble(catchRateTF.getText()),
                             5,
-                            Double.parseDouble(heightTF.getText()),
-                            Double.parseDouble(heightTF.getText()),
-                            "pippo",
+                            Integer.parseInt(heightTF.getText()),
+                            Integer.parseInt(heightTF.getText()),
+                            biologyTF.getText(),
                             portraitTF.getText(),
                             spriteTF.getText()
                     )

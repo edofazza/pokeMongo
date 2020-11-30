@@ -7,14 +7,14 @@ public class Pokemon {
     private int id;
     private double capture_rate;
     private int points;
-    private double height;
-    private double weight;
+    private int height;
+    private int weight;
     private String biology;
     private String portrait;
     private String sprite;
 
     public Pokemon(String name, String[] types, int generation, int pokedexIndex, double catchRate,
-                   int points, double height, double weight, String bio, String portrait, String sprite){
+                   int points, int height, int weight, String bio, String portrait, String sprite){
         this.name=name;
         this.types=types;
         this.generation=generation;
