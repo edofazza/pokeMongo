@@ -285,7 +285,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public List<User> bestWorldTeams() {
-        Bson match = eq("admin", false);
+        Bson match = match(eq("admin", false));
         Bson sort = sort(descending("points", "birthDay"));
         Bson limit = limit(20);
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
@@ -297,7 +297,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         Bson sort = sort(descending("points", "birthDay"));
         Bson limit = limit(20);
         List<User> friends = /*getFriends(User current)*/new ArrayList<>();
-        Bson match = match(and(in("username", friends), eq("admin", false)));
+        Bson match = match(and(eq("admin", false), in("username", friends)));
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
         return aggregate(Arrays.asList(match, sort, limit, project));
     }
