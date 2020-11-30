@@ -3,6 +3,8 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.addRemove;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.OnlyCharactersTextField;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.OnlyDecimalsTextField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
@@ -10,15 +12,15 @@ import javafx.scene.layout.Pane;
  * Specific pane showing the elements needed to add or remove a pokemon
  */
 public class AdminAddRemovePane extends Pane {
-    private TextField idTF;
-    private TextField weightTF;
-    private TextField type1TF;
-    private TextField catchRateTF;
+    private OnlyDecimalsTextField idTF;
+    private OnlyDecimalsTextField weightTF;
+    private OnlyCharactersTextField type1TF;
+    private OnlyDecimalsTextField catchRateTF;
     private TextField portraitTF;
 
     private TextField nameTF;
-    private TextField heightTF;
-    private TextField type2TF;
+    private OnlyDecimalsTextField heightTF;
+    private OnlyCharactersTextField type2TF;
     private TextField pointsTF;
     private TextField spriteTF;
 
@@ -49,7 +51,7 @@ public class AdminAddRemovePane extends Pane {
     }
 
     /**
-     * Calls a series of funcion in order to add to the pane all the fields related
+     * Calls a series of function in order to add to the pane all the fields related
      * to the ADD action.
      */
     private void addActionNodes() {
@@ -62,14 +64,10 @@ public class AdminAddRemovePane extends Pane {
         displayName();
         displayHeight();
         displayType2();
-        displayPoints();
+        //displayPoints();
         displaySpriteUrl();
 
         displayAddButton();
-        //
-        //
-
-        //
     }
 
     private void displayAddButton() {
@@ -80,7 +78,11 @@ public class AdminAddRemovePane extends Pane {
     }
 
     private void addButtonAction() {
-
+        // CHECK IF THERE IS AN ERROR
+        if (!idTF.getText().equals("") && !nameTF.getText().equals("") && !weightTF.getText().equals("") &&
+            !heightTF.getText().equals("") && !type1TF.getText().equals("") && !type2TF.getText().equals("") &&
+            !catchRateTF.getText().equals("") && !portraitTF.getText().equals("") && !spriteTF.getText().equals("") )
+            System.out.println("goofy");
     }
 
     /**
@@ -91,66 +93,70 @@ public class AdminAddRemovePane extends Pane {
         CatchEmAllTextField pokemonName = new CatchEmAllTextField("Pokemon name", 200, 50);
 
         RegularButton removeButton = new RegularButton("REMOVE", 270, 120);
+        removeButton.setOnAction(e -> removeButtonAction());
 
         getChildren().addAll(pokemonName, removeButton);
+    }
+
+    private void removeButtonAction() {
+
     }
 
 
     // ADD LEFT
     /**
-     * Adds to the pane the fields related to the ID (<code>FielRelatedLabel</code> and
+     * Adds to the pane the fields related to the ID (<code>FieldRelatedLabel</code> and
      * <code>TextField</code>)
      */
     private void displayID() {
         FieldRelatedLabel id = new FieldRelatedLabel("Pokedex ID", 0, 0);
 
-        idTF = new TextField();
-        idTF.relocate(0, 30);
+        idTF = new OnlyDecimalsTextField(0, 30);
+
 
         getChildren().addAll(id, idTF);
     }
 
     /**
-     * Adds to the pane the fields related to the weight (<code>FielRelatedLabel</code> and
+     * Adds to the pane the fields related to the weight (<code>FieldRelatedLabel</code> and
      * <code>TextField</code>)
      */
     private void displayWeight() {
         FieldRelatedLabel weight = new FieldRelatedLabel("Weight", 0, 70);
 
-        weightTF = new TextField();
-        weightTF.relocate(0, 100);
+        weightTF = new OnlyDecimalsTextField(0, 100);
 
         getChildren().addAll(weight, weightTF);
     }
 
     /**
-     * Adds to the pane the fields related to the first type (<code>FielRelatedLabel</code> and
+     * Adds to the pane the fields related to the first type (<code>FieldRelatedLabel</code> and
      * <code>TextField</code>)
      */
     private void displayType1() {
         FieldRelatedLabel type1 = new FieldRelatedLabel("Type1", 0, 140);
 
-        type1TF = new TextField();
-        type1TF.relocate(0, 170);
+        type1TF = new OnlyCharactersTextField(0, 170);
+
 
         getChildren().addAll(type1, type1TF);
     }
 
     /**
-     * Adds to the pane the fields related to the catch rate (<code>FielRelatedLabel</code> and
+     * Adds to the pane the fields related to the catch rate (<code>FieldRelatedLabel</code> and
      * <code>TextField</code>)
      */
     private void displayCatchRate() {
         FieldRelatedLabel catchRate = new FieldRelatedLabel("Catch Rate", 0, 210);
 
-        catchRateTF = new TextField();
-        catchRateTF.relocate(0, 240);
+        catchRateTF = new OnlyDecimalsTextField(0, 240);
+        //catchRateTF.relocate(0, 240);
 
         getChildren().addAll(catchRate, catchRateTF);
     }
 
     /**
-     * Adds to the pane the fields related to the portrait url (<code>FielRelatedLabel</code> and
+     * Adds to the pane the fields related to the portrait url (<code>FieldRelatedLabel</code> and
      * <code>TextField</code>)
      */
     private void displayPortraitUrl() {
@@ -164,7 +170,7 @@ public class AdminAddRemovePane extends Pane {
 
     // ADD RIGHT
     /**
-     * Adds to the pane the fields related to the name (<code>FielRelatedLabel</code> and
+     * Adds to the pane the fields related to the name (<code>FieldRelatedLabel</code> and
      * <code>TextField</code>)
      */
     private void displayName() {
@@ -177,35 +183,35 @@ public class AdminAddRemovePane extends Pane {
     }
 
     /**
-     * Adds to the pane the fields related to the height (<code>FielRelatedLabel</code> and
+     * Adds to the pane the fields related to the height (<code>FieldRelatedLabel</code> and
      * <code>TextField</code>)
      */
     private void displayHeight() {
         FieldRelatedLabel height = new FieldRelatedLabel("Height", 400, 70);
 
-        heightTF = new TextField();
-        heightTF.relocate(400, 100);
+        heightTF = new OnlyDecimalsTextField(400, 100);
+        //heightTF.relocate(400, 100);
 
         getChildren().addAll(height, heightTF);
     }
 
     /**
-     * Adds to the pane the fields related to the second type (<code>FielRelatedLabel</code> and
+     * Adds to the pane the fields related to the second type (<code>FieldRelatedLabel</code> and
      * <code>TextField</code>)
      */
     private void displayType2() {
         FieldRelatedLabel type1 = new FieldRelatedLabel("Type2", 400, 140);
 
-        type2TF = new TextField();
-        type2TF.relocate(400, 170);
+        type2TF = new OnlyCharactersTextField(400, 170);
+        //type2TF.relocate(400, 170);
 
         getChildren().addAll(type1, type2TF);
     }
-
+/*
     /**
-     * Adds to the pane the fields related to the points (<code>FielRelatedLabel</code> and
+     * Adds to the pane the fields related to the points (<code>FieldRelatedLabel</code> and
      * <code>TextField</code>)
-     */
+     */ /*
     private void displayPoints() {
         FieldRelatedLabel points = new FieldRelatedLabel("Points", 400, 210);
 
@@ -213,10 +219,10 @@ public class AdminAddRemovePane extends Pane {
         pointsTF.relocate(400, 240);
 
         getChildren().addAll(points, pointsTF);
-    }
+    }*/
 
     /**
-     * Adds to the pane the fields related to the sprite url (<code>FielRelatedLabel</code> and
+     * Adds to the pane the fields related to the sprite url (<code>FieldRelatedLabel</code> and
      * <code>TextField</code>)
      */
     private void displaySpriteUrl() {

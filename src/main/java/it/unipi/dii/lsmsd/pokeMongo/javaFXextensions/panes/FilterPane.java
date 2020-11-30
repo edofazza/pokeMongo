@@ -6,8 +6,6 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FilterLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.FilterTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
@@ -245,13 +243,9 @@ public class FilterPane extends Pane {
 
     ///////////////////// TEXT FIELD ONLY ALPHABETIC PROPERTY //////////////////////
     private void addOnlyLetter(TextField t) {
-        t.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
-                                String newValue) {
-                if (!newValue.matches("^[a-zA-Z]+$")) {
-                    t.setText(newValue.replaceAll("\\d", ""));
-                }
+        t.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("^[a-zA-Z]+$")) {
+                t.setText(newValue.replaceAll("\\d", ""));
             }
         });
     }
