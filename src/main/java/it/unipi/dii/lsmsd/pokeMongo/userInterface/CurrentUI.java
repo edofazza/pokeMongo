@@ -4,6 +4,7 @@ import com.google.common.annotations.VisibleForTesting;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.cache.PokeMongoImageCache;
 import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -25,6 +26,8 @@ public class CurrentUI {
      */
     public Scene initScene() {
         /*   LogIn   */
+        Logger.log("SHOWING LOGIN PAGE");
+
         nodeWindow = new LogIn();
         root = nodeWindow.getNodes();
 

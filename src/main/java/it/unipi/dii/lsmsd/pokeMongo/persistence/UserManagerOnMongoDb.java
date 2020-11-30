@@ -9,6 +9,7 @@ import com.mongodb.client.result.UpdateResult;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRanker;
 import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -26,6 +27,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     private final String collectionName = "user";
 
     private Document UserToDocument(User u){
+        Logger.vlog(Document.parse(new Gson().toJson(u)).toString());
         return Document.parse(new Gson().toJson(u));
     }
 
