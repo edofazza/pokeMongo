@@ -151,8 +151,8 @@ public class AdminAddRemovePane extends Pane {
             resultOperation.setText("Insert pokemon's name");
             resultOperation.setStyle("-fx-background-color: #FF211A;");
         } else {
-            //PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
-            if(true) {
+            PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
+            if(pokemonManagerOnMongoDb.removePokemon(pokemonName.getText())) {
                 resultOperation.setText("Pokemon removed");
                 resultOperation.setStyle("-fx-background-color: green;");
             } else {
@@ -264,19 +264,6 @@ public class AdminAddRemovePane extends Pane {
 
         getChildren().addAll(type1, type2TF);
     }
-/*
-    /**
-     * Adds to the pane the fields related to the points (<code>FieldRelatedLabel</code> and
-     * <code>TextField</code>)
-     */ /*
-    private void displayPoints() {
-        FieldRelatedLabel points = new FieldRelatedLabel("Points", 400, 210);
-
-        pointsTF = new TextField();
-        pointsTF.relocate(400, 240);
-
-        getChildren().addAll(points, pointsTF);
-    }*/
 
     private void displayBiology() {
         FieldRelatedLabel points = new FieldRelatedLabel("Biology", 400, 210);
