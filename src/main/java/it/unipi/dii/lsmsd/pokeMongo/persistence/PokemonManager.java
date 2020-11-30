@@ -37,4 +37,10 @@ public interface PokemonManager {
      */
     boolean removePokemon(Pokemon toRemove);
 
+    /**
+     * Removes a Pokemon from the db
+     * @param name name of thePokemon we want to remove
+     * @return true if exactly one Pokemon has been removed
+     */
+    boolean removePokemon(String name);
 }
