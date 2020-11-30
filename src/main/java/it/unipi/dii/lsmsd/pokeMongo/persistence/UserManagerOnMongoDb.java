@@ -229,12 +229,17 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public boolean removeUser(User target) {
+        if(target.isAdmin())
+            return false;
         return remove(target);
     }
 
     @Override
     public boolean removeUser(String username) {
         Bson query = eq("username", username);
+        ArrayList<Object> target = getWithFilter(query);
+        if(target.size()!=1 || ((User)(target.get(0))).isAdmin())
+            return false;
         return remove(query);
     }
 
