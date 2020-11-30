@@ -26,8 +26,6 @@ public class PokedexResultScrollPane extends ScrollPane {
         root = new VBox();
         root.setSpacing(10);
         setContent(root);
-
-        //addResult();
     }
 
     /**
@@ -35,18 +33,8 @@ public class PokedexResultScrollPane extends ScrollPane {
      */
     // TODO: THE QUERY on mongo db will add element in the VBox
     public static void addResult(ArrayList<Pokemon> result) {
-        /*PokemonSingleResultPane prpp = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
-        PokemonSingleResultPane prpp1 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
-        PokemonSingleResultPane prpp2 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
-        PokemonSingleResultPane prpp3 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
-        PokemonSingleResultPane prpp4 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
-        PokemonSingleResultPane prpp5 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
-        PokemonSingleResultPane prpp6 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Pokedex ID: " + "7");
-
-        root.getChildren().addAll(prpp, prpp1, prpp2, prpp3, prpp4, prpp5, prpp6);*/
-
         for (Pokemon p: result) {
-            PokemonSingleResultPane prpp = new PokemonSingleResultPane(p, p.getSprite(), p.getName(), "Pokedex ID: " + p.getId());
+            PokemonSingleResultPane prpp = new PokemonSingleResultPane(p);
             root.getChildren().add(prpp);
         }
     }

@@ -1,8 +1,10 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.RankerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.RankingScollPane;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Separator;
 
@@ -12,6 +14,9 @@ import java.io.IOException;
  * This class is used to display the <code>Node</code> concerning the Rankings.
  */
 public class RankingScene extends PokeSceneWithHeaderAndBackButton {
+    private CountryComboBox country;
+    private RankingScollPane bestTeam;
+
     /**
      * Calls a series of function in order to add to the scene all the elements needed.
      * It also sets the music.
@@ -31,7 +36,10 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
 
     private void displayCountryButton() {
         try {
-            CountryComboBox country = new CountryComboBox(100, 100);
+            country = new CountryComboBox(100, 100);
+
+            country.setOnAction(e -> countryChanged());
+
             sceneNodes.getChildren().add(country);
         } catch (IOException e) { e.printStackTrace(); }
     }
@@ -47,7 +55,7 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
     private void displayBestTeam() {
         FieldRelatedLabel bestTeamLabel = new FieldRelatedLabel("BEST TEAM", 500, 170);
 
-        RankingScollPane bestTeam = new RankingScollPane(500, 200, RankingTypes.BESTTEAM);
+        bestTeam = new RankingScollPane(500, 200, RankingTypes.BESTTEAM);
 
         sceneNodes.getChildren().addAll(bestTeamLabel, bestTeam);
     }
@@ -67,5 +75,11 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
         sep.relocate(850, 160);
 
         sceneNodes.getChildren().add(sep);
+    }
+
+    private void countryChanged() {
+        String tmpCountry = country.getValue().toString();
+
+        bestTeam.changeCountry(tmpCountry);
     }
 }

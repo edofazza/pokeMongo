@@ -15,20 +15,17 @@ public class PokemonSingleResultPane extends Pane {
     /**
      * Adds to the pane the elements passed as arguments
      * @param pokemon
-     * @param sprite the url for the pokemon sprite
-     * @param name the name of the pokemon
-     * @param text the text to be displayed after the name
      */
-    public PokemonSingleResultPane(Pokemon pokemon, String sprite, String name, String text) {  // TODO: id can be an int, change it in case
+    public PokemonSingleResultPane(Pokemon pokemon) {  // TODO: id can be an int, change it in case
         this.pokemon = pokemon;
         ImageView img = new ImageView();
-        CurrentUI.getImage(sprite).thenAccept(k -> img.setImage(k)); //TODO not fx thread exception
+        CurrentUI.getImage(pokemon.getSprite()).thenAccept(k -> img.setImage(k)); //TODO not fx thread exception
         img.setFitWidth(60);
         img.setFitHeight(60);
 
         FilterPokemonResultButton pokemonName = new FilterPokemonResultButton(pokemon, 70, 12);
 
-        Label pokemonId = new Label(text);
+        Label pokemonId = new Label("Pokedex ID: " + pokemon.getId());
         pokemonId.relocate(190, 18);
 
         getChildren().addAll(img, pokemonName, pokemonId);
