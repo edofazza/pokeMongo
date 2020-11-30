@@ -5,6 +5,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.TypeForFilteringComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FilterLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.FilterTextField;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.FilterTextFieldOnlyNumeric;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
 import javafx.scene.control.TextField;
@@ -19,19 +20,19 @@ import java.util.HashMap;
  */
 public class FilterPane extends Pane {
     private FilterTextField nameTF;
-    private FilterTextField idTF;
-    private FilterTextField weightMinTF;
-    private FilterTextField weightMaxTF;
+    private FilterTextFieldOnlyNumeric idTF;
+    private FilterTextFieldOnlyNumeric weightMinTF;
+    private FilterTextFieldOnlyNumeric weightMaxTF;
 
-    private FilterTextField heightMinTF;
-    private FilterTextField heightMaxTF;
+    private FilterTextFieldOnlyNumeric heightMinTF;
+    private FilterTextFieldOnlyNumeric heightMaxTF;
     private TypeForFilteringComboBox type1CB;
     private TypeForFilteringComboBox type2CB;
 
-    private FilterTextField catchRateMinTF;
-    private FilterTextField catchRateMaxTF;
-    private FilterTextField minPointsTF;
-    private FilterTextField maxPointsTF;
+    private FilterTextFieldOnlyNumeric catchRateMinTF;
+    private FilterTextFieldOnlyNumeric catchRateMaxTF;
+    private FilterTextFieldOnlyNumeric minPointsTF;
+    private FilterTextFieldOnlyNumeric maxPointsTF;
 
     /**
      * Relocates the pane
@@ -79,8 +80,7 @@ public class FilterPane extends Pane {
     private void displayID() {
         FilterLabel id = new FilterLabel("Pokedex ID", 280, 17);
 
-        idTF = new FilterTextField(355, 15);
-        addOnlyNumber(idTF);
+        idTF = new FilterTextFieldOnlyNumeric(355, 15);
 
         getChildren().addAll(id, idTF);
     }
@@ -92,13 +92,11 @@ public class FilterPane extends Pane {
     private void displayWeight() {
         // MIN
         FilterLabel minWeight = new FilterLabel("Min Weight", 483, 17);
-        weightMinTF = new FilterTextField(560, 15);
-        addOnlyNumber(weightMinTF);
+        weightMinTF = new FilterTextFieldOnlyNumeric(560, 15);
 
         // MAX
         FilterLabel maxWeight = new FilterLabel("Max Weight", 693, 17);
-        weightMaxTF = new FilterTextField(775, 15);
-        addOnlyNumber(weightMaxTF);
+        weightMaxTF = new FilterTextFieldOnlyNumeric(775, 15);
 
         getChildren().addAll(minWeight, weightMinTF, maxWeight, weightMaxTF);
     }
@@ -109,12 +107,10 @@ public class FilterPane extends Pane {
      */
     private void displayHeight() {
         FilterLabel heightMin = new FilterLabel("Min Height", 48, 60);
-        heightMinTF = new FilterTextField(120, 60);
-        addOnlyNumber(heightMinTF);
+        heightMinTF = new FilterTextFieldOnlyNumeric(120, 60);
 
         FilterLabel heightMax = new FilterLabel("Max Height", 280, 60);
-        heightMaxTF = new FilterTextField(355, 60);
-        addOnlyNumber(heightMaxTF);
+        heightMaxTF = new FilterTextFieldOnlyNumeric(355, 60);
 
         getChildren().addAll(heightMin, heightMinTF, heightMax, heightMaxTF);
     }
@@ -149,13 +145,11 @@ public class FilterPane extends Pane {
     private void displayCatchRate() {
         // MIN CATCH RATE
         FilterLabel minCatchRate = new FilterLabel("Min Catch Rate", 20, 103);
-        catchRateMinTF = new FilterTextField(120, 103);
-        addOnlyNumber(catchRateMinTF);
+        catchRateMinTF = new FilterTextFieldOnlyNumeric(120, 103);
 
         // MAX CATCH RATE
         FilterLabel maxCatchRate = new FilterLabel("Max Catch Rate", 250, 103);
-        catchRateMaxTF = new FilterTextField(355, 103);
-        addOnlyNumber(catchRateMaxTF);
+        catchRateMaxTF = new FilterTextFieldOnlyNumeric(355, 103);
 
         getChildren().addAll(minCatchRate, catchRateMinTF, maxCatchRate, catchRateMaxTF);
     }
@@ -167,13 +161,11 @@ public class FilterPane extends Pane {
     private void displayPoints() {
         // MIN POINTS
         FilterLabel minPoints = new FilterLabel("Min Points", 488, 103);
-        minPointsTF = new FilterTextField(560, 103);
-        addOnlyNumber(minPointsTF);
+        minPointsTF = new FilterTextFieldOnlyNumeric(560, 103);
 
         // MAX POINTS
         FilterLabel maxPoints = new FilterLabel("Max Points", 700, 103);
-        maxPointsTF = new FilterTextField(775, 103);
-        addOnlyNumber(maxPointsTF);
+        maxPointsTF = new FilterTextFieldOnlyNumeric(775, 103);
 
         getChildren().addAll(minPoints, minPointsTF, maxPoints, maxPointsTF);
     }
@@ -236,15 +228,5 @@ public class FilterPane extends Pane {
         PokedexResultScrollPane.clearVBox();
         if (pokemonArray.size() != 0)
             PokedexResultScrollPane.addResult(pokemonArray);
-    }
-
-
-    ///////////////////// TEXT FIELD ONLY NUMERIC PROPERTY //////////////////////
-    private void addOnlyNumber(TextField t) {
-        t.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                t.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
     }
 }
