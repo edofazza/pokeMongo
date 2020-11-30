@@ -61,10 +61,7 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
      * wants to catch.
      */
     private void displaySelectPokemon() {
-        selectPokemonTF = new CatchEmAllTextField("", 530, 200);
-
-        //For text Hint
-        selectPokemonTF.setPromptText("Type pokemon name"); //to set the hint text
+        selectPokemonTF = new CatchEmAllTextField("Type pokemon name", 530, 200);
 
         selectPokemonTF.setOnKeyReleased(e->loadPokemonInfoByName(selectPokemonTF.getText()));
         sceneNodes.getChildren().add(selectPokemonTF);

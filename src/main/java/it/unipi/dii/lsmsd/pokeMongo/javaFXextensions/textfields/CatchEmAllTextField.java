@@ -8,12 +8,12 @@ import javafx.scene.control.TextField;
 public class CatchEmAllTextField extends TextField {
     /**
      * Instantiates a TextField and associates it with a class style
-     * @param title placeholder
+     * @param hint placeholder (prompt text)
      * @param x the x axis position
      * @param y the y axis position
      */
-    public CatchEmAllTextField(String title, int x, int y) {
-        super(title);
+    public CatchEmAllTextField(String hint, int x, int y) {
+        setPromptText(hint);
         relocate(x, y);
 
         getStyleClass().add("CatchEmAllTextField");

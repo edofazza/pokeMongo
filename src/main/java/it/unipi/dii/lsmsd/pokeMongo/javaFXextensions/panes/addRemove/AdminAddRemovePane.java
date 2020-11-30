@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.addRemove;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.OnlyCharactersTextField;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.OnlyDecimalsTextField;
@@ -27,6 +28,10 @@ public class AdminAddRemovePane extends Pane {
     private TextField biologyTF;
     private TextField spriteTF;
 
+    private CatchEmAllTextField pokemonName;
+
+    private InvalidFormEntryLabel resultOperation;
+
     /**
      * Relocates the pane
      * @param x the x axis position
@@ -34,6 +39,8 @@ public class AdminAddRemovePane extends Pane {
      */
     public AdminAddRemovePane(int x, int y) {
         relocate(x, y);
+
+        resultOperation = new InvalidFormEntryLabel("", 650, 350, false);
     }
 
     /**
@@ -42,6 +49,8 @@ public class AdminAddRemovePane extends Pane {
      */
     public void setNodes(AdminAction action) {
         getChildren().clear();
+        resultOperation.setVisible(false);
+        getChildren().add(resultOperation);
 
         switch (action) {
             case ADD:
@@ -82,6 +91,9 @@ public class AdminAddRemovePane extends Pane {
     }
 
     private void addButtonAction() {
+        // prepare label for result
+        resultOperation.relocate(650, 350);
+
         // CHECK IF THERE IS AN ERROR
         if (!idTF.getText().equals("") && !nameTF.getText().equals("") && !weightTF.getText().equals("") &&
             !heightTF.getText().equals("") && (!type1TF.getText().equals("") || !type2TF.getText().equals("")) &&
@@ -101,9 +113,20 @@ public class AdminAddRemovePane extends Pane {
                             portraitTF.getText(),
                             spriteTF.getText()
                     )
-            ) )
-                System.out.println("pokemon inserito");
+            ) ) {
+                resultOperation.setText("Pokemon added");
+                resultOperation.setStyle("-fx-background-color: green;");
+                resultOperation.setVisible(true);
+            } else {
+                resultOperation.setText("Something went wrong");
+                resultOperation.setStyle("-fx-background-color: #FF211A;");
+                resultOperation.setVisible(true);
+            }
 
+        } else {
+            resultOperation.setText("Some parameters\nmissing");
+            resultOperation.setStyle("-fx-background-color: #FF211A;");
+            resultOperation.setVisible(true);
         }
 
     }
@@ -113,7 +136,9 @@ public class AdminAddRemovePane extends Pane {
      * and a <code>RegularButton</code> for confirming the removing.
      */
     private void removeActionNodes() {
-        CatchEmAllTextField pokemonName = new CatchEmAllTextField("Pokemon name", 200, 50);
+        resultOperation.relocate(260, 150);
+
+        pokemonName = new CatchEmAllTextField("Pokemon name", 200, 50);
 
         RegularButton removeButton = new RegularButton("REMOVE", 270, 120);
         removeButton.setOnAction(e -> removeButtonAction());
@@ -122,9 +147,20 @@ public class AdminAddRemovePane extends Pane {
     }
 
     private void removeButtonAction() {
-        PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
-        //pokemonManagerOnMongoDb.
-        // TODO: REMOVE POKEMON BY NAME
+        if (pokemonName.getText().equals("")) {
+            resultOperation.setText("Insert pokemon's name");
+            resultOperation.setStyle("-fx-background-color: #FF211A;");
+        } else {
+            //PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
+            if(true) {
+                resultOperation.setText("Pokemon removed");
+                resultOperation.setStyle("-fx-background-color: green;");
+            } else {
+                resultOperation.setText("Something went wrong");
+                resultOperation.setStyle("-fx-background-color: #FF211A;");
+            }
+        }
+        resultOperation.setVisible(true);
     }
 
 
@@ -163,7 +199,6 @@ public class AdminAddRemovePane extends Pane {
 
         type1TF = new OnlyCharactersTextField(0, 170);
 
-
         getChildren().addAll(type1, type1TF);
     }
 
@@ -175,7 +210,6 @@ public class AdminAddRemovePane extends Pane {
         FieldRelatedLabel catchRate = new FieldRelatedLabel("Catch Rate", 0, 210);
 
         catchRateTF = new OnlyDecimalsTextField(0, 240);
-        //catchRateTF.relocate(0, 240);
 
         getChildren().addAll(catchRate, catchRateTF);
     }
@@ -215,7 +249,6 @@ public class AdminAddRemovePane extends Pane {
         FieldRelatedLabel height = new FieldRelatedLabel("Height", 400, 70);
 
         heightTF = new OnlyDecimalsTextField(400, 100);
-        //heightTF.relocate(400, 100);
 
         getChildren().addAll(height, heightTF);
     }
@@ -228,7 +261,6 @@ public class AdminAddRemovePane extends Pane {
         FieldRelatedLabel type1 = new FieldRelatedLabel("Type2", 400, 140);
 
         type2TF = new OnlyCharactersTextField(400, 170);
-        //type2TF.relocate(400, 170);
 
         getChildren().addAll(type1, type2TF);
     }
