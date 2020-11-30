@@ -1,10 +1,12 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.addRemove;
 
+import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.OnlyCharactersTextField;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.OnlyDecimalsTextField;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
@@ -21,7 +23,8 @@ public class AdminAddRemovePane extends Pane {
     private TextField nameTF;
     private OnlyDecimalsTextField heightTF;
     private OnlyCharactersTextField type2TF;
-    private TextField pointsTF;
+    //private TextField pointsTF;
+    private TextField biologyTF;
     private TextField spriteTF;
 
     /**
@@ -65,6 +68,7 @@ public class AdminAddRemovePane extends Pane {
         displayHeight();
         displayType2();
         //displayPoints();
+        displayBiology();
         displaySpriteUrl();
 
         displayAddButton();
@@ -80,9 +84,28 @@ public class AdminAddRemovePane extends Pane {
     private void addButtonAction() {
         // CHECK IF THERE IS AN ERROR
         if (!idTF.getText().equals("") && !nameTF.getText().equals("") && !weightTF.getText().equals("") &&
-            !heightTF.getText().equals("") && !type1TF.getText().equals("") && !type2TF.getText().equals("") &&
-            !catchRateTF.getText().equals("") && !portraitTF.getText().equals("") && !spriteTF.getText().equals("") )
-            System.out.println("goofy");
+            !heightTF.getText().equals("") && (!type1TF.getText().equals("") || !type2TF.getText().equals("")) &&
+            !catchRateTF.getText().equals("") && !portraitTF.getText().equals("") && !spriteTF.getText().equals("") ) {
+            PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
+            if (pokemonManagerOnMongoDb.insert(
+                    new Pokemon(
+                            nameTF.getText(),
+                            new String[]{type1TF.getText(), type2TF.getText()},
+                            5, //TODO: REMOVE IN CASE OF REMOVE OF GENERATION
+                            Integer.parseInt(idTF.getText()),
+                            Double.parseDouble(catchRateTF.getText()),
+                            5,
+                            Double.parseDouble(heightTF.getText()),
+                            Double.parseDouble(heightTF.getText()),
+                            "pippo",
+                            portraitTF.getText(),
+                            spriteTF.getText()
+                    )
+            ) )
+                System.out.println("pokemon inserito");
+
+        }
+
     }
 
     /**
@@ -99,7 +122,9 @@ public class AdminAddRemovePane extends Pane {
     }
 
     private void removeButtonAction() {
-
+        PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
+        //pokemonManagerOnMongoDb.
+        // TODO: REMOVE POKEMON BY NAME
     }
 
 
@@ -220,6 +245,15 @@ public class AdminAddRemovePane extends Pane {
 
         getChildren().addAll(points, pointsTF);
     }*/
+
+    private void displayBiology() {
+        FieldRelatedLabel points = new FieldRelatedLabel("Biology", 400, 210);
+
+        biologyTF = new TextField();
+        biologyTF.relocate(400, 240);
+
+        getChildren().addAll(points, biologyTF);
+    }
 
     /**
      * Adds to the pane the fields related to the sprite url (<code>FieldRelatedLabel</code> and
