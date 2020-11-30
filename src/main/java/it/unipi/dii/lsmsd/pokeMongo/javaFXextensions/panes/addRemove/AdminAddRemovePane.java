@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.addRemove;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.TypeComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
@@ -11,19 +12,21 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
+
 /**
  * Specific pane showing the elements needed to add or remove a pokemon
  */
 public class AdminAddRemovePane extends Pane {
     private OnlyDecimalsTextField idTF;
     private OnlyDecimalsTextField weightTF;
-    private OnlyCharactersTextField type1TF;
+    private TypeComboBox type1TF;
     private OnlyDecimalsTextField catchRateTF;
     private TextField portraitTF;
 
     private TextField nameTF;
     private OnlyDecimalsTextField heightTF;
-    private OnlyCharactersTextField type2TF;
+    private TypeComboBox type2TF;
     //private TextField pointsTF;
     private TextField biologyTF;
     private TextField spriteTF;
@@ -96,13 +99,13 @@ public class AdminAddRemovePane extends Pane {
 
         // CHECK IF THERE IS AN ERROR
         if (!idTF.getText().equals("") && !nameTF.getText().equals("") && !weightTF.getText().equals("") &&
-            !heightTF.getText().equals("") && (!type1TF.getText().equals("") || !type2TF.getText().equals("")) &&
+            !heightTF.getText().equals("") && (!type1TF.getValue().toString().equals("") || !type2TF.getValue().toString().equals("")) &&
             !catchRateTF.getText().equals("") && !portraitTF.getText().equals("") && !spriteTF.getText().equals("") ) {
             PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
             if (pokemonManagerOnMongoDb.insert(
                     new Pokemon(
                             nameTF.getText(),
-                            new String[]{type1TF.getText(), type2TF.getText()},
+                            new String[]{type1TF.getValue().toString(), type2TF.getValue().toString()},
                             5, //TODO: REMOVE IN CASE OF REMOVE OF GENERATION
                             Integer.parseInt(idTF.getText()),
                             Double.parseDouble(catchRateTF.getText()),
@@ -197,7 +200,12 @@ public class AdminAddRemovePane extends Pane {
     private void displayType1() {
         FieldRelatedLabel type1 = new FieldRelatedLabel("Type1", 0, 140);
 
-        type1TF = new OnlyCharactersTextField(0, 170);
+
+        try{
+            type1TF = new TypeComboBox(0, 170);
+        } catch (IOException ioe){
+            ioe.printStackTrace();
+        }
 
         getChildren().addAll(type1, type1TF);
     }
@@ -260,8 +268,12 @@ public class AdminAddRemovePane extends Pane {
     private void displayType2() {
         FieldRelatedLabel type1 = new FieldRelatedLabel("Type2", 400, 140);
 
-        type2TF = new OnlyCharactersTextField(400, 170);
 
+        try {
+            type2TF = new TypeComboBox(400, 170);
+        } catch (IOException ioe){
+            ioe.printStackTrace();
+        }
         getChildren().addAll(type1, type2TF);
     }
 
