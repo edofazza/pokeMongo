@@ -6,7 +6,6 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.TypeComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
-import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.OnlyCharactersTextField;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.OnlyDecimalsTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
 import javafx.scene.control.TextField;
@@ -27,7 +26,6 @@ public class AdminAddRemovePane extends Pane {
     private TextField nameTF;
     private OnlyDecimalsTextField heightTF;
     private TypeComboBox type2TF;
-    //private TextField pointsTF;
     private TextField biologyTF;
     private TextField spriteTF;
 
