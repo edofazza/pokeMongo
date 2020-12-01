@@ -26,7 +26,7 @@ public class Logger {
 
     public static void vvlog(String text){
         if(ConfigDataHandler.getInstance().configData.verbosityLevel >= 3)
-            System.out.println("[VLOG] " + text);
+            System.out.println("[VVLOG] " + text);
     }
 
 
