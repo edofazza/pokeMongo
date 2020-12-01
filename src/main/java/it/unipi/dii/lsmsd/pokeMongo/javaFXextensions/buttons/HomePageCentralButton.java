@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.Button;
 
 /**
@@ -17,6 +18,8 @@ public class HomePageCentralButton extends Button {
      */
     public HomePageCentralButton(String text) {
         super();
+
+        Logger.vvlog("Creating HomePageCentralButton at (" + x + ", " + y + ")");
         setText(text);
         relocate(x, y + position*delta);
         position++;

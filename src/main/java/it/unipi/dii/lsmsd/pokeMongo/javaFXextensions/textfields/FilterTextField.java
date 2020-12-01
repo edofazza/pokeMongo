@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.TextField;
 
 /**
@@ -14,6 +15,7 @@ public class FilterTextField extends TextField {
      */
     public FilterTextField(int x, int y) {
         relocate(x, y);
+        Logger.vvlog("Creating FilterTextField at (" + x + ", " + y + ")");
 
         getStyleClass().add("FilterTextField");
     }

@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;
@@ -17,6 +18,8 @@ public class TeamNameTextField extends TextField {
      */
     public TeamNameTextField(String text, int x, int y) {
         super(text);
+        Logger.vvlog("Creating TeamNameTextField '" + text + "' at (" + x + ", " + y + ")");
+
         relocate(x, y);
 
         getStyleClass().add("TeamNameTextField");

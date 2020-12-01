@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group.PokemonWindowGroup;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -20,6 +21,7 @@ public class FilterPokemonResultButton extends Button {
      */
     public FilterPokemonResultButton(Pokemon pokemon, int x, int y) {
         super(pokemon.getName());
+        Logger.vvlog("Creating FilterPokemonResultButton at (" + x + ", " + y + ")");
         relocate(x, y);
         setOnAction(e -> createNewWindow(pokemon));
 

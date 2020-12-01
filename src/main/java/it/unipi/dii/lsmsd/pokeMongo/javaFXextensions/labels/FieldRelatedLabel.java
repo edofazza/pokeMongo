@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.Label;
 
 /**
@@ -16,6 +17,8 @@ public class FieldRelatedLabel extends Label {
      */
     public FieldRelatedLabel(String text, int x, int y) {
         super();
+        Logger.vvlog("Creating FieldRelatedLabel '" + text + "' at (" + x + ", " + y + ")");
+
         setText(text);
         relocate(x, y);
         getStyleClass().add("FieldRelatedLabel");

@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.CircleButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.addRemove.AdminAction;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.addRemove.AdminAddRemovePane;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
@@ -24,6 +25,7 @@ public class ToggleGroupPane extends Pane {
      * @param y the y axis position
      */
     public ToggleGroupPane(String labelText, String labelText2, int x, int y) {
+        Logger.vvlog("Creating InvalidFormEntryLabel '" + labelText + "," + labelText2 + "' at (" + x + ", " + y + ")");
         currentPane = new AdminAddRemovePane(300, 200);
 
         toggleGroup = new ToggleGroup();

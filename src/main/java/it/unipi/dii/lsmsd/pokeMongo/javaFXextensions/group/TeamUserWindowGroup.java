@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokemonTeamForUserSelectedWindow;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 
@@ -10,6 +11,8 @@ public class TeamUserWindowGroup extends Group {
 
     // TODO: retrieve the data from the user
     public TeamUserWindowGroup(User user) {
+        Logger.vvlog("Creating TeamUserWindowGroup");
+
         this.user = user;
 
         displayTeamName();

@@ -27,11 +27,12 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     private final String collectionName = "user";
 
     private Document UserToDocument(User u){
-        Logger.vlog(Document.parse(new Gson().toJson(u)).toString());
+        Logger.vvlog("Getting document from User\nDocument: " + new Gson().toJson(u));
         return Document.parse(new Gson().toJson(u));
     }
 
     private User DocumentToUser(Document doc){
+        Logger.vvlog("Getting User from Document\nDocument: " + doc.toJson());
         return new Gson().fromJson(doc.toJson(), User.class);
     }
 
@@ -65,12 +66,14 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
         if(toInsert.size()==1){
             Document doc = UserToDocument((User)toInsert.get(0));
+            Logger.vvlog("ADDED " + doc.toJson());
             collection.insertOne(doc);
         }
         else{
             List<Document> l = new ArrayList<>();
             for(Object o:toInsert){
                 Document doc = UserToDocument((User)o);
+                Logger.vvlog("ADDED " + doc.toJson());
                 l.add(doc);
             }
             collection.insertMany(l);
@@ -90,6 +93,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         User userToInsert = (User)toInsert;
         userToInsert.setPassword(PasswordEncryptor.encryptPassword(userToInsert.getPassword()));
         Document doc = UserToDocument(userToInsert);
+        Logger.vvlog("ADDED " + doc.toJson());
         collection.insertOne(doc);
         closeConnection();
         return true;
@@ -111,6 +115,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
             return false;
         }
         closeConnection();
+        Logger.vvlog("DELETED " + dr.getDeletedCount() + " pokemon");
         return dr.getDeletedCount()>0;
     }
 
@@ -157,6 +162,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
             return false;
         }
         closeConnection();
+        Logger.vvlog("UPDATED " + ur.getModifiedCount() + " user");
         return ur.getModifiedCount()>0;
     }
 
@@ -195,6 +201,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         // End
 
         String dateString = sdf.format(now);
+        Logger.vvlog("Updated last login for " + username + ": " + dateString.substring(0,1).toUpperCase() + dateString.substring(1));
         update(query, set("lastLogin", dateString.substring(0,1).toUpperCase() + dateString.substring(1)));
         return logger;
     }
@@ -208,6 +215,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     public boolean register(User toRegister) {
         Bson query = eq("username", toRegister.getUsername());
         ArrayList<Object> alreadyPresent=getWithFilter(query);
+        Logger.vvlog("Trying to register " + toRegister.getUsername());
         if(alreadyPresent.size()>0)
             return false;
         return insert(toRegister);
@@ -215,22 +223,26 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public boolean changeEmail(User target, String newEmail) {
+        Logger.vvlog("Trying to update " + target.getUsername() + " email: " + newEmail);
         return update(target, set("email", newEmail));
     }
 
     @Override
     public boolean changePassword(User target, String newPassword) {
         //TODO: Added Password Encryption, watch effects
+        Logger.vvlog("Trying to update " + target.getUsername() + " password");
         return update(target, set("password", PasswordEncryptor.encryptPassword(newPassword)));
     }
 
     @Override
     public boolean changeCountry(User target, String newCountry) {
+        Logger.vvlog("Trying to update " + target.getUsername() + " country: " + newCountry);
         return update(target, set("country", newCountry));
     }
 
     @Override
     public boolean removeUser(User target) {
+        Logger.vvlog("Trying to remove " + target.getUsername());
         if(target.isAdmin())
             return false;
         return remove(target);
@@ -238,6 +250,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public boolean removeUser(String username) {
+        Logger.vvlog("Trying to remove " + username);
         Bson query = eq("username", username);
         ArrayList<Object> target = getWithFilter(query);
         if(target.size()!=1 || ((User)(target.get(0))).isAdmin())
@@ -247,6 +260,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public boolean verifyOldPassword(User involved, String password) {
+        Logger.vvlog("Trying to verify old password of " + involved.getUsername());
         Bson query = eq("username", involved.getUsername());
         ArrayList<Object> matches=getWithFilter(query);
         if(matches.size()!=1)
@@ -256,37 +270,43 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public boolean changeTeamName(User involved, String newName) {
+        Logger.vvlog("Trying to change " + involved.getUsername() + "'s team name: " + newName);
         return update(involved, set("teamName", newName));
     }
 
     @Override
     public boolean updatePoints(User target, double points) {
+        Logger.vvlog("Trying to update points of " + target.getUsername() + ": " + points);
         return update(target, set("points", points));
     }
 
     @Override
     public boolean updateNumberOfPokeball(User target) {
+        Logger.vvlog("Trying to update number of pokeball of " + target.getUsername());
         return update(target, set("dailyPokeball", target.getDailyPokeball()));
     }
 
     @Override
     public boolean updateNumberOfPokeballTo10(User target) {
+        Logger.vvlog("Trying to update number of pokeball of " + target.getUsername() + " to 10");
         return update(target, set("dailyPokeball", 10));
     }
 
     @Override
-    public boolean decrementPokeball(User target) {return update(target, inc("dailyPokeball", -1));}
+    public boolean decrementPokeball(User target) {
+        Logger.vvlog("Trying to decrement number of pokeball of " + target.getUsername());
+        return update(target, inc("dailyPokeball", -1));
+    }
 
     @Override
     public void logout(User toLogOut) {
+        Logger.log("LOGGING OUT " + toLogOut.getUsername());
         update(toLogOut, set("dailyPokeball", toLogOut.getDailyPokeball()));
     }
 
-
-
-
     @Override
     public List<User> bestWorldTeams() {
+        Logger.vlog("COMPUTING BEST WORLD TEAMS");
         Bson match = match(eq("admin", false));
         Bson sort = sort(descending("points", "birthDay"));
         Bson limit = limit(20);
@@ -296,6 +316,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public List<User> bestFriendsTeams(User current) {
+        Logger.vlog("COMPUTING BEST FRIENDS TEAMS");
         Bson sort = sort(descending("points", "birthDay"));
         Bson limit = limit(20);
         List<User> friends = /*getFriends(User current)*/new ArrayList<>();
@@ -306,6 +327,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public List<User> bestCountryTeams(String country) {
+        Logger.vlog("COMPUTING BEST TEAMS FOR COUNTRY " + country);
         Bson match = match(and(eq("country", country), eq("admin", false)));
         Bson sort = sort(descending("points", "birthDay"));
         Bson limit = limit(20);

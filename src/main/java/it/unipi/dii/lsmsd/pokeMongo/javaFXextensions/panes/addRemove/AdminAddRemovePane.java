@@ -8,6 +8,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabe
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.OnlyDecimalsTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
@@ -40,6 +41,7 @@ public class AdminAddRemovePane extends Pane {
      */
     public AdminAddRemovePane(int x, int y) {
         relocate(x, y);
+        Logger.vvlog("Creating AdminAddRemovePane at (" + x + ", " + y + ")");
 
         resultOperation = new InvalidFormEntryLabel("", 650, 350, false);
     }

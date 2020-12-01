@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.Label;
 
 /**
@@ -13,6 +14,8 @@ public class TitleLabel extends Label {
      */
     public TitleLabel(String title) {
         super();
+        Logger.vvlog("Creating TitleLabel '" + title + "'");
+
         setText(title);
         relocate(475, 50);
         getStyleClass().add("TitleLabel");

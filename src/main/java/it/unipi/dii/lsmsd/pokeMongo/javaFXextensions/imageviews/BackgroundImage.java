@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.imageviews;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.image.ImageView;
 
 /**
@@ -17,6 +18,7 @@ public class BackgroundImage extends ImageView {
      */
     public BackgroundImage(String url, int dimension, int x, int y) {
         super(imgLocation + url);
+        Logger.vvlog("Loading BackgroundImage at '" + url + "'(" + x + ", " + y + ")");
         setFitWidth(dimension);
         setFitHeight(dimension);
         relocate(x, y);

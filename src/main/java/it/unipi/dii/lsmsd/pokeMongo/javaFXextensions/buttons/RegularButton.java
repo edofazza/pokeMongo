@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.Button;
 
 /**
@@ -15,6 +16,7 @@ public class RegularButton extends Button {
      */
     public RegularButton(String text, int x, int y) {
         super();
+        Logger.vvlog("Creating Regular button '" + text + "' at (" + x + ", " + y + ")");
         setText(text);
         relocate(x, y);
         getStyleClass().add("SubmissionButton");

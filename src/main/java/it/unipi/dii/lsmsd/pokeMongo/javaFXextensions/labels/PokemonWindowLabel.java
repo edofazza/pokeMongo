@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.Label;
 
 /**
@@ -15,6 +16,7 @@ public class PokemonWindowLabel extends Label {
      */
     public PokemonWindowLabel(String text, int x, int y) {
         super(text);
+        Logger.vvlog("Creating PokemonWindowLabel '" + text + "' at (" + x + ", " + y + ")");
         relocate(x, y);
         setStyle("-fx-font-size: 16; -fx-font-family: Arial;");
     }

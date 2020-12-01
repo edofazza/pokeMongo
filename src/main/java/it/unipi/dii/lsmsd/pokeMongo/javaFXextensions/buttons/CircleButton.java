@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.RadioButton;
 
 public class CircleButton extends RadioButton {
@@ -10,6 +11,7 @@ public class CircleButton extends RadioButton {
      * @param y the y axis position
      */
     public CircleButton(int x, int y) {
+        Logger.vvlog("Creating circle button at (" + x + ", " + y + ")");
         relocate(x, y);
         getStyleClass().add("CircleButton");
     }

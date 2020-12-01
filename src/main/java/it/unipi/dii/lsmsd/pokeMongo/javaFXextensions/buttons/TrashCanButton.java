@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.Button;
 
 /**
@@ -15,6 +16,7 @@ public class TrashCanButton extends Button {
      */
     public TrashCanButton(int x, int y) {
         super();
+        Logger.vvlog("Creating TrashCanButton at (" + x + ", " + y + ")");
         relocate(x, y);
         setPrefSize(30, 30);
         getStyleClass().add("TrashCanButton");

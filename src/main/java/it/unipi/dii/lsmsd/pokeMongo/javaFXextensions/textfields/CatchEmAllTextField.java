@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.TextField;
 
 /**
@@ -13,6 +14,8 @@ public class CatchEmAllTextField extends TextField {
      * @param y the y axis position
      */
     public CatchEmAllTextField(String hint, int x, int y) {
+        Logger.vvlog("Creating CatchEmAllTextField '" + hint + "' at (" + x + ", " + y + ")");
+
         setPromptText(hint);
         relocate(x, y);
 

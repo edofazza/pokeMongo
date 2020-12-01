@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.Label;
 
 /**
@@ -17,6 +18,8 @@ public class InvalidFormEntryLabel extends Label {
      */
     public InvalidFormEntryLabel(String text, int x, int y, boolean visible) {
         super(text);
+        Logger.vvlog("Creating InvalidFormEntryLabel '" + text + "' at (" + x + ", " + y + ")");
+
         relocate(x, y);
         setVisible(visible);
 

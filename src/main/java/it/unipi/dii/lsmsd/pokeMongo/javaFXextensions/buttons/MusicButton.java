@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.Button;
 
 /**
@@ -17,6 +18,7 @@ public class MusicButton extends Button {
      */
     public MusicButton(int x, int y) {
         super();
+        Logger.vvlog("Creating MusicButton at (" + x + ", " + y + ")");
         relocate(x, y);
         setPrefSize(30, 30);
         getStyleClass().add("MusicButton");
@@ -27,6 +29,8 @@ public class MusicButton extends Button {
      * @param musicOn current behavior of the music
      */
     public void setImage(boolean musicOn) {
+
+        Logger.vvlog("Setting musicOn image");
         if (musicOn) {
             setStyle("-fx-background-image: url(" + imgAudioOffLocation + ")");
         }

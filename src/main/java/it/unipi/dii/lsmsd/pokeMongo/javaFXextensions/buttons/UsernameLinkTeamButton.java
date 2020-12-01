@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group.TeamUserWindowGroup;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -9,6 +10,8 @@ import javafx.stage.Stage;
 public class UsernameLinkTeamButton extends Button {
     public UsernameLinkTeamButton(String name, int x, int y) {
         super(name);
+
+        Logger.vvlog("Creating UsernameLinkTeamButton '" + name + "' at (" + x + ", " + y + ")");
         relocate(x, y);
         setOnAction(e -> createNewWindow(name));
 

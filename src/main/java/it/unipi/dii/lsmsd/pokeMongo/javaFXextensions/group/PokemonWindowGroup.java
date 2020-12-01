@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.PokemonWindowLabel;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -28,6 +29,7 @@ public class PokemonWindowGroup extends Group {
     //TODO: type is an array, change it
     public PokemonWindowGroup(String portraitUrl, String spriteUrl, String name, String type,
                               String weight, String height, String catchRate, String points, String biology) {
+        Logger.vvlog("Creating PokemonWindowGroup for pokemon " + name);
         displayPortrait(portraitUrl);
         displaySprite(spriteUrl);
         displayPokemonName(name);

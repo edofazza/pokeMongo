@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.Label;
 
 /**
@@ -16,6 +17,8 @@ public class FilterLabel extends Label {
      */
     public FilterLabel(String text, int x, int y) {
         super(text);
+        Logger.vvlog("Creating FilterLabel '" + text + "' at (" + x + ", " + y + ")");
+
         relocate(x, y);
 
         getStyleClass().add("FilterLabel");
