@@ -101,4 +101,10 @@ public class Pokemon {
             return types[0] + ", " + types[1];
         return types[0];
     }
+
+    public String getTypesSingleStringForCipher() {
+        if (types.length > 1)
+            return "\"" + types[0] + "\", \"" + types[1] + "\"";
+        return "\"" + types[0] + "\"";
+    }
 }
