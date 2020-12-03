@@ -11,6 +11,10 @@ import java.util.ArrayList;
 
 public abstract class MongoDbDatabase implements Database{
     private MongoClient connection;
+
+    private String provaLocalCluster1 = "mongodb://localhost:27018,localhost:27019,localhost:27020/";
+    private String provaLocalCluster2 = "?retryWrites=true?w=majority&wtimeout=10000";
+
     private String host="localhost";
     private int port = 27017;
     private String dbName="pokeMongo";
@@ -20,6 +24,7 @@ public abstract class MongoDbDatabase implements Database{
         Logger.vlog("Starting connection with MongoDB");
 
         connection=MongoClients.create("mongodb://" + host + ":" + port);
+        //connection = MongoClients.create(provaLocalCluster1 + provaLocalCluster2);
     }
 
     @Override
