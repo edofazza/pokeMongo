@@ -24,6 +24,8 @@ public abstract class MongoDbDatabase implements Database{
         Logger.vlog("Starting connection with MongoDB");
 
         connection=MongoClients.create("mongodb://" + host + ":" + port);
+
+        // FOR LOCAL CLUSTER ONLY WITH RUNNING PROCESS ON POWERSHELL
         //connection = MongoClients.create(provaLocalCluster1 + provaLocalCluster2);
     }
 
