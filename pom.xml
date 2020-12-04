@@ -85,6 +85,13 @@
             <version>1.14</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+
         <!-- CACHING -->
         <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>
