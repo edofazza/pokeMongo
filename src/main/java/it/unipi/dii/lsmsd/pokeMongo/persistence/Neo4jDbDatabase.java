@@ -33,21 +33,6 @@ public abstract class Neo4jDbDatabase implements Database {
         return driver;
     }
 
-    /*private MongoDatabase getDatabase(){
-        Logger.vlog("Getting " + dbName + " Database");
-        return getConnection().getDatabase(dbName);
-    }
-
-    public MongoCollection<Document> getCollection(String name){
-        Logger.vlog("Getting " + name + " collection");
-        return getDatabase().getCollection(name);
-    }
-
-    public void dropCollection(String name){
-        Logger.vlog("Dropping " + name + " Database");
-        getCollection(name).drop();
-    }*/
-
     @Override
     public abstract boolean insert(ArrayList<Object> toInsert);
 
