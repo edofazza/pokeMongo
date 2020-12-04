@@ -151,5 +151,20 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>DynamoDBLocal</artifactId>
+            <version>[1.12,2.0)</version>
+        </dependency>
     </dependencies>
+
+
+        <!--Custom repository:-->
+<repositories>
+    <repository>
+        <id>dynamodb-local-oregon</id>
+        <name>DynamoDB Local Release Repository</name>
+        <url>https://s3.eu-central-1.amazonaws.com/dynamodb-local-frankfurt/release</url>
+    </repository>
+</repositories>
 </project>
