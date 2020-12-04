@@ -1,17 +1,50 @@
+
+#######################################################################################
+[VIRTUAL CLUSTER]
+#######################################################################################
+
+#connecting to the virtual cluster
+ssh workgroup-01@172.16.3.85
+ssh workgroup-01@172.16.3.86
+ssh workgroup-01@172.16.3.87
+
+#Downloading mongodb on virtual clusters
 wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
 
 echo "deb [ arch=amd64,arm64 ]https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
 
-mongod --replSet lsmdb --dbpath ~/data --port 27020 --bind_ip localhost,172.16.3.86 --oplogSize 200
+sudo apt-get update
 
-rsconf = {_id: “lsmdb",	members: [{_id: 0, host: "172.16.3.85:27018"},{_id: 1, host: "172.16.3.86:27020"},{_id: 2, host: "172.16.3.87:27020"}]};
+sudo apt-get install -y mongodb-org
 
 
 
+#on each virtual machine
+mkdir data 
+
+#starting mongod process in each virtual machine (Use UK keyboard for tilde: §->tilde)
+mongod --replSet lsmdb --dbpath ~/data --port 27017 --bind_ip localhost,172.16.3.85 --oplogSize 200
+mongod --replSet lsmdb --dbpath ~/data --port 27017 --bind_ip localhost,172.16.3.86 --oplogSize 200
+mongod --replSet lsmdb --dbpath ~/data --port 27017 --bind_ip localhost,172.16.3.87 --oplogSize 200
+
+#in the fouth virtual machine configure the replica set
+mongo --port 27020
+rsconf = {_id: "lsmdb",	members: [{_id: 0, host: "172.16.3.85:27017"},{_id: 1, host: "172.16.3.86:27017"},{_id: 2, host: "172.16.3.87:27017"}]};
+
+#initiate the replica set
+rs.initiate(rsconf);
+
+rs.status();
+#change configuration
+rs.reconfig(rsconfig);
+
+
+#######################################################################################
 [LOCAL CLUSTER ON WINDOWS]
+#######################################################################################
 
 #first three terminal
-cd 'C:\Program Files\MongoDB\Server\4.4\bin’
+cd 'C:\Program Files\MongoDB\Server\4.4\bin'
 
 .\mongod.exe --replSet lsmdb --dbpath 'C:\Users\gxhan\data\r1' --port 27018 --bind_ip localhost --oplogSize 200
 
@@ -30,3 +63,21 @@ rs.initiate(rsconf);
 rs.status();
 #change configuration
 rs.reconfig(rsconfig);
+
+ccT4G6
+
+[SSH AUTH SETTINGS]
+
+Username: workgroup-01
+Password: ccT4G6
+
+IP addresses:
+172.16.3.85
+172.16.3.86
+172.16.3.87
+
+Example on how to access:
+ssh workgroup-01@<ip_address>
+
+How to change passwork:
+sudo passwd workgroup-01
