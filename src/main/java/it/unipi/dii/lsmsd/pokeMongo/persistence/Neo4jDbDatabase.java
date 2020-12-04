@@ -6,8 +6,6 @@ import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import java.util.ArrayList;
 
 import org.neo4j.driver.*;
-import org.neo4j.driver.types.Node;
-import org.neo4j.driver.types.Path;
 
 public abstract class Neo4jDbDatabase implements Database {
     private Driver driver;
