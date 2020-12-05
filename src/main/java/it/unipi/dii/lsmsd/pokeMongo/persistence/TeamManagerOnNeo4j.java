@@ -25,34 +25,39 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
         return remove(query, parameters("username", u.getUsername(), "slot", slot));
     }
 
-    public boolean deletePokemon(){
-        //TODO
-        return true;
+    public boolean deletePokemon(Pokemon p){
+        String query = "MATCH (p:Pokemon) WHERE p.name = $name DELETE p";
+        return remove(query, parameters("name", p.getName()));
     }
 
-    public boolean addPokemon(){
-        //TODO
-        return true;
+    public boolean addPokemon(Pokemon p){
+        String query = "MERGE (b:Pokemon { name: $name, type: " + p.getTypesSingleStringForCipher() +
+                ",sprite: $sprite, capture_rate: $capture_rate})";
+
+        return insert(query, parameters("name", p.getName(), "sprite", p.getSprite(), "capture_rate", p.getCapture_rate()));
     }
 
-    public boolean deleteUser(){
-        //TODO
-        return true;
+    public boolean deleteUser(User u){
+        String query = "MATCH (u:User) WHERE u.username = $username DELETE u";
+        return remove(query, parameters("username", u.getUsername()));
     }
 
-    public boolean removeUser(){
-        //TODO
-        return true;
+    //Eventualmente se il bean non è stato ancora creato si può passare direttamente lo username proposto in fase di
+    //registrazione
+    public boolean addUser(User u){
+        String query = "MERGE (u:User { username: $username})";
+        return insert(query, parameters("username", u.getUsername()));
     }
 
     public boolean addFollow(User from, User to){
-        //TODO
-        return true;
+        String query = "MATCH (from:User) WHERE from.username = $username" +
+                "MATCH (to:User) WHERE to.username = $username2 MERGE (from)-[:FOLLOW]->(to)";
+        return insert(query, parameters("username", from.getUsername(), "username2", to.getUsername()));
     }
 
     public boolean removeFollow(User from, User to){
-        //TODO
-        return true;
+        String query = "MATCH (from:User)-[w:FOLLOW]->(to:User) WHERE to.username = $username and from.username = $username2 DELETE w";
+        return remove(query, parameters("username", from.getUsername(), "username2", to.getUsername()));
     }
 
 
