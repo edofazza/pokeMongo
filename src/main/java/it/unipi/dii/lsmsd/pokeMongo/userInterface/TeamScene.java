@@ -18,7 +18,6 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
     private TeamNameTextField teamNameTF;
     private FieldRelatedLabel points;
 
-    // TODO: SEE IF IT IS REALLY HELPFUL
     private PokemonPane[] pokePaneArray = new PokemonPane[6];
 
     /**
@@ -94,7 +93,14 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
         UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
         userManagerOnMongoDb.changeTeamName(CurrentUI.getUser(), teamNameTF.getText());
 
-        // TODO: save pokemons
+        // remove pokemon removed
+        TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+        for (int i = 0; i < 6; ++i) {
+            if (pokePaneArray[i].isChanged()) {
+                CurrentUI.getUser().removeFromTeam(i);
+                teamManagerOnNeo4j.deletePokemonFromTeamBySlot(CurrentUI.getUser(), i);
+            }
+        }
     }
 
     private Pokemon[] retrieveTeam() {

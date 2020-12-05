@@ -132,4 +132,8 @@ public class User {
     public Pokemon getFromTeam(int i) {
         return team[i];
     }
+
+    public void removeFromTeam(int i) {
+        team[i] = null;
+    }
 }

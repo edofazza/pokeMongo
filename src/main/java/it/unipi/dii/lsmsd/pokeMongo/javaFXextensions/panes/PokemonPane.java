@@ -3,14 +3,11 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.TrashCanButton;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
-
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
+
 
 /**
  * Specific Pane for showing the pokemon in the team scene
@@ -21,6 +18,8 @@ public class PokemonPane extends Pane {
     private Pane stats;
 
     private Pokemon pokemon;
+
+    private boolean changed;
     /**
      * Relocates the pane and set the default elements.
      * @param x the x axis position
@@ -87,7 +86,12 @@ public class PokemonPane extends Pane {
 
     private void remove() {
         pokemon = null;
+        changed = true;
 
         setToDefault();
+    }
+
+    public boolean isChanged() {
+        return changed;
     }
 }

@@ -4,9 +4,6 @@ import com.google.common.annotations.VisibleForTesting;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import org.neo4j.driver.Record;
-import org.neo4j.driver.Result;
-import org.neo4j.driver.Session;
-import org.neo4j.driver.TransactionWork;
 
 import java.util.ArrayList;
 
