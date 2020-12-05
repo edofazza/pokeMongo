@@ -102,4 +102,25 @@ public class User {
     public void decrementDailyPokeball() {
         this.dailyPokeball--;
     }
+<<<<<<< Updated upstream
+=======
+
+    public void addTeam() {
+        if (team == null)
+            team = new Pokemon[6];
+        else
+            return;
+
+        TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+        ArrayList<Object> pokemons = teamManagerOnNeo4j.getWithFilter(this);
+        for (Object p: pokemons) {
+            Pokemon pokemon = (Pokemon)p;
+            team[pokemon.getSlot()] = pokemon;
+        }
+
+        for (Pokemon p: team)
+            if (p != null)
+                System.out.println(p.getName());
+    }
+>>>>>>> Stashed changes
 }

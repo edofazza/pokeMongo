@@ -4,6 +4,12 @@ import com.google.common.annotations.VisibleForTesting;
 
 import java.util.ArrayList;
 
+<<<<<<< Updated upstream
+=======
+import static org.neo4j.driver.Values.parameters;
+
+
+>>>>>>> Stashed changes
 public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
     @Override
     @VisibleForTesting
