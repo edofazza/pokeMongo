@@ -2,5 +2,9 @@
   "numRows": 1,
   "usernameSpeedLogin": "ciaomamma",
   "passwordSpeedLogin": "ciaomamma2",
-  "verbosityLevel": 3
+  "verbosityLevel": 3,
+
+  "localUri": "neo4j://localhost:7687",
+  "userNeo4j": "neo4j",
+  "passwordNeo4j": "root"
 }

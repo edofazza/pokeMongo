@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 
+import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 import java.util.ArrayList;
@@ -10,12 +11,12 @@ import org.neo4j.driver.*;
 public abstract class Neo4jDbDatabase implements Database {
     public Driver driver;
 
-    private String uri = "neo4j://localhost:7687";
-    private String user = "neo4j";
-    private String password = "edoardo98";
+    private String uri = ConfigDataHandler.getInstance().configData.localUri;
+    private String user = ConfigDataHandler.getInstance().configData.userNeo4j;
+    private String password = ConfigDataHandler.getInstance().configData.passwordNeo4j;
 
     public void startConnection(){
-        Logger.vlog("Starting connection with MongoDB");
+        Logger.vlog("Starting connection with Neo4j");
 
         driver = GraphDatabase.driver( uri, AuthTokens.basic( user, password ) );
     }
