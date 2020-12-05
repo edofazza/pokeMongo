@@ -16,9 +16,11 @@ public class CipherPokemonNodeGenerator {
             String name = ((Pokemon)p).getName();
             String type = ((Pokemon)p).getTypesSingleStringForCipher();
             String sprite = ((Pokemon)p).getSprite();
+            double catchRate = ((Pokemon)p).getCapture_rate();
 
             query += "CREATE (" + name + ":Pokemon { name: \"" + name + "\", " +
-                    "type: [" + type + "], sprite: \"" + sprite + "\"})\n";
+                    "type: [" + type + "], sprite: \"" + sprite + "\", " +
+                    "capture_rate: "+ catchRate + "})\n";
         }
 
         System.out.println(query);
