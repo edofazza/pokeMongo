@@ -1,7 +1,5 @@
 package it.unipi.dii.lsmsd.pokeMongo.bean;
 
-import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -19,6 +17,8 @@ public class User {
     private int dailyPokeball;
 
     private Pokemon[] team;
+
+    private double points = 0;
 
     public User(boolean admin, String surname, String name, String username, String password, String email,
                         Date birthDay, String country){
@@ -83,6 +83,10 @@ public class User {
         return dailyPokeball;
     }
 
+    public double getPoints() {
+        return points;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -99,6 +103,10 @@ public class User {
         this.teamName = teamName;
     }
 
+    public void setPoints(Double points) {
+        this.points = points;
+    }
+
     public void resetDailyPokeball() {
         this.dailyPokeball = 10;
     }
@@ -107,9 +115,10 @@ public class User {
         this.dailyPokeball--;
     }
 
-
     public void addTeam(Pokemon[] team) {
         this.team=team;
+
+        resetPoint();
     }
 
     public Pokemon getFromTeam(int i) {
@@ -119,4 +128,38 @@ public class User {
     public void removeFromTeam(int i) {
         team[i] = null;
     }
+
+    private void resetPoint() {
+        points = 0;
+        double times = 1.5;
+        boolean noTimes = false;
+        ArrayList<String> types = new ArrayList<>();
+
+        for (Pokemon p: team) {
+            if (p == null) {
+                noTimes = true;
+                continue;
+            }
+
+            String[] tyArray = p.getTypes();
+
+            if(types.indexOf(tyArray[0]) >= 0)
+                noTimes = true;
+
+            if (!tyArray[1].equals("")) {
+                if (types.indexOf(tyArray[1]) >= 0)
+                    noTimes = true;
+
+                points += (255 - p.getCapture_rate());
+
+                types.add(tyArray[0]);
+                if (!tyArray[1].equals(""))
+                    types.add(tyArray[1]);
+            }
+        }
+
+        if (!noTimes)
+            points *= times;
+    }
+
 }

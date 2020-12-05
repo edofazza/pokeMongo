@@ -30,11 +30,12 @@ public class Pokemon {
         this.sprite=sprite;
     }
 
-    public Pokemon(String name, String[] types, String sprite, int slot) {
+    public Pokemon(String name, String[] types, String sprite, double capture_rate, int slot) {
         this.name=name;
         this.types=types;
         this.sprite=sprite;
         this.slot = slot;
+        this.capture_rate = capture_rate;
     }
 
     public String getName() {

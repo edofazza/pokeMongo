@@ -1,9 +1,11 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
@@ -81,9 +83,17 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
         UserManager userManager = new UserManagerOnMongoDb();
         User user = userManager.login(usernameTF.getText(), passwordTF.getText());
 
-        // set the user, to
+        // set the user
         if(user != null) {
             CurrentUI.setUser(user);
+
+            // retrieve the team, this auto compute the points
+            CurrentUI.getUser().addTeam(retrieveTeam());
+
+            // Update the point in mongodb
+            UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
+            userManagerOnMongoDb.updatePoints(user, user.getPoints());
+
             CurrentUI.changeScene(SceneNames.HOMEPAGE);
         } else {
             InvalidFormEntryLabel loginError = new InvalidFormEntryLabel("Username/password incorrect", 600, 400, true);
@@ -107,5 +117,10 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
      */
     private void signUpButtonAction() {
         CurrentUI.changeScene(SceneNames.SIGNUP);
+    }
+
+    private Pokemon[] retrieveTeam() {
+        TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+        return teamManagerOnNeo4j.getUserTeam(CurrentUI.getUser());
     }
 }
