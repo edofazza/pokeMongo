@@ -65,23 +65,20 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
 
     @VisibleForTesting
     //eventualmente ritorna un Team
-    public User getUserTeam(User target) {
+    public Pokemon[] getUserTeam(User target) {
         Pokemon[] team = new Pokemon[6];
         String query = "MATCH (u:User)-[h:HAS]->(p:Pokemon) WHERE u.username = $username RETURN p.name, p.type, p.sprite, h.slot";
-        ArrayList<Object> res = getWithFilter(query);
-        for(int i=0; i<6; i++){
-            Object o = res.get(i);
+        ArrayList<Object> res = getWithFilter(query, parameters("username", target.getUsername()));
+        for(Object o: res){
             Record r =(Record)o;
             String name = r.get("p.name").asString();
             String[] type = (r.get("p.type").asList()).toArray(new String[]{});
             String sprite = r.get("p.sprite").asString();
             int slot = r.get("h.slot").asInt();
             Pokemon pokemon = new Pokemon(name, type, sprite, slot);
-            team[i]=pokemon;
+            team[slot]=pokemon;
         }
-        target.addTeam(team);
-        return target;
-
+        return team;
     }
 
 }

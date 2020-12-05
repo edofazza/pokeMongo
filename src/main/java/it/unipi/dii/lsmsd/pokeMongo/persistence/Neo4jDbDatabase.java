@@ -150,6 +150,26 @@ public abstract class Neo4jDbDatabase implements Database {
         return records;
     }
 
+    //TODO: non è una override di database
+    public ArrayList<Object> getWithFilter(Object query, Object value){
+        if(!(query instanceof String))
+            return null;
+        ArrayList<Object> records = new ArrayList<>();
+        startConnection();
+        try (Session session = driver.session()) {
+            session.readTransaction((TransactionWork<Void>) tx -> {
+                Result result = tx.run((String)query, (Value)value);
+                while (result.hasNext()) {
+                    Record r = result.next();
+                    records.add(r);
+                }
+                return null;
+            });
+        }
+        closeConnection();
+        return records;
+    }
+
     @Override
     public boolean update(Object target, Object newValue){
         if(!(target instanceof String) || !(newValue instanceof String))

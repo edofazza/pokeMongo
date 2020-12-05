@@ -1,11 +1,15 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
+import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokemonPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.TeamNameTextField;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
+
+import java.util.ArrayList;
 
 /**
  * This class is used to display the <code>Node</code> concerning the Team.
@@ -24,7 +28,7 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
     public TeamScene() {
         Logger.log("SHOWING TEAM PAGE");
 
-        CurrentUI.getUser().addTeam();
+        CurrentUI.getUser().addTeam(retrieveTeam());
 
         displayTeamName();
 
@@ -91,5 +95,10 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
         userManagerOnMongoDb.changeTeamName(CurrentUI.getUser(), teamNameTF.getText());
 
         // TODO: save pokemons
+    }
+
+    private Pokemon[] retrieveTeam() {
+        TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+        return teamManagerOnNeo4j.getUserTeam(CurrentUI.getUser());
     }
 }
