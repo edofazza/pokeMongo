@@ -34,7 +34,7 @@ public class User {
         this.lastLogin=new Date();
         this.dailyPokeball=10;
 
-        addTeam();
+        //addTeam();
     }
 
     public User(String username, String password){
@@ -109,7 +109,8 @@ public class User {
         this.dailyPokeball--;
     }
 
-    public void addTeam() {
+
+    public void addTeam() {/*
         if (team == null)
             team = new Pokemon[6];
         else
@@ -129,5 +130,6 @@ public class User {
 
     public Pokemon getFromTeam(int i) {
         return team[i];
+        */
     }
 }
