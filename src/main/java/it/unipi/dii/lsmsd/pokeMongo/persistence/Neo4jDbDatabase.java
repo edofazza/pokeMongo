@@ -12,7 +12,7 @@ public abstract class Neo4jDbDatabase implements Database {
 
     private String uri = "neo4j://localhost:7687";
     private String user = "neo4j";
-    private String password = "edoardo98";
+    private String password = "root";
 
     public void startConnection(){
         Logger.vlog("Starting connection with MongoDB");
