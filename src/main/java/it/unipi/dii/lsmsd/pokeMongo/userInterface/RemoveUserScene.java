@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
@@ -44,6 +45,10 @@ public class RemoveUserScene extends PokeSceneWithHeaderAndBackButton {
         if (userManagerOnMongoDb.removeUser(username.getText())) {
             operationResultLabel.setText("user removed correctly");
             operationResultLabel.setStyle("-fx-background-color: green;");
+
+            //REMOVE IT FROM NEO$J ALSO
+            TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+            teamManagerOnNeo4j.deleteUser(username.getText());
         } else {
             operationResultLabel.setText("user didn't found");
             operationResultLabel.setStyle("-fx-background-color: #FF211A;");

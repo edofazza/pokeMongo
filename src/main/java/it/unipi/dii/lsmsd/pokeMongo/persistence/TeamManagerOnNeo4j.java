@@ -38,8 +38,15 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
     }
 
     public boolean deleteUser(User u){
-        String query = "MATCH (u:User) WHERE u.username = $username DELETE u";
-        return remove(query, parameters("username", u.getUsername()));
+        return deleteUser(u.getUsername());
+    }
+
+    // TODO: eliminare poi anche tutte le relazioni di follow
+    public boolean deleteUser(String username){
+        String query = "MATCH (u:User) WHERE u.username = $username " +
+                "OPTIONAL MATCH (u)-[h:HAS]->(:Pokemon) OPTIONAL MATCH (:User)-[fo:FOLLOW]->(u)-[f:FOLLOW]->(:User) " +
+                "OPTIONAL MATCH (:User)-[fo:FOLLOW]->(u) DELETE u, h, f, fo";
+        return remove(query, parameters("username", username));
     }
 
     //Eventualmente se il bean non è stato ancora creato si può passare direttamente lo username proposto in fase di

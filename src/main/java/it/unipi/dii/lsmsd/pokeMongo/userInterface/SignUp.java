@@ -4,6 +4,7 @@ import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
@@ -235,21 +236,25 @@ public class SignUp extends PokeSceneWithTitle {
             Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
             Date date = Date.from(instant);
 
+            User user = new User(
+                    false,
+                    surnameTF.getText(),
+                    nameTF.getText(),
+                    usernameTF.getText(),
+                    passwordTF.getText(),
+                    emailTF.getText(),
+                    date,
+                    country.getValue().toString());
+
             // Create a connection to MongoDB and insert the user
             UserManager userManager = new UserManagerOnMongoDb();
-            if(userManager.register(
-                    new User(
-                            false,
-                            surnameTF.getText(),
-                            nameTF.getText(),
-                            usernameTF.getText(),
-                            passwordTF.getText(),
-                            emailTF.getText(),
-                            date,
-                            country.getValue().toString())
-            )) {
+            if(userManager.register(user)) {
                 resultLabel = new InvalidFormEntryLabel("Sign up successfully done", 800, 600, true);
                 resultLabel.setStyle("-fx-background-color: green;");
+
+                // ADD IT ALSO IN NEO4J
+                TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+                teamManagerOnNeo4j.addUser(user);
             }
             else
                 resultLabel = new InvalidFormEntryLabel("Username already exists", 800, 600, true);
