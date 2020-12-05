@@ -4,7 +4,7 @@ import com.google.common.annotations.VisibleForTesting;
 
 import java.util.ArrayList;
 
-public class TeamManagerOnNeo4j extends Neo4jDbDatabase {
+public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
     @Override
     @VisibleForTesting
     public boolean insert(ArrayList<Object> toInsert) {
