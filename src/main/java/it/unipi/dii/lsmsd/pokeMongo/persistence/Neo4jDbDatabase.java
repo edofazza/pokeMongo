@@ -66,6 +66,22 @@ public abstract class Neo4jDbDatabase implements Database {
         return true;
     }
 
+    //TODO non è un override di database
+    public boolean insert(Object query, Object value){
+        if(!(query instanceof String) || !(value instanceof Value)){
+            return false;
+        }
+        startConnection();
+        try (Session session = driver.session()) {
+            session.writeTransaction((TransactionWork<Void>) tx -> {
+                tx.run((String)query, (Value)value);
+                return null;
+            });
+        }
+        closeConnection();
+        return true;
+    }
+
     @Override
     public boolean remove(Object query){
         if(!(query instanceof String))
@@ -74,6 +90,21 @@ public abstract class Neo4jDbDatabase implements Database {
         try (Session session = driver.session()) {
             session.writeTransaction((TransactionWork<Void>) tx -> {
                 tx.run((String)query);
+                return null;
+            });
+        }
+        closeConnection();
+        return true;
+    }
+
+    //TODO non è un override di database
+    public boolean remove(Object query, Object value){
+        if(!(query instanceof String) || !(value instanceof Value))
+            return false;
+        startConnection();
+        try (Session session = driver.session()) {
+            session.writeTransaction((TransactionWork<Void>) tx -> {
+                tx.run((String)query, (Value)value);
                 return null;
             });
         }
