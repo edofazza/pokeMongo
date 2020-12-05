@@ -10,6 +10,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.TitleLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
@@ -155,8 +156,8 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
                 invalidFormEntryLabel.setVisible(true);
                 invalidFormEntryLabel.setStyle("-fx-background-color: green");
 
-                // TODO: ADD THE POKEMON TO TEAM
-
+                TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+                teamManagerOnNeo4j.insertAPokemonIntoTeam(CurrentUI.getUser(), pokemon, Integer.parseInt(selectSlot.getValue().toString()) - 1);
             } else {
                 invalidFormEntryLabel.setText(pokemon.getName() + " uncaught");
                 invalidFormEntryLabel.setVisible(true);
