@@ -126,4 +126,8 @@ public class User {
             if (p != null)
                 System.out.println(p.getName());
     }
+
+    public Pokemon getFromTeam(int i) {
+        return team[i];
+    }
 }

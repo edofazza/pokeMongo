@@ -52,6 +52,7 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
 
         ArrayList<Object> team = new ArrayList<>();
 
+        startConnection();
         try (Session session = driver.session()){
             session.readTransaction((TransactionWork<Void>) tx -> {
 
@@ -64,12 +65,14 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
                     String sprite = r.get("p.sprite").asString();
                     int slot = r.get("h.slot").asInt();
 
+                    System.out.println(name + " " + type[0] + " " + sprite);
                     Pokemon pokemon = new Pokemon(name, type, sprite, slot);
                     team.add(pokemon);
                 }
                 return null;
             });
         }
+        closeConnection();
 
         return team;
     }

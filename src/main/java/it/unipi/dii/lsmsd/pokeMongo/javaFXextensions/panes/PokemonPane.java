@@ -1,6 +1,9 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
+import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.TrashCanButton;
+import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -10,18 +13,22 @@ import javafx.scene.shape.Rectangle;
  */
 public class PokemonPane extends Pane {
     private TrashCanButton trashCanButton;
-    private Circle pokemon;
+    private Circle pokemonCircle;
     private Rectangle stats;
 
+    private Pokemon pokemon;
     /**
      * Relocates the pane and set the default elements.
      * @param x the x axis position
      * @param y the x axis position
+     *
      */
     // TODO: deve mettere il default solo se non è presente un pokemon per lo slot
     public PokemonPane(int x, int y) {
         relocate(x, y);
         setPrefSize(400, 150);
+
+        //this.pokemon = p;
 
         // TODO: gestire l'inserimento dell'evento in modo migliore
         trashCanButton = new TrashCanButton(350, 50);
@@ -34,7 +41,7 @@ public class PokemonPane extends Pane {
      * Adds all the attributes to the pane.
      */
     private void addToPane() {
-        getChildren().addAll(trashCanButton, pokemon, stats);
+        getChildren().addAll(trashCanButton, pokemonCircle, stats);
     }
 
     /**
@@ -44,9 +51,14 @@ public class PokemonPane extends Pane {
     private void setToDefault() {
         getChildren().clear();
 
-        pokemon = new Circle(40);
-        pokemon.relocate(50, 20);
-        pokemon.setStyle("-fx-fill: white; -fx-stroke: black;");
+        pokemonCircle = new Circle(40);
+        pokemonCircle.relocate(50, 20);
+        pokemonCircle.setStyle("-fx-fill: white; -fx-stroke: black; -fx-pref-width: 80; -fx-pref-height: 80;");
+
+        if (pokemon != null) {
+            ImageView img = new ImageView();
+            CurrentUI.getImage(pokemon.getSprite()).thenAccept(k -> img.setImage(k));
+        }
 
         stats = new Rectangle(180, 50);
         stats.setStyle("-fx-fill: white; -fx-stroke: black;");
