@@ -33,8 +33,6 @@ public class User {
         this.teamName="Team name";
         this.lastLogin=new Date();
         this.dailyPokeball=10;
-
-        //addTeam();
     }
 
     public User(String username, String password){
@@ -112,21 +110,6 @@ public class User {
 
     public void addTeam(Pokemon[] team) {
         this.team=team;
-        /*if (team == null)
-            team = new Pokemon[6];
-        else
-            return;
-
-        TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
-        ArrayList<Object> pokemons = teamManagerOnNeo4j.getWithFilter(this);
-        for (Object p: pokemons) {
-            Pokemon pokemon = (Pokemon)p;
-            team[pokemon.getSlot()] = pokemon;
-        }
-
-        for (Pokemon p: team)
-            if (p != null)
-                System.out.println(p.getName());*/
     }
 
     public Pokemon getFromTeam(int i) {
