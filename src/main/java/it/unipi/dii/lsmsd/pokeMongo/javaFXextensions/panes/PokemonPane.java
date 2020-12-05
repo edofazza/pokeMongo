@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.TrashCanButton;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -16,7 +17,7 @@ import javafx.scene.shape.Rectangle;
 public class PokemonPane extends Pane {
     private TrashCanButton trashCanButton;
     private Circle pokemonCircle;
-    private Rectangle stats;
+    private Pane stats;
 
     private Pokemon pokemon;
     /**
@@ -67,9 +68,16 @@ public class PokemonPane extends Pane {
             getChildren().add(pokemonCircle);
         }
 
-        stats = new Rectangle(180, 50);
-        stats.setStyle("-fx-fill: white; -fx-stroke: black;");
+        stats = new Pane();
+        stats.setPrefSize(180, 50);
+        stats.setStyle("-fx-border-color: black;");
         stats.relocate(150, 40);
+
+        /*if(pokemon != null) {
+            Label name = new Label(pokemon.getName() + "\tTYPES:" + pokemon.getTypeSingleString());
+            name.relocate(10, 20);
+            stats.getChildren().add(name);
+        }*/
 
         addToPane();
     }
