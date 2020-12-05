@@ -3,6 +3,8 @@ package it.unipi.dii.lsmsd.pokeMongo.persistence;
 import com.google.common.annotations.VisibleForTesting;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePokemonException;
+import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicateUserException;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.SlotAlreadyOccupiedException;
 import org.neo4j.driver.Record;
 
@@ -31,6 +33,7 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
         Record d = (Record)res.get(0);
         return (d.get("link_count").asInt() > 0);
     }
+
     public boolean deletePokemonFromTeamBySlot(User u, int slot){
         String query = "MATCH (n:User)-[w:HAS]->(p:Pokemon) WHERE n.username = $username and w.slot = $slot DELETE w";
         return remove(query, parameters("username", u.getUsername(), "slot", slot));
@@ -41,11 +44,21 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
         return remove(query, parameters("name", p.getName()));
     }
 
-    public boolean addPokemon(Pokemon p){
+    public boolean addPokemon(Pokemon p) throws DuplicatePokemonException{
+        if(pokemonAlreadyExist(p))
+            throw new DuplicatePokemonException();
+
         String query = "MERGE (b:Pokemon { name: $name, type: " + p.getTypesSingleStringForCipher() +
                 ",sprite: $sprite, capture_rate: $capture_rate})";
 
         return insert(query, parameters("name", p.getName(), "sprite", p.getSprite(), "capture_rate", p.getCapture_rate()));
+    }
+
+    private boolean pokemonAlreadyExist(Pokemon p){
+        String controlQuery = "MATCH (p:Pokemon) WHERE p.name = $name RETURN count(p) as pokemon_count";
+        ArrayList<Object> res = getWithFilter(controlQuery, parameters("name",p.getName()));
+        Record d = (Record)res.get(0);
+        return (d.get("pokemon_count").asInt() > 0);
     }
 
 

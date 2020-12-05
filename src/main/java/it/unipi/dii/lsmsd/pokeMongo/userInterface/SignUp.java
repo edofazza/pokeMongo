@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicateUserException;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
@@ -255,7 +256,12 @@ public class SignUp extends PokeSceneWithTitle {
 
                 // ADD IT ALSO IN NEO4J
                 UserNetworkManagerOnNeo4j userNetworkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
-                userNetworkManagerOnNeo4j.addUser(user);
+                //TODO: maybe we could use this part as a duplicate username control
+                try{
+                    userNetworkManagerOnNeo4j.addUser(user);
+                } catch(DuplicateUserException due){
+                    System.out.println("Duplicate of user");
+                }
             }
             else
                 resultLabel = new InvalidFormEntryLabel("Username already exists", 800, 600, true);

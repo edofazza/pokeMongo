@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 import com.google.common.annotations.VisibleForTesting;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicateUserException;
 import org.neo4j.driver.Record;
 
 import java.util.ArrayList;
@@ -25,9 +26,19 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase {
 
     //Eventualmente se il bean non è stato ancora creato si può passare direttamente lo username proposto in fase di
     //registrazione
-    public boolean addUser(User u){
+    public boolean addUser(User u) throws DuplicateUserException{
+        if(userAlreadyExists(u))
+            throw new DuplicateUserException();
+
         String query = "MERGE (u:User { username: $username})";
         return insert(query, parameters("username", u.getUsername()));
+    }
+
+    private boolean userAlreadyExists(User u){
+        String controlQuery = "MATCH (p:User) WHERE p.username = $username RETURN count(p) as user_count";
+        ArrayList<Object> res = getWithFilter(controlQuery, parameters("username",u.getUsername()));
+        Record d = (Record)res.get(0);
+        return (d.get("user_count").asInt() > 0);
     }
 
     public boolean addFollow(User from, User to){
