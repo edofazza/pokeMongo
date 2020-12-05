@@ -1,15 +1,15 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
-import it.unipi.dii.lsmsd.pokeMongo.config.*;
+import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
-public class UserManagerFactory {
-    public static UserManager buildManager(){
+public class TeamManagerFactory {
+    public static TeamManager buildManager(){
         String technology = getConfiguration();
         Logger.vlog("Obtaining technology: " + technology);
         switch (technology){
-            case "MongoDB":
-                return new UserManagerOnMongoDb();
+            case "Neo4j":
+                return new TeamManagerOnNeo4j();
             default:
                 try{
                     throw new IllegalArgumentException();
@@ -22,6 +22,6 @@ public class UserManagerFactory {
     }
 
     public static String getConfiguration(){
-        return ConfigDataHandler.getInstance().configData.userDbArchitecture;
+        return ConfigDataHandler.getInstance().configData.teamDbArchitecture;
     }
 }

@@ -10,9 +10,9 @@ import org.neo4j.driver.TransactionWork;
 
 import java.util.ArrayList;
 
-import static org.neo4j.driver.Values.parameters;
 
-public class TeamManagerOnNeo4j extends Neo4jDbDatabase {
+public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
+
     @Override
     @VisibleForTesting
     public boolean insert(ArrayList<Object> toInsert) {
