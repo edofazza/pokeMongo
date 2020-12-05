@@ -36,7 +36,7 @@ public class PokemonPane extends Pane {
 
         // TODO: gestire l'inserimento dell'evento in modo migliore
         trashCanButton = new TrashCanButton(350, 50);
-        trashCanButton.setOnAction(e -> setToDefault());
+        trashCanButton.setOnAction(e -> remove());
 
         setToDefault();
     }
@@ -75,11 +75,19 @@ public class PokemonPane extends Pane {
         stats.relocate(150, 40);
 
         if(pokemon != null) {
-            Label name = new Label(pokemon.getName() + "\tTYPES:" + pokemon.getTypeSingleString());
-            name.relocate(10, 20);
+            Label name = new Label(pokemon.getName() + "\tTYPES: " + pokemon.getTypeSingleString());
+            name.setMaxSize(160, 10);
+            name.setStyle("-fx-font-size: 10;");
+            name.relocate(10, 17);
             stats.getChildren().add(name);
         }
 
         addToPane();
+    }
+
+    private void remove() {
+        pokemon = null;
+
+        setToDefault();
     }
 }
