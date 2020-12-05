@@ -6,6 +6,7 @@ import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import org.neo4j.driver.Record;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.neo4j.driver.Values.parameters;
 
@@ -60,10 +61,18 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
         return remove(query, parameters("username", from.getUsername(), "username2", to.getUsername()));
     }
 
-
-
-
-
+    //TODO: non genera ancora i bean, necessita di essere processata su mongoDb
+    public List<String> getFollowersUsernames(User target){
+        List<String> followersUsernames = new ArrayList<String>();
+        String query = "MATCH (to:User)-[h:FOLLOW]->(from:User) WHERE from.username = $username RETURN to.username";
+        ArrayList<Object> res = getWithFilter(query, parameters("username", target.getUsername()));
+        for(Object o: res){
+            Record r =(Record)o;
+            String username = r.get("to.username").asString();
+            followersUsernames.add(username);
+        }
+        return followersUsernames;
+    }
 
     @VisibleForTesting
     //eventualmente ritorna un Team
