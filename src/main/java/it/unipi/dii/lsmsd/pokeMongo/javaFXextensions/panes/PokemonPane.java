@@ -3,8 +3,10 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.TrashCanButton;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
@@ -24,11 +26,11 @@ public class PokemonPane extends Pane {
      *
      */
     // TODO: deve mettere il default solo se non è presente un pokemon per lo slot
-    public PokemonPane(int x, int y) {
+    public PokemonPane(int x, int y, Pokemon p) {
         relocate(x, y);
         setPrefSize(400, 150);
 
-        //this.pokemon = p;
+        this.pokemon = p;
 
         // TODO: gestire l'inserimento dell'evento in modo migliore
         trashCanButton = new TrashCanButton(350, 50);
@@ -41,7 +43,7 @@ public class PokemonPane extends Pane {
      * Adds all the attributes to the pane.
      */
     private void addToPane() {
-        getChildren().addAll(trashCanButton, pokemonCircle, stats);
+        getChildren().addAll(trashCanButton, stats);
     }
 
     /**
@@ -51,13 +53,18 @@ public class PokemonPane extends Pane {
     private void setToDefault() {
         getChildren().clear();
 
-        pokemonCircle = new Circle(40);
-        pokemonCircle.relocate(50, 20);
-        pokemonCircle.setStyle("-fx-fill: white; -fx-stroke: black; -fx-pref-width: 80; -fx-pref-height: 80;");
-
         if (pokemon != null) {
             ImageView img = new ImageView();
             CurrentUI.getImage(pokemon.getSprite()).thenAccept(k -> img.setImage(k));
+            img.setFitWidth(80);
+            img.setFitHeight(80);
+            img.relocate(50, 20);
+            getChildren().add(img);
+        } else {
+            pokemonCircle = new Circle(40);
+            pokemonCircle.relocate(50, 20);
+            pokemonCircle.setStyle("-fx-fill: white; -fx-stroke: black;");
+            getChildren().add(pokemonCircle);
         }
 
         stats = new Rectangle(180, 50);

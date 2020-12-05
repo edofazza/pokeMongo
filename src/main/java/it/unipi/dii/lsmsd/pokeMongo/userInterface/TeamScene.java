@@ -43,14 +43,14 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
     // TODO: fare il trash button come una classe e attribuirgli il css
     private void displayPokemon() {
         for (int i = 0; i < 3; ++i){
-            PokemonPane pp = new PokemonPane(150, 180 + i*110);
+            PokemonPane pp = new PokemonPane(150, 180 + i*110, CurrentUI.getUser().getFromTeam(i));
             pokePaneArray[i] = pp;
 
             sceneNodes.getChildren().add(pp);
         }
 
         for (int i = 0; i < 3; ++i){
-            PokemonPane pp = new PokemonPane(700, 180 + i*110);
+            PokemonPane pp = new PokemonPane(700, 180 + i*110, CurrentUI.getUser().getFromTeam(i+3));
             pokePaneArray[i+3] = pp;
 
             sceneNodes.getChildren().add(pp);
