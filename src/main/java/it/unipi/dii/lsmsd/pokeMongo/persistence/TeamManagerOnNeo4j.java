@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.persistence;
 import com.google.common.annotations.VisibleForTesting;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.exceptions.SlotAlreadyOccupiedException;
 import org.neo4j.driver.Record;
 
 import java.util.ArrayList;
@@ -15,12 +16,21 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
 
     @VisibleForTesting
     // eventualmente insertAPokemonIntoTeam(Team t, int slot)
-    public boolean insertAPokemonIntoTeam(User u, Pokemon p, int slot) {
+    public boolean insertAPokemonIntoTeam(User u, Pokemon p, int slot) throws SlotAlreadyOccupiedException{
+        if(slotAlreadyOccupied(u, slot))
+            throw new SlotAlreadyOccupiedException();
+
         String query = "MATCH (n:User) WHERE n.username = $username " +
                 "MATCH (p:Pokemon) WHERE p.name = $pokemon CREATE (n)-[:HAS {slot: $slot}]->(p)";
         return insert(query, parameters("username", u.getUsername(), "pokemon", p.getName(), "slot", slot));
     }
 
+    private boolean slotAlreadyOccupied(User u, int slot){
+        String controlQuery = "MATCH (n:User)-[w:HAS {slot: $slot}]->(p:Pokemon) WHERE n.username = $username RETURN count(w) as link_count";
+        ArrayList<Object> res = getWithFilter(controlQuery, parameters("slot", slot, "username", u.getUsername()));
+        Record d = (Record)res.get(0);
+        return (d.get("link_count").asInt() > 0);
+    }
     public boolean deletePokemonFromTeamBySlot(User u, int slot){
         String query = "MATCH (n:User)-[w:HAS]->(p:Pokemon) WHERE n.username = $username and w.slot = $slot DELETE w";
         return remove(query, parameters("username", u.getUsername(), "slot", slot));
@@ -38,48 +48,6 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
         return insert(query, parameters("name", p.getName(), "sprite", p.getSprite(), "capture_rate", p.getCapture_rate()));
     }
 
-    public boolean deleteUser(User u){
-        return deleteUser(u.getUsername());
-    }
-
-    // TODO: eliminare poi anche tutte le relazioni di follow
-    public boolean deleteUser(String username){
-        String query = "MATCH (u:User) WHERE u.username = $username " +
-                "OPTIONAL MATCH (u)-[h:HAS]->(:Pokemon) OPTIONAL MATCH (:User)-[fo:FOLLOW]->(u)-[f:FOLLOW]->(:User) " +
-                "OPTIONAL MATCH (:User)-[fo:FOLLOW]->(u) DELETE u, h, f, fo";
-        return remove(query, parameters("username", username));
-    }
-
-    //Eventualmente se il bean non è stato ancora creato si può passare direttamente lo username proposto in fase di
-    //registrazione
-    public boolean addUser(User u){
-        String query = "MERGE (u:User { username: $username})";
-        return insert(query, parameters("username", u.getUsername()));
-    }
-
-    public boolean addFollow(User from, User to){
-        String query = "MATCH (from:User) WHERE from.username = $username" +
-                "MATCH (to:User) WHERE to.username = $username2 MERGE (from)-[:FOLLOW]->(to)";
-        return insert(query, parameters("username", from.getUsername(), "username2", to.getUsername()));
-    }
-
-    public boolean removeFollow(User from, User to){
-        String query = "MATCH (from:User)-[w:FOLLOW]->(to:User) WHERE to.username = $username and from.username = $username2 DELETE w";
-        return remove(query, parameters("username", from.getUsername(), "username2", to.getUsername()));
-    }
-
-    //TODO: non genera ancora i bean, necessita di essere processata su mongoDb
-    public List<String> getFollowersUsernames(User target){
-        List<String> followersUsernames = new ArrayList<String>();
-        String query = "MATCH (to:User)-[h:FOLLOW]->(from:User) WHERE from.username = $username RETURN to.username";
-        ArrayList<Object> res = getWithFilter(query, parameters("username", target.getUsername()));
-        for(Object o: res){
-            Record r =(Record)o;
-            String username = r.get("to.username").asString();
-            followersUsernames.add(username);
-        }
-        return followersUsernames;
-    }
 
     @VisibleForTesting
     //eventualmente ritorna un Team

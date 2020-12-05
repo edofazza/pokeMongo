@@ -7,6 +7,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabe
 import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
@@ -253,8 +254,8 @@ public class SignUp extends PokeSceneWithTitle {
                 resultLabel.setStyle("-fx-background-color: green;");
 
                 // ADD IT ALSO IN NEO4J
-                TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
-                teamManagerOnNeo4j.addUser(user);
+                UserNetworkManagerOnNeo4j userNetworkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
+                userNetworkManagerOnNeo4j.addUser(user);
             }
             else
                 resultLabel = new InvalidFormEntryLabel("Username already exists", 800, 600, true);

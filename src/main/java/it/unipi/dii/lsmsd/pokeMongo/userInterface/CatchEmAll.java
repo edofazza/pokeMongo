@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
+import it.unipi.dii.lsmsd.pokeMongo.exceptions.SlotAlreadyOccupiedException;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.choiceBox.ChooseSlotNumber;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.imageviews.BackgroundImage;
@@ -157,7 +158,14 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
                 invalidFormEntryLabel.setStyle("-fx-background-color: green");
 
                 TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
-                teamManagerOnNeo4j.insertAPokemonIntoTeam(CurrentUI.getUser(), pokemon, Integer.parseInt(selectSlot.getValue().toString()) - 1);
+
+                try{
+                    teamManagerOnNeo4j.insertAPokemonIntoTeam(CurrentUI.getUser(), pokemon, Integer.parseInt(selectSlot.getValue().toString()) - 1);
+                } catch (SlotAlreadyOccupiedException saoe){
+                    invalidFormEntryLabel.setText("slot already occupied");
+                    invalidFormEntryLabel.setVisible(true);
+                    invalidFormEntryLabel.setStyle("-fx-background-color: #FF211A");
+                }
             } else {
                 invalidFormEntryLabel.setText(pokemon.getName() + " uncaught");
                 invalidFormEntryLabel.setVisible(true);

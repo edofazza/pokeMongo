@@ -5,6 +5,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabe
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 public class RemoveUserScene extends PokeSceneWithHeaderAndBackButton {
@@ -47,8 +48,8 @@ public class RemoveUserScene extends PokeSceneWithHeaderAndBackButton {
             operationResultLabel.setStyle("-fx-background-color: green;");
 
             //REMOVE IT FROM NEO$J ALSO
-            TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
-            teamManagerOnNeo4j.deleteUser(username.getText());
+            UserNetworkManagerOnNeo4j userNetworkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
+            userNetworkManagerOnNeo4j.deleteUser(username.getText());
         } else {
             operationResultLabel.setText("user didn't found");
             operationResultLabel.setStyle("-fx-background-color: #FF211A;");
