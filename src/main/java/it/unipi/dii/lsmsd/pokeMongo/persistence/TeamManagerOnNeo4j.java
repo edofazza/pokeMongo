@@ -14,72 +14,36 @@ import static org.neo4j.driver.Values.parameters;
 
 public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
 
-    @Override
+
     @VisibleForTesting
-    public boolean insert(ArrayList<Object> toInsert) {
-        return true;
+    // eventualmente insertAPokemonIntoTeam(Team t, int slot)
+    public boolean insertAPokemonIntoTeam(User u, Pokemon p, int slot) {
+        String query = "MATCH (n:User) WHERE n.username = $username " +
+                "MATCH (p:Pokemon) WHERE p.name = $pokemon CREATE (n)-[:HAS {$slot: 1}]->(p)";
+        return insert(query);
     }
 
-    @Override
+
+
     @VisibleForTesting
-    public boolean insert(Object toInsert) {
-        try (Session session = driver.session()) {
-            session.readTransaction((TransactionWork<Void>) tx -> {
-                String query = "MATCH (n:User) WHERE n.username = $username " +
-                        "MATCH (p:Pokemon) WHERE p.name = $pokemon CREATE (n)-[:HAS {$slot: 1}]->(p)";
-                //Result result = tx.run(query, parameters("username", user.getUsername(), "pokemon", pokemon.getName()));
-                return null;
-            });
+    //eventualmente ritorna un Team
+    public User getUserTeam(User target) {
+        Pokemon[] team = new Pokemon[6];
+        String query = "MATCH (u:User)-[h:HAS]->(p:Pokemon) WHERE u.username = $username RETURN p.name, p.type, p.sprite, h.slot";
+        ArrayList<Object> res = getWithFilter(query);
+        for(int i=0; i<6; i++){
+            Object o = res.get(i);
+            Record r =(Record)o;
+            String name = r.get("p.name").asString();
+            String[] type = (r.get("p.type").asList()).toArray(new String[]{});
+            String sprite = r.get("p.sprite").asString();
+            int slot = r.get("h.slot").asInt();
+            Pokemon pokemon = new Pokemon(name, type, sprite, slot);
+            team[i]=pokemon;
         }
-        return true;
+        target.addTeam(team);
+        return target;
+
     }
 
-    @Override
-    @VisibleForTesting
-    public boolean remove(Object o) {
-        return true;
-    }
-
-    @Override
-    public ArrayList<Object> getAll() {
-        return new ArrayList<>();
-    }
-
-    @Override
-    @VisibleForTesting
-    public ArrayList<Object> getWithFilter(Object filter) {
-        User user = (User)filter;
-
-        ArrayList<Object> team = new ArrayList<>();
-
-        startConnection();
-        try (Session session = driver.session()){
-            session.readTransaction((TransactionWork<Void>) tx -> {
-
-                String query = "MATCH (u:User)-[h:HAS]->(p:Pokemon) WHERE u.username = $username RETURN p.name, p.type, p.sprite, h.slot";
-                Result result = tx.run(query, parameters("username", user.getUsername()));
-                while (result.hasNext()) {
-                    Record r = result.next();
-                    String name = r.get("p.name").asString();
-                    String[] type = (r.get("p.type").asList()).toArray(new String[]{});
-                    String sprite = r.get("p.sprite").asString();
-                    int slot = r.get("h.slot").asInt();
-
-                    System.out.println(name + " " + type[0] + " " + sprite);
-                    Pokemon pokemon = new Pokemon(name, type, sprite, slot);
-                    team.add(pokemon);
-                }
-                return null;
-            });
-        }
-        closeConnection();
-
-        return team;
-    }
-
-    @Override
-    @VisibleForTesting
-    public boolean update(Object target, Object newValue) {
-        return true;
-    }
 }

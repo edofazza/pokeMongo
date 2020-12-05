@@ -110,8 +110,9 @@ public class User {
     }
 
 
-    public void addTeam() {
-        if (team == null)
+    public void addTeam(Pokemon[] team) {
+        this.team=team;
+        /*if (team == null)
             team = new Pokemon[6];
         else
             return;
@@ -125,7 +126,7 @@ public class User {
 
         for (Pokemon p: team)
             if (p != null)
-                System.out.println(p.getName());
+                System.out.println(p.getName());*/
     }
 
     public Pokemon getFromTeam(int i) {
