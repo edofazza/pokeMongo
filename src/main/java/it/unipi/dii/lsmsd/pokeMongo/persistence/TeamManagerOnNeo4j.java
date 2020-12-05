@@ -23,9 +23,14 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
     @Override
     @VisibleForTesting
     public boolean insert(Object toInsert) {
-        String query = "MATCH (n:User) WHERE n.username = $username " +
-                "MATCH (p:Pokemon) WHERE p.name = $pokemon CREATE (n)-[:HAS {slot: 1}]->(p)";
-        //Result result = tx.run(query, parameters("username", user.getUsername(), "pokemon", pokemon.getName()));
+        try (Session session = driver.session()) {
+            session.readTransaction((TransactionWork<Void>) tx -> {
+                String query = "MATCH (n:User) WHERE n.username = $username " +
+                        "MATCH (p:Pokemon) WHERE p.name = $pokemon CREATE (n)-[:HAS {$slot: 1}]->(p)";
+                //Result result = tx.run(query, parameters("username", user.getUsername(), "pokemon", pokemon.getName()));
+                return null;
+            });
+        }
         return true;
     }
 
