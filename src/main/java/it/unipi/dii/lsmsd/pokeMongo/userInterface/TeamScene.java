@@ -23,6 +23,9 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
      */
     public TeamScene() {
         Logger.log("SHOWING TEAM PAGE");
+
+        CurrentUI.getUser().addTeam();
+
         displayTeamName();
 
         displayPokemon();

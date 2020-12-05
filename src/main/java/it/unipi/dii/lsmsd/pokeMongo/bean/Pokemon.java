@@ -13,6 +13,8 @@ public class Pokemon {
     private String portrait;
     private String sprite;
 
+    private int slot;
+
     public Pokemon(String name, String[] types, int generation, int pokedexIndex, double catchRate,
                    int points, int height, int weight, String bio, String portrait, String sprite){
         this.name=name;
@@ -26,6 +28,13 @@ public class Pokemon {
         this.biology=bio;
         this.portrait=portrait;
         this.sprite=sprite;
+    }
+
+    public Pokemon(String name, String[] types, String sprite, int slot) {
+        this.name=name;
+        this.types=types;
+        this.sprite=sprite;
+        this.slot = slot;
     }
 
     public String getName() {
@@ -72,6 +81,10 @@ public class Pokemon {
         return sprite;
     }
 
+    public int getSlot() {
+        return slot;
+    }
+
     public void setBiology(String biology) {
         this.biology = biology;
     }
@@ -94,6 +107,10 @@ public class Pokemon {
 
     public void setPortrait(String portrait) {
         this.portrait = portrait;
+    }
+
+    public void setSlot(int slot) {
+        this.slot = slot;
     }
 
     public String getTypeSingleString() {

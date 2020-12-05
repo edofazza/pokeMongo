@@ -1,5 +1,8 @@
 package it.unipi.dii.lsmsd.pokeMongo.bean;
 
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 public class User {
@@ -12,9 +15,10 @@ public class User {
     private Date birthDay;
     private String country;
     private String teamName;
-    //private int[] Team;
     private Date lastLogin;
     private int dailyPokeball;
+
+    private Pokemon[] team;
 
     public User(boolean admin, String surname, String name, String username, String password, String email,
                         Date birthDay, String country){
@@ -29,6 +33,8 @@ public class User {
         this.teamName="Team name";
         this.lastLogin=new Date();
         this.dailyPokeball=10;
+
+        addTeam();
     }
 
     public User(String username, String password){
@@ -102,8 +108,6 @@ public class User {
     public void decrementDailyPokeball() {
         this.dailyPokeball--;
     }
-<<<<<<< Updated upstream
-=======
 
     public void addTeam() {
         if (team == null)
@@ -122,5 +126,4 @@ public class User {
             if (p != null)
                 System.out.println(p.getName());
     }
->>>>>>> Stashed changes
 }
