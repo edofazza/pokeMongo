@@ -8,7 +8,7 @@ public class PokemonManagerFactory {
         String technology = getConfiguration();
         Logger.vlog("Obtaining technology: " + technology);
         switch (technology){
-            case "MongoDB":
+            case "MongoDb":
                 return new PokemonManagerOnMongoDb();
             default:
                 try{

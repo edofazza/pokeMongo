@@ -2,8 +2,5 @@
   "numRows": 1,
   "usernameSpeedLogin": "ciaomamma",
   "passwordSpeedLogin": "ciaomamma2",
-  "userDbArchitecture": "MongoDB",
-  "pokemonDbArchitecture": "MongoDB",
-  "teamDbArchitecture": "Neo4j",
   "verbosityLevel": 3
 }

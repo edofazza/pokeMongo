@@ -8,7 +8,7 @@ public class UserManagerFactory {
         String technology = getConfiguration();
         Logger.vlog("Obtaining technology: " + technology);
         switch (technology){
-            case "MongoDB":
+            case "MongoDb":
                 return new UserManagerOnMongoDb();
             default:
                 try{
