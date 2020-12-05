@@ -179,7 +179,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         if(matched.size()!=1)
             return null;
         User logger = (User)matched.get(0);
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss aa");
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss aa", Locale.US);
         Date now = new Date();
 
         // Compare dates and update pokeball in case
