@@ -110,7 +110,7 @@ public class User {
     }
 
 
-    public void addTeam() {/*
+    public void addTeam() {
         if (team == null)
             team = new Pokemon[6];
         else
@@ -130,6 +130,5 @@ public class User {
 
     public Pokemon getFromTeam(int i) {
         return team[i];
-        */
     }
 }
