@@ -127,6 +127,14 @@ public class User {
 
     public void removeFromTeam(int i) {
         team[i] = null;
+
+        resetPoint();
+    }
+
+    public void addToTeam(Pokemon p, int i) {
+        team[i] = p;
+
+        resetPoint();
     }
 
     private void resetPoint() {
@@ -146,16 +154,15 @@ public class User {
             if(types.indexOf(tyArray[0]) >= 0)
                 noTimes = true;
 
-            if (!tyArray[1].equals("")) {
-                if (types.indexOf(tyArray[1]) >= 0)
+            if (tyArray.length > 1)
+                if (types.indexOf(tyArray[1]) >= 0) {
                     noTimes = true;
-
-                points += (255 - p.getCapture_rate());
-
-                types.add(tyArray[0]);
-                if (!tyArray[1].equals(""))
                     types.add(tyArray[1]);
-            }
+                }
+
+            points += (255 - p.getCapture_rate());
+
+            types.add(tyArray[0]);
         }
 
         if (!noTimes)

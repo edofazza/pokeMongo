@@ -160,7 +160,15 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
                 TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
 
                 try{
-                    teamManagerOnNeo4j.insertAPokemonIntoTeam(CurrentUI.getUser(), pokemon, Integer.parseInt(selectSlot.getValue().toString()) - 1);
+                    int slot = Integer.parseInt(selectSlot.getValue().toString()) - 1;
+                    teamManagerOnNeo4j.insertAPokemonIntoTeam(CurrentUI.getUser(), pokemon, slot);
+
+                    // add to the team locally
+                    CurrentUI.getUser().addToTeam(pokemon, slot);
+
+                    // update points in mongo
+                    // Update the point in mongodb
+                    userManagerOnMongoDb.updatePoints(CurrentUI.getUser(), CurrentUI.getUser().getPoints());
                 } catch (SlotAlreadyOccupiedException saoe){
                     invalidFormEntryLabel.setText("slot already occupied");
                     invalidFormEntryLabel.setVisible(true);

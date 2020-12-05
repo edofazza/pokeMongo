@@ -101,6 +101,9 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
                 teamManagerOnNeo4j.deletePokemonFromTeamBySlot(CurrentUI.getUser(), i);
             }
         }
+
+        // save the points
+        userManagerOnMongoDb.updatePoints(CurrentUI.getUser(), CurrentUI.getUser().getPoints());
     }
 
     private Pokemon[] retrieveTeam() {
