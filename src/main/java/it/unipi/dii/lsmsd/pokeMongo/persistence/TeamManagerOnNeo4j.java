@@ -26,7 +26,7 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
     }
 
     public boolean deletePokemon(Pokemon p){
-        String query = "MATCH (p:Pokemon) WHERE p.name = $name DELETE p";
+        String query = "MATCH (p:Pokemon) OPTIONAL MATCH (p)<-[h:HAS]-(:User) WHERE p.name = $name DELETE p, h";
         return remove(query, parameters("name", p.getName()));
     }
 
