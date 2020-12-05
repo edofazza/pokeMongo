@@ -1,5 +1,8 @@
 package it.unipi.dii.lsmsd.pokeMongo.bean;
 
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 public class User {
@@ -12,9 +15,10 @@ public class User {
     private Date birthDay;
     private String country;
     private String teamName;
-    //private int[] Team;
     private Date lastLogin;
     private int dailyPokeball;
+
+    private Pokemon[] team;
 
     public User(boolean admin, String surname, String name, String username, String password, String email,
                         Date birthDay, String country){
@@ -29,6 +33,8 @@ public class User {
         this.teamName="Team name";
         this.lastLogin=new Date();
         this.dailyPokeball=10;
+
+        addTeam();
     }
 
     public User(String username, String password){
@@ -101,5 +107,19 @@ public class User {
 
     public void decrementDailyPokeball() {
         this.dailyPokeball--;
+    }
+
+    public void addTeam() {
+        if (team == null)
+            team = new Pokemon[6];
+        else
+            return;
+
+        TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+        ArrayList<Object> pokemons = teamManagerOnNeo4j.getWithFilter(this);
+        for (Object p: pokemons) {
+            Pokemon pokemon = (Pokemon)p;
+            team[pokemon.getSlot()] = pokemon;
+        }
     }
 }

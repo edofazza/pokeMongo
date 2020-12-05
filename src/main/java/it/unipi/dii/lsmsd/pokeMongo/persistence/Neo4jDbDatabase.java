@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.neo4j.driver.*;
 
 public abstract class Neo4jDbDatabase implements Database {
-    private Driver driver;
+    public Driver driver;
 
     private String uri = "neo4j://localhost:7687";
     private String user = "neo4j";
