@@ -85,7 +85,6 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
      * Add a <code>BackgroundImage</code> to the scene, displaying the portrait of the pokemon selected.
      * In case no pokemon is selected
      */
-    // TODO: change it every time the selectPokemon changes
     private void displaySelectedPokemon() {
         selectedPokemon = new BackgroundImage("portraits/0.png", 130, 580, 320);
         sceneNodes.getChildren().add(selectedPokemon);
