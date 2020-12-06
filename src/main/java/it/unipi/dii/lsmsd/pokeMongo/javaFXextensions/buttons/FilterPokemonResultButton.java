@@ -53,7 +53,6 @@ public class FilterPokemonResultButton extends Button {
                 Double.toString(pokemon.getWeight()),
                 Double.toString(pokemon.getHeight()),
                 Double.toString(pokemon.getCapture_rate()),
-                Double.toString(pokemon.getPoints()),
                 pokemon.getBiology());
 
         Scene scene = new Scene(root, 600, 400);
