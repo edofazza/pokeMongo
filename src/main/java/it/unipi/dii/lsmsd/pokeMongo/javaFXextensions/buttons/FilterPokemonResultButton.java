@@ -2,10 +2,14 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group.PokemonWindowGroup;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+
+import java.util.HashMap;
 
 /**
  * This particular Button is used for the name of the pokemon in the filter result.
@@ -33,6 +37,14 @@ public class FilterPokemonResultButton extends Button {
      * @param pokemon contains the name of the pokemon in order to use it as the title for the Stage
      */
     private void createNewWindow(Pokemon pokemon) {
+        if (pokemon.getBiology() == null) {
+            PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
+
+            HashMap<Filter, String> tmpFilterMap = new HashMap<>();
+            tmpFilterMap.put(Filter.NAME, pokemon.getName());
+            pokemon = pokemonManagerOnMongoDb.searchWithFilter(tmpFilterMap).get(0);
+        }
+
         PokemonWindowGroup root = new PokemonWindowGroup(
                 pokemon.getPortrait(),
                 pokemon.getSprite(),
