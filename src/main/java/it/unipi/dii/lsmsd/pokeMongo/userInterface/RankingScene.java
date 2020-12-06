@@ -1,10 +1,8 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
-import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.RankerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.RankingScollPane;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Separator;
@@ -51,7 +49,7 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
     private void displayMostUsedPokemon() {
         FieldRelatedLabel mostUsedLabel = new FieldRelatedLabel("MOST USED POKEMON", 100, 170);
 
-        mostUsedPokemon = new RankingScollPane(100, 200, RankingTypes.BESTPOKEMON);
+        mostUsedPokemon = new RankingScollPane(100, 200, 320, 350, RankingTypes.BESTPOKEMON);
 
         sceneNodes.getChildren().addAll(mostUsedLabel, mostUsedPokemon);
     }
@@ -59,7 +57,7 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
     private void displayBestTeam() {
         FieldRelatedLabel bestTeamLabel = new FieldRelatedLabel("BEST TEAM", 500, 170);
 
-        bestTeam = new RankingScollPane(500, 200, RankingTypes.BESTTEAM);
+        bestTeam = new RankingScollPane(500, 200, 320, 350, RankingTypes.BESTTEAM);
 
         sceneNodes.getChildren().addAll(bestTeamLabel, bestTeam);
     }
@@ -67,7 +65,7 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
     private void displayFriends() {
         FieldRelatedLabel friendsLabel = new FieldRelatedLabel("FRIENDS", 900, 170);
 
-        RankingScollPane friends = new RankingScollPane(900, 200, RankingTypes.FRIENDS);
+        RankingScollPane friends = new RankingScollPane(900, 200, 320, 350, RankingTypes.FRIENDS);
 
         sceneNodes.getChildren().addAll(friendsLabel, friends);
     }
