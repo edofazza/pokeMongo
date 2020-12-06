@@ -320,7 +320,8 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         Logger.vlog("COMPUTING BEST FRIENDS TEAMS");
         Bson sort = sort(descending("points", "birthDay"));
         Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
-        Bson match = match(and(eq("admin", false), in("username", friendsUsername), gt("lastLogin", getDateThresholdForRanking())));
+        //Bson match = match(and(eq("admin", false), in("username", friendsUsername), lte("lastLogin", getDateThresholdForRanking())));
+        Bson match = match(and(eq("admin", false), in("username", friendsUsername)));
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
         return aggregate(Arrays.asList(match, sort, limit, project));
     }
