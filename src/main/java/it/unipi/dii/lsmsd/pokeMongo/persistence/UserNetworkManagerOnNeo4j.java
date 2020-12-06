@@ -81,7 +81,6 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase {
         return update(query, parameters("username", target.getUsername(), "country", newCountry));
     }
 
-<<<<<<< Updated upstream
     public boolean addLikeToPokemon(User target, Pokemon p){
         //TODO implementation
         return true;
@@ -99,10 +98,11 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase {
     }
 
 
-    public List<String> getSuggestedUser(User u){
+    public List<String> getSuggestedUser(User u) {
         //TODO implementation
         return null;
-=======
+    }
+
     public List<String> getUserBySearch(String pattern) {
         List<String> usernameList = new ArrayList<>();
         String query = "MATCH (u:User) WHERE u.username STARTS WITH $pattern RETURN u.username";
@@ -113,6 +113,6 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase {
             usernameList.add(username);
         }
         return usernameList;
->>>>>>> Stashed changes
+
     }
 }
