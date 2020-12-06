@@ -15,17 +15,16 @@ public class RankingScollPane extends ScrollPane {
     private VBox root;
     private RankingTypes rankingTypes;
 
-    public RankingScollPane(int x, int y, RankingTypes rt) {
+    public RankingScollPane(int x, int y, int width, int height, RankingTypes rt) {
         rankingTypes = rt;
 
-        setPrefSize(320, 350);
+        setPrefSize(width,height);
         relocate(x, y);
 
         root = new VBox();
         root.setSpacing(5);
         setContent(root);
 
-        //addDefaultResult();
         changeCountry("");
         getFriendsRanking();
     }
