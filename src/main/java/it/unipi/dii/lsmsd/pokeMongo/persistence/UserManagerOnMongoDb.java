@@ -319,11 +319,12 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     public List<User> bestFriendsTeams(List<String> friendsUsername) {
         Logger.vlog("COMPUTING BEST FRIENDS TEAMS");
         Bson sort = sort(descending("points", "birthDay"));
-        Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
+        //Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
         //Bson match = match(and(eq("admin", false), in("username", friendsUsername), lte("lastLogin", getDateThresholdForRanking())));
         Bson match = match(and(eq("admin", false), in("username", friendsUsername)));
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
-        return aggregate(Arrays.asList(match, sort, limit, project));
+        //return aggregate(Arrays.asList(match, sort, limit, project));
+        return aggregate(Arrays.asList(match, sort, project));
     }
 
     @Override

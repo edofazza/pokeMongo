@@ -109,7 +109,7 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase {
         ArrayList<Object> res = getWithFilter(query, parameters("pattern", pattern));
         for(Object o: res){
             Record r =(Record)o;
-            String username = r.get("to.username").asString();
+            String username = r.get("u.username").asString();
             usernameList.add(username);
         }
         return usernameList;

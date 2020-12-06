@@ -26,6 +26,7 @@ public class FriendsScrollPane extends ScrollPane {
         // RETRIEVE USERNAMES FROM NEO4J, THEN RETRIEVE USERS FROM MONGO
         UserNetworkManagerOnNeo4j userNetworkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
         List<String> username = userNetworkManagerOnNeo4j.getUserBySearch(pattern);
+        System.out.println(username.get(0));
         List<User> friendsUser = (new UserManagerOnMongoDb()).bestFriendsTeams(username);
 
         System.out.println("//////////////// " + friendsUser.size());
