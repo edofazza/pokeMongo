@@ -26,7 +26,5 @@ public class ConfigDataHandler {
             configData = new ConfigData(10, "", "", "", "", "", 1, "neo4j://localhost:7687", "neo4j", "root");
             ioe.printStackTrace();
         }
-
-        System.out.println(configData.numrows);
     }
 }

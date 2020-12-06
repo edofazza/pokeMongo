@@ -1,7 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.config;
 
 public class ConfigData {
-    public int numrows;
+    public int numRowsRanking;
     public String usernameSpeedLogin;
     public String passwordSpeedLogin;
     public String userDbArchitecture;
@@ -21,7 +21,7 @@ public class ConfigData {
     public int verbosityLevel;
     ConfigData(int numrows, String usernameSpeedLogin, String passwordSpeedLogin, String userDbArchitecture,
                String pokemonDbArchitecture, String teamDbArchitecture, int verbosityLevel, String localUri, String userNeo4j, String passwordNeo4j){
-        this.numrows = numrows;
+        this.numRowsRanking = numrows;
         this.usernameSpeedLogin = usernameSpeedLogin;
         this.passwordSpeedLogin = passwordSpeedLogin;
         this.userDbArchitecture = userDbArchitecture;

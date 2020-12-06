@@ -334,4 +334,6 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
         return aggregate(Arrays.asList(match, sort, limit, project));
     }
+
+    public List<User> getUserByUsername
 }

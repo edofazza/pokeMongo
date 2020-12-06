@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.persistence;
 import com.google.common.annotations.VisibleForTesting;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePokemonException;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicateUserException;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.SlotAlreadyOccupiedException;
@@ -10,6 +11,7 @@ import org.neo4j.driver.Record;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static org.neo4j.driver.Values.parameters;
 
@@ -83,17 +85,30 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
 
     public ArrayList<Pokemon> getBestPokemon() {
         ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
-        String query = "MATCH ()-[h:HAS]->(p:Pokemon) return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT 25";
+        String query = "MATCH ()-[h:HAS]->(p:Pokemon) return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT " +  + ConfigDataHandler.getInstance().configData.numRowsRanking;
         ArrayList<Object> res = getWithFilter(query);
         return getPokemons(pokemonArrayList, res);
     }
 
     public ArrayList<Pokemon> getBestPokemon(String country) {
         ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
-        String query = "MATCH (u:User)-[h:HAS]->(p:Pokemon) WHERE u.country = $country return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT 25";
+        String query = "MATCH (u:User)-[h:HAS]->(p:Pokemon) WHERE u.country = $country return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT " + ConfigDataHandler.getInstance().configData.numRowsRanking;
         ArrayList<Object> res = getWithFilter(query, parameters("country", country));
         return getPokemons(pokemonArrayList, res);
     }
+
+    public ArrayList<Pokemon> getFriendsTeam(User u){
+        //Prima ottengo user amici
+        //Da mongo db ottengo il punteggio degli amici
+        //per ogni user amico computo la squadra
+        /*
+        String query = "MATCH (n:User)-[:FOLLOW]->(n1:User) where n.username = $username return n1.username";
+        ArrayList<Map<String, ArrayList<Pokemon>>> friendsTeam = new ArrayList<>();
+        String query = "MATCH (u:User)-[h:]->(p:Pokemon) WHERE u.country = $country return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT 25";
+        */
+        return null;
+    }
+
 
     private ArrayList<Pokemon> getPokemons(ArrayList<Pokemon> pokemonArrayList, ArrayList<Object> res) {
         for(Object o: res){

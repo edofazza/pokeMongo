@@ -28,6 +28,7 @@ public class RankingScollPane extends ScrollPane {
 
         //addDefaultResult();
         changeCountry("");
+        getFriendsRanking();
     }
 
 /*    private void addDefaultResult() {
@@ -107,6 +108,19 @@ public class RankingScollPane extends ScrollPane {
                 root.getChildren().add(prpp);
             }
         }
+    }
 
+    public void getFriendsRanking(){
+        //get friends usernames and pokemons
+
+        //get other friends information in mongodb
+
+        /*
+        List<User> userList = null;
+        for (User user : userList) {
+            RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user);
+            root.getChildren().add(rankingSingleUserResult);
+        }
+        */
     }
 }
