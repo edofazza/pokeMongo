@@ -52,7 +52,7 @@ public class PokemonTeamForUserSelectedWindow extends Pane {
             return;
 
         Label pokemonpoints = new Label("Pts: " + (255 - pokemon.getCapture_rate()));
-        pokemonpoints.relocate(210, 32);
+        pokemonpoints.relocate(205, 32);
 
         getChildren().add(pokemonpoints);
     }
