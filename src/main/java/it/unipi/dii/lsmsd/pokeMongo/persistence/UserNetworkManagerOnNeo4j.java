@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 import com.google.common.annotations.VisibleForTesting;
+import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicateUserException;
 import org.neo4j.driver.Record;
@@ -81,5 +82,27 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase {
         String query = "MATCH (n:User) WHERE n.username = $username " +
                 "SET n.country = $country";
         return update(query, parameters("username", target.getUsername(), "country", newCountry));
+    }
+
+    public boolean addLikeToPokemon(User target, Pokemon p){
+        //TODO implementation
+        return true;
+    }
+
+    public boolean removeLikeToPokemon(User target, Pokemon p){
+        //TODO implementation
+        return true;
+    }
+
+    //TODO: Forse si può spostare ma dato che i liked pokemon si riferiscono ad un utente l'ho messa qui
+    public List<String> getLikedPokemonNames(User u){
+        //TODO implementation
+        return null;
+    }
+
+
+    public List<String> getSuggestedUser(User u){
+        //TODO implementation
+        return null;
     }
 }

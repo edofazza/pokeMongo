@@ -23,12 +23,11 @@ public class PokemonWindowGroup extends Group {
      * @param weight weight of the pokemon
      * @param height height of the pokemon
      * @param catchRate catch rate of the pokemon (value between 1 and 255)
-     * @param points points attribute to the pokemon
      * @param biology description of the pokemon
      */
     //TODO: type is an array, change it
     public PokemonWindowGroup(String portraitUrl, String spriteUrl, String name, String type,
-                              String weight, String height, String catchRate, String points, String biology) {
+                              String weight, String height, String catchRate, String biology) {
         Logger.vvlog("Creating PokemonWindowGroup for pokemon " + name);
         displayPortrait(portraitUrl);
         displaySprite(spriteUrl);
@@ -37,7 +36,6 @@ public class PokemonWindowGroup extends Group {
         displayWeight(weight);
         displayHeight(height);
         displayCatchRate(catchRate);
-        displayPoints(points);
         displayBiology(biology);
     }
 

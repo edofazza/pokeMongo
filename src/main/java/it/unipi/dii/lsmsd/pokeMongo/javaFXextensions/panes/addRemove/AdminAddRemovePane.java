@@ -106,10 +106,8 @@ public class AdminAddRemovePane extends Pane {
                     new Pokemon(
                             nameTF.getText(),
                             new String[]{type1TF.getValue().toString(), type2TF.getValue().toString()},
-                            5, //TODO: REMOVE IN CASE OF REMOVE OF GENERATION
                             Integer.parseInt(idTF.getText()),
                             Double.parseDouble(catchRateTF.getText()),
-                            5,
                             Integer.parseInt(heightTF.getText()),
                             Integer.parseInt(heightTF.getText()),
                             biologyTF.getText(),

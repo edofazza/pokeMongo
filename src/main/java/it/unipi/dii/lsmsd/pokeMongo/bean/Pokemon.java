@@ -3,10 +3,8 @@ package it.unipi.dii.lsmsd.pokeMongo.bean;
 public class Pokemon {
     private String name;
     private String[] types;
-    private int generation;
     private int id;
     private double capture_rate;
-    private int points;
     private int height;
     private int weight;
     private String biology;
@@ -16,14 +14,12 @@ public class Pokemon {
     private int slot;
     private int held;
 
-    public Pokemon(String name, String[] types, int generation, int pokedexIndex, double catchRate,
-                   int points, int height, int weight, String bio, String portrait, String sprite){
+    public Pokemon(String name, String[] types, int pokedexIndex, double catchRate,
+                 int height, int weight, String bio, String portrait, String sprite){
         this.name=name;
         this.types=types;
-        this.generation=generation;
         this.id=pokedexIndex;
         this.capture_rate=catchRate;
-        this.points=points;
         this.height=height;
         this.weight=weight;
         this.biology=bio;
@@ -61,14 +57,6 @@ public class Pokemon {
         return weight;
     }
 
-    public int getGeneration() {
-        return generation;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
     public int getId() {
         return id;
     }
@@ -103,10 +91,6 @@ public class Pokemon {
 
     public void setCapture_rate(double capture_rate) {
         this.capture_rate = capture_rate;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
     }
 
     public void setId(int id) {
