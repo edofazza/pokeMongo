@@ -91,19 +91,21 @@ public class RankingScollPane extends ScrollPane {
             }
         }
 
-        // TODO: BEST POKEMON
+        // IN CASE OF BESTPOKEMON
         if (rankingTypes == RankingTypes.BESTPOKEMON){
             TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
 
-            if (country.equals("")) { // WORLD
-                ArrayList<Pokemon> pokemonArrayList = teamManagerOnNeo4j.getBestPokemon();
-                for (Pokemon p: pokemonArrayList) {
-                    RankingPokemonSingleResultPane prpp = new RankingPokemonSingleResultPane(p);
-                    root.getChildren().add(prpp);
-                }
-            } /*else {
-                //pokemonList = pokemonManagerOnMongoDb.(country);
-            }*/
+            ArrayList<Pokemon> pokemonArrayList = null;
+
+            if (country.equals(""))  // WORLD
+                pokemonArrayList = teamManagerOnNeo4j.getBestPokemon();
+            else
+                pokemonArrayList = teamManagerOnNeo4j.getBestPokemon(country);
+
+            for (Pokemon p: pokemonArrayList) {
+                RankingPokemonSingleResultPane prpp = new RankingPokemonSingleResultPane(p);
+                root.getChildren().add(prpp);
+            }
         }
 
     }
