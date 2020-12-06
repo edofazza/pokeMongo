@@ -335,5 +335,4 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         return aggregate(Arrays.asList(match, sort, limit, project));
     }
 
-    public List<User> getUserByUsername
 }
