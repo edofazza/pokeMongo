@@ -17,16 +17,13 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase {
         return deleteUser(u.getUsername());
     }
 
-    // TODO: eliminare poi anche tutte le relazioni di follow
+    // TODO: eliminare poi anche tutte le relazioni di like e post scritti
     public boolean deleteUser(String username){
-        String query = "MATCH (u:User) WHERE u.username = $username " +
-                "OPTIONAL MATCH (u)-[h:HAS]->(:Pokemon) OPTIONAL MATCH (:User)-[fo:FOLLOW]->(u)-[f:FOLLOW]->(:User) " +
-                "OPTIONAL MATCH (:User)-[fo:FOLLOW]->(u) DELETE u, h, f, fo";
+        String query = "MATCH (u:User) WHERE u.username = $username DETACH DELETE u";
         return remove(query, parameters("username", username));
     }
 
-    //Eventualmente se il bean non è stato ancora creato si può passare direttamente lo username proposto in fase di
-    //registrazione
+    //TODO: Eventualmente se il bean non è stato ancora creato si può passare direttamente lo username proposto in fase di registrazione
     public boolean addUser(User u) throws DuplicateUserException{
         if(userAlreadyExists(u))
             throw new DuplicateUserException();

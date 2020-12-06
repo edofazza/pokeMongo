@@ -41,16 +41,18 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
         return remove(query, parameters("username", u.getUsername(), "slot", slot));
     }
 
-    public boolean deletePokemon(Pokemon p){
-        String query = "MATCH (p:Pokemon) OPTIONAL MATCH (p)<-[h:HAS]-(:User) WHERE p.name = $name DELETE p, h";
-        return remove(query, parameters("name", p.getName()));
+    //TODO: elimina anche le relazioni di match
+    public boolean deletePokemon(String pokemonName){
+        String query = "MATCH (p:Pokemon) WHERE p.name = $name DETACH DELETE p";
+        return remove(query, parameters("name", pokemonName));
     }
 
     public boolean addPokemon(Pokemon p) throws DuplicatePokemonException{
         if(pokemonAlreadyExist(p))
             throw new DuplicatePokemonException();
 
-        String query = "MERGE (b:Pokemon { name: $name, type: " + p.getTypesSingleStringForCipher() +
+
+        String query = "MERGE (b:Pokemon { name: $name, type: " + (p.getTypesSingleStringForCipher()) +
                 ",sprite: $sprite, capture_rate: $capture_rate})";
 
         return insert(query, parameters("name", p.getName(), "sprite", p.getSprite(), "capture_rate", p.getCapture_rate()));
