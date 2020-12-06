@@ -308,9 +308,9 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     @Override
     public List<User> bestWorldTeams() {
         Logger.vlog("COMPUTING BEST WORLD TEAMS");
-        Bson match = match(eq("admin", false));
+        Bson match = match(and(eq("admin", false), lte("lastLogin", getDateThresholdForRanking())));
         Bson sort = sort(descending("points", "birthDay"));
-        Bson limit = limit(20);
+        Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
         return aggregate(Arrays.asList(match, sort, limit, project));
     }
@@ -320,7 +320,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         Logger.vlog("COMPUTING BEST FRIENDS TEAMS");
         Bson sort = sort(descending("points", "birthDay"));
         Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
-        Bson match = match(and(eq("admin", false), in("username", friendsUsername)));
+        Bson match = match(and(eq("admin", false), in("username", friendsUsername), gt("lastLogin", getDateThresholdForRanking())));
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
         return aggregate(Arrays.asList(match, sort, limit, project));
     }
@@ -328,11 +328,19 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     @Override
     public List<User> bestCountryTeams(String country) {
         Logger.vlog("COMPUTING BEST TEAMS FOR COUNTRY " + country);
-        Bson match = match(and(eq("country", country), eq("admin", false)));
+        Bson match = match(and(eq("country", country), eq("admin", false), lte("lastLogin", getDateThresholdForRanking())));
         Bson sort = sort(descending("points", "birthDay"));
-        Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
+        Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
         return aggregate(Arrays.asList(match, sort, limit, project));
+    }
+
+    private String getDateThresholdForRanking(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, -14);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        Logger.vlog(formatter.format(calendar.getTime()));
+        return "ISODate(" + formatter.format(calendar.getTime()) + ")";
     }
 }
 
