@@ -17,6 +17,7 @@ import java.io.IOException;
 public class RankingScene extends PokeSceneWithHeaderAndBackButton {
     private CountryComboBox country;
     private RankingScollPane bestTeam;
+    private RankingScollPane mostUsedPokemon;
 
     /**
      * Calls a series of function in order to add to the scene all the elements needed.
@@ -50,7 +51,7 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
     private void displayMostUsedPokemon() {
         FieldRelatedLabel mostUsedLabel = new FieldRelatedLabel("MOST USED POKEMON", 100, 170);
 
-        RankingScollPane mostUsedPokemon = new RankingScollPane(100, 200, RankingTypes.BESTPOKEMON);
+        mostUsedPokemon = new RankingScollPane(100, 200, RankingTypes.BESTPOKEMON);
 
         sceneNodes.getChildren().addAll(mostUsedLabel, mostUsedPokemon);
     }
@@ -84,5 +85,6 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
         String tmpCountry = country.getValue().toString();
 
         bestTeam.changeCountry(tmpCountry);
+        mostUsedPokemon.changeCountry(tmpCountry);
     }
 }

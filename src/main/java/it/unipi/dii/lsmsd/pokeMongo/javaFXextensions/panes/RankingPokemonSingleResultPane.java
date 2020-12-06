@@ -10,13 +10,13 @@ import javafx.scene.layout.Pane;
 /**
  * Specific <code>Pane</code> for instantiating a single result
  */
-public class PokemonSingleResultPane extends Pane {
+public class RankingPokemonSingleResultPane extends Pane {
     private Pokemon pokemon;
     /**
      * Adds to the pane the elements passed as arguments
      * @param pokemon
      */
-    public PokemonSingleResultPane(Pokemon pokemon) {
+    public RankingPokemonSingleResultPane(Pokemon pokemon) {
         this.pokemon = pokemon;
         ImageView img = new ImageView();
         CurrentUI.getImage(pokemon.getSprite()).thenAccept(k -> img.setImage(k)); //TODO not fx thread exception
@@ -25,7 +25,7 @@ public class PokemonSingleResultPane extends Pane {
 
         FilterPokemonResultButton pokemonName = new FilterPokemonResultButton(pokemon, 70, 12);
 
-        Label pokemonId = new Label("Pokedex ID: " + pokemon.getId());
+        Label pokemonId = new Label("Held by: " + pokemon.getHeld());
         pokemonId.relocate(190, 18);
 
         getChildren().addAll(img, pokemonName, pokemonId);

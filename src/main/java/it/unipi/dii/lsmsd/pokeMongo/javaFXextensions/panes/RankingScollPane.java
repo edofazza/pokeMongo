@@ -3,11 +3,13 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.RankingTypes;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RankingScollPane extends ScrollPane {
@@ -88,22 +90,21 @@ public class RankingScollPane extends ScrollPane {
                 root.getChildren().add(rankingSingleUserResult);
             }
         }
-        /*
+
         // TODO: BEST POKEMON
         if (rankingTypes == RankingTypes.BESTPOKEMON){
-            PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
-            List<Pokemon> pokemonList = null;
-            // TODO: add the result by country
-            if (country.equals("")) { // WORLD
-                pokemonList = pokemonManagerOnMongoDb.;
-            } else {
-                pokemonList = pokemonManagerOnMongoDb.(country);
-            }
+            TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
 
-            for (Pokemon pokemon : pokemonList) {
-                PokemonSingleResultPane prpp = new PokemonSingleResultPane(pokemon, "Hold by: " + "71");
-                root.getChildren().add(prpp);
-            }
-        }*/
+            if (country.equals("")) { // WORLD
+                ArrayList<Pokemon> pokemonArrayList = teamManagerOnNeo4j.getBestPokemon();
+                for (Pokemon p: pokemonArrayList) {
+                    RankingPokemonSingleResultPane prpp = new RankingPokemonSingleResultPane(p);
+                    root.getChildren().add(prpp);
+                }
+            } /*else {
+                //pokemonList = pokemonManagerOnMongoDb.(country);
+            }*/
+        }
+
     }
 }

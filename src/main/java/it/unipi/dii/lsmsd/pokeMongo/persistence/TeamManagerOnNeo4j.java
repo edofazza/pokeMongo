@@ -81,4 +81,18 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
         return team;
     }
 
+    public ArrayList<Pokemon> getBestPokemon() {
+        ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
+        String query = "MATCH ()-[h:HAS]->(p:Pokemon) return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT 25";
+        ArrayList<Object> res = getWithFilter(query);
+        for(Object o: res){
+            Record r =(Record)o;
+            String name = r.get("p.name").asString();
+            String sprite = r.get("p.sprite").asString();
+            int held = r.get("held").asInt();
+            Pokemon pokemon = new Pokemon(name, sprite, held);
+            pokemonArrayList.add(pokemon);
+        }
+        return pokemonArrayList;
+    }
 }
