@@ -2,6 +2,8 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokemonTeamForUserSelectedWindow;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
+import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
@@ -14,6 +16,10 @@ public class TeamUserWindowGroup extends Group {
         Logger.vvlog("Creating TeamUserWindowGroup");
 
         this.user = user;
+
+        // retrieve the team
+        TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+        user.addTeam(teamManagerOnNeo4j.getUserTeam(user));
 
         displayTeamName();
 
@@ -30,11 +36,11 @@ public class TeamUserWindowGroup extends Group {
 
     private void displayPokemons() {
         for (int i = 0; i < 3; i++) {
-            PokemonTeamForUserSelectedWindow p0 = new PokemonTeamForUserSelectedWindow(10, 50+i*(35+90));
+            PokemonTeamForUserSelectedWindow p0 = new PokemonTeamForUserSelectedWindow(user.getFromTeam(i), 10, 50+i*(35+90));
             getChildren().add(p0);
         }
         for (int i = 0; i < 3; i++) {
-            PokemonTeamForUserSelectedWindow p = new PokemonTeamForUserSelectedWindow(320, 50+i*(35+90));
+            PokemonTeamForUserSelectedWindow p = new PokemonTeamForUserSelectedWindow(user.getFromTeam(i+3), 320, 50+i*(35+90));
             getChildren().add(p);
         }
     }
