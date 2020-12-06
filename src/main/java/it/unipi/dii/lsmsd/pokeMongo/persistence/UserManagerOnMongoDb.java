@@ -7,6 +7,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRanker;
 import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
@@ -315,12 +316,11 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
     }
 
     @Override
-    public List<User> bestFriendsTeams(User current) {
+    public List<User> bestFriendsTeams(List<String> friendsUsername) {
         Logger.vlog("COMPUTING BEST FRIENDS TEAMS");
         Bson sort = sort(descending("points", "birthDay"));
-        Bson limit = limit(20);
-        List<User> friends = /*getFriends(User current)*/new ArrayList<>();
-        Bson match = match(and(eq("admin", false), in("username", friends)));
+        Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
+        Bson match = match(and(eq("admin", false), in("username", friendsUsername)));
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
         return aggregate(Arrays.asList(match, sort, limit, project));
     }
@@ -330,10 +330,9 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         Logger.vlog("COMPUTING BEST TEAMS FOR COUNTRY " + country);
         Bson match = match(and(eq("country", country), eq("admin", false)));
         Bson sort = sort(descending("points", "birthDay"));
-        Bson limit = limit(20);
+        Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
         Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
         return aggregate(Arrays.asList(match, sort, limit, project));
     }
-
-    public List<User> getUserByUsername
 }
+

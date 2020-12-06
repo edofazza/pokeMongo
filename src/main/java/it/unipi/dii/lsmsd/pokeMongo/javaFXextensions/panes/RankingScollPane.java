@@ -2,14 +2,14 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.*;
+import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.RankingTypes;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class RankingScollPane extends ScrollPane {
@@ -111,16 +111,15 @@ public class RankingScollPane extends ScrollPane {
     }
 
     public void getFriendsRanking(){
-        //get friends usernames and pokemons
 
-        //get other friends information in mongodb
+        //get friends usernames
+        List<String> friendsUsernames = (new UserNetworkManagerOnNeo4j()).getFollowing(CurrentUI.getUser());
+        List<User> friendsUser = (new UserManagerOnMongoDb()).bestFriendsTeams(friendsUsernames);
 
-        /*
-        List<User> userList = null;
-        for (User user : userList) {
+        for (User user : friendsUser) {
             RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user);
             root.getChildren().add(rankingSingleUserResult);
         }
-        */
+
     }
 }

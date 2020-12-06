@@ -65,6 +65,18 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase {
         return followersUsernames;
     }
 
+    public List<String> getFollowing(User target){
+        List<String> following = new ArrayList<String>();
+        String query = "MATCH (to:User)<-[h:FOLLOW]-(from:User) WHERE from.username = $username RETURN to.username";
+        ArrayList<Object> res = getWithFilter(query, parameters("username", target.getUsername()));
+        for(Object o: res){
+            Record r =(Record)o;
+            String username = r.get("to.username").asString();
+            following.add(username);
+        }
+        return following;
+    }
+
     public boolean updateCountry(User target, String newCountry) {
         String query = "MATCH (n:User) WHERE n.username = $username " +
                 "SET n.country = $country";

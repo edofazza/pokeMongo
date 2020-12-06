@@ -7,7 +7,7 @@ import java.util.List;
 public interface UserRanker {
     List<User> bestWorldTeams();
 
-    List<User> bestFriendsTeams(User current);
+    List<User> bestFriendsTeams(List<String> friendsUsernames);
 
     List<User> bestCountryTeams(String country);
 }
