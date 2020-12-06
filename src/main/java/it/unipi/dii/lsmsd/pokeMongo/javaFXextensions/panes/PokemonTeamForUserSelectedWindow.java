@@ -42,9 +42,9 @@ public class PokemonTeamForUserSelectedWindow extends Pane {
         if (pokemon == null)
             return;
 
-        //FilterPokemonResultButton pokemon = new FilterPokemonResultButton("Squirtle", 95, 28);
+        FilterPokemonResultButton pokemonNameButton = new FilterPokemonResultButton(pokemon, 95, 28);
 
-        //getChildren().add(pokemon);
+        getChildren().add(pokemonNameButton);
     }
 
     private void displayPokemonPoints() {
