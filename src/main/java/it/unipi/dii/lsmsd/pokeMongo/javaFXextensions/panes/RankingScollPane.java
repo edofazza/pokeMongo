@@ -81,8 +81,6 @@ public class RankingScollPane extends ScrollPane {
             List<String> friendsUsernames = (new UserNetworkManagerOnNeo4j()).getFollowing(CurrentUI.getUser());
             List<User> friendsUser = (new UserManagerOnMongoDb()).bestFriendsTeams(friendsUsernames);
 
-            System.out.println("////////////////////// " + friendsUsernames.size());
-
             for (User user : friendsUser) {
                 RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user);
                 root.getChildren().add(rankingSingleUserResult);
