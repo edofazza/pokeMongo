@@ -30,8 +30,8 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase {
         if(userAlreadyExists(u))
             throw new DuplicateUserException();
 
-        String query = "MERGE (u:User { username: $username})";
-        return insert(query, parameters("username", u.getUsername()));
+        String query = "MERGE (u:User { username: $username, country: $country})";
+        return insert(query, parameters("username", u.getUsername(), "country", u.getCountry()));
     }
 
     private boolean userAlreadyExists(User u){
