@@ -113,13 +113,15 @@ public class RankingScollPane extends ScrollPane {
     public void getFriendsRanking(){
 
         //get friends usernames
-        List<String> friendsUsernames = (new UserNetworkManagerOnNeo4j()).getFollowing(CurrentUI.getUser());
-        List<User> friendsUser = (new UserManagerOnMongoDb()).bestFriendsTeams(friendsUsernames);
+        if(rankingTypes == RankingTypes.FRIENDS){
+            List<String> friendsUsernames = (new UserNetworkManagerOnNeo4j()).getFollowing(CurrentUI.getUser());
+            List<User> friendsUser = (new UserManagerOnMongoDb()).bestFriendsTeams(friendsUsernames);
 
-        for (User user : friendsUser) {
-            RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user);
-            root.getChildren().add(rankingSingleUserResult);
+            for (User user : friendsUser) {
+                RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user);
+                root.getChildren().add(rankingSingleUserResult);
+            }
         }
-
+        
     }
 }
