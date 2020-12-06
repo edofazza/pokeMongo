@@ -64,4 +64,10 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase {
         }
         return followersUsernames;
     }
+
+    public boolean updateCountry(User target, String newCountry) {
+        String query = "MATCH (n:User) WHERE n.username = $username " +
+                "SET n.country = $country";
+        return update(query, parameters("username", target.getUsername(), "country", newCountry));
+    }
 }

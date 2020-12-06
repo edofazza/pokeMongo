@@ -172,12 +172,12 @@ public abstract class Neo4jDbDatabase implements Database {
 
     @Override
     public boolean update(Object target, Object newValue){
-        if(!(target instanceof String) || !(newValue instanceof String))
+        if(!(target instanceof String) || !(newValue instanceof Value))
             return false;
         startConnection();
         try (Session session = driver.session()) {
             session.writeTransaction((TransactionWork<Void>) tx -> {
-                tx.run(target + " " + newValue);
+                tx.run((String)target, (Value)newValue);
                 return null;
             });
         }

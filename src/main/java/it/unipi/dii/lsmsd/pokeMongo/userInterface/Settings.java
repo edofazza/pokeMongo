@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
@@ -255,6 +256,10 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
 
                 //locally
                 CurrentUI.getUser().setCountry(newCountry);
+
+                // neo4j
+                UserNetworkManagerOnNeo4j networkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
+                networkManagerOnNeo4j.updateCountry(CurrentUI.getUser(), newCountry);
 
                 resultUpdateLabel.setStyle("-fx-background-color: green;");
                 if (moreThanOne)
