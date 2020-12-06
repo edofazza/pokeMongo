@@ -30,10 +30,10 @@ public class RankingScollPane extends ScrollPane {
         changeCountry("");
     }
 
-    private void addDefaultResult() {
+/*    private void addDefaultResult() {
         switch (rankingTypes) {
             case BESTPOKEMON:
-                /*PokemonSingleResultPane prpp = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: " + "71");
+                PokemonSingleResultPane prpp = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: " + "71");
                 PokemonSingleResultPane prpp1 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: " + "70");
                 PokemonSingleResultPane prpp2 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: "  + "12");
                 PokemonSingleResultPane prpp3 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: "  + "37");
@@ -41,13 +41,13 @@ public class RankingScollPane extends ScrollPane {
                 PokemonSingleResultPane prpp5 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: "  + "17");
                 PokemonSingleResultPane prpp6 = new PokemonSingleResultPane("file:img/sprites/7.png", "Squirtle", "Hold by: "  + "7");
 
-                root.getChildren().addAll(prpp, prpp1, prpp2, prpp3, prpp4, prpp5, prpp6);*/
+                root.getChildren().addAll(prpp, prpp1, prpp2, prpp3, prpp4, prpp5, prpp6);
                 break;
             case BESTTEAM:
-                /*RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult("Ducange", "Jail Team", 2000);
+                RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult("Ducange", "Jail Team", 2000);
                 RankingSingleUserResult rankingSingleUserResult1 = new RankingSingleUserResult("Gionatan", "Control rotella", 2000);
 
-                root.getChildren().addAll(rankingSingleUserResult, rankingSingleUserResult1);*/
+                root.getChildren().addAll(rankingSingleUserResult, rankingSingleUserResult1);
                 List<User> userList = ( new UserManagerOnMongoDb() ).bestWorldTeams();
 
                 for (User user: userList) {
@@ -62,7 +62,7 @@ public class RankingScollPane extends ScrollPane {
                 root.getChildren().addAll(rankingSingleUserResult10, rankingSingleUserResult11);
                 break;
         }
-    }
+    }*/
 
     private void clearResults() {
         root.getChildren().clear();
@@ -86,7 +86,7 @@ public class RankingScollPane extends ScrollPane {
             }
 
             for (User user : userList) {
-                RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user.getUsername(), user.getTeamName(), user.getPoints());
+                RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user);
                 root.getChildren().add(rankingSingleUserResult);
             }
         }
