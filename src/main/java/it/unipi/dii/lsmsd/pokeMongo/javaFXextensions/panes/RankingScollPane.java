@@ -86,7 +86,7 @@ public class RankingScollPane extends ScrollPane {
             }
 
             for (User user : userList) {
-                RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user.getUsername(), user.getTeamName(), 2000); // TODO POINTS
+                RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user.getUsername(), user.getTeamName(), user.getPoints());
                 root.getChildren().add(rankingSingleUserResult);
             }
         }
