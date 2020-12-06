@@ -73,7 +73,7 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
      * Adds to the scene the points of the team
      */
     private void displayPoints() {
-        points = new FieldRelatedLabel("Points: " + Double.toString(CurrentUI.getUser().getPoints()), 570, 590);
+        points = new FieldRelatedLabel("Points: " + CurrentUI.getUser().getPoints(), 570, 590);
 
         sceneNodes.getChildren().add(points);
     }
@@ -104,6 +104,8 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
 
         // save the points
         userManagerOnMongoDb.updatePoints(CurrentUI.getUser(), CurrentUI.getUser().getPoints());
+
+        points.setText("Points: " + CurrentUI.getUser().getPoints());
     }
 
     private Pokemon[] retrieveTeam() {
