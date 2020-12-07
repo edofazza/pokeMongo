@@ -23,7 +23,7 @@ public class ConfigDataHandler {
             BufferedReader br = new BufferedReader(new FileReader("config/configFile.json"));
             configData = new Gson().fromJson(br, ConfigData.class);
         } catch (IOException ioe){
-            configData = new ConfigData(10, "", "", "", "", "", 1, "neo4j://localhost:7687", "neo4j", "root");
+            configData = new ConfigData(10, "", "", "MongoDb", "MongoDb", "Neo4j", "Neo4j",1, "neo4j://localhost:7687", "neo4j", "root");
             ioe.printStackTrace();
         }
     }

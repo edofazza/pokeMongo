@@ -7,6 +7,7 @@
   "userDbArchitecture": "MongoDb",
   "pokemonDbArchitecture": "MongoDb",
   "teamDbArchitecture": "Neo4j",
+  "networkDbArchitecture": "Neo4j",
 
   "localUri": "neo4j://localhost:7687",
   "userNeo4j": "neo4j",
