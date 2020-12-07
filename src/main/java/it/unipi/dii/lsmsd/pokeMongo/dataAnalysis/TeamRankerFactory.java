@@ -1,12 +1,13 @@
-package it.unipi.dii.lsmsd.pokeMongo.persistence;
+package it.unipi.dii.lsmsd.pokeMongo.dataAnalysis;
 
 import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
-public class TeamManagerFactory {
-    public static TeamManager buildManager(){
+public class TeamRankerFactory {
+    public static PokemonRanker buildRanker(){
         String technology = getConfiguration();
-        Logger.vlog("Obtaining technology: " + technology);
         switch (technology){
             case "Neo4j":
                 return new TeamManagerOnNeo4j();
@@ -21,7 +22,7 @@ public class TeamManagerFactory {
         }
     }
 
-    public static String getConfiguration(){
+    private static String getConfiguration(){
         return ConfigDataHandler.getInstance().configData.teamDbArchitecture;
     }
 }

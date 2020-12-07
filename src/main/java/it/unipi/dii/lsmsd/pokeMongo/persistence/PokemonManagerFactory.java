@@ -15,7 +15,7 @@ public class PokemonManagerFactory {
                     throw new IllegalArgumentException();
                 }catch (IllegalArgumentException iae){
                     iae.printStackTrace();
-                    //log error
+                    Logger.error("Invalid database technology or missing implementation");
                 };
                 return null;
         }

@@ -2,8 +2,9 @@ package it.unipi.dii.lsmsd.pokeMongo.dataAnalysis;
 
 import it.unipi.dii.lsmsd.pokeMongo.config.*;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.*;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
-public class RankerFactory {
+public class UserRankerFactory {
     public static UserRanker buildRanker(){
         String technology = getConfiguration();
         switch (technology){
@@ -14,13 +15,13 @@ public class RankerFactory {
                     throw new IllegalArgumentException();
                 }catch (IllegalArgumentException iae){
                     iae.printStackTrace();
-                    //log error
+                    Logger.error("Invalid database technology or missing implementation");
                 };
                 return null;
         }
     }
 
-    public static String getConfiguration(){
+    private static String getConfiguration(){
         return ConfigDataHandler.getInstance().configData.userDbArchitecture;
     }
 }
