@@ -7,7 +7,8 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FilterLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.FilterTextField;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.FilterTextFieldOnlyNumeric;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
@@ -220,10 +221,10 @@ public class FilterPane extends Pane {
             tmpFilterMap.put(Filter.MAX_POINTS, maxPointsTF.getText());
 
         // CALL MONGODB FUNCTION
-        PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
+        PokemonManager pokemonManager = PokemonManagerFactory.buildManager();
 
         // DISPLAY RESULTS
-        ArrayList<Pokemon> pokemonArray = pokemonManagerOnMongoDb.searchWithFilter(tmpFilterMap);
+        ArrayList<Pokemon> pokemonArray = pokemonManager.searchWithFilter(tmpFilterMap);
 
         PokedexResultScrollPane.clearVBox();
         if (pokemonArray.size() != 0)

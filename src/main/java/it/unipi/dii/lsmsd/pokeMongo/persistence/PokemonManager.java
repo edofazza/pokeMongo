@@ -8,6 +8,12 @@ import java.util.Map;
 public interface PokemonManager {
 
     /**
+     * <h2>>Searches all the Pokemon inside the DB</h2>
+     * @return an Arraylist containing all the Pokemon that satisfy search conditions
+     */
+    ArrayList<Pokemon> getEveryPokemon();
+
+    /**
      * <h2>>Searches all the Pokemon inside the DB that satisfy ALL the conditions specified</h2>
      * @param parameters <h3>set of filters to apply</h3>.
      *                   <p>Key is a it.unipi.dii.lsmsd.pokeMongo.persistence.Filter object</p>

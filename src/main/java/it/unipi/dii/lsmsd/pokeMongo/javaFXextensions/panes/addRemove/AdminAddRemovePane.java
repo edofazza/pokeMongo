@@ -8,7 +8,8 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.OnlyDecimalsTextField;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.TextField;
@@ -105,7 +106,7 @@ public class AdminAddRemovePane extends Pane {
         if (!idTF.getText().equals("") && !nameTF.getText().equals("") && !weightTF.getText().equals("") &&
             !heightTF.getText().equals("") && (!type1TF.getValue().toString().equals("") || !type2TF.getValue().toString().equals("")) &&
             !catchRateTF.getText().equals("") && !portraitTF.getText().equals("") && !spriteTF.getText().equals("") ) {
-            PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
+            PokemonManager pokemonManager = PokemonManagerFactory.buildManager();
 
             //TODO: Gestione tipi potrebbe essere gestita meglio con una List<String>
             String[] types;
@@ -117,7 +118,7 @@ public class AdminAddRemovePane extends Pane {
             if(size == 2){
                 types[1] = type2TF.getValue().toString();
             }
-            if (pokemonManagerOnMongoDb.insert(
+            if (pokemonManager.addPokemon(
                     new Pokemon(
                             nameTF.getText(),
                             types,
@@ -150,7 +151,7 @@ public class AdminAddRemovePane extends Pane {
                     resultOperation.setVisible(true);
                 } catch(DuplicatePokemonException dpe){
                     //Roll-back
-                    pokemonManagerOnMongoDb.removePokemon(nameTF.getText());
+                    pokemonManager.removePokemon(nameTF.getText());
                     resultOperation.setText("Pokemon not added: duplicate found");
                     resultOperation.setStyle("-fx-background-color: red;");
                     resultOperation.setVisible(true);
@@ -191,8 +192,8 @@ public class AdminAddRemovePane extends Pane {
             resultOperation.setText("Insert pokemon's name");
             resultOperation.setStyle("-fx-background-color: #FF211A;");
         } else {
-            PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
-            if(pokemonManagerOnMongoDb.removePokemon(pokemonName.getText())) {
+            PokemonManager pokemonManager = PokemonManagerFactory.buildManager();
+            if(pokemonManager.removePokemon(pokemonName.getText())) {
                 TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
                 teamManagerOnNeo4j.deletePokemon(pokemonName.getText());
                 resultOperation.setText("Pokemon removed");
