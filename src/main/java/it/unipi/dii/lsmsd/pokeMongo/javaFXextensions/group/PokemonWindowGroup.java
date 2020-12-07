@@ -33,7 +33,7 @@ public class PokemonWindowGroup extends Group {
 
         Logger.vvlog("Creating PokemonWindowGroup for pokemon " + name);
 
-        displayFavorite();
+        displayFavorite(name);
         displayPortrait(portraitUrl);
         displaySprite(spriteUrl);
         displayPokemonName(name);
@@ -45,8 +45,8 @@ public class PokemonWindowGroup extends Group {
     }
 
 
-    private void displayFavorite() {
-        FavoriteButton favoriteStar =  new FavoriteButton(560, 10, 40);
+    private void displayFavorite(String name) {
+        FavoriteButton favoriteStar =  new FavoriteButton(560, 10, 40, name);
         //BackgroundImage favoriteStar = new BackgroundImage("emptyStar.png", 40, 560, 10);
 
         getChildren().add(favoriteStar);

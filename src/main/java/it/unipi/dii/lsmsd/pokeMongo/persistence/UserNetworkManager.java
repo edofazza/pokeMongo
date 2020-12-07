@@ -91,6 +91,14 @@ public interface UserNetworkManager {
      */
     boolean removeLikeToPokemon(User trainer, Pokemon unliked);
 
+    /**
+     * Says if a particular User is following another user
+     * @param from name of the follower user
+     * @param to name of the favorite pokemon
+     * @return true i from is following to
+     */
+    boolean isFavorite(String from, String to);
+
 
     /**
      * Retrieves all the names of the Pokemon a user likes

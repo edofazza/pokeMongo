@@ -1,36 +1,62 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.Button;
 
 public class FavoriteButton extends Button {
     private final String imgFavoriteOnLocation = "file:img/star.png";
     private final String imgFavoriteOffLocation = "file:img/emptyStar.png";
+    private String name;
 
-    public FavoriteButton(int x, int y, int dimension) {
+    private boolean favorite;
+
+    public FavoriteButton(int x, int y, int dimension, String name) {
         super();
         Logger.vvlog("Creating FavoriteButton at (" + x + ", " + y + ")");
+
+        this.name = name;
+
         relocate(x, y);
         setPrefSize(dimension, dimension);
 
-        setStyle(" -fx-border-color: transparent;" +
-                " -fx-background-size: 30;");
+        setOnAction(e -> changeStyle());
 
-        //setImage(false);
+        // TAKE INFO FROM NEO4J
+        favorite = isFavorite();
+        setImage();
     }
 
     /**
-     * Sets the image if the music is on or is off.
-     * @param favoriteOn current behavior of the music
+     * Sets the image if the favorite is on or is off.
      */
-    public void setImage(boolean favoriteOn) {
-
+    private void setImage() {
         Logger.vvlog("Setting favoriteStar image");
-        if (favoriteOn) {
-            setStyle("-fx-background-image: url(" + imgFavoriteOffLocation + ")");
+        if (favorite) {
+            setStyle(" -fx-border-color: transparent;" +
+                    " -fx-background-size: 35;" +
+                    " -fx-background-color: trasparent; " +
+                    "-fx-background-repeat: no-repeat;" +
+                    " -fx-background-image: url(" + imgFavoriteOffLocation + ")");
         }
         else {
-            setStyle("-fx-background-image: url(" + imgFavoriteOnLocation + ")");
+            setStyle(" -fx-border-color: transparent;" +
+                    " -fx-background-size: 35;" +
+                    " -fx-background-color: trasparent; " +
+                    "-fx-background-repeat: no-repeat;" +
+                    " -fx-background-image: url(" + imgFavoriteOnLocation + ")");
         }
+    }
+
+    private void changeStyle() {
+        favorite = !favorite;
+        setImage();
+    }
+
+    private boolean isFavorite() {
+        UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
+        return userNetworkManager.isFavorite(CurrentUI.getUser().getUsername(), name);
     }
 }

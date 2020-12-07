@@ -102,6 +102,14 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
         return remove(query, parameters("username", target.getUsername(), "name2", p.getName()));
     }
 
+    @Override
+    public boolean isFavorite(String from, String to) {
+        String query = "MATCH (from:User)-[:LIKES]->(to:Pokemon) WHERE from.username = $from AND to.name = $to RETURN count(*) AS like";
+        ArrayList<Object> res = getWithFilter(query, parameters("from", from, "to", to));
+
+        Record r = (Record)res.get(0);
+        return r.get("like").asInt() == 1;
+    }
 
     @Override
     //TODO: Forse si può spostare ma dato che i liked pokemon si riferiscono ad un utente l'ho messa qui
