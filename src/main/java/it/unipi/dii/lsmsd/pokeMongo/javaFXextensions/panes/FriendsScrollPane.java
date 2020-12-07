@@ -45,7 +45,7 @@ public class FriendsScrollPane extends ScrollPane {
     public void insertSuggestionsByPokemon() {
         // RETRIEVE USERNAMES FROM NEO4J, THEN RETRIEVE USERS FROM MONGO
         UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
-        List<String> username = userNetworkManager.getSuggestedUser(CurrentUI.getUser());
+        List<String> username = userNetworkManager.getSuggestedUserByFavoritesPokemon(CurrentUI.getUser());
         //System.out.println(username.get(0));
         List<User> friendsUser = (UserRankerFactory.buildRanker()).bestFriendsTeams(username);
 
@@ -57,6 +57,16 @@ public class FriendsScrollPane extends ScrollPane {
     }
 
     public void insertSuggestionsByFriends() {
+        // RETRIEVE USERNAMES FROM NEO4J, THEN RETRIEVE USERS FROM MONGO
+        UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
+        List<String> username = userNetworkManager.getSuggestedUser(CurrentUI.getUser());
+        //System.out.println(username.get(0));
+        List<User> friendsUser = (UserRankerFactory.buildRanker()).bestFriendsTeams(username);
 
+        // ADD IN ROOT
+        for (User user : friendsUser) {
+            RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user);
+            root.getChildren().add(rankingSingleUserResult);
+        }
     }
 }
