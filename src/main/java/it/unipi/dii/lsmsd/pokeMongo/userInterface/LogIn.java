@@ -5,7 +5,8 @@ import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
@@ -119,7 +120,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
     }
 
     private Pokemon[] retrieveTeam() {
-        TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
-        return teamManagerOnNeo4j.getUserTeam(CurrentUI.getUser());
+        TeamManager teamManager = TeamManagerFactory.buildManager();
+        return teamManager.getUserTeam(CurrentUI.getUser());
     }
 }

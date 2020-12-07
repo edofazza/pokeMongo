@@ -10,7 +10,8 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextFi
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.OnlyDecimalsTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerFactory;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManager;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -132,9 +133,9 @@ public class AdminAddRemovePane extends Pane {
                     )
             ) ) {
                 //TODO
-                TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+                TeamManager teamManager = TeamManagerFactory.buildManager();
                 try{
-                    teamManagerOnNeo4j.addPokemon(new Pokemon(
+                    teamManager.addPokemon(new Pokemon(
                             nameTF.getText(),
                             types,
                             Integer.parseInt(idTF.getText()),
@@ -194,8 +195,8 @@ public class AdminAddRemovePane extends Pane {
         } else {
             PokemonManager pokemonManager = PokemonManagerFactory.buildManager();
             if(pokemonManager.removePokemon(pokemonName.getText())) {
-                TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
-                teamManagerOnNeo4j.deletePokemon(pokemonName.getText());
+                TeamManager teamManager = TeamManagerFactory.buildManager();
+                teamManager.deletePokemon(pokemonName.getText());
                 resultOperation.setText("Pokemon removed");
                 resultOperation.setStyle("-fx-background-color: green;");
             } else {

@@ -153,11 +153,11 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
                 invalidFormEntryLabel.setVisible(true);
                 invalidFormEntryLabel.setStyle("-fx-background-color: green");
 
-                TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+                TeamManager teamManager = TeamManagerFactory.buildManager();
 
                 try{
                     int slot = Integer.parseInt(selectSlot.getValue().toString()) - 1;
-                    teamManagerOnNeo4j.insertAPokemonIntoTeam(CurrentUI.getUser(), pokemon, slot);
+                    teamManager.insertAPokemonIntoTeam(CurrentUI.getUser(), pokemon, slot);
 
                     // add to the team locally
                     CurrentUI.getUser().addToTeam(pokemon, slot);
