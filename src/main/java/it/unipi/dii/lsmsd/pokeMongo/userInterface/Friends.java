@@ -1,10 +1,9 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
-import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.FriendsScrollPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.FriendsSearchForUserPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.RankingScollPane;
-import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
+
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.layout.Pane;
 
@@ -38,6 +37,8 @@ public class Friends extends PokeSceneWithHeaderAndBackButton {
         pane.setStyle("-fx-background-color: #efefef;");
         pane.relocate(470, 330);
         pane.setPrefSize(650, 250);
+
+        // TWO SCROLLPANE
 
         sceneNodes.getChildren().add(pane);
     }

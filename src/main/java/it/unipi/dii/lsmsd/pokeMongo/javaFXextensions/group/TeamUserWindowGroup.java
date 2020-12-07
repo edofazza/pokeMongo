@@ -24,7 +24,8 @@ public class TeamUserWindowGroup extends Group {
         TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
         user.addTeam(teamManagerOnNeo4j.getUserTeam(user));
 
-        displayFollowButton();
+        if (!CurrentUI.getUser().getUsername().equals(user.getUsername()))
+            displayFollowButton();
 
         displayTeamName();
 
