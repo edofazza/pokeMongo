@@ -91,22 +91,32 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
 
     @Override
     public boolean addLikeToPokemon(User target, Pokemon p){
-        //TODO implementation
-        return true;
+        String query = "MATCH (from:User) WHERE from.username = $username " +
+                "MATCH (to:Pokemon) WHERE to.name = $name2 MERGE (from)-[:LIKES]->(to)";
+        return insert(query, parameters("username", target.getUsername(), "name2", p.getName()));
     }
 
     @Override
     public boolean removeLikeToPokemon(User target, Pokemon p){
-        //TODO implementation
-        return true;
+        String query = "MATCH (from:User)-[w:LIKES]->(to:Pokemon) WHERE from.username = $username and to.name = $name2 DELETE w";
+        return remove(query, parameters("username", target.getUsername(), "name2", p.getName()));
     }
+
 
     @Override
     //TODO: Forse si può spostare ma dato che i liked pokemon si riferiscono ad un utente l'ho messa qui
     public List<String> getLikedPokemonNames(User u){
-        //TODO implementation
-        return null;
+        List<String> liked = new ArrayList<>();
+        String query = "MATCH (to:Pokemon)<-[h:LIKES]-(from:User) WHERE from.username = $username RETURN to.name";
+        ArrayList<Object> res = getWithFilter(query, parameters("username", u.getUsername()));
+        for(Object o: res){
+            Record r =(Record)o;
+            String username = r.get("to.username").asString();
+            liked.add(username);
+        }
+        return liked;
     }
+
 
     @Override
     public List<String> getSuggestedUser(User u) {
@@ -120,6 +130,25 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
         }
         return usernameList;
     }
+
+
+    @Override
+
+    public List<String> getSuggestedUserByFavoritesPokemon(User u) {
+        /*
+        List<String> usernameList = new ArrayList<>();
+        String query = "MATCH (u:User)-[:FOLLOW]->(u1:User)-[:FOLLOW]->(u2:User) where NOT (u)-[:FOLLOW]->(u2) and u2 <> u and u.username = $username return u2";
+        ArrayList<Object> res = getWithFilter(query, parameters("username", u.getUsername()));
+        for(Object o: res){
+            Record r =(Record)o;
+            String username = r.get("u2.username").asString();
+            usernameList.add(username);
+        }
+        return usernameList;
+        */
+        return null;
+    }
+
 
     @Override
     public List<String> getUserBySearch(String pattern) {

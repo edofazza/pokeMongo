@@ -101,6 +101,13 @@ public interface UserNetworkManager {
 
 
     /**
+     * Suggests a new friend to follow to a user based on favorites pokemon
+     * @param u user to which suggestions are addressed
+     * @return list of names of suggested users
+     */
+    List<String> getSuggestedUserByFavoritesPokemon(User u);
+
+    /**
      * Suggests a new friend to follow to a user
      * @param u user to which suggestions are addressed
      * @return list of names of suggested users
