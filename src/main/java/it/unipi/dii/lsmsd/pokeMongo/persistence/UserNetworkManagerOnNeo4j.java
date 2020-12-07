@@ -110,8 +110,15 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
 
     @Override
     public List<String> getSuggestedUser(User u) {
-        //TODO implementation
-        return null;
+        List<String> usernameList = new ArrayList<>();
+        String query = "MATCH (u:User)-[:FOLLOW]->(u1:User)-[:FOLLOW]->(u2:User) where NOT (u)-[:FOLLOW]->(u2) and u2 <> u and u.username = $username return u2";
+        ArrayList<Object> res = getWithFilter(query, parameters("username", u.getUsername()));
+        for(Object o: res){
+            Record r =(Record)o;
+            String username = r.get("u2.username").asString();
+            usernameList.add(username);
+        }
+        return usernameList;
     }
 
     @Override
