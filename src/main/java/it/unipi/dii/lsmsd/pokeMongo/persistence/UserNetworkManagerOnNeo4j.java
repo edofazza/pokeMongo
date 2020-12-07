@@ -44,7 +44,7 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNe
 
     @Override
     public boolean addFollow(User from, User to){
-        String query = "MATCH (from:User) WHERE from.username = $username" +
+        String query = "MATCH (from:User) WHERE from.username = $username " +
                 "MATCH (to:User) WHERE to.username = $username2 MERGE (from)-[:FOLLOW]->(to)";
         return insert(query, parameters("username", from.getUsername(), "username2", to.getUsername()));
     }
