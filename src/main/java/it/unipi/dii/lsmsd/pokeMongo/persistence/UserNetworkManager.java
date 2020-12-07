@@ -80,7 +80,7 @@ public interface UserNetworkManager {
      * @param liked pokemon liked by trainer
      * @return true if the relationship is successfully inserted
      */
-    boolean addLikeToPokemon(User trainer, Pokemon liked);
+    boolean addLikeToPokemon(User trainer, String liked);
 
 
     /**
@@ -89,7 +89,7 @@ public interface UserNetworkManager {
      * @param unliked pokemon no longer liked by trainer
      * @return true if the relationship is successfully removed
      */
-    boolean removeLikeToPokemon(User trainer, Pokemon unliked);
+    boolean removeLikeToPokemon(User trainer, String unliked);
 
     /**
      * Says if a particular User is following another user

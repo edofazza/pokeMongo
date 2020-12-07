@@ -90,16 +90,16 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
     }
 
     @Override
-    public boolean addLikeToPokemon(User target, Pokemon p){
+    public boolean addLikeToPokemon(User target, String p){
         String query = "MATCH (from:User) WHERE from.username = $username " +
                 "MATCH (to:Pokemon) WHERE to.name = $name2 MERGE (from)-[:LIKES]->(to)";
-        return insert(query, parameters("username", target.getUsername(), "name2", p.getName()));
+        return insert(query, parameters("username", target.getUsername(), "name2", p));
     }
 
     @Override
-    public boolean removeLikeToPokemon(User target, Pokemon p){
+    public boolean removeLikeToPokemon(User target, String p){
         String query = "MATCH (from:User)-[w:LIKES]->(to:Pokemon) WHERE from.username = $username and to.name = $name2 DELETE w";
-        return remove(query, parameters("username", target.getUsername(), "name2", p.getName()));
+        return remove(query, parameters("username", target.getUsername(), "name2", p));
     }
 
     @Override

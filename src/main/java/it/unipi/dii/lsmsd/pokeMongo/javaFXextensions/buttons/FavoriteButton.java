@@ -26,8 +26,8 @@ public class FavoriteButton extends Button {
 
         // TAKE INFO FROM NEO4J
         favorite = isFavorite();
-        System.out.println(favorite);
-        setImage();
+
+        setStyleButton();
     }
 
     /**
@@ -35,6 +35,30 @@ public class FavoriteButton extends Button {
      */
     private void setImage() {
         Logger.vvlog("Setting favoriteStar image");
+
+        UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
+
+        if (favorite) {
+            setStyleButton();
+            userNetworkManager.addLikeToPokemon(CurrentUI.getUser(), name);
+        }
+        else {
+            setStyleButton();
+            userNetworkManager.removeLikeToPokemon(CurrentUI.getUser(), name);
+        }
+    }
+
+    private void changeStyle() {
+        favorite = !favorite;
+        setImage();
+    }
+
+    private boolean isFavorite() {
+        UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
+        return userNetworkManager.isFavorite(CurrentUI.getUser().getUsername(), name);
+    }
+
+    private void setStyleButton() {
         if (favorite) {
             setStyle(" -fx-border-color: transparent;" +
                     " -fx-background-size: 35;" +
@@ -49,15 +73,5 @@ public class FavoriteButton extends Button {
                     "-fx-background-repeat: no-repeat;" +
                     " -fx-background-image: url(" + imgFavoriteOffLocation + ")");
         }
-    }
-
-    private void changeStyle() {
-        favorite = !favorite;
-        setImage();
-    }
-
-    private boolean isFavorite() {
-        UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
-        return userNetworkManager.isFavorite(CurrentUI.getUser().getUsername(), name);
     }
 }
