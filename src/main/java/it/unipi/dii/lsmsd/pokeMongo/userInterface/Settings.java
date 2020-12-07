@@ -2,8 +2,10 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerOnNeo4j;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
@@ -187,8 +189,8 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
             // change email
             if(!newEmailTF.getText().equals("") && !confirmEmailTF.getText().equals("")) {
                 if (!invalidEmailLabel.isVisible() && !invalidConfirmEmailLabel.isVisible()) {
-                    UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
-                    userManagerOnMongoDb.changeEmail(CurrentUI.getUser(), newEmailTF.getText());
+                    UserManager userManager = UserManagerFactory.buildManager();
+                    userManager.changeEmail(CurrentUI.getUser(), newEmailTF.getText());
 
                     // locally
                     CurrentUI.getUser().setEmail(newEmailTF.getText());
@@ -213,8 +215,8 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
             // CHANGE PASSWORD
             if(!newPasswordTF.getText().equals("") && !confirmPasswordTF.getText().equals("")) {
                 if (!invalidPasswordLabel.isVisible() && !invalidConfirmPasswordLabel.isVisible()) {
-                    UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
-                    userManagerOnMongoDb.changePassword(CurrentUI.getUser(), newPasswordTF.getText());
+                    UserManager userManager = UserManagerFactory.buildManager();
+                    userManager.changePassword(CurrentUI.getUser(), newPasswordTF.getText());
 
                     // locally
                     CurrentUI.getUser().setPassword(PasswordEncryptor.encryptPassword(newPasswordTF.getText()));
@@ -251,15 +253,15 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
             if (!countryCB.getValue().toString().equals("")) {
                 String newCountry = countryCB.getValue().toString();
 
-                UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
-                userManagerOnMongoDb.changeCountry(CurrentUI.getUser(), newCountry);
+                UserManager userManager = UserManagerFactory.buildManager();
+                userManager.changeCountry(CurrentUI.getUser(), newCountry);
 
                 //locally
                 CurrentUI.getUser().setCountry(newCountry);
 
                 // neo4j
-                UserNetworkManagerOnNeo4j networkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
-                networkManagerOnNeo4j.updateCountry(CurrentUI.getUser(), newCountry);
+                UserNetworkManager networkManager = UserNetworkManagerFactory.buildManager();
+                networkManager.updateCountry(CurrentUI.getUser(), newCountry);
 
                 resultUpdateLabel.setStyle("-fx-background-color: green;");
                 if (moreThanOne)

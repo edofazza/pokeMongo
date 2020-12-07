@@ -4,6 +4,8 @@ import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokemonTeamForUserSelectedWindow;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerOnNeo4j;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManager;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Group;
@@ -21,8 +23,8 @@ public class TeamUserWindowGroup extends Group {
         this.user = user;
 
         // retrieve the team
-        TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
-        user.addTeam(teamManagerOnNeo4j.getUserTeam(user));
+        TeamManager teamManager = TeamManagerFactory.buildManager();
+        user.addTeam(teamManager.getUserTeam(user));
 
         if (!CurrentUI.getUser().getUsername().equals(user.getUsername()))
             displayFollowButton();

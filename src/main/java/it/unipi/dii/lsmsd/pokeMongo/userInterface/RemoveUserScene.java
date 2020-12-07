@@ -3,9 +3,10 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerOnNeo4j;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 public class RemoveUserScene extends PokeSceneWithHeaderAndBackButton {
@@ -41,15 +42,15 @@ public class RemoveUserScene extends PokeSceneWithHeaderAndBackButton {
     }
 
     private void removeButtonAction() {
-        UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
+        UserManager userManager = UserManagerFactory.buildManager();
 
-        if (userManagerOnMongoDb.removeUser(username.getText())) {
+        if (userManager.removeUser(username.getText())) {
             operationResultLabel.setText("user removed correctly");
             operationResultLabel.setStyle("-fx-background-color: green;");
 
             //REMOVE IT FROM NEO$J ALSO
-            UserNetworkManagerOnNeo4j userNetworkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
-            userNetworkManagerOnNeo4j.deleteUser(username.getText());
+            UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
+            userNetworkManager.deleteUser(username.getText());
         } else {
             operationResultLabel.setText("user didn't found");
             operationResultLabel.setStyle("-fx-background-color: #FF211A;");

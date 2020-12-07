@@ -1,7 +1,8 @@
 package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.HomePageCentralButton;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 /**
@@ -150,7 +151,7 @@ public class HomePage extends PokeSceneWithHeaderAndAggregateBlastoiseCharizard 
      * Action related to the logout button. It logs out the user and goes back to the LOGIN scene.
      */
     private void logOutButtonAction() {
-        UserManagerOnMongoDb userManager = new UserManagerOnMongoDb();
+        UserManager userManager = UserManagerFactory.buildManager();
         userManager.logout(CurrentUI.getUser());
         CurrentUI.userExit();
         CurrentUI.changeScene(SceneNames.LOGIN);

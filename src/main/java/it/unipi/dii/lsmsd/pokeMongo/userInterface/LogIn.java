@@ -5,9 +5,10 @@ import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.event.ActionEvent;
@@ -80,7 +81,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
      */
     private void logInButtonAction() {
         // Check the information given
-        UserManager userManager = new UserManagerOnMongoDb();
+        UserManager userManager = UserManagerFactory.buildManager();
         User user = userManager.login(usernameTF.getText(), passwordTF.getText());
 
         // set the user
@@ -91,8 +92,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
             CurrentUI.getUser().addTeam(retrieveTeam());
 
             // Update the point in mongodb
-            UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
-            userManagerOnMongoDb.updatePoints(user, user.getPoints());
+            userManager.updatePoints(user, user.getPoints());
 
             CurrentUI.changeScene(SceneNames.HOMEPAGE);
         } else {
@@ -120,7 +120,7 @@ public class LogIn extends PokeSceneWithBlastoiseCharizard {
     }
 
     private Pokemon[] retrieveTeam() {
-        TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
-        return teamManagerOnNeo4j.getUserTeam(CurrentUI.getUser());
+        TeamManager teamManager = TeamManagerFactory.buildManager();
+        return teamManager.getUserTeam(CurrentUI.getUser());
     }
 }

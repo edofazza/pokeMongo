@@ -9,10 +9,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.TitleLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerOnMongoDb;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.*;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 import java.util.ArrayList;
@@ -127,8 +124,8 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
         HashMap<Filter, String> hashMap = new HashMap<>();
         hashMap.put(Filter.NAME, pokemonName);
 
-        PokemonManagerOnMongoDb pokemonManagerOnMongoDb = new PokemonManagerOnMongoDb();
-        ArrayList<Pokemon> arrayList = pokemonManagerOnMongoDb.searchWithFilter(hashMap);
+        PokemonManager pokemonManager = PokemonManagerFactory.buildManager();
+        ArrayList<Pokemon> arrayList = pokemonManager.searchWithFilter(hashMap);
 
         if (arrayList.size() != 0) {
             pokemon = arrayList.get(0);
@@ -148,26 +145,26 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
             updatePokeBallsLabelNumber();
 
             // DECREMENT ALSO IN THE DB
-            UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
-            userManagerOnMongoDb.updateNumberOfPokeball(CurrentUI.getUser());
+            UserManager userManager = UserManagerFactory.buildManager();
+            userManager.updateNumberOfPokeball(CurrentUI.getUser());
 
             if ((Math.random() * 254 + 1) < pokemon.getCapture_rate()) {
                 invalidFormEntryLabel.setText(pokemon.getName() + " caught");
                 invalidFormEntryLabel.setVisible(true);
                 invalidFormEntryLabel.setStyle("-fx-background-color: green");
 
-                TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+                TeamManager teamManager = TeamManagerFactory.buildManager();
 
                 try{
                     int slot = Integer.parseInt(selectSlot.getValue().toString()) - 1;
-                    teamManagerOnNeo4j.insertAPokemonIntoTeam(CurrentUI.getUser(), pokemon, slot);
+                    teamManager.insertAPokemonIntoTeam(CurrentUI.getUser(), pokemon, slot);
 
                     // add to the team locally
                     CurrentUI.getUser().addToTeam(pokemon, slot);
 
                     // update points in mongo
                     // Update the point in mongodb
-                    userManagerOnMongoDb.updatePoints(CurrentUI.getUser(), CurrentUI.getUser().getPoints());
+                    userManager.updatePoints(CurrentUI.getUser(), CurrentUI.getUser().getPoints());
                 } catch (SlotAlreadyOccupiedException saoe){
                     invalidFormEntryLabel.setText("slot already occupied");
                     invalidFormEntryLabel.setVisible(true);

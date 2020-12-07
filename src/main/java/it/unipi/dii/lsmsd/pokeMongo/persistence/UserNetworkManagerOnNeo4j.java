@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.neo4j.driver.Values.parameters;
 
-public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkManager{
+class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkManager{
 
     @Override
     public boolean deleteUser(User u){

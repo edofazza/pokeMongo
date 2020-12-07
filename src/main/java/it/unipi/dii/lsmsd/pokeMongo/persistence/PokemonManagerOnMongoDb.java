@@ -17,7 +17,7 @@ import java.util.Map;
 import static com.mongodb.client.model.Filters.eq;
 import static it.unipi.dii.lsmsd.pokeMongo.persistence.Filter.*;
 
-public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
+class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
     private final String collectionName = "pokemon";
 
     private Document PokemonToDocument(Pokemon p){
@@ -189,6 +189,15 @@ public class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonM
         ArrayList<Pokemon> result = new ArrayList<>();
         ArrayList<Object> matched = getWithFilter(query);
         for(Object o:matched)
+            result.add((Pokemon)o);
+        return result;
+    }
+
+    @Override
+    public ArrayList<Pokemon> getEveryPokemon(){
+        ArrayList<Object> pokemons = getAll();
+        ArrayList<Pokemon> result = new ArrayList<>();
+        for(Object o: pokemons)
             result.add((Pokemon)o);
         return result;
     }

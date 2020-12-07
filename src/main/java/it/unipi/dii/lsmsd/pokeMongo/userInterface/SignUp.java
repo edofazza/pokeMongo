@@ -5,10 +5,7 @@ import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicateUserException;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerOnNeo4j;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.*;
 import it.unipi.dii.lsmsd.pokeMongo.utils.FormValidatorPokeMongo;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
@@ -249,16 +246,16 @@ public class SignUp extends PokeSceneWithTitle {
                     country.getValue().toString());
 
             // Create a connection to MongoDB and insert the user
-            UserManager userManager = new UserManagerOnMongoDb();
+            UserManager userManager = UserManagerFactory.buildManager();
             if(userManager.register(user)) {
                 resultLabel = new InvalidFormEntryLabel("Sign up successfully done", 800, 600, true);
                 resultLabel.setStyle("-fx-background-color: green;");
 
                 // ADD IT ALSO IN NEO4J
-                UserNetworkManagerOnNeo4j userNetworkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
+                UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
                 //TODO: maybe we could use this part as a duplicate username control
                 try{
-                    userNetworkManagerOnNeo4j.addUser(user);
+                    userNetworkManager.addUser(user);
                 } catch(DuplicateUserException due){
                     System.out.println("Duplicate of user");
                 }
