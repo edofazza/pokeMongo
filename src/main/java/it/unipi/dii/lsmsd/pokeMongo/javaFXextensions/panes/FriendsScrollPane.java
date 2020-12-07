@@ -41,4 +41,12 @@ public class FriendsScrollPane extends ScrollPane {
             root.getChildren().add(rankingSingleUserResult);
         }
     }
+
+    public void insertSuggestionsByPokemon() {
+
+    }
+
+    public void insertSuggestionsByFriends() {
+
+    }
 }

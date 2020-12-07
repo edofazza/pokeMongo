@@ -4,8 +4,8 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.FriendsSearchForUserPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.RankingScollPane;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.RecommendedUserPane;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
-import javafx.scene.layout.Pane;
 
 public class Friends extends PokeSceneWithHeaderAndBackButton {
     public Friends() {
@@ -33,13 +33,8 @@ public class Friends extends PokeSceneWithHeaderAndBackButton {
     }
 
     private void displayRecommendedUser() {
-        Pane pane = new Pane();
-        pane.setStyle("-fx-background-color: #efefef;");
-        pane.relocate(470, 330);
-        pane.setPrefSize(650, 250);
+        RecommendedUserPane recommendedUserPane = new RecommendedUserPane(470, 330, 650, 250);
 
-        // TWO SCROLLPANE
-
-        sceneNodes.getChildren().add(pane);
+        sceneNodes.getChildren().add(recommendedUserPane);
     }
 }
