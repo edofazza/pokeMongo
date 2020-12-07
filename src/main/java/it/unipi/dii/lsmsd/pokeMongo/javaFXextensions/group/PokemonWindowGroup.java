@@ -1,5 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.FavoriteButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.imageviews.BackgroundImage;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.PokemonWindowLabel;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
@@ -44,7 +46,10 @@ public class PokemonWindowGroup extends Group {
 
 
     private void displayFavorite() {
+        FavoriteButton favoriteStar =  new FavoriteButton(560, 10, 40);
+        //BackgroundImage favoriteStar = new BackgroundImage("emptyStar.png", 40, 560, 10);
 
+        getChildren().add(favoriteStar);
     }
     /**
      * Adds to the class the Nodes related to the Portrait

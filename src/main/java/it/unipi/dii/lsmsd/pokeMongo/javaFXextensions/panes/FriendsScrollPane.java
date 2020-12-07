@@ -5,6 +5,7 @@ import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRankerFactory;
 
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
@@ -31,7 +32,7 @@ public class FriendsScrollPane extends ScrollPane {
         // RETRIEVE USERNAMES FROM NEO4J, THEN RETRIEVE USERS FROM MONGO
         UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
         List<String> username = userNetworkManager.getUserBySearch(pattern);
-        System.out.println(username.get(0));
+        //System.out.println(username.get(0));
         List<User> friendsUser = (UserRankerFactory.buildRanker()).bestFriendsTeams(username);
 
         // ADD IN ROOT
@@ -42,7 +43,17 @@ public class FriendsScrollPane extends ScrollPane {
     }
 
     public void insertSuggestionsByPokemon() {
+        // RETRIEVE USERNAMES FROM NEO4J, THEN RETRIEVE USERS FROM MONGO
+        UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
+        List<String> username = userNetworkManager.getSuggestedUser(CurrentUI.getUser());
+        //System.out.println(username.get(0));
+        List<User> friendsUser = (UserRankerFactory.buildRanker()).bestFriendsTeams(username);
 
+        // ADD IN ROOT
+        for (User user : friendsUser) {
+            RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user);
+            root.getChildren().add(rankingSingleUserResult);
+        }
     }
 
     public void insertSuggestionsByFriends() {
