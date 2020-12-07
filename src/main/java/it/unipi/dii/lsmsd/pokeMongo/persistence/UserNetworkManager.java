@@ -114,4 +114,12 @@ public interface UserNetworkManager {
      */
     List<String> getUserBySearch(String pattern);
 
+    /**
+     * Says if a particular User is following another user
+     * @param from name of the follower user
+     * @param to name of the followed user
+     * @return true i from is following to
+     */
+    boolean isFollowing(String from, String to);
+
 }

@@ -128,6 +128,7 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
 
     }
 
+    @Override
     public boolean isFollowing(String from, String to) {
         String query = "MATCH (from:User)-[:FOLLOW]->(to:User) WHERE from.username = $from AND to.username = $to RETURN count(*) AS follow";
         ArrayList<Object> res = getWithFilter(query, parameters("from", from, "to", to));

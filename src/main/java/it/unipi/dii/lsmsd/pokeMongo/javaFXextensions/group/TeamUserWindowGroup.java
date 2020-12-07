@@ -2,10 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokemonTeamForUserSelectedWindow;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerOnNeo4j;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerFactory;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.*;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Group;
@@ -42,11 +39,13 @@ public class TeamUserWindowGroup extends Group {
         getChildren().addAll(teamLabel);
     }
 
-    private void displayFollowButton() {
-        UserNetworkManagerOnNeo4j userNetworkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
-        System.out.println(userNetworkManagerOnNeo4j.isFollowing(CurrentUI.getUser().getUsername(), user.getUsername()));
 
-        if (userNetworkManagerOnNeo4j.isFollowing(CurrentUI.getUser().getUsername(), user.getUsername()))
+
+    private void displayFollowButton() {
+        UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
+        System.out.println(userNetworkManager.isFollowing(CurrentUI.getUser().getUsername(), user.getUsername()));
+
+        if (userNetworkManager.isFollowing(CurrentUI.getUser().getUsername(), user.getUsername()))
             follow = new Button("FOLLOWING");
         else
             follow = new Button("UNFOLLOWING");
@@ -62,19 +61,19 @@ public class TeamUserWindowGroup extends Group {
     }
 
     private void followUnfollow() {
-        UserNetworkManagerOnNeo4j userNetworkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
+        UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
 
-        if (!userNetworkManagerOnNeo4j.isFollowing(CurrentUI.getUser().getUsername(), user.getUsername())) {
+        if (!userNetworkManager.isFollowing(CurrentUI.getUser().getUsername(), user.getUsername())) {
             // CHANGE THE LABEL
             follow.setText("FOLLOWING");
 
             // ADD FOLLOWING RELATIONSHIP
-            userNetworkManagerOnNeo4j.addFollow(CurrentUI.getUser(), user);
+            userNetworkManager.addFollow(CurrentUI.getUser(), user);
         }
         else {
             follow.setText("UNFOLLOWING");
 
-            userNetworkManagerOnNeo4j.removeFollow(CurrentUI.getUser(), user);
+            userNetworkManager.removeFollow(CurrentUI.getUser(), user);
         }
     }
 
