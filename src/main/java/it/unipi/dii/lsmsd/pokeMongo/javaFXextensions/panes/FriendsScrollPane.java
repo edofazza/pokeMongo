@@ -23,13 +23,15 @@ public class FriendsScrollPane extends ScrollPane {
     public void insertSuggestions(String pattern) {
         root.getChildren().clear();
 
+        if (pattern.equals(""))
+            return;
+
         // RETRIEVE USERNAMES FROM NEO4J, THEN RETRIEVE USERS FROM MONGO
         UserNetworkManagerOnNeo4j userNetworkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
         List<String> username = userNetworkManagerOnNeo4j.getUserBySearch(pattern);
         System.out.println(username.get(0));
         List<User> friendsUser = (new UserManagerOnMongoDb()).bestFriendsTeams(username);
 
-        System.out.println("//////////////// " + friendsUser.size());
         // ADD IN ROOT
         for (User user : friendsUser) {
             RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user);
