@@ -52,7 +52,7 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNe
     @Override
     public boolean removeFollow(User from, User to){
         String query = "MATCH (from:User)-[w:FOLLOW]->(to:User) WHERE to.username = $username and from.username = $username2 DELETE w";
-        return remove(query, parameters("username", from.getUsername(), "username2", to.getUsername()));
+        return remove(query, parameters("username", to.getUsername(), "username2", from.getUsername()));
     }
 
     @Override
@@ -126,5 +126,13 @@ public class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNe
         }
         return usernameList;
 
+    }
+
+    public boolean isFollowing(String from, String to) {
+        String query = "MATCH (from:User)-[:FOLLOW]->(to:User) WHERE from.username = $from AND to.username = $to RETURN count(*) AS follow";
+        ArrayList<Object> res = getWithFilter(query, parameters("from", from, "to", to));
+
+        Record r = (Record)res.get(0);
+        return r.get("follow").asInt() == 1;
     }
 }

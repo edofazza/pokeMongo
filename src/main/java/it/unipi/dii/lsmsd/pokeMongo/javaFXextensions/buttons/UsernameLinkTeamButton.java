@@ -24,8 +24,6 @@ public class UsernameLinkTeamButton extends Button {
      * @param user contains the name of the user in order to use it as the title for the Stage
      */
     private void createNewWindow(User user) {
-        // I need the correct user
-
         TeamUserWindowGroup root = new TeamUserWindowGroup(user);
 
         Scene scene = new Scene(root, 600, 400);
