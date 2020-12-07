@@ -28,7 +28,10 @@ public class PokemonWindowGroup extends Group {
     //TODO: type is an array, change it
     public PokemonWindowGroup(String portraitUrl, String spriteUrl, String name, String type,
                               String weight, String height, String catchRate, String biology) {
+
         Logger.vvlog("Creating PokemonWindowGroup for pokemon " + name);
+
+        displayFavorite();
         displayPortrait(portraitUrl);
         displaySprite(spriteUrl);
         displayPokemonName(name);
@@ -39,6 +42,10 @@ public class PokemonWindowGroup extends Group {
         displayBiology(biology);
     }
 
+
+    private void displayFavorite() {
+
+    }
     /**
      * Adds to the class the Nodes related to the Portrait
      * @param url contains the url for the pokemon portrait

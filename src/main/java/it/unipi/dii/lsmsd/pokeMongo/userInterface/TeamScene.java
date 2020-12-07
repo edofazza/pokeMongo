@@ -95,6 +95,8 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
         UserManager userManager = UserManagerFactory.buildManager();
         userManager.changeTeamName(CurrentUI.getUser(), teamNameTF.getText());
 
+        CurrentUI.getUser().setTeamName(teamNameTF.getText());
+
         // remove pokemon removed
         TeamManager teamManager = TeamManagerFactory.buildManager();
         for (int i = 0; i < 6; ++i) {

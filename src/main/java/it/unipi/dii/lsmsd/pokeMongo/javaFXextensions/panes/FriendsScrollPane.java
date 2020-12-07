@@ -1,7 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
-import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRanker;
 import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRankerFactory;
 
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManager;
