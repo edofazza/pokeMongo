@@ -3,8 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRanker;
 import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRankerFactory;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
+
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerFactory;
 import javafx.scene.control.ScrollPane;
