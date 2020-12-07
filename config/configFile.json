@@ -6,6 +6,7 @@
 
   "userDbArchitecture": "MongoDb",
   "pokemonDbArchitecture": "MongoDb",
+  "postDbArchitecture": "Neo4j",
   "teamDbArchitecture": "Neo4j",
   "networkDbArchitecture": "Neo4j",
 

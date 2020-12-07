@@ -119,13 +119,12 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
         ArrayList<Object> res = getWithFilter(query, parameters("username", u.getUsername()));
         for(Object o: res){
             Record r =(Record)o;
-            String username = r.get("to.username").asString();
+            String username = r.get("to.name").asString();
             liked.add(username);
         }
         return liked;
     }
-
-
+    
     @Override
     public List<String> getSuggestedUser(User u) {
         List<String> usernameList = new ArrayList<>();
