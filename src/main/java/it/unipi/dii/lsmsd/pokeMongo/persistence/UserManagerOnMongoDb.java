@@ -24,7 +24,7 @@ import static com.mongodb.client.model.Sorts.descending;
 import static com.mongodb.client.model.Updates.inc;
 import static com.mongodb.client.model.Updates.set;
 
-public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager, UserRanker {
+class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager, UserRanker {
     private final String collectionName = "user";
 
     private Document UserToDocument(User u){

@@ -1,8 +1,12 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerOnNeo4j;
+import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRanker;
+import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRankerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerFactory;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
@@ -24,10 +28,10 @@ public class FriendsScrollPane extends ScrollPane {
         root.getChildren().clear();
 
         // RETRIEVE USERNAMES FROM NEO4J, THEN RETRIEVE USERS FROM MONGO
-        UserNetworkManagerOnNeo4j userNetworkManagerOnNeo4j = new UserNetworkManagerOnNeo4j();
-        List<String> username = userNetworkManagerOnNeo4j.getUserBySearch(pattern);
+        UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
+        List<String> username = userNetworkManager.getUserBySearch(pattern);
         System.out.println(username.get(0));
-        List<User> friendsUser = (new UserManagerOnMongoDb()).bestFriendsTeams(username);
+        List<User> friendsUser = (UserRankerFactory.buildRanker()).bestFriendsTeams(username);
 
         System.out.println("//////////////// " + friendsUser.size());
         // ADD IN ROOT

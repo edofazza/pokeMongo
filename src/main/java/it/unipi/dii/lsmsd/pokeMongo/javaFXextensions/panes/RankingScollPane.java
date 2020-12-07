@@ -2,6 +2,10 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.PokemonRanker;
+import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.TeamRankerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRanker;
+import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRankerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.*;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.RankingTypes;
@@ -41,13 +45,13 @@ public class RankingScollPane extends ScrollPane {
 
         // IN CASE OF BESTTEAM
         if (rankingTypes == RankingTypes.BESTTEAM){
-            UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
+            UserRanker userRanker = UserRankerFactory.buildRanker();
             List<User> userList = null;
             // TODO: add the result by country
             if (country.equals("")) { // WORLD
-                userList = userManagerOnMongoDb.bestWorldTeams();
+                userList = userRanker.bestWorldTeams();
             } else {
-                userList = userManagerOnMongoDb.bestCountryTeams(country);
+                userList = userRanker.bestCountryTeams(country);
             }
 
             for (User user : userList) {
@@ -58,14 +62,14 @@ public class RankingScollPane extends ScrollPane {
 
         // IN CASE OF BESTPOKEMON
         if (rankingTypes == RankingTypes.BESTPOKEMON){
-            TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
+            PokemonRanker pokemonRanker = TeamRankerFactory.buildRanker();
 
             ArrayList<Pokemon> pokemonArrayList = null;
 
             if (country.equals(""))  // WORLD
-                pokemonArrayList = teamManagerOnNeo4j.getBestPokemon();
+                pokemonArrayList = pokemonRanker.getBestPokemon();
             else
-                pokemonArrayList = teamManagerOnNeo4j.getBestPokemon(country);
+                pokemonArrayList = pokemonRanker.getBestPokemon(country);
 
             for (Pokemon p: pokemonArrayList) {
                 RankingPokemonSingleResultPane prpp = new RankingPokemonSingleResultPane(p);
@@ -78,8 +82,8 @@ public class RankingScollPane extends ScrollPane {
 
         //get friends usernames
         if(rankingTypes == RankingTypes.FRIENDS){
-            List<String> friendsUsernames = (new UserNetworkManagerOnNeo4j()).getFollowing(CurrentUI.getUser());
-            List<User> friendsUser = (new UserManagerOnMongoDb()).bestFriendsTeams(friendsUsernames);
+            List<String> friendsUsernames = (UserNetworkManagerFactory.buildManager()).getFollowing(CurrentUI.getUser());
+            List<User> friendsUser = (UserRankerFactory.buildRanker()).bestFriendsTeams(friendsUsernames);
 
             for (User user : friendsUser) {
                 RankingSingleUserResult rankingSingleUserResult = new RankingSingleUserResult(user);
