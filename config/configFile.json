@@ -4,6 +4,10 @@
   "passwordSpeedLogin": "ciaomamma2",
   "verbosityLevel": 3,
 
+  "userDbArchitecture": "MongoDb",
+  "pokemonDbArchitecture": "MongoDb",
+  "teamDbArchitecture": "Neo4j",
+
   "localUri": "neo4j://localhost:7687",
   "userNeo4j": "neo4j",
   "passwordNeo4j": "root"
