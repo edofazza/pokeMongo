@@ -6,7 +6,8 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PokemonPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.TeamNameTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 import java.util.ArrayList;
@@ -90,8 +91,8 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
 
     private void saveButtonAction() {
         // save the team name
-        UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
-        userManagerOnMongoDb.changeTeamName(CurrentUI.getUser(), teamNameTF.getText());
+        UserManager userManager = UserManagerFactory.buildManager();
+        userManager.changeTeamName(CurrentUI.getUser(), teamNameTF.getText());
 
         // remove pokemon removed
         TeamManagerOnNeo4j teamManagerOnNeo4j = new TeamManagerOnNeo4j();
@@ -103,7 +104,7 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
         }
 
         // save the points
-        userManagerOnMongoDb.updatePoints(CurrentUI.getUser(), CurrentUI.getUser().getPoints());
+        userManager.updatePoints(CurrentUI.getUser(), CurrentUI.getUser().getPoints());
 
         points.setText("Points: " + CurrentUI.getUser().getPoints());
     }

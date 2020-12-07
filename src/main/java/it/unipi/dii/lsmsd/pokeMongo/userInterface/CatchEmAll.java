@@ -145,8 +145,8 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
             updatePokeBallsLabelNumber();
 
             // DECREMENT ALSO IN THE DB
-            UserManagerOnMongoDb userManagerOnMongoDb = new UserManagerOnMongoDb();
-            userManagerOnMongoDb.updateNumberOfPokeball(CurrentUI.getUser());
+            UserManager userManager = UserManagerFactory.buildManager();
+            userManager.updateNumberOfPokeball(CurrentUI.getUser());
 
             if ((Math.random() * 254 + 1) < pokemon.getCapture_rate()) {
                 invalidFormEntryLabel.setText(pokemon.getName() + " caught");
@@ -164,7 +164,7 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
 
                     // update points in mongo
                     // Update the point in mongodb
-                    userManagerOnMongoDb.updatePoints(CurrentUI.getUser(), CurrentUI.getUser().getPoints());
+                    userManager.updatePoints(CurrentUI.getUser(), CurrentUI.getUser().getPoints());
                 } catch (SlotAlreadyOccupiedException saoe){
                     invalidFormEntryLabel.setText("slot already occupied");
                     invalidFormEntryLabel.setVisible(true);
