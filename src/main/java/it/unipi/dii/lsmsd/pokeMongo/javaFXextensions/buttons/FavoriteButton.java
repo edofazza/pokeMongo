@@ -26,6 +26,7 @@ public class FavoriteButton extends Button {
 
         // TAKE INFO FROM NEO4J
         favorite = isFavorite();
+        System.out.println(favorite);
         setImage();
     }
 
@@ -39,14 +40,14 @@ public class FavoriteButton extends Button {
                     " -fx-background-size: 35;" +
                     " -fx-background-color: trasparent; " +
                     "-fx-background-repeat: no-repeat;" +
-                    " -fx-background-image: url(" + imgFavoriteOffLocation + ")");
+                    " -fx-background-image: url(" + imgFavoriteOnLocation + ")");
         }
         else {
             setStyle(" -fx-border-color: transparent;" +
                     " -fx-background-size: 35;" +
                     " -fx-background-color: trasparent; " +
                     "-fx-background-repeat: no-repeat;" +
-                    " -fx-background-image: url(" + imgFavoriteOnLocation + ")");
+                    " -fx-background-image: url(" + imgFavoriteOffLocation + ")");
         }
     }
 
