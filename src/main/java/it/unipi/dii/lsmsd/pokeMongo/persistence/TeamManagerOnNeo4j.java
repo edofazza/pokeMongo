@@ -4,6 +4,7 @@ import com.google.common.annotations.VisibleForTesting;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
+import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.PokemonRanker;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePokemonException;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicateUserException;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.SlotAlreadyOccupiedException;
@@ -15,7 +16,7 @@ import java.util.Map;
 
 import static org.neo4j.driver.Values.parameters;
 
-public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
+public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager, PokemonRanker {
 
     @Override
     @VisibleForTesting
@@ -89,7 +90,7 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
         return team;
     }
 
-
+    @Override
     public ArrayList<Pokemon> getBestPokemon() {
         ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
         String query = "MATCH ()-[h:HAS]->(p:Pokemon) return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT " +  + ConfigDataHandler.getInstance().configData.numRowsRanking;
@@ -97,6 +98,7 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
         return getPokemons(pokemonArrayList, res);
     }
 
+    @Override
     public ArrayList<Pokemon> getBestPokemon(String country) {
         ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
         String query = "MATCH (u:User)-[h:HAS]->(p:Pokemon) WHERE u.country = $country return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT " + ConfigDataHandler.getInstance().configData.numRowsRanking;

@@ -72,8 +72,21 @@ public interface UserManager {
      */
     boolean verifyOldPassword(User involved, String password);
 
+    /**
+     * Changes the name of the team associated to a user
+     * @param involved User that own the team
+     * @param newName name of the team
+     * @return true if the name is correctly updated
+     */
     boolean changeTeamName(User involved, String newName);
 
+
+    /**
+     * Updates a user's points
+     * @param target User whose points are updated
+     * @param points new Value of target's points
+     * @return true if points are successfully updated
+     */
     boolean updatePoints(User target, double points);
 
     /**
