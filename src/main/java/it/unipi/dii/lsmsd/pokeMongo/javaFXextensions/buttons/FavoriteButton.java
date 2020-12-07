@@ -62,14 +62,12 @@ public class FavoriteButton extends Button {
         if (favorite) {
             setStyle(" -fx-border-color: transparent;" +
                     " -fx-background-size: 35;" +
-                    " -fx-background-color: trasparent; " +
                     "-fx-background-repeat: no-repeat;" +
                     " -fx-background-image: url(" + imgFavoriteOnLocation + ")");
         }
         else {
             setStyle(" -fx-border-color: transparent;" +
                     " -fx-background-size: 35;" +
-                    " -fx-background-color: trasparent; " +
                     "-fx-background-repeat: no-repeat;" +
                     " -fx-background-image: url(" + imgFavoriteOffLocation + ")");
         }
