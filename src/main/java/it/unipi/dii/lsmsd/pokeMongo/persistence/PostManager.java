@@ -18,6 +18,15 @@ public interface PostManager {
     boolean insertPost(Post p) throws DuplicatePostException;
 
     /**
+     *
+     * @param newPost Post to be stored permanently
+     * @param topic Already present post that the newPost depends.
+     * @return true if the insert was possible
+     * @throws DuplicatePostException
+     */
+    boolean insertResponse(Post newPost, Post topic) throws DuplicatePostException;
+
+    /**
      * Delete a Post from the system
      * @param p  Post to be deleted
      * @return true if the Post was correctly removed

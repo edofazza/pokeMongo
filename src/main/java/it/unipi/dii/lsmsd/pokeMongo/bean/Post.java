@@ -6,10 +6,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Post {
-    public String authorUsername;
-    public String content;
-    public LocalDateTime publishDate;
-    public String pokemonName;
+    private String authorUsername;
+    private String content;
+    private LocalDateTime publishDate;
+    private String pokemonName;
 
 
     public Post(String authorUsername, String content, LocalDateTime publishDate, String pokemonName){

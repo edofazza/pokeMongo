@@ -9,8 +9,6 @@ import static org.neo4j.driver.Values.parameters;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map.Entry;
-import java.util.Map;
 
 public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
     public boolean insertPost(Post p) throws DuplicatePostException{
@@ -26,7 +24,7 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
     public boolean insertResponse(Post newPost, Post topic) throws DuplicatePostException{
         if(existResponse(newPost))
             throw new DuplicatePostException();
-        String query = "MATCH (u:User) WHERE u.username = $username MATCH (uTopic:User)-[:CREATED]-(pTopic:Post)-[:TOPIC]->(pokTopic:Pokemon) " +
+        String query = "MATCH (u:User) WHERE u.username = $username MATCH (uTopic:User)-[:CREATED]->(pTopic:Post)-[:TOPIC]->(pokTopic:Pokemon) " +
                 "WHERE uTopic.username = $username2 and pTopic.creationDate = $date2 and pTopic.content = $content2 and pokTopic.name = $name2" +
                 "CREATE (u)-[:CREATED]->(p1:Post{content: $content, creationDate: $date})-[:TOPIC]->(pTopic)";
 

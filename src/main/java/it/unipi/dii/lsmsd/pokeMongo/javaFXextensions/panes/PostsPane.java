@@ -10,7 +10,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class PostsPane extends Pane {
     private TextArea postArea;

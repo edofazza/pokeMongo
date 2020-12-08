@@ -27,8 +27,6 @@ public class PostsPresentScrollPane extends ScrollPane {
     }
 
     private void loadPosts() {
-        //PostPane postTest = new PostPane(); // TODO: see the real data retrieved from the db
-
         PostManager postManagerFactory =  PostManagerFactory.buildManager();
         List<Pair<Post, Integer>> postList = postManagerFactory.getPostsByPokemon(pokemonName);
 
