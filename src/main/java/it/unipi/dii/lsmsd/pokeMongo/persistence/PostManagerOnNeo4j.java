@@ -53,14 +53,10 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
         return remove(query, parameters("username", p.getAuthorUsername(), "date", p.getPublishDate(), "content", p.getContent()));
     }
 
-
-
-
     public boolean modifyPost(Post p_old, Post p_new){
         //String query = "MATCH MATCH (u:User)-[:CREATED]->(p:Post)-[:TOPIC]->(p1:Pokemon) WHERE u.username = $username and p.creationDate = $date and content = $content and p1.name = $name SET p.creationDate = $date2 and content = $content2";
         return true;
     }
-
 
     public boolean existPost(Post p){
         String query = "MATCH (u:User)-[:CREATED]->(p:Post)-[:TOPIC]->(p1:Pokemon) " +
@@ -80,7 +76,6 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
         Record d = (Record)res.get(0);
         return (d.get("post_count").asInt() > 0);
     }
-
 
     public List<Pair<Post, Integer>> getPostsByPokemon(String p){
         String query = "MATCH (u:User)-[:CREATED]->(p:Post)-[:TOPIC]->(p1:Pokemon) WHERE p1.name = $name OPTIONAL MATCH (p:Post)<-[w:RESPONSE]-(p2:Post)" +

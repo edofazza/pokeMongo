@@ -1,6 +1,9 @@
 package it.unipi.dii.lsmsd.pokeMongo.bean;
 
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Post {
     public String authorUsername;
@@ -30,5 +33,12 @@ public class Post {
 
     public String getPokemonName() {
         return pokemonName;
+    }
+
+    public String getFormattedDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        String formatDateTime = publishDate.format(formatter);
+        Logger.vlog(formatDateTime);
+        return formatDateTime;
     }
 }
