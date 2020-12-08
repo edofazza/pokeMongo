@@ -1,8 +1,8 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.FavoritePokemonSingleResultForScrollPane;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
@@ -26,12 +26,9 @@ public class FavoriteCatchEmAllScrollPane extends ScrollPane {
         List<String> pokemonNames = (UserNetworkManagerFactory.buildManager()).getLikedPokemonNames(CurrentUI.getUser());
 
         for (String name: pokemonNames) {
-            Button button = new Button(name);
-            button.setStyle("-fx-background-color: white; -fx-border-color: #4aa7e9; -fx-text-alignment: center;" +
-                    " -fx-font-weight: bold; -fx-text-fill: #4aa7e9;");
-            button.setPrefSize(200, 24);
+            FavoritePokemonSingleResultForScrollPane favPokemon = new FavoritePokemonSingleResultForScrollPane(name);
 
-            root.getChildren().add(button);
+            root.getChildren().add(favPokemon);
         }
     }
 }

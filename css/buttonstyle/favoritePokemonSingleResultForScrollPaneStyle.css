@@ -1,0 +1,7 @@
+.FavoritePokemonSingleResultForScrollPane {
+    -fx-background-color: white;
+    -fx-border-color: #4aa7e9;
+    -fx-text-alignment: center;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4aa7e9;
+}
