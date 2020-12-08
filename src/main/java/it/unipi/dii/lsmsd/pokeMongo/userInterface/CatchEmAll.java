@@ -68,8 +68,8 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
      */
     private void displaySelectPokemon() {
         selectPokemonTF = new CatchEmAllTextField("Type pokemon name", 530, 200);
-
-        selectPokemonTF.setOnKeyReleased(e->loadPokemonInfoByName(selectPokemonTF.getText()));
+        
+        selectPokemonTF.textProperty().addListener( e->loadPokemonInfoByName(selectPokemonTF.getText()));
         sceneNodes.getChildren().add(selectPokemonTF);
     }
 
@@ -120,7 +120,7 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
         FieldRelatedLabel favoritePokemonLabel = new FieldRelatedLabel("Favorite Pokemons", 900, 150);
         favoritePokemonLabel.setStyle("-fx-text-fill: #acac02;");
 
-        FavoriteCatchEmAllScrollPane favoriteCatchEmAllScrollPane = new FavoriteCatchEmAllScrollPane(900, 173, 220, 400);
+        FavoriteCatchEmAllScrollPane favoriteCatchEmAllScrollPane = new FavoriteCatchEmAllScrollPane(900, 173, 220, 400, selectPokemonTF);
 
         sceneNodes.getChildren().addAll(favoritePokemonLabel, favoriteCatchEmAllScrollPane);
     }
