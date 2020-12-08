@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.persistence;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Post;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePostException;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.util.Pair;
 import org.neo4j.driver.Record;
 import static org.neo4j.driver.Values.parameters;
@@ -24,12 +25,15 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
     public boolean insertResponse(Post newPost, Post topic) throws DuplicatePostException{
         if(existResponse(newPost))
             throw new DuplicatePostException();
+        Logger.vlog("NEW POST INFO: " + newPost.getAuthorUsername() + " " + newPost.getContent() + " " + newPost.getPokemonName() + " " + newPost.getPublishDate());
+        Logger.vlog("TOPIC POST INFO: " + topic.getAuthorUsername() + " " + topic.getContent() + " " + topic.getPokemonName() + " " + topic.getPublishDate());
+
         String query = "MATCH (u:User) WHERE u.username = $username MATCH (uTopic:User)-[:CREATED]->(pTopic:Post)-[:TOPIC]->(pokTopic:Pokemon) " +
-                "WHERE uTopic.username = $username2 and pTopic.creationDate = $date2 and pTopic.content = $content2 and pokTopic.name = $name2" +
+                "WHERE uTopic.username = $username2 and pTopic.creationDate = $date2 and pTopic.content = $content2 and pokTopic.name = $name2 " +
                 "CREATE (u)-[:CREATED]->(p1:Post{content: $content, creationDate: $date})-[:TOPIC]->(pTopic)";
 
         return insert(query, parameters("username", newPost.getAuthorUsername(), "content", newPost.getPokemonName(),
-                "date", newPost.getPublishDate(), "username2", topic.getAuthorUsername(), "date2", topic.getPublishDate(), "content2", topic.getPublishDate(), "name2", topic.getPokemonName()));
+                "date", newPost.getPublishDate(), "username2", topic.getAuthorUsername(), "date2", topic.getPublishDate(), "content2", topic.getContent(), "name2", topic.getPokemonName()));
     }
 
 
