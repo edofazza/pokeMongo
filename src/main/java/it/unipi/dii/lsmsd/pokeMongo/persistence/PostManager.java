@@ -2,8 +2,11 @@ package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Post;
+import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePostException;
+import javafx.util.Pair;
 
 import java.util.List;
+import java.util.Map;
 
 public interface PostManager {
 
@@ -12,7 +15,7 @@ public interface PostManager {
      * @param p  Post to be stored permanently
      * @return true if the Post was correctly inserted
      */
-    boolean insertPost(Post p);
+    boolean insertPost(Post p) throws DuplicatePostException;
 
     /**
      * Delete a Post from the system
@@ -43,5 +46,14 @@ public interface PostManager {
      * @param p Pokemon which represents the topic of the Posts to be searched
      * @return List of Posts referred to p
      */
-    List<Post> getPostsByPokemon(Pokemon p);
+    List<Pair<Post,Integer>> getPostsByPokemon(Pokemon p);
+
+
+
+    /**
+     * Obtain all Posts in response to a specific Post
+     * @param p Post in which the responses are directed
+     * @return List of Posts referred to p
+     */
+    List<Pair<Post, Integer>> getPostsByPost(Post p);
 }
