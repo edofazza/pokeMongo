@@ -8,6 +8,7 @@ public class Post {
     public LocalDateTime publishDate;
     public String pokemonName;
 
+
     public Post(String authorUsername, String content, LocalDateTime publishDate, String pokemonName){
         this.authorUsername = authorUsername;
         this.content = content;

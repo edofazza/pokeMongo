@@ -8,7 +8,7 @@ public class PostManagerFactory {
         String technology = getConfiguration();
         Logger.vlog("Obtaining technology: " + technology);
         switch (technology){
-            case "MongoDb":
+            case "Neo4j":
                 return new PostManagerOnNeo4j();
             default:
                 try{

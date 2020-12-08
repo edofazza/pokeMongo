@@ -55,5 +55,5 @@ public interface PostManager {
      * @param p Post in which the responses are directed
      * @return List of Posts referred to p
      */
-    List<Pair<Post, Integer>> getPostsByPost(Post p);
+    List<Post> getPostsByPost(Post p);
 }
