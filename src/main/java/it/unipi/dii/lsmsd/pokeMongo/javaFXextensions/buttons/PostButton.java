@@ -17,6 +17,7 @@ public class PostButton extends Button {
 
         this.text = text;
         this.subPostsVBox = subPostsVBox;
+        this.currentPost = currentPost;
 
         setOnAction(e -> fillVBox());
     }
