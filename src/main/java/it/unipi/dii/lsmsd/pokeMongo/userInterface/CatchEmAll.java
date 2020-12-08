@@ -12,7 +12,6 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.FavoriteCatchEmAllScr
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.*;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
-import javafx.scene.control.ScrollPane;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,7 +67,7 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
      */
     private void displaySelectPokemon() {
         selectPokemonTF = new CatchEmAllTextField("Type pokemon name", 530, 200);
-        
+
         selectPokemonTF.textProperty().addListener( e->loadPokemonInfoByName(selectPokemonTF.getText()));
         sceneNodes.getChildren().add(selectPokemonTF);
     }
