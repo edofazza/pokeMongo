@@ -8,9 +8,11 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.imageviews.BackgroundImage;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.InvalidFormEntryLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.TitleLabel;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.FavoriteCatchEmAllScrollPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.*;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
+import javafx.scene.control.ScrollPane;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,6 +47,8 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
         displayTryToCatch();
 
         displayResultLabel();
+
+        displayFavoritePokemons();
 
         setSceneMusic("catchemAll.mp3");
     }
@@ -110,6 +114,15 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
     private void displayResultLabel() {
         invalidFormEntryLabel = new InvalidFormEntryLabel("", 600, 550, false);
         sceneNodes.getChildren().add(invalidFormEntryLabel);
+    }
+
+    private void displayFavoritePokemons() {
+        FieldRelatedLabel favoritePokemonLabel = new FieldRelatedLabel("Favorite Pokemons", 900, 150);
+        favoritePokemonLabel.setStyle("-fx-text-fill: #acac02;");
+
+        FavoriteCatchEmAllScrollPane favoriteCatchEmAllScrollPane = new FavoriteCatchEmAllScrollPane(900, 173, 220, 400);
+
+        sceneNodes.getChildren().addAll(favoritePokemonLabel, favoriteCatchEmAllScrollPane);
     }
 
 
