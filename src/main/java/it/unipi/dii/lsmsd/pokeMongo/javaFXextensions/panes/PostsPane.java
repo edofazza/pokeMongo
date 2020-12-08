@@ -1,16 +1,27 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
+import it.unipi.dii.lsmsd.pokeMongo.bean.Post;
+import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePostException;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PostManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PostManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class PostsPane extends Pane {
     private TextArea postArea;
+    private String pokemonName;
 
-    public PostsPane(int x, int y, int width, int height) {
+    public PostsPane(int x, int y, int width, int height, String pokemonName) {
         setPrefSize(width, height);
         relocate(x, y);
         setStyle("-fx-background-color: #eaeaea;");
+
+        this.pokemonName = pokemonName;
 
         displayPostsPresent();
         displayTextArea();
@@ -18,7 +29,7 @@ public class PostsPane extends Pane {
     }
 
     public void displayPostsPresent() {
-        PostsPresentScrollPane postsPresentScrollPane = new PostsPresentScrollPane(15, 15, 400, 365);
+        PostsPresentScrollPane postsPresentScrollPane = new PostsPresentScrollPane(15, 15, 400, 365, pokemonName);
 
         getChildren().add(postsPresentScrollPane);
     }
@@ -45,6 +56,18 @@ public class PostsPane extends Pane {
         if(postArea.getText().equals(""))
             return;
 
+        LocalDateTime localDateTime = LocalDateTime.now();
+
         // PUBLISH POST ON NEO4J
+        PostManager postManagerFactory =  PostManagerFactory.buildManager();
+        try {
+            postManagerFactory.insertPost(
+                    new Post(CurrentUI.getUser().getUsername(),
+                            postArea.getText(),
+                            localDateTime,
+                            pokemonName));
+        } catch (DuplicatePostException e) {
+            e.printStackTrace();
+        }
     }
 }

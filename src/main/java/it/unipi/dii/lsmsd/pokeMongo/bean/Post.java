@@ -1,7 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.bean;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Post {
     public String authorUsername;

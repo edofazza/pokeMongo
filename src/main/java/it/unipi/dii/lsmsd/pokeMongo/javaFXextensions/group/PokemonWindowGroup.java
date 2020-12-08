@@ -44,7 +44,7 @@ public class PokemonWindowGroup extends Group {
         displayCatchRate(catchRate);
         displayBiology(biology);
 
-        displayPosts();
+        displayPosts(name);
     }
 
 
@@ -154,12 +154,12 @@ public class PokemonWindowGroup extends Group {
         getChildren().addAll(biologyTitle, biologyText);
     }
 
-    private void displayPosts() {
+    private void displayPosts(String name) {
         Label postLabel = new Label("POSTS");
         postLabel.relocate( 815, 70);
         postLabel.setStyle("-fx-font-family: 'Arial Black'; -fx-font-size: 15; -fx-font-weight: bold;");
 
-        PostsPane pane = new PostsPane(640, 100, 430, 500);
+        PostsPane pane = new PostsPane(640, 100, 430, 500, name);
 
         getChildren().addAll(postLabel, pane);
     }

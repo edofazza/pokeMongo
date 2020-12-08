@@ -44,10 +44,10 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
         return (d.get("post_count").asInt() > 0);
     }
 
-    public List<Pair<Post, Integer>> getPostsByPokemon(Pokemon p){
+    public List<Pair<Post, Integer>> getPostsByPokemon(String p){
         String query = "MATCH (u:User)-[:CREATED]->(p:Post)-[:TOPIC]->(p1:Pokemon) WHERE p1.name = $name OPTIONAL MATCH (p:Post)<-[w:RESPONSE]-(p2:Post)" +
                 "RETURN u.username, p.content, p.creationDate, p1.name, count(w) as tot_replies ORDER BY p.creationDate";
-        ArrayList<Object> res = getWithFilter(query, parameters("name", p.getName()));
+        ArrayList<Object> res = getWithFilter(query, parameters("name", p));
         List<Pair<Post,Integer>> return_list = new ArrayList<>();
         for(Object o: res){
             Record d = (Record) o;

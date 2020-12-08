@@ -46,7 +46,7 @@ public interface PostManager {
      * @param p Pokemon which represents the topic of the Posts to be searched
      * @return List of Posts referred to p
      */
-    List<Pair<Post,Integer>> getPostsByPokemon(Pokemon p);
+    List<Pair<Post,Integer>> getPostsByPokemon(String p);
 
 
 
