@@ -28,7 +28,7 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
             throw new DuplicatePostException();
         String query = "MATCH (u:User) WHERE u.username = $username MATCH (uTopic:User)-[:CREATED]-(pTopic:Post)-[:TOPIC]->(pokTopic:Pokemon) " +
                 "WHERE uTopic.username = $username2 and pTopic.creationDate = $date2 and pTopic.content = $content2 and pokTopic.name = $name2" +
-                "CREATE (u)-[:CREATED]->(p1:Post{content: $content, creationDate: $date})-[:TOPIC]->(uTopic)";
+                "CREATE (u)-[:CREATED]->(p1:Post{content: $content, creationDate: $date})-[:TOPIC]->(pTopic)";
 
         return insert(query, parameters("username", newPost.getAuthorUsername(), "content", newPost.getPokemonName(),
                 "date", newPost.getPublishDate(), "username2", topic.getAuthorUsername(), "date2", topic.getPublishDate(), "content2", topic.getPublishDate(), "name2", topic.getPokemonName()));
@@ -39,9 +39,18 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
     public boolean deletePost(Post p){
         String query = "MATCH (u:User)-[:CREATED]->(p:Post)-[:TOPIC]->(p1:Pokemon) " +
                 " WHERE u.username = $username and p.creationDate = $date and p.content = $content and p1.name = $name " +
-                " OPTIONAL MATCH (u1:User)-[:CREATED]->(p1:Post)-[:TOPDETACH DELETE p";
-
+                " OPTIONAL MATCH (p2:Post)-[:TOPIC]->(p:Post) DETACH DELETE p2, p";
         return remove(query, parameters("username", p.getAuthorUsername(), "name", p.getPokemonName(), "date", p.getPublishDate(), "content", p.getContent()));
+    }
+
+    //TODO: si potrebbe inglobare in una deletePost generica
+    //TODO: non ci sono riferimenti al Post che fa da topic
+    public boolean deleteResponse(Post p){
+        String query = "MATCH (u:User)-[:CREATED]->(p:Post) " +
+                " WHERE u.username = $username and p.creationDate = $date and p.content = $content" +
+                " DETACH DELETE p";
+
+        return remove(query, parameters("username", p.getAuthorUsername(), "date", p.getPublishDate(), "content", p.getContent()));
     }
 
 
@@ -91,15 +100,14 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
     public List<Post> getPostsByPost(Post p){
         String query = "MATCH (u:User)-[:CREATED]->(p:Post)-[:TOPIC]->(p1:Post) MATCH (u1:User)-[:CREATED]->(p1:Post)-[:TOPIC]->(pok:Pokemon)"  +
                 "WHERE p1.content = $content and p1.creationDate = $date and u1.username = $username and pok.name = $name" +
-                "RETURN u.username, p.content, p.creationDate, p1.name ORDER BY p.creationDate";
-        ArrayList<Object> res = getWithFilter(query, parameters("content", p.getContent(), "date", p.getPublishDate(), "username", p.getAuthorUsername(), "name", p.getPokemonName()));
+                "RETURN u.username, p.content, p.creationDate ORDER BY p.creationDate";
+        ArrayList<Object> res = getWithFilter(query, parameters("content", p.getContent(), "date", p.getPublishDate(), "username", p.getAuthorUsername()));
         List<Post> return_list = new ArrayList<>();
         for(Object o: res){
             Record d = (Record) o;
-            Post post = new Post(d.get("u.username").asString(), d.get("p.content").asString(), d.get("p.creationDate").asLocalDateTime(), d.get("p1.name").asString());
+            Post post = new Post(d.get("u.username").asString(), d.get("p.content").asString(), d.get("p.creationDate").asLocalDateTime(), "");
             return_list.add(post);
         }
         return return_list;
     }
-
 }
