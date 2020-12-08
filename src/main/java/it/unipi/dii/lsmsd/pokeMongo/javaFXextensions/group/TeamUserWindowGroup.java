@@ -43,7 +43,6 @@ public class TeamUserWindowGroup extends Group {
 
     private void displayFollowButton() {
         UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
-        System.out.println(userNetworkManager.isFollowing(CurrentUI.getUser().getUsername(), user.getUsername()));
 
         if (userNetworkManager.isFollowing(CurrentUI.getUser().getUsername(), user.getUsername()))
             follow = new Button("FOLLOWING");
