@@ -56,7 +56,7 @@ public class FilterPokemonResultButton extends Button {
                 Double.toString(pokemon.getCapture_rate()),
                 pokemon.getBiology());
 
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, 1100, 650);
         Stage stage = new Stage();
         stage.setTitle(pokemon.getName());
         stage.setScene(scene);

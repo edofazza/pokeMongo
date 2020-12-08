@@ -1,14 +1,15 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.FavoriteButton;
-import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.imageviews.BackgroundImage;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.PokemonWindowLabel;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PostsPane;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 /**
  * This particular Group is used for creating the elements to be added in the
@@ -42,12 +43,13 @@ public class PokemonWindowGroup extends Group {
         displayHeight(height);
         displayCatchRate(catchRate);
         displayBiology(biology);
+
+        displayPosts();
     }
 
 
     private void displayFavorite(String name) {
         FavoriteButton favoriteStar =  new FavoriteButton(560, 10, 40, name);
-        //BackgroundImage favoriteStar = new BackgroundImage("emptyStar.png", 40, 560, 10);
 
         getChildren().add(favoriteStar);
     }
@@ -133,16 +135,6 @@ public class PokemonWindowGroup extends Group {
     }
 
     /**
-     * Adds to the class the Nodes related to the pokemon's points
-     * @param points points attribute to the pokemon
-     */
-    private void displayPoints(String points) {
-        PokemonWindowLabel pointsLabel = new PokemonWindowLabel("POINTS: " + points, 250, 200);
-
-        getChildren().add(pointsLabel);
-    }
-
-    /**
      * Adds to the class the Nodes related to the pokemon's biology. The Nodes created are a TextArea
      * in which the user can read the description (cannot modify it) and a Label over it, saying "Biology"
      * @param biology description of the pokemon
@@ -160,5 +152,15 @@ public class PokemonWindowGroup extends Group {
         biologyTitle.setStyle("-fx-font-family: 'Arial Black'; -fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #70709d;");
 
         getChildren().addAll(biologyTitle, biologyText);
+    }
+
+    private void displayPosts() {
+        Label postLabel = new Label("POSTS");
+        postLabel.relocate( 815, 70);
+        postLabel.setStyle("-fx-font-family: 'Arial Black'; -fx-font-size: 15; -fx-font-weight: bold;");
+
+        PostsPane pane = new PostsPane(640, 100, 430, 500);
+
+        getChildren().addAll(postLabel, pane);
     }
 }
