@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Post;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePostException;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.PostButton;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PostManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PostManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
@@ -15,8 +16,11 @@ public class SubPostInsertCommentPane extends Pane {
     private Post currentPost;
     private TextArea writePost;
 
-    public SubPostInsertCommentPane(Post currentPost) {
+    private PostButton postButtonAnswer;
+
+    public SubPostInsertCommentPane(Post currentPost, PostButton postButtonAnswer) {
         this.currentPost = currentPost;
+        this.postButtonAnswer = postButtonAnswer;
 
         writePost = new TextArea();
         writePost.setPrefSize(290, 30);
@@ -45,6 +49,8 @@ public class SubPostInsertCommentPane extends Pane {
                     localDateTime,
                     currentPost.getPokemonName()
             ), currentPost);
+
+            postButtonAnswer.newAnswerPosted();
         } catch (DuplicatePostException e) {
             e.printStackTrace();
         }

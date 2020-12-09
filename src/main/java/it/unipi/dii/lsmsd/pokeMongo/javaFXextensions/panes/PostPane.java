@@ -52,8 +52,8 @@ public class PostPane extends Pane {
 
     private void displayButtons() {
         SubPostsVBox subPostsVBox = new SubPostsVBox(20, 95);
-        PostButton comment = new PostButton("Comment", 5, 58, subPostsVBox, post, numberOfAnswers);
         PostButton answers = new PostButton("Answers (" + numberOfAnswers + ")" , 90, 58, subPostsVBox, post, numberOfAnswers);
+        PostButton comment = new PostButton("Comment", 5, 58, subPostsVBox, post, numberOfAnswers, answers);
 
         getChildren().addAll(comment, answers, subPostsVBox);
     }

@@ -6,17 +6,19 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.SubPostPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.vBox.SubPostsVBox;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PostManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PostManagerFactory;
-import javafx.scene.control.Button;;import java.time.LocalDateTime;
+import javafx.scene.control.Button;
 import java.util.List;
 
 public class PostButton extends Button {
     private String text;
     private SubPostsVBox subPostsVBox;
     private Post currentPost;
-    private int numberOfAnswers;
+    private static int numberOfAnswers;
 
     private static boolean canComment = false;
     private static boolean answersPresent = false;
+
+    private PostButton postButtonAnswer;
 
     public PostButton(String text, int x, int y, SubPostsVBox subPostsVBox, Post currentPost, int numberOfAnswers) {
         super(text);
@@ -31,12 +33,17 @@ public class PostButton extends Button {
         setOnAction(e -> fillVBox());
     }
 
+    public PostButton(String text, int x, int y, SubPostsVBox subPostsVBox, Post currentPost, int numberOfAnswers, PostButton postButton) {
+        this(text, x, y, subPostsVBox, currentPost, numberOfAnswers);
+
+        this.postButtonAnswer = postButton;
+    }
+
     private void fillVBox() {
         subPostsVBox.getChildren().clear();
 
         if (text.equals("Comment")) {
-            text = "Uncomment";
-            setText(text);
+            setTextButton("Uncomment");
 
             if(answersPresent)
                 addReplies();
@@ -45,16 +52,14 @@ public class PostButton extends Button {
             addCommentPane();
 
         } else if (text.equals("Uncomment")) {
-            text = "Comment";
-            setText(text);
+            setTextButton("Comment");
             canComment = false;
 
             if(answersPresent)
                 addReplies();
 
         } else if (text.startsWith("Answers")) {
-            text = "Show less";
-            setText(text);
+            setTextButton("Show less");
 
             addReplies();
             answersPresent = true;
@@ -62,9 +67,8 @@ public class PostButton extends Button {
             if (canComment)
                 addCommentPane();
 
-        } else if (text.startsWith("Show less")) {
-            text = "Answers (" + numberOfAnswers + ")";
-            setText(text);
+        } else if (text.equals("Show less")) {
+            setTextButton("Answers (" + numberOfAnswers + ")");
 
             answersPresent = false;
 
@@ -76,7 +80,7 @@ public class PostButton extends Button {
     }
 
     private void addCommentPane() {
-        SubPostInsertCommentPane subPostInsertCommentPane = new SubPostInsertCommentPane(currentPost);
+        SubPostInsertCommentPane subPostInsertCommentPane = new SubPostInsertCommentPane(currentPost, postButtonAnswer);
         subPostsVBox.getChildren().addAll(subPostInsertCommentPane);
     }
 
@@ -87,6 +91,17 @@ public class PostButton extends Button {
             SubPostPane subPostPane = new SubPostPane(p);
             subPostsVBox.getChildren().addAll(subPostPane);
         }
+    }
+
+    public void setTextButton(String text) {
+        this.text = text;
+        setText(text);
+    }
+
+    public void newAnswerPosted() {
+        numberOfAnswers++;
+        setTextButton("Answers (" + numberOfAnswers + ")");
+        fillVBox();
     }
 
 }
