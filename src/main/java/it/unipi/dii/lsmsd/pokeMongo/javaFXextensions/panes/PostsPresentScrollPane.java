@@ -34,10 +34,11 @@ public class PostsPresentScrollPane extends ScrollPane {
             Post post = p.getKey();
             int numberOfAnswers = p.getValue();
 
-            PostPane postPane = new PostPane(post, numberOfAnswers);
+            PostPane postPane = new PostPane(post, numberOfAnswers, root);
 
             root.getChildren().add(postPane);
         }
 
     }
+
 }
