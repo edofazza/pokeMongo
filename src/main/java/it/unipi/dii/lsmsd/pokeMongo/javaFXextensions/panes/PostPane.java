@@ -43,7 +43,7 @@ public class PostPane extends Pane {
     }
 
     private void displayDeleteButton() {
-        DeletePostButton deletePostButton = new DeletePostButton("Delete", 160, 0, post, this);
+        DeletePostButton deletePostButton = new DeletePostButton("Delete", 160, 0, this);
 
         getChildren().add(deletePostButton);
     }
@@ -75,5 +75,9 @@ public class PostPane extends Pane {
 
     public void removeItself() {
         fatherRoot.getChildren().remove(this);
+    }
+
+    public Post getPost() {
+        return post;
     }
 }

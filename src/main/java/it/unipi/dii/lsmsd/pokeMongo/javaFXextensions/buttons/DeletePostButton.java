@@ -7,15 +7,13 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.PostManagerFactory;
 import javafx.scene.control.Button;
 
 public class DeletePostButton extends Button {
-    private Post post;
     private PostPane postPane;
 
-    public DeletePostButton(String text, int x, int y, Post post, PostPane postPane) {
+    public DeletePostButton(String text, int x, int y, PostPane postPane) {
         super(text);
         relocate(x, y);
         setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: #f36666;");
 
-        this.post = post;
         this.postPane = postPane;
 
         setOnAction(e -> deletePost());
@@ -23,7 +21,7 @@ public class DeletePostButton extends Button {
 
     private void deletePost() {
         PostManager postManager = PostManagerFactory.buildManager();
-        postManager.deletePost(post);
+        postManager.deletePost(postPane.getPost());
 
         postPane.removeItself();
     }
