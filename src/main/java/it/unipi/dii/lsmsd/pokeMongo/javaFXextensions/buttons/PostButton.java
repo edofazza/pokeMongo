@@ -18,7 +18,7 @@ public class PostButton extends Button {
     private static boolean canComment = false;
     private static boolean answersPresent = false;
 
-    private PostButton postButtonAnswer;
+    private static PostButton postButtonAnswer;
 
     public PostButton(String text, int x, int y, SubPostsVBox subPostsVBox, Post currentPost, int numberOfAnswers) {
         super(text);
@@ -37,6 +37,9 @@ public class PostButton extends Button {
         this(text, x, y, subPostsVBox, currentPost, numberOfAnswers);
 
         this.postButtonAnswer = postButton;
+
+        if (postButton == null)
+            System.out.println("goofy");
     }
 
     private void fillVBox() {
@@ -79,6 +82,15 @@ public class PostButton extends Button {
 
     }
 
+    private void refresh() {
+        subPostsVBox.getChildren().clear();
+
+        if(answersPresent)
+            addReplies();
+        if (canComment)
+            addCommentPane();
+    }
+
     private void addCommentPane() {
         SubPostInsertCommentPane subPostInsertCommentPane = new SubPostInsertCommentPane(currentPost, postButtonAnswer);
         subPostsVBox.getChildren().addAll(subPostInsertCommentPane);
@@ -99,9 +111,8 @@ public class PostButton extends Button {
     }
 
     public void newAnswerPosted() {
-        postButtonAnswer.increment();
-        setTextButton("Answers (" + numberOfAnswers + ")");
-        fillVBox();
+        increment();
+        refresh();
     }
 
     public void increment() {
