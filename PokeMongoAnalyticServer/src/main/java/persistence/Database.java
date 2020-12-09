@@ -18,14 +18,6 @@ public interface Database {
      */
     void closeConnection();
 
-
-    /**
-     * insert 1 ore more objects into the database
-     * @param toInsert ArrayList of arbitrary objects to insert into the Database
-     * @return true if at least one element has been added
-     */
-    boolean insert(ArrayList<Object> toInsert);
-
     /**
      * insert 1 object into the database
      * @param toInsert ArrayList of arbitrary objects to insert into the Database

@@ -51,7 +51,6 @@ public abstract class MongoDbDatabase implements Database{
         getCollection(name).drop();
     }
 
-    @Override
     public boolean insert(ArrayList<Object> toInsert){
         showError();
         return false;

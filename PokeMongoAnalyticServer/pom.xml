@@ -11,5 +11,13 @@
 
     <artifactId>PokeMongoAnalyticServer</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.iq80.leveldb</groupId>
+            <artifactId>leveldb</artifactId>
+            <version>0.12</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
