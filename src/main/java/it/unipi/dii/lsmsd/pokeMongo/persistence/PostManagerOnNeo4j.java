@@ -80,7 +80,7 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
     }
 
     public List<Pair<Post, Integer>> getPostsByPokemon(String p){
-        String query = "MATCH (u:User)-[:CREATED]->(p:Post)-[:TOPIC]->(p1:Pokemon) WHERE p1.name = $name OPTIONAL MATCH (p:Post)<-[w:RESPONSE]-(p2:Post)" +
+        String query = "MATCH (u:User)-[:CREATED]->(p:Post)-[:TOPIC]->(p1:Pokemon) WHERE p1.name = $name OPTIONAL MATCH (p:Post)<-[w:TOPIC]-(p2:Post)" +
                 "RETURN u.username, p.content, p.creationDate, p1.name, count(w) as tot_replies ORDER BY p.creationDate";
         ArrayList<Object> res = getWithFilter(query, parameters("name", p));
         List<Pair<Post,Integer>> return_list = new ArrayList<>();
@@ -96,7 +96,7 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
 
     public List<Post> getPostsByPost(Post p){
         String query = "MATCH (u:User)-[:CREATED]->(p:Post)-[:TOPIC]->(p1:Post) MATCH (u1:User)-[:CREATED]->(p1:Post)-[:TOPIC]->(pok:Pokemon)"  +
-                "WHERE p1.content = $content and p1.creationDate = $date and u1.username = $username and pok.name = $name" +
+                " WHERE p1.content = $content and p1.creationDate = $date and u1.username = $username and pok.name = $name " +
                 "RETURN u.username, p.content, p.creationDate ORDER BY p.creationDate";
         ArrayList<Object> res = getWithFilter(query, parameters("content", p.getContent(), "date", p.getPublishDate(), "username", p.getAuthorUsername()));
         List<Post> return_list = new ArrayList<>();

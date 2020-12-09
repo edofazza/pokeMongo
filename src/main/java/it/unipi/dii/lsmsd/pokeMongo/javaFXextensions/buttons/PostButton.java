@@ -52,14 +52,14 @@ public class PostButton extends Button {
             // RETRIEVE SUBPOST
             // ADD THEM TO SUBPOST PANE
             // ADD THE SUBPOST PANE TO THE VBox
-            /*PostManager postManagerFactory = PostManagerFactory.buildManager();
+            PostManager postManagerFactory = PostManagerFactory.buildManager();
             List<Post> subpostList = postManagerFactory.getPostsByPost(currentPost);
             for (Post p: subpostList) {
                 SubPostPane subPostPane = new SubPostPane(p);
                 subPostsVBox.getChildren().addAll(subPostPane);
-            }*/
-            SubPostPane subPostPane = new SubPostPane(new Post("pippo", "Ciaooo", LocalDateTime.now(), "squirtle"));
-            subPostsVBox.getChildren().addAll(subPostPane);
+            }
+            //SubPostPane subPostPane = new SubPostPane(new Post("pippo", "Ciaooo", LocalDateTime.now(), "squirtle"));
+            //subPostsVBox.getChildren().addAll(subPostPane);
 
 
             if (canComment)
