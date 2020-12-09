@@ -1,7 +1,10 @@
 package it.unipi.dii.lsmsd.pokeMongo.bean;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class User {
     private boolean admin;
@@ -10,10 +13,10 @@ public class User {
     private String password;
     private String surname;
     private String name;
-    private Date birthDay;
+    private String birthDay;
     private String country;
     private String teamName;
-    private Date lastLogin;
+    private String lastLogin;
     private int dailyPokeball;
 
     private Pokemon[] team;
@@ -22,16 +25,17 @@ public class User {
 
     public User(boolean admin, String surname, String name, String username, String password, String email,
                         Date birthDay, String country){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
         this.admin=admin;
         this.surname=surname;
         this.name=name;
         this.username=username;
         this.password=password;
         this.email=email;
-        this.birthDay=birthDay;
+        this.birthDay=sdf.format(birthDay);
         this.country=country;
         this.teamName="Team name";
-        this.lastLogin=new Date();
+        this.lastLogin=sdf.format(new Date());
         this.dailyPokeball=10;
     }
 
@@ -68,7 +72,13 @@ public class User {
     }
 
     public Date getBirthDay() {
-        return birthDay;
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
+            Date toReturn = sdf.parse(birthDay);
+            return toReturn;
+        }catch(ParseException pe){
+            return null;
+        }
     }
 
     public String getTeamName() {
@@ -76,7 +86,13 @@ public class User {
     }
 
     public Date getLastLogin() {
-        return lastLogin;
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
+            Date toReturn = sdf.parse(lastLogin);
+            return toReturn;
+        }catch(ParseException pe){
+            return null;
+        }
     }
 
     public int getDailyPokeball() {
