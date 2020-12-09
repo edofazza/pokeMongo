@@ -32,7 +32,7 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
                 "WHERE uTopic.username = $username2 and pTopic.creationDate = $date2 and pTopic.content = $content2 and pokTopic.name = $name2 " +
                 "CREATE (u)-[:CREATED]->(p1:Post{content: $content, creationDate: $date})-[:TOPIC]->(pTopic)";
 
-        return insert(query, parameters("username", newPost.getAuthorUsername(), "content", newPost.getPokemonName(),
+        return insert(query, parameters("username", newPost.getAuthorUsername(), "content", newPost.getContent(),
                 "date", newPost.getPublishDate(), "username2", topic.getAuthorUsername(), "date2", topic.getPublishDate(), "content2", topic.getContent(), "name2", topic.getPokemonName()));
     }
 
