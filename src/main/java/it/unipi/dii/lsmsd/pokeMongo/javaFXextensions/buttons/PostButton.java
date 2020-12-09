@@ -13,7 +13,7 @@ public class PostButton extends Button {
     private String text;
     private SubPostsVBox subPostsVBox;
     private Post currentPost;
-    private static int numberOfAnswers;
+    private int numberOfAnswers;
 
     private static boolean canComment = false;
     private static boolean answersPresent = false;
@@ -99,9 +99,12 @@ public class PostButton extends Button {
     }
 
     public void newAnswerPosted() {
-        numberOfAnswers++;
+        postButtonAnswer.increment();
         setTextButton("Answers (" + numberOfAnswers + ")");
         fillVBox();
     }
 
+    public void increment() {
+        numberOfAnswers++;
+    }
 }
