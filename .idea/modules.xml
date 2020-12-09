@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/PokeMongoAnalyticServer/PokeMongoAnalyticServer.iml" filepath="$PROJECT_DIR$/PokeMongoAnalyticServer/PokeMongoAnalyticServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/pokeMongo.iml" filepath="$PROJECT_DIR$/pokeMongo.iml" />
     </modules>
   </component>

@@ -16,11 +16,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="pokeMongo" />
+        <module name="PokeMongoAnalyticServer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="pokeMongo" target="8" />
+      <module name="PokeMongoAnalyticServer" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
