@@ -152,23 +152,26 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
 
     private void tryToCatchAction() {
         if (pokemon != null && CurrentUI.getNumberOfPokeball() != 0) {
-            // DECREMENT POKEBALL FROM THE USER
-            CurrentUI.decrementPokeball();
-            updatePokeBallsLabelNumber();
+            TeamManager teamManager = TeamManagerFactory.buildManager();
 
-            // DECREMENT ALSO IN THE DB
-            UserManager userManager = UserManagerFactory.buildManager();
-            userManager.updateNumberOfPokeball(CurrentUI.getUser());
+            try{
+                int slot = Integer.parseInt(selectSlot.getValue().toString()) - 1;
+                teamManager.isFreeSlot(CurrentUI.getUser(), slot);
 
-            if ((Math.random() * 254 + 1) < pokemon.getCapture_rate()) {
-                invalidFormEntryLabel.setText(pokemon.getName() + " caught");
-                invalidFormEntryLabel.setVisible(true);
-                invalidFormEntryLabel.setStyle("-fx-background-color: green");
+                // DECREMENT POKEBALL FROM THE USER
+                CurrentUI.decrementPokeball();
+                updatePokeBallsLabelNumber();
 
-                TeamManager teamManager = TeamManagerFactory.buildManager();
+                // DECREMENT ALSO IN THE DB
+                UserManager userManager = UserManagerFactory.buildManager();
+                userManager.updateNumberOfPokeball(CurrentUI.getUser());
 
-                try{
-                    int slot = Integer.parseInt(selectSlot.getValue().toString()) - 1;
+                if ((Math.random() * 254 + 1) < pokemon.getCapture_rate()) {
+                    invalidFormEntryLabel.setText(pokemon.getName() + " caught");
+                    invalidFormEntryLabel.setVisible(true);
+                    invalidFormEntryLabel.setStyle("-fx-background-color: green");
+
+                    // add pokemon in neo4j
                     teamManager.insertAPokemonIntoTeam(CurrentUI.getUser(), pokemon, slot);
 
                     // add to the team locally
@@ -177,18 +180,20 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
                     // update points in mongo
                     // Update the point in mongodb
                     userManager.updatePoints(CurrentUI.getUser(), CurrentUI.getUser().getPoints());
-                } catch (SlotAlreadyOccupiedException saoe){
-                    invalidFormEntryLabel.setText("slot already occupied");
+
+                } else {
+                    invalidFormEntryLabel.setText(pokemon.getName() + " uncaught");
                     invalidFormEntryLabel.setVisible(true);
                     invalidFormEntryLabel.setStyle("-fx-background-color: #FF211A");
                 }
-            } else {
-                invalidFormEntryLabel.setText(pokemon.getName() + " uncaught");
+
+            } catch (SlotAlreadyOccupiedException saoe){
+                invalidFormEntryLabel.setText("slot already occupied");
                 invalidFormEntryLabel.setVisible(true);
                 invalidFormEntryLabel.setStyle("-fx-background-color: #FF211A");
             }
+
+
         }
     }
-
-
 }

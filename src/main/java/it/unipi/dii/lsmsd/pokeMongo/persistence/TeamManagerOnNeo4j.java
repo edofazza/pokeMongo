@@ -21,13 +21,16 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager, 
     @Override
     @VisibleForTesting
     // eventualmente insertAPokemonIntoTeam(Team t, int slot)
-    public boolean insertAPokemonIntoTeam(User u, Pokemon p, int slot) throws SlotAlreadyOccupiedException{
-        if(slotAlreadyOccupied(u, slot))
-            throw new SlotAlreadyOccupiedException();
-
+    public boolean insertAPokemonIntoTeam(User u, Pokemon p, int slot) {
         String query = "MATCH (n:User) WHERE n.username = $username " +
                 "MATCH (p:Pokemon) WHERE p.name = $pokemon CREATE (n)-[:HAS {slot: $slot}]->(p)";
         return insert(query, parameters("username", u.getUsername(), "pokemon", p.getName(), "slot", slot));
+    }
+
+    @Override
+    public void isFreeSlot(User u, int slot) throws SlotAlreadyOccupiedException{
+        if(slotAlreadyOccupied(u, slot))
+            throw new SlotAlreadyOccupiedException();
     }
 
     private boolean slotAlreadyOccupied(User u, int slot){

@@ -16,8 +16,10 @@ public interface TeamManager {
      * @return true if the Pokemon is correctly added to the team
      * @throws SlotAlreadyOccupiedException if the slot selected is already occupied by another pokemon, this exception is thrown
      */
-    boolean insertAPokemonIntoTeam(User trainer, Pokemon caught, int slot) throws SlotAlreadyOccupiedException;
+    boolean insertAPokemonIntoTeam(User trainer, Pokemon caught, int slot);
 
+
+    void isFreeSlot(User u, int slot) throws SlotAlreadyOccupiedException;
 
     /**
      * Removes a Pokemon from a user's team

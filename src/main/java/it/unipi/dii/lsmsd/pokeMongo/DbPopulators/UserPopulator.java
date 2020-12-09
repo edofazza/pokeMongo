@@ -55,12 +55,9 @@ public class UserPopulator {
                     managerOnMongoDb.insert(l);
                     l.clear();
                 }
-
-                UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
-                userNetworkManager.addUser(u);
             }
-        }catch (Exception e){
-            System.out.println("Error");
+        } catch (Exception e){
+            e.printStackTrace();
         }
 
     }
