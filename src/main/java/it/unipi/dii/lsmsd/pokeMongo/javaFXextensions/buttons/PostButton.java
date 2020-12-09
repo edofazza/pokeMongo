@@ -9,8 +9,11 @@ public class PostButton extends Button {
     private String text;
     private SubPostsVBox subPostsVBox;
     private Post currentPost;
+    private int numberOfAnswers;
 
-    public PostButton(String text, int x, int y, SubPostsVBox subPostsVBox, Post currentPost) {
+    private static boolean canComment = false;
+
+    public PostButton(String text, int x, int y, SubPostsVBox subPostsVBox, Post currentPost, int numberOfAnswers) {
         super(text);
         relocate(x, y);
         setStyle("-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: #70709d;");
@@ -18,26 +21,49 @@ public class PostButton extends Button {
         this.text = text;
         this.subPostsVBox = subPostsVBox;
         this.currentPost = currentPost;
+        this.numberOfAnswers = numberOfAnswers;
 
         setOnAction(e -> fillVBox());
     }
 
     private void fillVBox() {
         subPostsVBox.getChildren().clear();
-        switch (text) {
-            case "Comment":
-                text = "Uncomment";
-                setText(text);
 
-                SubPostInsertCommentPane subPostInsertCommentPane = new SubPostInsertCommentPane(currentPost);
+        if (text.equals("Comment")) {
+            text = "Uncomment";
+            setText(text);
 
-                subPostsVBox.getChildren().addAll(subPostInsertCommentPane);
-                break;
-            case "Uncomment":
-                text = "Comment";
-                setText(text);
-                break;
+            canComment = true;
+            addCommentPane();
+
+        } else if (text.equals("Uncomment")) {
+            text = "Comment";
+            setText(text);
+            canComment = false;
+
+        } else if (text.startsWith("Answers")) {
+            text = "Show less";
+            setText(text);
+
+            
+
+            if (canComment)
+                addCommentPane();
+
+        } else if (text.startsWith("Show less")) {
+            text = "Answers (" + numberOfAnswers + ")";
+            setText(text);
+
+            if (canComment)
+                addCommentPane();
 
         }
+
     }
+
+    private void addCommentPane() {
+        SubPostInsertCommentPane subPostInsertCommentPane = new SubPostInsertCommentPane(currentPost);
+        subPostsVBox.getChildren().addAll(subPostInsertCommentPane);
+    }
+
 }
