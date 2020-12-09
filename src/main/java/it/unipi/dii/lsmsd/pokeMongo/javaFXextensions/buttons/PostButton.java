@@ -16,6 +16,7 @@ public class PostButton extends Button {
     private int numberOfAnswers;
 
     private static boolean canComment = false;
+    private static boolean answersPresent = false;
 
     public PostButton(String text, int x, int y, SubPostsVBox subPostsVBox, Post currentPost, int numberOfAnswers) {
         super(text);
@@ -37,6 +38,9 @@ public class PostButton extends Button {
             text = "Uncomment";
             setText(text);
 
+            if(answersPresent)
+                addReplies();
+
             canComment = true;
             addCommentPane();
 
@@ -45,22 +49,15 @@ public class PostButton extends Button {
             setText(text);
             canComment = false;
 
+            if(answersPresent)
+                addReplies();
+
         } else if (text.startsWith("Answers")) {
             text = "Show less";
             setText(text);
 
-            // RETRIEVE SUBPOST
-            // ADD THEM TO SUBPOST PANE
-            // ADD THE SUBPOST PANE TO THE VBox
-            PostManager postManagerFactory = PostManagerFactory.buildManager();
-            List<Post> subpostList = postManagerFactory.getPostsByPost(currentPost);
-            for (Post p: subpostList) {
-                SubPostPane subPostPane = new SubPostPane(p);
-                subPostsVBox.getChildren().addAll(subPostPane);
-            }
-            //SubPostPane subPostPane = new SubPostPane(new Post("pippo", "Ciaooo", LocalDateTime.now(), "squirtle"));
-            //subPostsVBox.getChildren().addAll(subPostPane);
-
+            addReplies();
+            answersPresent = true;
 
             if (canComment)
                 addCommentPane();
@@ -68,6 +65,8 @@ public class PostButton extends Button {
         } else if (text.startsWith("Show less")) {
             text = "Answers (" + numberOfAnswers + ")";
             setText(text);
+
+            answersPresent = false;
 
             if (canComment)
                 addCommentPane();
@@ -79,6 +78,15 @@ public class PostButton extends Button {
     private void addCommentPane() {
         SubPostInsertCommentPane subPostInsertCommentPane = new SubPostInsertCommentPane(currentPost);
         subPostsVBox.getChildren().addAll(subPostInsertCommentPane);
+    }
+
+    private void addReplies() {
+        PostManager postManagerFactory = PostManagerFactory.buildManager();
+        List<Post> subpostList = postManagerFactory.getPostsByPost(currentPost);
+        for (Post p: subpostList) {
+            SubPostPane subPostPane = new SubPostPane(p);
+            subPostsVBox.getChildren().addAll(subPostPane);
+        }
     }
 
 }
