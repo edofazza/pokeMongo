@@ -98,7 +98,7 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
         String query = "MATCH (u:User)-[:CREATED]->(p:Post)-[:TOPIC]->(p1:Post) MATCH (u1:User)-[:CREATED]->(p1:Post)-[:TOPIC]->(pok:Pokemon)"  +
                 " WHERE p1.content = $content and p1.creationDate = $date and u1.username = $username and pok.name = $name " +
                 "RETURN u.username, p.content, p.creationDate ORDER BY p.creationDate";
-        ArrayList<Object> res = getWithFilter(query, parameters("content", p.getContent(), "date", p.getPublishDate(), "username", p.getAuthorUsername()));
+        ArrayList<Object> res = getWithFilter(query, parameters("content", p.getContent(), "date", p.getPublishDate(), "username", p.getAuthorUsername(), "name", p.getPokemonName()));
         List<Post> return_list = new ArrayList<>();
         for(Object o: res){
             Record d = (Record) o;
