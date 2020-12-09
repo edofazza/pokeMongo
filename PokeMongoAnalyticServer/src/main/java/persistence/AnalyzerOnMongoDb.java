@@ -1,19 +1,17 @@
 package persistence;
 
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Aggregates;
-import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
-import javax.print.Doc;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
+import static com.mongodb.client.model.Accumulators.*;
 import static com.mongodb.client.model.Filters.*;
 import static com.mongodb.client.model.Aggregates.*;
+import static com.mongodb.client.model.Projections.computed;
+import static com.mongodb.client.model.Projections.fields;
 
 public class AnalyzerOnMongoDb extends MongoDbDatabase{
     private String collectionName = "user";
@@ -41,7 +39,11 @@ public class AnalyzerOnMongoDb extends MongoDbDatabase{
         Calendar lastDay = Calendar.getInstance();
         lastDay.setTime(new Date());
         lastDay.add(Calendar.DATE, -1);
-        //Bson match = match(gt());
-        return 0;
+        String yesterday = new SimpleDateFormat ("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US).format(lastDay);
+        Bson match = match(and(gt("lastLogin", yesterday), ne("admin", true)));
+        Bson count = group("$admin", sum("admin", 1));
+        Bson project = project(fields(computed("loginNumber", "admin")));
+        Document result = (Document)Arrays.asList(match, count, project);
+        return result.getInteger("loginNumber").intValue();
     }
 }

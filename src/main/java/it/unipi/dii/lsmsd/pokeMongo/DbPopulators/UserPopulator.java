@@ -2,6 +2,8 @@ package it.unipi.dii.lsmsd.pokeMongo.DbPopulators;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerFactory;
 
 import java.io.*;
 import java.util.*;
@@ -16,6 +18,7 @@ public class UserPopulator {
 
     public static void main(String[] args){
         ArrayList<Object> l = new ArrayList<>();
+        UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
         String name, surname, country, email, username, password;
         Boolean admin=false;
         Date birthday;
@@ -28,32 +31,35 @@ public class UserPopulator {
             countriesLength=countriesFile.length();
 
             for (int i = 0; i < (250 * 1000); i++) {
-                nameFile.seek((long)(Math.random()*namesLength));
-                nameFile.readLine();
-                name = nameFile.readLine();
+                try {
+                    nameFile.seek((long) (Math.random() * namesLength));
+                    nameFile.readLine();
+                    name = nameFile.readLine();
 
-                surnamesFile.seek((long)(Math.random()*surnamesLength));
-                surnamesFile.readLine();
-                surname = surnamesFile.readLine();
-                countriesFile.readLine();
+                    surnamesFile.seek((long) (Math.random() * surnamesLength));
+                    surnamesFile.readLine();
+                    surname = surnamesFile.readLine();
+                    countriesFile.readLine();
 
-                countriesFile.seek((long)(Math.random()*countriesLength));
-                countriesFile.readLine();
-                country = countriesFile.readLine();
+                    countriesFile.seek((long) (Math.random() * countriesLength));
+                    countriesFile.readLine();
+                    country = countriesFile.readLine();
 
-                email = name + "." + surname + "@lsmdb.unipi.it";
-                username = name + "_" + surname;
-                password = name + surname + "000";
-                birthday = new Date(new Date().getTime() - (long) (Math.random() * 1500000000000D + 100000000000D));
-                User u = new User(admin, surname, name, username, password, email, birthday, country);
-                l.add(u);
+                    email = name + "." + surname + "@lsmdb.unipi.it";
+                    username = name + "_" + surname;
+                    password = name + surname + "000";
+                    birthday = new Date(new Date().getTime() - (long) (Math.random() * 1500000000000D + 100000000000D));
+                    User u = new User(admin, surname, name, username, password, email, birthday, country);
+                    l.add(u);
 
-                if (i % 20 == 0) {
-                    UserManagerOnMongoDb managerOnMongoDb = new UserManagerOnMongoDb();
-                    managerOnMongoDb.insert(l);
-                    l.clear();
-                }
-
+                    if (i % 20 == 0) {
+                        UserManagerOnMongoDb managerOnMongoDb = new UserManagerOnMongoDb();
+                        managerOnMongoDb.insert(l);
+                        l.clear();
+                    }
+                    userNetworkManager.addUser(u);
+                    Thread.sleep(5);
+                }catch (Exception e){}
             }
         }catch (Exception e){
             System.out.println("Error");
