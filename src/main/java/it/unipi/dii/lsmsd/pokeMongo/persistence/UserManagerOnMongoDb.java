@@ -180,7 +180,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         if(matched.size()!=1)
             return null;
         User logger = (User)matched.get(0);
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss aa", Locale.US);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
         Date now = new Date();
 
         // Compare dates and update pokeball in case
@@ -193,7 +193,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         oldCal.set(Calendar.MILLISECOND, 0);
 
         Calendar newCal = Calendar.getInstance();
-        newCal.setTime(new Date());
+        newCal.setTime(now);
 
         if(newCal.after(oldCal)) {
             updateNumberOfPokeballTo10(logger);
@@ -202,8 +202,8 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         // End
 
         String dateString = sdf.format(now);
-        Logger.vvlog("Updated last login for " + username + ": " + dateString.substring(0,1).toUpperCase() + dateString.substring(1));
-        update(query, set("lastLogin", dateString.substring(0,1).toUpperCase() + dateString.substring(1)));
+        Logger.vvlog("Updated last login for " + username + ": " + dateString);
+        update(query, set("lastLogin", dateString));
         return logger;
     }
 
