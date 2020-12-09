@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
+import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRanker;
@@ -343,6 +344,14 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         Logger.vlog(formatter.format(calendar.getTime()));
         return "ISODate(" + formatter.format(calendar.getTime()) + ")";
+    }
+
+    public ArrayList<User> getEveryUser(){
+        ArrayList<Object> users = getAll();
+        ArrayList<User> result = new ArrayList<>();
+        for(Object o: users)
+            result.add((User)o);
+        return result;
     }
 }
 
