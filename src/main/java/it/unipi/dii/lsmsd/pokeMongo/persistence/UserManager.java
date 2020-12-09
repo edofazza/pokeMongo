@@ -2,6 +2,9 @@ package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public interface UserManager {
 
     /**
@@ -116,4 +119,6 @@ public interface UserManager {
      * @param toLogOut user to logout
      */
     void logout(User toLogOut);
+
+    ArrayList<User> getEveryUser();
 }
