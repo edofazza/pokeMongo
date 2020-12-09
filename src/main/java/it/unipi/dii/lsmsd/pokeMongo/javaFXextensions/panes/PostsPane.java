@@ -15,6 +15,8 @@ public class PostsPane extends Pane {
     private TextArea postArea;
     private String pokemonName;
 
+    PostsPresentScrollPane postsPresentScrollPane;
+
     public PostsPane(int x, int y, int width, int height, String pokemonName) {
         setPrefSize(width, height);
         relocate(x, y);
@@ -28,7 +30,7 @@ public class PostsPane extends Pane {
     }
 
     public void displayPostsPresent() {
-        PostsPresentScrollPane postsPresentScrollPane = new PostsPresentScrollPane(15, 15, 400, 365, pokemonName);
+        postsPresentScrollPane = new PostsPresentScrollPane(15, 15, 400, 365, pokemonName);
 
         getChildren().add(postsPresentScrollPane);
     }
@@ -65,6 +67,9 @@ public class PostsPane extends Pane {
                             postArea.getText(),
                             localDateTime,
                             pokemonName));
+
+            getChildren().remove(postsPresentScrollPane);
+            displayPostsPresent();
         } catch (DuplicatePostException e) {
             e.printStackTrace();
         }
