@@ -2,8 +2,12 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Post;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.SubPostInsertCommentPane;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.SubPostPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.vBox.SubPostsVBox;
-import javafx.scene.control.Button;;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PostManager;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.PostManagerFactory;
+import javafx.scene.control.Button;;import java.time.LocalDateTime;
+import java.util.List;
 
 public class PostButton extends Button {
     private String text;
@@ -45,7 +49,18 @@ public class PostButton extends Button {
             text = "Show less";
             setText(text);
 
-            
+            // RETRIEVE SUBPOST
+            // ADD THEM TO SUBPOST PANE
+            // ADD THE SUBPOST PANE TO THE VBox
+            /*PostManager postManagerFactory = PostManagerFactory.buildManager();
+            List<Post> subpostList = postManagerFactory.getPostsByPost(currentPost);
+            for (Post p: subpostList) {
+                SubPostPane subPostPane = new SubPostPane(p);
+                subPostsVBox.getChildren().addAll(subPostPane);
+            }*/
+            SubPostPane subPostPane = new SubPostPane(new Post("pippo", "Ciaooo", LocalDateTime.now(), "squirtle"));
+            subPostsVBox.getChildren().addAll(subPostPane);
+
 
             if (canComment)
                 addCommentPane();
