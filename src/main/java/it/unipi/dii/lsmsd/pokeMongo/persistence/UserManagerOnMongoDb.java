@@ -193,7 +193,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         oldCal.set(Calendar.MILLISECOND, 0);
 
         Calendar newCal = Calendar.getInstance();
-        newCal.setTime(new Date());
+        newCal.setTime(now);
 
         if(newCal.after(oldCal)) {
             updateNumberOfPokeballTo10(logger);
