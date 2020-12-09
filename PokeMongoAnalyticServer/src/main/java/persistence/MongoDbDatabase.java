@@ -6,8 +6,10 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 //import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
-import java.util.ArrayList;
+import javax.print.Doc;
+import java.util.*;
 
 public abstract class MongoDbDatabase implements Database{
     private MongoClient connection;
@@ -51,10 +53,6 @@ public abstract class MongoDbDatabase implements Database{
         getCollection(name).drop();
     }
 
-    public boolean insert(ArrayList<Object> toInsert){
-        showError();
-        return false;
-    }
 
     @Override
     public boolean insert(Object toInsert){
@@ -79,6 +77,8 @@ public abstract class MongoDbDatabase implements Database{
         showError();
         return false;
     }
+
+    protected abstract Object aggregate(List<Bson> pipeline);
 
     private void showError(){
         Thread.currentThread().interrupt();
