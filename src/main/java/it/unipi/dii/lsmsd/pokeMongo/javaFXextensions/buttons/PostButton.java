@@ -105,7 +105,7 @@ public class PostButton extends Button {
         PostManager postManagerFactory = PostManagerFactory.buildManager();
         List<Post> subpostList = postManagerFactory.getPostsByPost(currentPost);
         for (Post p: subpostList) {
-            SubPostPane subPostPane = new SubPostPane(p);
+            SubPostPane subPostPane = new SubPostPane(p, subPostsVBox);
             subPostsVBox.getChildren().addAll(subPostPane);
         }
     }

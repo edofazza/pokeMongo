@@ -34,6 +34,13 @@ public interface PostManager {
     boolean deletePost(Post p);
 
     /**
+     * Delete a Post (Response) from the system
+     * @param p  Post to be deleted
+     * @return true if the Post (Response) was correctly removed
+     */
+    boolean deleteResponse(Post p);
+
+    /**
      * Modify a previous post by replacing it with a new one
      * @param p_old  The old Post object
      * @param p_new  The new Post object

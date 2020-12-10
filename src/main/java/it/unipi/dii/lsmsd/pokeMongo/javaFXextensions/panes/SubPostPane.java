@@ -1,21 +1,30 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Post;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.DeleteSubPostButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.vBox.SubPostsVBox;
+import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 
 public class SubPostPane extends Pane {
     private Post post;
+    private SubPostsVBox rootFather;
 
-    public SubPostPane(Post post) {
+    public SubPostPane(Post post, SubPostsVBox rootFather) {
         setPrefSize(340, 85);
         relocate(55, 0);
         setStyle("-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: grey; -fx-border-radius: 15;");
 
         this.post = post;
+        this.rootFather = rootFather;
 
         displayUsername();
+
+        if (post.getAuthorUsername().equals(CurrentUI.getUser().getUsername()) || CurrentUI.getUser().isAdmin())
+            displayDeleteButton();
+
         displayDate();
         displayContent();
     }
@@ -25,6 +34,12 @@ public class SubPostPane extends Pane {
         username.relocate(5, 5);
 
         getChildren().add(username);
+    }
+
+    private void displayDeleteButton() {
+        DeleteSubPostButton deleteSubPostButton = new DeleteSubPostButton("Delete", 140, 0, this);
+
+        getChildren().add(deleteSubPostButton);
     }
 
     private void displayDate() {
@@ -44,4 +59,11 @@ public class SubPostPane extends Pane {
         getChildren().add(content);
     }
 
+    public void removeItself() {
+        rootFather.getChildren().remove(this);
+    }
+
+    public Post getPost() {
+        return post;
+    }
 }
