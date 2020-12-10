@@ -36,14 +36,14 @@ public interface Database {
      * gets all the elements
      * @return a list of retrieved elements
      */
-    ArrayList<Object> getAll();
+    Object getAll();
 
     /**
      *
      * @param filter query or filter to submit to the db
      * @return a list of retrieved elements
      */
-    ArrayList<Object> getWithFilter(Object filter);
+    Object getWithFilter(Object filter);
 
     /**
      *

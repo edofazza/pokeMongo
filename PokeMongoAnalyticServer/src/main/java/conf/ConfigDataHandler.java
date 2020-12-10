@@ -19,7 +19,7 @@ public class ConfigDataHandler {
 
     public ConfigDataHandler(){
         try{
-            BufferedReader br = new BufferedReader(new FileReader("config/configFile.json"));
+            BufferedReader br = new BufferedReader(new FileReader("conf/configFile.json"));
             configData = new Gson().fromJson(br, ConfigData.class);
         } catch (IOException ioe){
             configData = new ConfigData(10, "", "", "MongoDb", "InMemory", 30);

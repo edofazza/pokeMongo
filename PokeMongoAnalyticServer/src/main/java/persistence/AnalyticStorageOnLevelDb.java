@@ -1,5 +1,6 @@
 package persistence;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 class AnalyticStorageOnLevelDb implements AnalyticStorage{
@@ -25,6 +26,21 @@ class AnalyticStorageOnLevelDb implements AnalyticStorage{
         this(30);
     }
 
+    private String generateKey(String dataType, Date reference){
+        if(!dataType.equals("LastLogins") && !dataType.equals("UserNumber"))
+            return null;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        return  sdf.format(reference) + ":" + dataType;
+    }
+
+    private String generateKey(String dataType, Date reference, String country){
+        if(!dataType.equals("UserNumber"))
+            return null;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        return sdf.format(reference) + ":" + dataType + ":" +country;
+    }
 
     @Override
     public long[] getLastLogins() {

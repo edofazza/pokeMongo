@@ -4,8 +4,7 @@ import org.iq80.leveldb.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.*;
 
 import static org.iq80.leveldb.impl.Iq80DBFactory.*;
 
@@ -53,25 +52,49 @@ public class LevelDbDatabase implements Database{
 
     @Override
     public boolean remove(Object o) {
-        startConnection();
-        Map<String, String> map= (Map)o;
-        for(Map.Entry<String,String> entry : map.entrySet()){
-            String key = entry.getKey();
-            String value = entry.getValue();
-            currentInstance.delete(bytes(key));
+        if(o instanceof List){
+            List<String> keys= (List)o;
+            startConnection();
+            for(String key: keys){
+                currentInstance.delete(bytes(key));
+            }
         }
+        else if(o instanceof String){
+            startConnection();
+            currentInstance.delete(bytes((String)o));
+        }
+        else
+            return false;
+
         closeConnection();
         return true;
     }
 
     @Override
-    public ArrayList<Object> getAll() {
+    public Object getAll() {
+        startConnection();
+        Map<String, String> map= new HashMap<>();
+        Snapshot snapshot = currentInstance.getSnapshot();
+        try(DBIterator iter = currentInstance.iterator(new ReadOptions().snapshot(snapshot))){
+            for(iter.seekToFirst(); iter.hasNext(); iter.next()){
+                String key = asString(iter.peekNext().getKey());
+                String value = asString(iter.peekNext().getValue());
+                map.put(key, value);
+            }
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+        }
+        finally {
+            closeConnection();
+        }
         return null;
     }
 
     @Override
-    public ArrayList<Object> getWithFilter(Object filter) {
-        return null;
+    public Object getWithFilter(Object filter) {
+        if(!(filter instanceof String))
+            return null;
+        return Long.parseLong(asString(currentInstance.get(bytes((String)filter))));
     }
 
     @Override
