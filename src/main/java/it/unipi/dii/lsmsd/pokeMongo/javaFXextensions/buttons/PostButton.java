@@ -82,11 +82,16 @@ public class PostButton extends Button {
 
     }
 
+    // Called by answer (using Comment)
     private void refresh() {
         subPostsVBox.getChildren().clear();
 
         if(answersPresent)
             addReplies();
+        else {
+            setTextButton("Answers (" + numberOfAnswers + ")");
+        }
+
         if (canComment)
             addCommentPane();
     }
