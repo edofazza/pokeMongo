@@ -15,10 +15,10 @@ public class PostButton extends Button {
     private Post currentPost;
     private int numberOfAnswers;
 
-    private static boolean canComment = false;
+    private boolean canComment = false;
     private static boolean answersPresent = false;
 
-    private static PostButton postButtonAnswer;
+    private PostButton postButtonAnswer;
 
     public PostButton(String text, int x, int y, SubPostsVBox subPostsVBox, Post currentPost, int numberOfAnswers) {
         super(text);
@@ -105,7 +105,12 @@ public class PostButton extends Button {
         PostManager postManagerFactory = PostManagerFactory.buildManager();
         List<Post> subpostList = postManagerFactory.getPostsByPost(currentPost);
         for (Post p: subpostList) {
-            SubPostPane subPostPane = new SubPostPane(p, subPostsVBox);
+            SubPostPane subPostPane;
+            if (postButtonAnswer == null)
+                subPostPane = new SubPostPane(p, subPostsVBox, this);
+            else
+                subPostPane = new SubPostPane(p, subPostsVBox, postButtonAnswer);
+
             subPostsVBox.getChildren().addAll(subPostPane);
         }
     }
@@ -120,7 +125,16 @@ public class PostButton extends Button {
         refresh();
     }
 
-    public void increment() {
+    public void answerRemoved() {
+        decrement();
+        refresh();
+    }
+
+    private void increment() {
         numberOfAnswers++;
+    }
+
+    private void decrement() {
+        numberOfAnswers--;
     }
 }
