@@ -15,10 +15,11 @@ public class PostButton extends Button {
     private Post currentPost;
     private int numberOfAnswers;
 
-    private static boolean canComment = false;
-    private static boolean answersPresent = false;
+    private boolean canComment = false;
+    private boolean answersPresent = false;
 
-    private static PostButton postButtonAnswer;
+    private PostButton postButtonAnswer;
+    private PostButton postButtonComment;
 
     public PostButton(String text, int x, int y, SubPostsVBox subPostsVBox, Post currentPost, int numberOfAnswers) {
         super(text);
@@ -48,7 +49,7 @@ public class PostButton extends Button {
         if (text.equals("Comment")) {
             setTextButton("Uncomment");
 
-            if(answersPresent)
+            if(postButtonAnswer.getAnswersPresent())
                 addReplies();
 
             canComment = true;
@@ -58,7 +59,7 @@ public class PostButton extends Button {
             setTextButton("Comment");
             canComment = false;
 
-            if(answersPresent)
+            if(postButtonAnswer.getAnswersPresent())
                 addReplies();
 
         } else if (text.startsWith("Answers")) {
@@ -67,7 +68,7 @@ public class PostButton extends Button {
             addReplies();
             answersPresent = true;
 
-            if (canComment)
+            if (postButtonComment.getCanComment())
                 addCommentPane();
 
         } else if (text.equals("Show less")) {
@@ -75,7 +76,7 @@ public class PostButton extends Button {
 
             answersPresent = false;
 
-            if (canComment)
+            if (postButtonComment.getCanComment())
                 addCommentPane();
 
         }
@@ -105,7 +106,12 @@ public class PostButton extends Button {
         PostManager postManagerFactory = PostManagerFactory.buildManager();
         List<Post> subpostList = postManagerFactory.getPostsByPost(currentPost);
         for (Post p: subpostList) {
-            SubPostPane subPostPane = new SubPostPane(p, subPostsVBox);
+            SubPostPane subPostPane;
+            if (postButtonAnswer == null)
+                subPostPane = new SubPostPane(p, subPostsVBox, this);
+            else
+                subPostPane = new SubPostPane(p, subPostsVBox, postButtonAnswer);
+
             subPostsVBox.getChildren().addAll(subPostPane);
         }
     }
@@ -120,7 +126,28 @@ public class PostButton extends Button {
         refresh();
     }
 
-    public void increment() {
+    public void answerRemoved() {
+        decrement();
+        refresh();
+    }
+
+    private void increment() {
         numberOfAnswers++;
+    }
+
+    private void decrement() {
+        numberOfAnswers--;
+    }
+
+    public boolean getCanComment() {
+        return canComment;
+    }
+
+    public boolean getAnswersPresent() {
+        return answersPresent;
+    }
+
+    public void setCommentButton(PostButton postButtonComment) {
+        this.postButtonComment = postButtonComment;
     }
 }
