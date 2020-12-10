@@ -16,9 +16,10 @@ public class PostButton extends Button {
     private int numberOfAnswers;
 
     private boolean canComment = false;
-    private static boolean answersPresent = false;
+    private boolean answersPresent = false;
 
     private PostButton postButtonAnswer;
+    private PostButton postButtonComment;
 
     public PostButton(String text, int x, int y, SubPostsVBox subPostsVBox, Post currentPost, int numberOfAnswers) {
         super(text);
@@ -48,7 +49,7 @@ public class PostButton extends Button {
         if (text.equals("Comment")) {
             setTextButton("Uncomment");
 
-            if(answersPresent)
+            if(postButtonAnswer.getAnswersPresent())
                 addReplies();
 
             canComment = true;
@@ -58,7 +59,7 @@ public class PostButton extends Button {
             setTextButton("Comment");
             canComment = false;
 
-            if(answersPresent)
+            if(postButtonAnswer.getAnswersPresent())
                 addReplies();
 
         } else if (text.startsWith("Answers")) {
@@ -67,7 +68,7 @@ public class PostButton extends Button {
             addReplies();
             answersPresent = true;
 
-            if (canComment)
+            if (postButtonComment.getCanComment())
                 addCommentPane();
 
         } else if (text.equals("Show less")) {
@@ -75,7 +76,7 @@ public class PostButton extends Button {
 
             answersPresent = false;
 
-            if (canComment)
+            if (postButtonComment.getCanComment())
                 addCommentPane();
 
         }
@@ -136,5 +137,17 @@ public class PostButton extends Button {
 
     private void decrement() {
         numberOfAnswers--;
+    }
+
+    public boolean getCanComment() {
+        return canComment;
+    }
+
+    public boolean getAnswersPresent() {
+        return answersPresent;
+    }
+
+    public void setCommentButton(PostButton postButtonComment) {
+        this.postButtonComment = postButtonComment;
     }
 }
