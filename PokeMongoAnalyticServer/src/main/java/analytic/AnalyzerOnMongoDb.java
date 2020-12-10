@@ -36,7 +36,7 @@ class AnalyzerOnMongoDb extends MongoDbDatabase implements Analyzer{
     }
 
     @Override
-    public int getTodayLogin(){
+    public long getTodayLogin(){
         Calendar lastDay = Calendar.getInstance();
         lastDay.setTime(new Date());
         lastDay.add(Calendar.DATE, -1);
@@ -45,27 +45,27 @@ class AnalyzerOnMongoDb extends MongoDbDatabase implements Analyzer{
         Bson count = group("$admin", sum("admin", 1));
         Bson project = project(fields(computed("loginNumber", "admin")));
         Document result = aggregate(Arrays.asList(match, count, project)).get(0);
-        return result.getInteger("loginNumber").intValue();
+        return result.getLong("loginNumber").longValue();
     }
 
     @Override
-    public int getUserNumber() {
+    public long getUserNumber() {
         Bson match = match(ne("admin", true));
         Bson count = group("$admin", sum("admin", 1));
         Bson project = project(fields(computed("userNumber", "admin")));
         Document result = aggregate(Arrays.asList(match, count, project)).get(0);
-        return result.getInteger("userNumber").intValue();
+        return result.getLong("userNumber").longValue();
     }
 
     @Override
-    public Map<String, Integer> getUserNumberByCountry() {
+    public Map<String, Long> getUserNumberByCountry() {
         Bson match = match(ne("admin", true));
         Bson count = group("$country", sum("userNumber", 1));
         Bson project = project(fields(include("country", "userNumber")));
         List<Document> result = aggregate(Arrays.asList(match, count, project));
-        Map<String, Integer> map = new HashMap<>();
+        Map<String, Long> map = new HashMap<>();
         for(Document d: result)
-            map.put(d.getString("country"), d.getInteger("userNumber").intValue());
+            map.put(d.getString("country"), d.getLong("userNumber").longValue());
         return map;
     }
 }

@@ -3,9 +3,9 @@ package analytic;
 import java.util.Map;
 
 public interface Analyzer {
-    int getTodayLogin();
+    long getTodayLogin();
 
-    int getUserNumber();
+    long getUserNumber();
 
-    Map<String, Integer> getUserNumberByCountry();
+    Map<String, Long> getUserNumberByCountry();
 }
