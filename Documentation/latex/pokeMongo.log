@@ -1,68 +1,75 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  25 NOV 2020 00:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  11 DEC 2020 17:46
 entering extended mode
-**"c:/Users/gxhan/Documents/Università/Esami Correnti/Large-Scale and Multi-Structured Databases/Progetto pokeMongo/pokeMongo/Documentation/latex/pokeMongo.tex"
-("c:/Users/gxhan/Documents/Università/Esami Correnti/Large-Scale and Multi-Structured Databases/Progetto pokeMongo/pokeMongo/Documentation/latex/pokeMongo.tex"
+**./pokeMongo.tex
+(pokeMongo.tex
 LaTeX2e <2020-10-01> patch level 1
-L3 programming layer <2020-10-05> xparse <2020-03-03> (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
-Document Class: report 2020/04/10 v1.4m Standard LaTeX document class
+L3 programming layer <2020-10-05> xparse <2020-03-03>
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
 File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
 \c@part=\count175
-\c@chapter=\count176
-\c@section=\count177
-\c@subsection=\count178
-\c@subsubsection=\count179
-\c@paragraph=\count180
-\c@subparagraph=\count181
-\c@figure=\count182
-\c@table=\count183
+\c@section=\count176
+\c@subsection=\count177
+\c@subsubsection=\count178
+\c@paragraph=\count179
+\c@subparagraph=\count180
+\c@figure=\count181
+\c@table=\count182
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
 Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
-) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count184
-\calc@Bcount=\count185
+\calc@Acount=\count183
+\calc@Bcount=\count184
 \calc@Adimen=\dimen139
 \calc@Bdimen=\dimen140
 \calc@Askip=\skip49
 \calc@Bskip=\skip50
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count186
+\calc@Ccount=\count185
 \calc@Cskip=\skip51
-) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
 Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
-) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2020/09/23 v2.17i AMS math features
 \@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks16
 \ex@=\dimen141
-)) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+))
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen142
-) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count187
+\inf@bad=\count186
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count188
-\leftroot@=\count189
+\uproot@=\count187
+\leftroot@=\count188
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count190
-\DOTSCASE@=\count191
+\classnum@=\count189
+\DOTSCASE@=\count190
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -71,15 +78,15 @@ LaTeX Info: Redefining \cdots on input line 620.
 \big@size=\dimen143
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count192
-\c@MaxMatrixCols=\count193
+\macc@depth=\count191
+\c@MaxMatrixCols=\count192
 \dotsspace@=\muskip16
-\c@parentequation=\count194
-\dspbrk@lvl=\count195
+\c@parentequation=\count193
+\dspbrk@lvl=\count194
 \tag@help=\toks17
-\row@=\count196
-\column@=\count197
-\maxfields@=\count198
+\row@=\count195
+\column@=\count196
+\maxfields@=\count197
 \andhelp@=\toks18
 \eqnshift@=\dimen144
 \alignsep@=\dimen145
@@ -98,7 +105,7 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
-\g_MT_multlinerow_int=\count199
+\g_MT_multlinerow_int=\count198
 \l_MT_multwidth_dim=\dimen150
 \origjot=\skip55
 \l_MT_shortvdotswithinadjustabove_dim=\dimen151
@@ -109,35 +116,40 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
 \l_MT_below_shortintertext_sep=\dimen156
 \xmathstrut@box=\box49
 \xmathstrut@dim=\dimen157
-) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count266
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count199
 \lst@gtempboxa=\box50
 \lst@token=\toks21
-\lst@length=\count267
+\lst@length=\count266
 \lst@currlwidth=\dimen158
-\lst@column=\count268
-\lst@pos=\count269
+\lst@column=\count267
+\lst@pos=\count268
 \lst@lostspace=\dimen159
 \lst@width=\dimen160
-\lst@newlines=\count270
-\lst@lineno=\count271
+\lst@newlines=\count269
+\lst@lineno=\count270
 \lst@maxwidth=\dimen161
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count272
-\lst@skipnumbers=\count273
+\c@lstnumber=\count271
+\lst@skipnumbers=\count272
 \lst@framebox=\box51
-) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 )
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
@@ -151,22 +163,27 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2020/10/06 3.50 The Babel package
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.def
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.def
 File: babel.def 2020/10/06 3.50 Babel common definitions
-\babel@savecnt=\count274
+\babel@savecnt=\count273
 \U@D=\dimen162
 \l@babelnohyphens=\language79
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 )
-\bbl@dirlevel=\count275
+\bbl@dirlevel=\count274
 
 *************************************
 * Local config file bblopts.cfg used
 *
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
-) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.ldf
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.l
+df
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
@@ -174,9 +191,11 @@ Package babel Info: \l@australian = using hyphenrules for ukenglish
 (babel)             (\language73) on input line 105.
 Package babel Info: \l@newzealand = using hyphenrules for ukenglish
 (babel)             (\language73) on input line 108.
-)) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+))
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2020/09/12 v3.5b Customizing captions (AR)
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2020/09/17 v2.1b caption3 kernel (AR)
 \captionmargin=\dimen163
 \captionmargin@=\dimen164
@@ -187,115 +206,184 @@ Package: caption3 2020/09/17 v2.1b caption3 kernel (AR)
 \caption@hangindent=\dimen169
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count276
-\c@continuedfloat=\count277
+\c@caption@flags=\count275
+\c@continuedfloat=\count276
 Package caption Info: listings package is loaded.
-) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2019/10/16 v2.13 Sectioning titles
+\ttl@box=\box52
+\beforetitleunit=\skip56
+\aftertitleunit=\skip57
+\ttl@plus=\dimen170
+\ttl@minus=\dimen171
+\ttl@toksa=\toks22
+\titlewidth=\dimen172
+\titlewidthlast=\dimen173
+\titlewidthfirst=\dimen174
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/blindtext\blindtext.sty
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+\c@blindtext=\count277
+\c@Blindtext=\count278
+\c@blind@countparstart=\count279
+\blind@countxx=\count280
+\blindtext@numBlindtext=\count281
+\blind@countyy=\count282
+\c@blindlist=\count283
+\c@blindlistlevel=\count284
+\c@blindlist@level=\count285
+\blind@listitem=\count286
+\c@blind@listcount=\count287
+\c@blind@levelcount=\count288
+\blind@mathformula=\count289
+\blind@Mathformula=\count290
+\c@blind@randomcount=\count291
+\c@blind@randommax=\count292
+\c@blind@pangramcount=\count293
+\c@blind@pangrammax=\count294
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count295
+\float@exts=\toks23
+\float@box=\box53
+\@float@everytoks=\toks24
+\@floatcapt=\box54
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count278
-\l__pdf_internal_box=\box52
-) ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\pokeMongo.aux" ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/introduction.aux") ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/interface_mockup.aux") ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/requirements.aux") ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/queries_and_database_structure.aux"))
+\l__kernel_color_stack_int=\count296
+\l__pdf_internal_box=\box55
+) (pokeMongo.aux (chapters/introduction.aux)
+(chapters/interface_mockup.aux) (chapters/requirements.aux)
+(chapters/queries_and_database_structure.aux))
 \openout1 = `pokeMongo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 )
-\Gin@req@height=\dimen170
-\Gin@req@width=\dimen171
+\Gin@req@height=\dimen175
+\Gin@req@width=\dimen176
 )
-\c@lstlisting=\count279
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+\c@lstlisting=\count297
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count280
-\scratchdimen=\dimen172
-\scratchbox=\box53
-\nofMPsegments=\count281
-\nofMParguments=\count282
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count283
-\MPscratchDim=\dimen173
-\MPnumerator=\count284
-\makeMPintoPDFobject=\count285
-\everyMPtoPDFconversion=\toks23
-) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+\scratchcounter=\count298
+\scratchdimen=\dimen177
+\scratchbox=\box56
+\nofMPsegments=\count299
+\nofMParguments=\count300
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count301
+\MPscratchDim=\dimen178
+\MPnumerator=\count302
+\makeMPintoPDFobject=\count303
+\everyMPtoPDFconversion=\toks26
+)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
 )
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 
-pdfTeX warning: pdflatex (file c:/Users/gxhan/Documents/Università/Esami Correnti/Large-Scale and Multi-Structured Databases/Progetto pokeMongo/pokeMongo/Documentation/latex/img/marchio_unipi_pant541-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+pdfTeX warning: pdflatex.exe (file ./img/marchio_unipi_pant541-eps-converted-to
+.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
+d
 <img/marchio_unipi_pant541-eps-converted-to.pdf, id=1, 565.11125pt x 301.125pt>
+
 File: img/marchio_unipi_pant541-eps-converted-to.pdf Graphic file (type pdf)
 <use img/marchio_unipi_pant541-eps-converted-to.pdf>
-Package pdftex.def Info: img/marchio_unipi_pant541-eps-converted-to.pdf  used on input line 49.
+Package pdftex.def Info: img/marchio_unipi_pant541-eps-converted-to.pdf  used o
+n input line 58.
 (pdftex.def)             Requested size: 390.0pt x 207.81781pt.
 [1
 
-{C:/Users/gxhan/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <c:/Users/gxhan/Documents/Università/Esami Correnti/Large-Scale and Multi-Structured Databases/Progetto pokeMongo/pokeMongo/Documentation/latex/img/marchio_unipi_pant541-eps-converted-to.pdf>] ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\pokeMongo.toc")
+{C:/Users/gxhan/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./img/marchio_u
+nipi_pant541-eps-converted-to.pdf>] (pokeMongo.toc)
 \tf@toc=\write3
 \openout3 = `pokeMongo.toc'.
 
- [1
-
-]
+ [1]
 \openout2 = `chapters/introduction.aux'.
 
- ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/introduction.tex"
-Chapter 1.
+
+(chapters/introduction.tex
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [2
+)
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
+5.
 
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+[2
 
-] [3] (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+]
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 92.
- (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
-File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [4] [5]) [6]
+[3] [4]) [5]
 \openout2 = `chapters/interface_mockup.aux'.
 
- ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/interface_mockup.tex"
-Chapter 2.
-<img/Picture1.png, id=40, 222.07968pt x 245.41687pt>
+ (chapters/interface_mockup.tex
+<img/Picture1.png, id=38, 222.07968pt x 245.41687pt>
 File: img/Picture1.png Graphic file (type png)
 <use img/Picture1.png>
 Package pdftex.def Info: img/Picture1.png  used on input line 6.
 (pdftex.def)             Requested size: 222.07913pt x 245.41626pt.
-<img/Picture2.png, id=41, 221.82875pt x 277.035pt>
+<img/Picture2.png, id=39, 221.82875pt x 277.035pt>
 File: img/Picture2.png Graphic file (type png)
 <use img/Picture2.png>
 Package pdftex.def Info: img/Picture2.png  used on input line 12.
 (pdftex.def)             Requested size: 221.82819pt x 277.03432pt.
 
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/Picture3.png, id=43, 264.99pt x 343.2825pt>
+<img/Picture3.png, id=41, 264.99pt x 343.2825pt>
 File: img/Picture3.png Graphic file (type png)
 <use img/Picture3.png>
 Package pdftex.def Info: img/Picture3.png  used on input line 18.
@@ -303,7 +391,7 @@ Package pdftex.def Info: img/Picture3.png  used on input line 18.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/Picture4.png, id=44, 405.515pt x 250.43562pt>
+<img/Picture4.png, id=42, 405.515pt x 250.43562pt>
 File: img/Picture4.png Graphic file (type png)
 <use img/Picture4.png>
 Package pdftex.def Info: img/Picture4.png  used on input line 25.
@@ -311,7 +399,7 @@ Package pdftex.def Info: img/Picture4.png  used on input line 25.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/Picture5.png, id=45, 414.54875pt x 227.85126pt>
+<img/Picture5.png, id=43, 414.54875pt x 227.85126pt>
 File: img/Picture5.png Graphic file (type png)
 <use img/Picture5.png>
 Package pdftex.def Info: img/Picture5.png  used on input line 31.
@@ -319,7 +407,7 @@ Package pdftex.def Info: img/Picture5.png  used on input line 31.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/Picture6.png, id=46, 410.53375pt x 274.02374pt>
+<img/Picture6.png, id=44, 410.53375pt x 274.02374pt>
 File: img/Picture6.png Graphic file (type png)
 <use img/Picture6.png>
 Package pdftex.def Info: img/Picture6.png  used on input line 38.
@@ -327,43 +415,56 @@ Package pdftex.def Info: img/Picture6.png  used on input line 38.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [7
+) [6
 
 
 
-
- <c:/Users/gxhan/Documents/Università/Esami Correnti/Large-Scale and Multi-Structured Databases/Progetto pokeMongo/pokeMongo/Documentation/latex/img/Picture1.png>] [8 <c:/Users/gxhan/Documents/Università/Esami Correnti/Large-Scale and Multi-Structured Databases/Progetto pokeMongo/pokeMongo/Documentation/latex/img/Picture2.png>] [9 <c:/Users/gxhan/Documents/Università/Esami Correnti/Large-Scale and Multi-Structured Databases/Progetto pokeMongo/pokeMongo/Documentation/latex/img/Picture3.png>] [10 <c:/Users/gxhan/Documents/Università/Esami Correnti/Large-Scale and Multi-Structured Databases/Progetto pokeMongo/pokeMongo/Documentation/latex/img/Picture4.png> <c:/Users/gxhan/Documents/Università/Esami Correnti/Large-Scale and Multi-Structured Databases/Progetto pokeMongo/pokeMongo/Documentation/latex/img/Picture5.png>] [11 <c:/Users/gxhan/Documents/Università/Esami Correnti/Large-Scale and Multi-Structured Databases/Progetto pokeMongo/pokeMongo/Documentation/latex/img/Picture6.png>]
+ <./img/Picture1.png>] [7 <./img/Picture2.png>] [8 <./img/Picture3.png>]
+[9 <./img/Picture4.png> <./img/Picture5.png>] [10 <./img/Picture6.png>]
 \openout2 = `chapters/requirements.aux'.
 
- ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/requirements.tex"
-Chapter 3.
-[12
 
+(chapters/requirements.tex [11
 
 
 
 ]
-<img/Picture7.png, id=72, 483.30562pt x 41.4047pt>
+<img/Picture7.png, id=70, 483.30562pt x 41.4047pt>
 File: img/Picture7.png Graphic file (type png)
 <use img/Picture7.png>
 Package pdftex.def Info: img/Picture7.png  used on input line 63.
 (pdftex.def)             Requested size: 390.0pt x 33.4125pt.
-) [13 <c:/Users/gxhan/Documents/Università/Esami Correnti/Large-Scale and Multi-Structured Databases/Progetto pokeMongo/pokeMongo/Documentation/latex/img/Picture7.png>]
+) [12 <./img/Picture7.png>]
 \openout2 = `chapters/queries_and_database_structure.aux'.
 
- ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/queries_and_database_structure.tex") ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\pokeMongo.aux" ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/introduction.aux") ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/interface_mockup.aux") ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/requirements.aux") ("c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\chapters/queries_and_database_structure.aux")) ) 
+
+(chapters/queries_and_database_structure.tex) (pokeMongo.aux
+(chapters/introduction.aux) (chapters/interface_mockup.aux)
+(chapters/requirements.aux) (chapters/queries_and_database_structure.aux)) ) 
 Here is how much of TeX's memory you used:
- 6855 strings out of 480236
- 108897 string characters out of 2880557
- 880351 words of memory out of 3000000
- 23318 multiletter control sequences out of 15000+200000
- 542053 words of font info for 53 fonts, out of 3000000 for 9000
+ 7572 strings out of 480236
+ 115104 string characters out of 2880557
+ 919995 words of memory out of 3000000
+ 24011 multiletter control sequences out of 15000+200000
+ 548471 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,6n,77p,469b,1702s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1000.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on "c:/Users\gxhan\Documents\Università\Esami Correnti\Large-Scale and Multi-Structured Databases\Progetto pokeMongo\pokeMongo\Documentation\latex\pokeMongo.pdf" (14 pages, 431727 bytes).
+ 70i,6n,77p,310b,1820s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C
+:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.
+pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecr
+m0600.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi6
+00\tcrm1200.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecbx1440.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jkna
+ppen/ec/dpi600\ecbi1200.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfou
+r/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk
+/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fo
+nts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\gxhan\AppData\Local\MiK
+TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\gxhan\AppData\Loc
+al\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi2488.pk> <C:\Users\gxhan\AppDa
+ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk>
+Output written on pokeMongo.pdf (13 pages, 442606 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
+ 418 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

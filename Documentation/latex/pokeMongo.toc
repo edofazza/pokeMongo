@@ -1,10 +1,10 @@
 \babel@toc {english}{}
-\contentsline {chapter}{\numberline {1}Introduction}{2}{}%
-\contentsline {section}{\numberline {1.1}Description}{2}{}%
-\contentsline {section}{\numberline {1.2}Code Snippets}{3}{}%
-\contentsline {chapter}{\numberline {2}Interface Mockup}{7}{}%
-\contentsline {section}{\numberline {2.1}Something}{7}{}%
-\contentsline {chapter}{\numberline {3}Requirements}{12}{}%
-\contentsline {section}{\numberline {3.1}Something}{12}{}%
-\contentsline {section}{\numberline {3.2}Non-functional Requirements}{13}{}%
-\contentsline {section}{\numberline {3.3}UML relation diagram}{13}{}%
+\contentsline {section}{\numberline {1}Introduction}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Description}{2}{}%
+\contentsline {subsection}{\numberline {1.2}Code Snippets}{2}{}%
+\contentsline {section}{\numberline {2}Interface Mockup}{6}{}%
+\contentsline {subsection}{\numberline {2.1}Something}{6}{}%
+\contentsline {section}{\numberline {3}Requirements}{11}{}%
+\contentsline {subsection}{\numberline {3.1}Something}{11}{}%
+\contentsline {subsection}{\numberline {3.2}Non-functional Requirements}{12}{}%
+\contentsline {subsection}{\numberline {3.3}UML relation diagram}{12}{}%

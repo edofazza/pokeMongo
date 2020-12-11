@@ -195,7 +195,6 @@ public class PokemonWindowGroup extends Group {
         LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
 
         XYChart.Series series = new XYChart.Series();
-        //series.setName("Catch Rate of " + name + " in the last 30days");
 
         //TODO dati di prova
         series.getData().add(new XYChart.Data<>(1, 3));
@@ -235,12 +234,12 @@ public class PokemonWindowGroup extends Group {
         dropShadow.setColor(Color.GRAY);
         dropShadow.setBlurType(BlurType.GAUSSIAN);
 
-
         lineChart.getData().add(series);
+        lineChart.setLegendVisible(false);
         lineChart.setCreateSymbols(false);
         series.getNode().setEffect(dropShadow);
         series.getNode().setStyle("-fx-stroke: #34abeb;");
-        lineChart.setPrefSize(570, 280);
+        lineChart.setPrefSize(570, 260);
         lineChart.relocate(15, 400);
 
         getChildren().addAll(catchRatePlot, lineChart);

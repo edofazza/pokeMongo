@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[a4paper, 12pt]{article}
 
 \usepackage{mathtools}
 
@@ -6,12 +6,21 @@
 \usepackage{xcolor}
 \usepackage[english]{babel}
 \usepackage[labelfont=bf]{caption}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec, blindtext, color}
+\usepackage{float}
+
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{10pt}}
+\titleformat{\section}[hang]{\Huge\bfseries}{\thesection\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+
 \captionsetup{labelfont=bf}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
 
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
