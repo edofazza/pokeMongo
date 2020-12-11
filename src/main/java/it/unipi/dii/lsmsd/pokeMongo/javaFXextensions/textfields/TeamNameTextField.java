@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields;
 
+import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -9,7 +10,7 @@ import javafx.scene.control.TextField;
  * Specific TextField for the Team name in the Team scene.
  */
 public class TeamNameTextField extends TextField {
-    private final int limit = 9;
+    private final int limit = ConfigDataHandler.getInstance().configData.teamNameLimitCharacters;
     /**
      * Instantiates a TextField and associates it with a class style
      * @param text placeholder

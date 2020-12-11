@@ -14,7 +14,7 @@ public class ConfigData {
 
     public String userNeo4j;
     public String passwordNeo4j;
-
+    public int teamNameLimitCharacters;
     /**
      *  0: no logs at all
      *  1: only log(), warn(), error() functions print something
@@ -25,7 +25,7 @@ public class ConfigData {
     public int verbosityLevel;
     ConfigData(int numrows, String usernameSpeedLogin, String passwordSpeedLogin,
                String userDbArchitecture, String pokemonDbArchitecture, String teamDbArchitecture, String postDbArchitecture, String networkDbArchitecture,
-               int verbosityLevel, String localUri, String remoteUriNeo4j, String userNeo4j, String passwordNeo4j){
+               int verbosityLevel, String localUri, String remoteUriNeo4j, String userNeo4j, String passwordNeo4j, int teamNameLimitCharacters){
         this.numRowsRanking = numrows;
         this.usernameSpeedLogin = usernameSpeedLogin;
         this.passwordSpeedLogin = passwordSpeedLogin;
@@ -39,6 +39,7 @@ public class ConfigData {
         this.remoteUriNeo4j = remoteUriNeo4j;
         this.userNeo4j = userNeo4j;
         this.passwordNeo4j = passwordNeo4j;
+        this.teamNameLimitCharacters = teamNameLimitCharacters;
     }
 
 }
