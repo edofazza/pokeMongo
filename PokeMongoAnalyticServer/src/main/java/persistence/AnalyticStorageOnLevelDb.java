@@ -3,7 +3,7 @@ package persistence;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-class AnalyticStorageOnLevelDb implements AnalyticStorage{
+class AnalyticStorageOnLevelDb extends LevelDbDatabase implements AnalyticStorage{
     private final int numDays;
     private static AnalyticStorageOnLevelDb instance;
 
@@ -42,14 +42,36 @@ class AnalyticStorageOnLevelDb implements AnalyticStorage{
         return sdf.format(reference) + ":" + dataType + ":" +country;
     }
 
+    private void removeOld(Calendar threshold){
+        String litThreshold = new SimpleDateFormat("yyyy-MM-dd").format(threshold.getTime());
+        removeLower(litThreshold);
+    }
+
+    private long[] getData(String datatype){
+        long[] result = new long[numDays];
+        Calendar today = Calendar.getInstance();
+        today.setTime(new Date());
+        Calendar timeAgo = Calendar.getInstance();
+        timeAgo.setTime(new Date());
+        timeAgo.add(Calendar.DAY_OF_MONTH, -1*numDays);
+        removeOld(timeAgo);
+        String dataType = datatype;
+        for(int i=0; i<numDays; i++){
+            String key=generateKey(dataType, timeAgo.getTime());
+            result[i] = (long)getWithFilter(key);
+            timeAgo.add(Calendar.DAY_OF_MONTH, 1);
+        }
+        return result;
+    }
+
     @Override
     public long[] getLastLogins() {
-        return new long[0];
+        return getData("LastLogins");
     }
 
     @Override
     public long[] getUserNumber() {
-        return new long[0];
+        return getData("UserNumber");
     }
 
     @Override

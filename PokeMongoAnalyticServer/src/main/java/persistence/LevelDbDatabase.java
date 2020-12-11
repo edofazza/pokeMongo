@@ -70,6 +70,25 @@ public class LevelDbDatabase implements Database{
         return true;
     }
 
+    public boolean removeLower(String threshold){
+        boolean result=true;
+        startConnection();
+        try(DBIterator iter = currentInstance.iterator()){
+            for(iter.seekToFirst(); iter.hasNext(); iter.next()){
+                String key = asString(iter.peekNext().getKey());
+                if(key.compareTo(threshold)<0)
+                    remove(key);
+            }
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+            result=false;
+        }
+        finally {
+            closeConnection();
+        }
+        return result;
+    }
+
     @Override
     public Object getAll() {
         startConnection();
@@ -92,9 +111,13 @@ public class LevelDbDatabase implements Database{
 
     @Override
     public Object getWithFilter(Object filter) {
+        startConnection();
         if(!(filter instanceof String))
             return null;
-        return Long.parseLong(asString(currentInstance.get(bytes((String)filter))));
+        Snapshot snapshot = currentInstance.getSnapshot();
+        Long result = Long.parseLong(asString(currentInstance.get(bytes((String)filter), new ReadOptions().snapshot(snapshot))));
+        closeConnection();
+        return result;
     }
 
     @Override
