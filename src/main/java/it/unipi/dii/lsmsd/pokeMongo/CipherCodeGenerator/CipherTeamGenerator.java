@@ -28,7 +28,7 @@ public class CipherTeamGenerator {
                     continue;
                 else {
                     // CHOOSE A POKEMON AT RANDOM
-                    int index = (int) Math.round(Math.random() * allPokemons.size());
+                    int index = (int) Math.round(Math.random() * (allPokemons.size() - 1));
                     Pokemon p = allPokemons.get(index);
 
                     // CREATE QUERY

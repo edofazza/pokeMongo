@@ -22,10 +22,10 @@ public class CipherFriendsGenerator {
             if (allUsers.size() > 15)
                 index = (int) Math.round(Math.random() * 15);
             else
-                index = (int) Math.round(Math.random() * allUsers.size());
+                index = (int) Math.round(Math.random() * (allUsers.size() - 1));
 
             for (int i = 0; i < index; i++) {
-                int indexUser = (int) Math.round(Math.random() * allUsers.size());
+                int indexUser = (int) Math.round(Math.random() * (allUsers.size() - 1));
 
                 if (allUsers.get(indexUser).isAdmin())
                     continue;
