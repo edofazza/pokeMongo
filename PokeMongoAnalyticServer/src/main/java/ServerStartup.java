@@ -4,7 +4,7 @@ public class ServerStartup {
     private static boolean started=false;
 
     public static void main(String[] args){
-        try {
+       /* try {
             while (true) {
                 long timeToSleep;
                 if (!started) {         //first time starts at 00:00:01
@@ -18,18 +18,18 @@ public class ServerStartup {
                 } else {
                     timeToSleep=24*60*60*1000; //once per day
                 }
-                Thread.sleep(timeToSleep);
+                Thread.sleep(timeToSleep);*/
                 Thread loginCounter = new LoginCounter();
                 Thread userCounter = new UserCounter();
                 Thread userCounterByCountry = new UserCounterByCountry();
                 loginCounter.start();
                 userCounter.start();
-                userCounterByCountry.start();
+                userCounterByCountry.start();/*
             }
         }
         catch (InterruptedException i){
             System.out.println(i.getMessage());
             i.printStackTrace();
-        }
+        }*/
     }
 }
