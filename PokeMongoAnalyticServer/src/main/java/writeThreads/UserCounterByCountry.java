@@ -1,15 +1,19 @@
+package writeThreads;
+
 import analytic.Analyzer;
 import analytic.AnalyzerFactory;
 import persistence.AnalyticStorage;
 import persistence.AnalyticStorageFactory;
 
-public class UserCounter extends Thread{
+import java.util.Map;
+
+public class UserCounterByCountry extends Thread{
 
     public void run(){
         Analyzer analyzer = AnalyzerFactory.buildAnalyzer();
-        long userNumber = analyzer.getUserNumber();
-        System.out.println(userNumber);
+        Map<String, Long> userNumberByCountry = analyzer.getUserNumberByCountry();
+        System.out.println(userNumberByCountry.get(0));
         AnalyticStorage analyticStorage = AnalyticStorageFactory.buildAnalyzer();
-        analyticStorage.setUserNumber(userNumber);
+        analyticStorage.setUserNumberByCountry(userNumberByCountry);
     }
 }
