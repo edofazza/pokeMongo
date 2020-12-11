@@ -41,7 +41,7 @@ public class PokemonWindowGroup extends Group {
      */
     //TODO: type is an array, change it
     public PokemonWindowGroup(String portraitUrl, String spriteUrl, String name, String type,
-                              String weight, String height, String catchRate, String biology) {
+                              String weight, String height, String catchRate, List<Double> catchRates, String biology) {
 
         Logger.vvlog("Creating PokemonWindowGroup for pokemon " + name);
 
@@ -57,7 +57,7 @@ public class PokemonWindowGroup extends Group {
 
         displayPosts(name);
         displayCatchRateTimePlot(name);
-        displayLineChart(name);
+        displayLineChart(name, catchRates);
     }
 
 
@@ -185,13 +185,13 @@ public class PokemonWindowGroup extends Group {
         getChildren().addAll(catchRatePlot);
     }
 
-    private void displayLineChart(String name){
+    private void displayLineChart(String name, List<Double> catchRates){
         //GET DATA OF DYNAMIC CATCH RATE
-        //List<Pair<Double, Double>> listCatchRatesThirtyDays = getCatchRateThirtyDays(name);
-        //LineChart<Number, Number> lineChart1 = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, 15, 400, "Catch Rate",300, 0, 50);
-        //LineChartThirtyDaysFactory.addDataToLineChart(lineChart1, pairList);
+        LineChart<Number, Number> lineChart1 = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, 15, 400, "Catch Rate",300, 0, 50);
+        LineChartThirtyDaysFactory.addDataToLineChart(lineChart1, catchRates);
 
 
+        /*
         List<Pair<Double, Double>> pairList = new ArrayList<>();
         pairList.add(new Pair<Double, Double>(1.0, 3.0));
         pairList.add(new Pair<Double, Double>(2.0, 25.0));
@@ -207,7 +207,7 @@ public class PokemonWindowGroup extends Group {
 
         LineChart<Number, Number> lineChart1 = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, 15, 400, "Catch Rate",300, 0, 50);
         LineChartThirtyDaysFactory.addDataToLineChart(lineChart1, pairList);
-
+        */
         getChildren().addAll(lineChart1);
     }
 }

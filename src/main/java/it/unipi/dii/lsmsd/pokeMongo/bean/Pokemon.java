@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pokemon {
@@ -7,7 +8,7 @@ public class Pokemon {
     private String[] types;
     private int id;
     private List<Double> capture_rates;
-    private double capture_rate;
+    private double capture_rate; //Base Capture Rate
     private int height;
     private int weight;
     private String biology;
@@ -18,6 +19,20 @@ public class Pokemon {
     private int held;
 
 
+
+    public Pokemon(String name, String[] types, int pokedexIndex, double catchRate,
+                   int height, int weight, String bio, String portrait, String sprite){
+        this.name=name;
+        this.types=types;
+        this.id=pokedexIndex;
+        this.capture_rates = new ArrayList<>();
+        this.capture_rate=catchRate;
+        this.height=height;
+        this.weight=weight;
+        this.biology=bio;
+        this.portrait=portrait;
+        this.sprite=sprite;
+    }
 
     public Pokemon(String name, String[] types, int pokedexIndex, double catchRate, List<Double> capture_rates,
                    int height, int weight, String bio, String portrait, String sprite){

@@ -32,11 +32,12 @@ public class LineChartThirtyDaysFactory {
 
 
 
-    public static void addDataToLineChart(LineChart lineChart, List<Pair<Double, Double>> xy){
+    public static void addDataToLineChart(LineChart lineChart, List<Double> xy){
         XYChart.Series series = new XYChart.Series();
-
-        for(Pair p: xy){
-            series.getData().add(new XYChart.Data<>(p.getKey(),p.getValue()));
+        int i=0;
+        for(Double p: xy){
+            series.getData().add(new XYChart.Data<>(i,p));
+            i++;
         }
 
         lineChart.getData().add(series);
