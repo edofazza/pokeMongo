@@ -1,8 +1,5 @@
 import requests
 import json
-
-
-
 # 1° generation
 new_json = []
 description = ""
@@ -23,6 +20,7 @@ for i in range(500, 894):
         "name": work_string_json['name'],
         "weight": work_string_json['weight'],
         "height": work_string_json['height'],
+        "capture_rates": [],
         "capture_rate": work_string_json2['capture_rate'],
         "biology": description,
         "types": [],

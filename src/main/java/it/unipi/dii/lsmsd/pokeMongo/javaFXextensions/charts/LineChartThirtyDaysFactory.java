@@ -30,6 +30,8 @@ public class LineChartThirtyDaysFactory {
         return lineChart;
     }
 
+
+
     public static void addDataToLineChart(LineChart lineChart, List<Pair<Double, Double>> xy){
         XYChart.Series series = new XYChart.Series();
 
