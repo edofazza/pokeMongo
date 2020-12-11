@@ -1,12 +1,10 @@
 package bean;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
-public class Analytic {
+public class Analytic implements Serializable{
     private String date;
     private long lastLogins;
     private long userCounter;
@@ -25,11 +23,12 @@ public class Analytic {
     }
 
     public Analytic(){
-        this(null, 0, 0, null);
+        this(new Date(), 0, 0, new HashMap<>());
     }
 
     public void setCountry(Map<String, Long> logins) {
         int i=0;
+        country = new CountryData[logins.size()];
         for(Map.Entry<String, Long> el : logins.entrySet()) {
             country[i] = new CountryData(el.getKey(), el.getValue());
             i++;
@@ -61,12 +60,20 @@ public class Analytic {
     }
 }
 
-class CountryData{
+class CountryData implements Serializable {
     private String name;
     private long lastLogins;
 
     CountryData(String name, long lastLogins){
         this.lastLogins=lastLogins;
         this.name=name;
+    }
+
+    public long getLastLogins() {
+        return lastLogins;
+    }
+
+    public String getName() {
+        return name;
     }
 }

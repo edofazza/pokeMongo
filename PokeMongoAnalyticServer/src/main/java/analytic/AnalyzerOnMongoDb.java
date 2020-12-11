@@ -76,11 +76,12 @@ class AnalyzerOnMongoDb extends MongoDbDatabase implements Analyzer{
         Bson count = group("$country", sum("lastLogin", 1));
         Bson sort = sort(descending("lastLogin"));
         Bson limit = limit(15);
-        Bson project = project(fields(include("country", "lastLogin")));
+        Bson project = project(fields( include( "_id", "lastLogin")));
         List<Document> result = aggregate(Arrays.asList(match, count, sort, limit, project));
         Map<String, Long> map = new HashMap<>();
         for(Document d: result)
-            map.put(d.getString("country"), d.getInteger("lastLogin").longValue());
+            map.put(d.getString("_id"), d.getInteger("lastLogin").longValue());
+        System.out.println("map: "+ map);
         return map;
     }
 }
