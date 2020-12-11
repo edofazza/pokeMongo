@@ -129,6 +129,7 @@ public class PokemonWindowGroup extends Group {
      * @param catchRate pokemon's catch rate (value between 1 and 255)
      */
     private void displayCatchRate(String catchRate) {
+
         PokemonWindowLabel catchRateLabel = new PokemonWindowLabel("CATCH RATE: " + catchRate, 250, 170);
 
         getChildren().add(catchRateLabel);
