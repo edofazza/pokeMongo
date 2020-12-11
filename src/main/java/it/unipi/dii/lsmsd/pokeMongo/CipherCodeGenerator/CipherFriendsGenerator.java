@@ -27,6 +27,9 @@ public class CipherFriendsGenerator {
             for (int i = 0; i < index; i++) {
                 int indexUser = (int) Math.round(Math.random() * allUsers.size());
 
+                if (allUsers.get(indexUser).isAdmin())
+                    continue;
+
                 String to = allUsers.get(indexUser).getUsername();
                 if(!u.getUsername().equals(allUsers.get(indexUser).getUsername()))
                     s += "MATCH (from:User) WHERE from.username = \"" + u.getUsername() + "\" MATCH (to:User) " +
