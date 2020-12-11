@@ -1,3 +1,4 @@
+import clientInterface.Listener;
 import writeThreads.LoginCounter;
 import writeThreads.UserCounter;
 import writeThreads.UserCounterByCountry;
@@ -17,6 +18,9 @@ public class ServerStartup {
                     c.set(Calendar.SECOND, 1);
                     c.set(Calendar.MILLISECOND, 0);
                     timeToSleep = (c.getTimeInMillis()-System.currentTimeMillis());
+                    started=true;
+                    Thread listener = new Listener();
+                    listener.start();
                 } else {
                     timeToSleep=24*60*60*1000; //once per day
                 }

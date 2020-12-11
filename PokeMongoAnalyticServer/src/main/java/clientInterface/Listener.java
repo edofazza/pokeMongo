@@ -1,4 +1,9 @@
 package clientInterface;
 
-public class Listener {
+public class Listener extends Thread{
+
+    public void run(){
+
+    }
+
 }
