@@ -79,6 +79,11 @@ class AnalyticStorageOnLocalMemory implements AnalyticStorage{
     }
 
     @Override
+    public List<Map<String, Long>> getLastLoginsByCountry() {
+        return null;
+    }
+
+    @Override
     public void setLastLogin(long counted) {
         setIndex(indexLastLogin);
         circularLastLoginsCounter[indexLastLogin]=counted;
@@ -94,5 +99,10 @@ class AnalyticStorageOnLocalMemory implements AnalyticStorage{
     public void setUserNumberByCountry(Map<String, Long> counted) {
         setIndex(indexUserCounterByCountry);
         circularUserCounterByCountry.add(indexUserCounterByCountry, counted);
+    }
+
+    @Override
+    public void setLastLoginsByCountry(Map<String, Long> counted) {
+
     }
 }

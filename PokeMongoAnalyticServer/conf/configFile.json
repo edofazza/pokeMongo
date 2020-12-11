@@ -5,7 +5,7 @@
   "verbosityLevel": 3,
 
   "userDbArchitecture": "MongoDb",
-  "analyticMemorySupport": "LevelDb",
+  "analyticMemorySupport": "MongoDb",
 
   "daysToRemember": 30
 

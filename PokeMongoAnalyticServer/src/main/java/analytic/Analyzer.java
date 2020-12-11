@@ -8,4 +8,6 @@ public interface Analyzer {
     long getUserNumber();
 
     Map<String, Long> getUserNumberByCountry();
+
+    Map<String, Long> getLastLoginsByCountry();
 }
