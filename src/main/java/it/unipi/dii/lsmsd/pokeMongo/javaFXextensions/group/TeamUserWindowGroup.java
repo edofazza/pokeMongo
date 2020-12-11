@@ -23,7 +23,7 @@ public class TeamUserWindowGroup extends Group {
         TeamManager teamManager = TeamManagerFactory.buildManager();
         user.addTeam(teamManager.getUserTeam(user));
 
-        if (!CurrentUI.getUser().getUsername().equals(user.getUsername()))
+        if (!CurrentUI.getUser().getUsername().equals(user.getUsername()) && !CurrentUI.getUser().isAdmin())
             displayFollowButton();
 
         displayTeamName();
