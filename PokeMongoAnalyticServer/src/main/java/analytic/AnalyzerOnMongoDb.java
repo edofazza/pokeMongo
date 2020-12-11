@@ -27,13 +27,17 @@ class AnalyzerOnMongoDb extends MongoDbDatabase implements Analyzer{
     }
 
     @Override
+    public boolean update(Object target, Object newValue) {
+        return false;
+    }
+
+    @Override
     protected List<Document> aggregate(List<Bson> pipeline) {
-        {
-            MongoCollection<Document> collection = getCollection(collectionName);
-            List<Document> toReturn = collection.aggregate(pipeline).into(new ArrayList<>());
-            closeConnection();
-            return toReturn;
-        }
+        MongoCollection<Document> collection = getCollection(collectionName);
+        List<Document> toReturn = collection.aggregate(pipeline).into(new ArrayList<>());
+        closeConnection();
+        return toReturn;
+
     }
 
     @Override

@@ -55,10 +55,7 @@ public abstract class MongoDbDatabase implements Database{
 
 
     @Override
-    public boolean insert(Object toInsert){
-        showError();
-        return false;
-    }
+    public abstract boolean insert(Object toInsert);
 
     @Override
     public boolean remove(Object o){
@@ -73,10 +70,7 @@ public abstract class MongoDbDatabase implements Database{
     public abstract ArrayList<Object> getWithFilter(Object filter);
 
     @Override
-    public boolean update(Object target, Object newValue){
-        showError();
-        return false;
-    }
+    public abstract boolean update(Object target, Object newValue);
 
     protected abstract Object aggregate(List<Bson> pipeline);
 

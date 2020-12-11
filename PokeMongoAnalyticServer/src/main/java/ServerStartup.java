@@ -20,17 +20,16 @@ public class ServerStartup {
                     timeToSleep=24*60*60*1000; //once per day
                 }
                 Thread.sleep(timeToSleep);*/
-                Thread loginCounter = new LoginCounter();
-                Thread userCounter = new UserCounter();
-                Thread userCounterByCountry = new UserCounterByCountry();
-                loginCounter.start();
-                userCounter.start();
-                userCounterByCountry.start();/*
-            }
+                updateAll();
+          /*  }
         }
         catch (InterruptedException i){
             System.out.println(i.getMessage());
             i.printStackTrace();
         }*/
+    }
+
+    private static void updateAll(){
+
     }
 }
