@@ -12,6 +12,8 @@ public class AnalyticStorageFactory {
                 return AnalyticStorageOnLevelDb.getInstance(daysToRemember);
             case "InMemory":
                 return AnalyticStorageOnLocalMemory.getInstance(daysToRemember);
+            case "MongoDb":
+                return new AnalyticStorageOnMongoDb();
             default:
                 try{
                     throw new IllegalArgumentException();

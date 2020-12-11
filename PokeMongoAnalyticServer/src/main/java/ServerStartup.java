@@ -1,13 +1,17 @@
-import clientInterface.Listener;
-import writeThreads.LoginCounter;
-import writeThreads.UserCounter;
-import writeThreads.UserCounterByCountry;
+import analytic.Analyzer;
+import analytic.AnalyzerFactory;
+import persistence.AnalyticStorage;
+import persistence.AnalyticStorageFactory;
+import writeThreads.*;
+
+import java.util.Calendar;
+import java.util.Map;
 
 public class ServerStartup {
     private static boolean started=false;
 
     public static void main(String[] args){
-       /* try {
+       try {
             while (true) {
                 long timeToSleep;
                 if (!started) {         //first time starts at 00:00:01
@@ -19,23 +23,28 @@ public class ServerStartup {
                     c.set(Calendar.MILLISECOND, 0);
                     timeToSleep = (c.getTimeInMillis()-System.currentTimeMillis());
                     started=true;
-                    Thread listener = new Listener();
-                    listener.start();
                 } else {
                     timeToSleep=24*60*60*1000; //once per day
                 }
-                Thread.sleep(timeToSleep);*/
-                Thread loginCounter = new LoginCounter();
-                Thread userCounter = new UserCounter();
-                Thread userCounterByCountry = new UserCounterByCountry();
-                loginCounter.start();
-                userCounter.start();
-                userCounterByCountry.start();/*
+                Thread.sleep(timeToSleep);
+                updateAll();
             }
         }
         catch (InterruptedException i){
             System.out.println(i.getMessage());
             i.printStackTrace();
-        }*/
+        }
+    }
+
+    private static void updateAll(){
+        Analyzer a = AnalyzerFactory.buildAnalyzer();
+        long lastLogins = a.getTodayLogin();
+        long userNumber = a.getUserNumber();
+        Map<String, Long> map = a.getLastLoginsByCountry();
+
+        AnalyticStorage as = AnalyticStorageFactory.buildAnalyzer();
+        as.setLastLogin(lastLogins);
+        as.setUserNumber(userNumber);
+        as.setLastLoginsByCountry(map);
     }
 }
