@@ -16,6 +16,10 @@ import static com.mongodb.client.model.Sorts.*;
 
 class AnalyzerOnMongoDb extends MongoDbDatabase implements Analyzer{
     private String collectionName = "user";
+
+    @Override
+    public boolean insert(Object toInsert) { return false;}
+
     @Override
     public ArrayList<Object> getAll() {
         return null;
@@ -27,9 +31,10 @@ class AnalyzerOnMongoDb extends MongoDbDatabase implements Analyzer{
     }
 
     @Override
-    public boolean update(Object target, Object newValue) {
-        return false;
-    }
+    public boolean update(Object target, Object newValue) { return false;}
+
+    @Override
+    public boolean remove(Object o) { return false;}
 
     @Override
     protected List<Document> aggregate(List<Bson> pipeline) {
@@ -37,7 +42,6 @@ class AnalyzerOnMongoDb extends MongoDbDatabase implements Analyzer{
         List<Document> toReturn = collection.aggregate(pipeline).into(new ArrayList<>());
         closeConnection();
         return toReturn;
-
     }
 
     @Override
@@ -60,20 +64,6 @@ class AnalyzerOnMongoDb extends MongoDbDatabase implements Analyzer{
         Bson project = project(fields(include("userNumber")));
         Document result = aggregate(Arrays.asList(match, count, project)).get(0);
         return result.getInteger("userNumber").longValue();
-    }
-
-    @Override
-    public Map<String, Long> getUserNumberByCountry() {
-        Bson match = match(ne("admin", true));
-        Bson count = group("$country", sum("userNumber", 1));
-        Bson sort = sort(descending("userNumber"));
-        Bson limit = limit(15);
-        Bson project = project(fields(include("country", "userNumber")));
-        List<Document> result = aggregate(Arrays.asList(match, count, sort, limit, project));
-        Map<String, Long> map = new HashMap<>();
-        for(Document d: result)
-            map.put(d.getString("country"), d.getInteger("userNumber").longValue());
-        return map;
     }
 
     @Override

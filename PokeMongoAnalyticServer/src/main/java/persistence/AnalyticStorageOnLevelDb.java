@@ -74,10 +74,6 @@ class AnalyticStorageOnLevelDb extends LevelDbDatabase implements AnalyticStorag
         return getData("UserNumber");
     }
 
-    @Override
-    public List<Map<String, Long>> getUserNumberByCountry() {
-        return new ArrayList<>();
-    }
 
     @Override
     public List<Map<String, Long>> getLastLoginsByCountry() {
@@ -94,10 +90,6 @@ class AnalyticStorageOnLevelDb extends LevelDbDatabase implements AnalyticStorag
 
     }
 
-    @Override
-    public void setUserNumberByCountry(Map<String, Long> counted) {
-
-    }
 
     @Override
     public void setLastLoginsByCountry(Map<String, Long> counted) {

@@ -7,7 +7,6 @@ public interface AnalyticStorage {
 
     long[] getUserNumber();
 
-
     List<Map<String, Long>> getLastLoginsByCountry();
 
     void setLastLogin(long counted);

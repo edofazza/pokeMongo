@@ -3,6 +3,7 @@ package persistence;
 import bean.Analytic;
 import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.result.DeleteResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -17,6 +18,16 @@ import static com.mongodb.client.model.Updates.set;
 public class AnalyticStorageOnMongoDb extends MongoDbDatabase implements AnalyticStorage{
     private String collectionName="analytic";
     private Analytic myAnalytic;
+    private int numDays;
+
+    AnalyticStorageOnMongoDb(int numDays){
+        this.numDays = numDays;
+    }
+
+    AnalyticStorageOnMongoDb(){
+        this(30);
+    }
+
 
     private Document AnalyticToDocument(Analytic a){
         return Document.parse(new Gson().toJson(a));
@@ -27,9 +38,15 @@ public class AnalyticStorageOnMongoDb extends MongoDbDatabase implements Analyti
     }
 
 
+
     @Override
     public long[] getLastLogins() {
-        return new long[0];
+        long[] result = new long[numDays];
+        ArrayList<Object> al= getAll();
+        for(int i=0; i<numDays; i++){
+            result[i]=DocumentToAnalytic((Document)al.get(i)).getLastLogins();
+        }
+        return result;
     }
 
     @Override
@@ -41,6 +58,8 @@ public class AnalyticStorageOnMongoDb extends MongoDbDatabase implements Analyti
     public List<Map<String, Long>> getLastLoginsByCountry() {
         return null;
     }
+
+
 
     @Override
     public void setLastLogin(long counted) {
@@ -66,7 +85,20 @@ public class AnalyticStorageOnMongoDb extends MongoDbDatabase implements Analyti
             myAnalytic = new Analytic();
         myAnalytic.setCountry(counted);
         insert(myAnalytic);
+        removeOld();
     }
+
+    private void removeOld(){
+        Calendar old = Calendar.getInstance();
+        old.add(Calendar.DAY_OF_MONTH, -1 * numDays);
+        String threshold = new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(old.getTime());
+        Bson filter = lt("date", threshold);
+        remove(filter);
+    }
+
+
+
+
 
     @Override
     public boolean insert(Object toInsert) {
@@ -83,19 +115,45 @@ public class AnalyticStorageOnMongoDb extends MongoDbDatabase implements Analyti
     }
 
     @Override
-    public ArrayList<Object> getAll() {
+    public boolean remove(Object o) {
         MongoCollection<Document> collection = getCollection(collectionName);
-        ArrayList<Object> result = collection.find().into(new ArrayList<>());
+        DeleteResult dr;
+        if (o instanceof Analytic){
+            dr = collection.deleteOne(eq("date", ((Analytic) o).getDate()));
+        }
+        else if(o instanceof Bson){
+            dr = collection.deleteMany((Bson)o);
+        }
+        else {
+            closeConnection();
+            return false;
+        }
         closeConnection();
-        return result;
+        return dr.getDeletedCount()>0;
+    }
+
+    @Override
+    public ArrayList<Object> getAll() {
+        List<Document> docs= getCollection(collectionName).find().into(new ArrayList<>());
+        ArrayList<Object> analytics = new ArrayList<>();
+        for(Document d:docs){
+            analytics.add(DocumentToAnalytic(d));
+        }
+        closeConnection();
+        return analytics;
     }
 
     @Override
     public ArrayList<Object> getWithFilter(Object filter) {
-        MongoCollection<Document> collection = getCollection(collectionName);
-        ArrayList<Object> result = collection.find((Bson)filter).into(new ArrayList<>());
+        if(!(filter instanceof Bson))
+            return null;
+        List<Document> docs= getCollection(collectionName).find((Bson)filter).into(new ArrayList<>());
+        ArrayList<Object> analytics = new ArrayList<>();
+        for(Document d:docs){
+            analytics.add(DocumentToAnalytic(d));
+        }
         closeConnection();
-        return result;
+        return analytics;
     }
 
     @Override

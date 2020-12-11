@@ -47,6 +47,18 @@ public class Analytic {
     public void setUserCounter(long userCounter) {
         this.userCounter = userCounter;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public long getLastLogins() {
+        return lastLogins;
+    }
+
+    public long getUserCounter() {
+        return userCounter;
+    }
 }
 
 class CountryData{
