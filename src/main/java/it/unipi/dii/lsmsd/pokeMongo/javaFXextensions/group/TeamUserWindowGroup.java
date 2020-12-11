@@ -52,7 +52,7 @@ public class TeamUserWindowGroup extends Group {
         follow.setStyle("-fx-background-color: transparent; -fx-border-radius: 10; -fx-border-color: #4aa7e9; -fx-border-width: 2;" +
                 " -fx-text-fill: #4aa7e9; -fx-text-alignment: center;");
         follow.setPrefSize(140, 36);
-        follow.relocate(380, 5);
+        follow.relocate(395, 5);
 
         follow.setOnAction(e -> followUnfollow() );
 
