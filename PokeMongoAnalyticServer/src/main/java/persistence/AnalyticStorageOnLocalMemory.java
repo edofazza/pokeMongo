@@ -54,22 +54,6 @@ class AnalyticStorageOnLocalMemory implements AnalyticStorage{
 
 
     @Override
-    public long[] getLastLogins() {
-        return getFromCircularArray(indexLastLogin ,circularLastLoginsCounter);
-    }
-
-    @Override
-    public long[] getUserNumber() {
-        return getFromCircularArray(indexUserCounter, circularUserCounter);
-    }
-
-
-    @Override
-    public List<Map<String, Long>> getLastLoginsByCountry() {
-        return null;
-    }
-
-    @Override
     public void setLastLogin(long counted) {
         setIndex(indexLastLogin);
         circularLastLoginsCounter[indexLastLogin]=counted;

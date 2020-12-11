@@ -38,8 +38,6 @@ public class AnalyticStorageOnMongoDb extends MongoDbDatabase implements Analyti
     }
 
 
-
-    @Override
     public long[] getLastLogins() {
         long[] result = new long[numDays];
         ArrayList<Object> al= getAll();
@@ -49,12 +47,17 @@ public class AnalyticStorageOnMongoDb extends MongoDbDatabase implements Analyti
         return result;
     }
 
-    @Override
+
     public long[] getUserNumber() {
-        return new long[0];
+        long[] result = new long[numDays];
+        ArrayList<Object> al= getAll();
+        for(int i=0; i<numDays; i++){
+            result[i]=DocumentToAnalytic((Document)al.get(i)).getUserCounter();
+        }
+        return result;
     }
 
-    @Override
+
     public List<Map<String, Long>> getLastLoginsByCountry() {
         return null;
     }
