@@ -65,22 +65,6 @@ class AnalyticStorageOnLevelDb extends LevelDbDatabase implements AnalyticStorag
     }
 
     @Override
-    public long[] getLastLogins() {
-        return getData("LastLogins");
-    }
-
-    @Override
-    public long[] getUserNumber() {
-        return getData("UserNumber");
-    }
-
-
-    @Override
-    public List<Map<String, Long>> getLastLoginsByCountry() {
-        return null;
-    }
-
-    @Override
     public void setLastLogin(long howMany){
 
     }
