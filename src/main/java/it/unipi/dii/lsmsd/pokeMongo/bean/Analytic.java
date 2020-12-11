@@ -1,4 +1,4 @@
-package bean;
+package it.unipi.dii.lsmsd.pokeMongo.bean;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;

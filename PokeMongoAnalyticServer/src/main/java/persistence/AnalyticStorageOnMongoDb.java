@@ -30,9 +30,7 @@ public class AnalyticStorageOnMongoDb extends MongoDbDatabase implements Analyti
 
 
     private Document AnalyticToDocument(Analytic a){
-        String json = new Gson().toJson(a);
-        System.out.println(json);
-        return Document.parse(json);
+        return Document.parse(new Gson().toJson(a));
     }
 
     private Analytic DocumentToAnalytic(Document d){

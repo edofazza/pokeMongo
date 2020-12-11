@@ -9,6 +9,8 @@ public class ConfigData {
     public String teamDbArchitecture;
     public String postDbArchitecture;
     public String networkDbArchitecture;
+    public String analyticMemorySupport;
+    public int daysToVisualize;
     public String localUriNeo4j;
     public String remoteUriNeo4j;
 
@@ -24,8 +26,8 @@ public class ConfigData {
 
     public int verbosityLevel;
     ConfigData(int numrows, String usernameSpeedLogin, String passwordSpeedLogin,
-               String userDbArchitecture, String pokemonDbArchitecture, String teamDbArchitecture, String postDbArchitecture, String networkDbArchitecture,
-               int verbosityLevel, String localUri, String remoteUriNeo4j, String userNeo4j, String passwordNeo4j, int teamNameLimitCharacters){
+               String userDbArchitecture, String pokemonDbArchitecture, String teamDbArchitecture, String postDbArchitecture, String networkDbArchitecture, String analyticMemorySupport,
+               int daysToVisualize, int verbosityLevel, String localUri, String remoteUriNeo4j, String userNeo4j, String passwordNeo4j, int teamNameLimitCharacters){
         this.numRowsRanking = numrows;
         this.usernameSpeedLogin = usernameSpeedLogin;
         this.passwordSpeedLogin = passwordSpeedLogin;
@@ -33,7 +35,9 @@ public class ConfigData {
         this.pokemonDbArchitecture = pokemonDbArchitecture;
         this.postDbArchitecture = postDbArchitecture;
         this.networkDbArchitecture = networkDbArchitecture;
+        this.analyticMemorySupport = analyticMemorySupport;
         this.teamDbArchitecture = teamDbArchitecture;
+        this.daysToVisualize = daysToVisualize;
         this.verbosityLevel = verbosityLevel;
         this.localUriNeo4j = localUri;
         this.remoteUriNeo4j = remoteUriNeo4j;
