@@ -87,7 +87,7 @@ public class LevelDbDatabase implements Database{
         finally {
             closeConnection();
         }
-        return null;
+        return map;
     }
 
     @Override
