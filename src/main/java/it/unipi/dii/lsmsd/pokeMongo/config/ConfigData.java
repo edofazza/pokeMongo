@@ -9,7 +9,9 @@ public class ConfigData {
     public String teamDbArchitecture;
     public String postDbArchitecture;
     public String networkDbArchitecture;
-    public String localUri;
+    public String localUriNeo4j;
+    public String remoteUriNeo4j;
+
     public String userNeo4j;
     public String passwordNeo4j;
 
@@ -23,7 +25,7 @@ public class ConfigData {
     public int verbosityLevel;
     ConfigData(int numrows, String usernameSpeedLogin, String passwordSpeedLogin,
                String userDbArchitecture, String pokemonDbArchitecture, String teamDbArchitecture, String postDbArchitecture, String networkDbArchitecture,
-               int verbosityLevel, String localUri, String userNeo4j, String passwordNeo4j){
+               int verbosityLevel, String localUri, String remoteUriNeo4j, String userNeo4j, String passwordNeo4j){
         this.numRowsRanking = numrows;
         this.usernameSpeedLogin = usernameSpeedLogin;
         this.passwordSpeedLogin = passwordSpeedLogin;
@@ -33,7 +35,8 @@ public class ConfigData {
         this.networkDbArchitecture = networkDbArchitecture;
         this.teamDbArchitecture = teamDbArchitecture;
         this.verbosityLevel = verbosityLevel;
-        this.localUri = localUri;
+        this.localUriNeo4j = localUri;
+        this.remoteUriNeo4j = remoteUriNeo4j;
         this.userNeo4j = userNeo4j;
         this.passwordNeo4j = passwordNeo4j;
     }

@@ -10,7 +10,9 @@
   "teamDbArchitecture": "Neo4j",
   "networkDbArchitecture": "Neo4j",
 
-  "localUri": "neo4j://localhost:7687",
+  "localUriNeo4j": "neo4j://localhost:7687",
+  "remoteUriNeo4j": "neo4j://172.16.3.86:7687",
+
   "userNeo4j": "neo4j",
   "passwordNeo4j": "root"
 }

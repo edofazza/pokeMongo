@@ -11,7 +11,11 @@ import org.neo4j.driver.*;
 public abstract class Neo4jDbDatabase implements Database {
     public Driver driver;
 
-    private String uri = ConfigDataHandler.getInstance().configData.localUri;
+
+//  private String uri = ConfigDataHandler.getInstance().configData.remoteUriNeo4j;
+
+    private String uri = ConfigDataHandler.getInstance().configData.localUriNeo4j;
+
     private String user = ConfigDataHandler.getInstance().configData.userNeo4j;
     private String password = ConfigDataHandler.getInstance().configData.passwordNeo4j;
 
