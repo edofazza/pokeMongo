@@ -1,0 +1,9 @@
+#install neo4j ****INSTALLATO SULL' 86
+wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
+echo 'deb https://debian.neo4j.com stable 4.2' | sudo tee -a /etc/apt/sources.list.d/neo4j.list
+
+sudo apt-get update
+#Community Edition
+sudo apt-get install neo4j=1:4.2.0
+#Enterprise Edition
+sudo apt-get install neo4j-enterprise=1:4.2.0
