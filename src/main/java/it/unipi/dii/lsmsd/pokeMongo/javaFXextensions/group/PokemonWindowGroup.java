@@ -1,6 +1,7 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group;
 
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.FavoriteButton;
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.charts.LineChartThirtyDaysFactory;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.PokemonWindowLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PostsPane;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
@@ -14,9 +15,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.util.Pair;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -54,6 +57,7 @@ public class PokemonWindowGroup extends Group {
 
         displayPosts(name);
         displayCatchRateTimePlot(name);
+        displayLineChart(name);
     }
 
 
@@ -178,70 +182,92 @@ public class PokemonWindowGroup extends Group {
         Label catchRatePlot = new Label(name.toUpperCase(Locale.ROOT) + " CATCH RATE PLOT");
         catchRatePlot.relocate(210, 380);
         catchRatePlot.setStyle("-fx-font-family: 'Arial Black'; -fx-font-size: 15; -fx-font-weight: bold;");
+        getChildren().addAll(catchRatePlot);
+    }
+
+    private void displayLineChart(String name){
+        //GET DATA OF DYNAMIC CATCH RATE
+        //List<Double>
 
 
-        final NumberAxis xAxis = new NumberAxis();
-        xAxis.setLabel("Days");
-        xAxis.setAutoRanging(false);
-        xAxis.setTickUnit(3);
-        xAxis.setLowerBound(0);
-        xAxis.setUpperBound(30);
-        final NumberAxis yAxis = new NumberAxis();
-        yAxis.setLabel("Catch Rate");
-        yAxis.setAutoRanging(false);
-        yAxis.setTickUnit(50);
-        yAxis.setLowerBound(0);
-        yAxis.setUpperBound(300);
-        LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+//        final NumberAxis xAxis = new NumberAxis();
+//        xAxis.setLabel("Days");
+//        xAxis.setAutoRanging(false);
+//        xAxis.setTickUnit(3);
+//        xAxis.setLowerBound(0);
+//        xAxis.setUpperBound(30);
+//        final NumberAxis yAxis = new NumberAxis();
+//        yAxis.setLabel("Catch Rate");
+//        yAxis.setAutoRanging(false);
+//        yAxis.setTickUnit(50);
+//        yAxis.setLowerBound(0);
+//        yAxis.setUpperBound(300);
+//        LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+//
+//        XYChart.Series series = new XYChart.Series();
+//
+//        //TODO dati di prova
+//        series.getData().add(new XYChart.Data<>(1, 3));
+//        series.getData().add(new XYChart.Data<>(2, 25));
+//        series.getData().add(new XYChart.Data<>(3, 10));
+//        series.getData().add(new XYChart.Data<>(4, 30));
+//        series.getData().add(new XYChart.Data<>(5, 10));
+//        series.getData().add(new XYChart.Data<>(6, 20));
+//        series.getData().add(new XYChart.Data<>(7, 255));
+//        series.getData().add(new XYChart.Data<>(8, 24));
+//        series.getData().add(new XYChart.Data<>(9, 120));
+//        series.getData().add(new XYChart.Data<>(10, 220));
+//        series.getData().add(new XYChart.Data<>(11, 3));
+//        series.getData().add(new XYChart.Data<>(12, 10));
+//        series.getData().add(new XYChart.Data<>(13, 60));
+//        series.getData().add(new XYChart.Data<>(14, 20));
+//        series.getData().add(new XYChart.Data<>(15, 100));
+//        series.getData().add(new XYChart.Data<>(16, 80));
+//        series.getData().add(new XYChart.Data<>(17, 20));
+//        series.getData().add(new XYChart.Data<>(18, 100));
+//        series.getData().add(new XYChart.Data<>(19, 255));
+//        series.getData().add(new XYChart.Data<>(20, 200));
+//        series.getData().add(new XYChart.Data<>(21, 160));
+//        series.getData().add(new XYChart.Data<>(22, 30));
+//        series.getData().add(new XYChart.Data<>(23, 20));
+//        series.getData().add(new XYChart.Data<>(24, 40));
+//        series.getData().add(new XYChart.Data<>(25, 34));
+//        series.getData().add(new XYChart.Data<>(26, 10));
+//        series.getData().add(new XYChart.Data<>(27, 30));
+//        series.getData().add(new XYChart.Data<>(28, 32));
+//        series.getData().add(new XYChart.Data<>(29, 30));
+//        series.getData().add(new XYChart.Data<>(30, 30));
+//
+//        DropShadow dropShadow = new DropShadow();
+//        dropShadow.setOffsetX(0);
+//        dropShadow.setOffsetY(3);
+//        dropShadow.setColor(Color.GRAY);
+//        dropShadow.setBlurType(BlurType.GAUSSIAN);
+//
+//        lineChart.getData().add(series);
+//        lineChart.setLegendVisible(false);
+//        lineChart.setCreateSymbols(false);
+//        series.getNode().setEffect(dropShadow);
+//        series.getNode().setStyle("-fx-stroke: #34abeb;");
+//        lineChart.setPrefSize(570, 260);
+//        lineChart.relocate(15, 400);
 
-        XYChart.Series series = new XYChart.Series();
+        List<Pair<Double, Double>> pairList = new ArrayList<>();
+        pairList.add(new Pair<Double, Double>(1.0, 3.0));
+        pairList.add(new Pair<Double, Double>(2.0, 25.0));
+        pairList.add(new Pair<Double, Double>(3.0, 3.0));
+        pairList.add(new Pair<Double, Double>(4.0, 3.0));
+        pairList.add(new Pair<Double, Double>(5.0, 3.0));
+        pairList.add(new Pair<Double, Double>(6.0, 3.0));
+        pairList.add(new Pair<Double, Double>(7.0, 3.0));
+        pairList.add(new Pair<Double, Double>(8.0, 3.0));
+        pairList.add(new Pair<Double, Double>(9.0, 3.0));
+        pairList.add(new Pair<Double, Double>(10.0, 3.0));
 
-        //TODO dati di prova
-        series.getData().add(new XYChart.Data<>(1, 3));
-        series.getData().add(new XYChart.Data<>(2, 25));
-        series.getData().add(new XYChart.Data<>(3, 10));
-        series.getData().add(new XYChart.Data<>(4, 30));
-        series.getData().add(new XYChart.Data<>(5, 10));
-        series.getData().add(new XYChart.Data<>(6, 20));
-        series.getData().add(new XYChart.Data<>(7, 255));
-        series.getData().add(new XYChart.Data<>(8, 24));
-        series.getData().add(new XYChart.Data<>(9, 120));
-        series.getData().add(new XYChart.Data<>(10, 220));
-        series.getData().add(new XYChart.Data<>(11, 3));
-        series.getData().add(new XYChart.Data<>(12, 10));
-        series.getData().add(new XYChart.Data<>(13, 60));
-        series.getData().add(new XYChart.Data<>(14, 20));
-        series.getData().add(new XYChart.Data<>(15, 100));
-        series.getData().add(new XYChart.Data<>(16, 80));
-        series.getData().add(new XYChart.Data<>(17, 20));
-        series.getData().add(new XYChart.Data<>(18, 100));
-        series.getData().add(new XYChart.Data<>(19, 255));
-        series.getData().add(new XYChart.Data<>(20, 200));
-        series.getData().add(new XYChart.Data<>(21, 160));
-        series.getData().add(new XYChart.Data<>(22, 30));
-        series.getData().add(new XYChart.Data<>(23, 20));
-        series.getData().add(new XYChart.Data<>(24, 40));
-        series.getData().add(new XYChart.Data<>(25, 34));
-        series.getData().add(new XYChart.Data<>(26, 10));
-        series.getData().add(new XYChart.Data<>(27, 30));
-        series.getData().add(new XYChart.Data<>(28, 32));
-        series.getData().add(new XYChart.Data<>(29, 30));
-        series.getData().add(new XYChart.Data<>(30, 30));
 
-        DropShadow dropShadow = new DropShadow();
-        dropShadow.setOffsetX(0);
-        dropShadow.setOffsetY(3);
-        dropShadow.setColor(Color.GRAY);
-        dropShadow.setBlurType(BlurType.GAUSSIAN);
+        LineChart<Number, Number> lineChart1 = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, 15, 400, "Catch Rate",300, 0, 50);
+        LineChartThirtyDaysFactory.addDataToLineChart(lineChart1, pairList);
 
-        lineChart.getData().add(series);
-        lineChart.setLegendVisible(false);
-        lineChart.setCreateSymbols(false);
-        series.getNode().setEffect(dropShadow);
-        series.getNode().setStyle("-fx-stroke: #34abeb;");
-        lineChart.setPrefSize(570, 260);
-        lineChart.relocate(15, 400);
-
-        getChildren().addAll(catchRatePlot, lineChart);
+        getChildren().addAll(lineChart1);
     }
 }
