@@ -8,6 +8,7 @@ import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.PokemonRanker;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePokemonException;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicateUserException;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.SlotAlreadyOccupiedException;
+import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import org.neo4j.driver.Record;
 
 import java.util.ArrayList;
@@ -133,5 +134,16 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager, 
             pokemonArrayList.add(pokemon);
         }
         return pokemonArrayList;
+    }
+
+
+    //FOR DYNAMIC CATCH RATE
+    public int getUsersNumberThatOwnAPokemon(Pokemon p){
+        String query = "MATCH (p:Pokemon)<-[w:HAS]-(u:User) WHERE p.name = $name RETURN count(distinct u) as user_numbers";
+        ArrayList<Object> res = getWithFilter(query, parameters("name", p.getName()));
+        Record r = (Record)res.get(0);
+        int num = r.get("user_numbers").asInt();
+        Logger.vlog("num of users that owns " + p.getName() + ": " + num);
+        return num;
     }
 }
