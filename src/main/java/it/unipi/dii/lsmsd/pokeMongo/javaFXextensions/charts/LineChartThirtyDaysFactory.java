@@ -52,4 +52,25 @@ public class LineChartThirtyDaysFactory {
         series.getNode().setEffect(dropShadow);
         series.getNode().setStyle("-fx-stroke: #34abeb;");
     }
+
+    public static void addDataToLineChartLong(LineChart lineChart, List<Long> xy){
+        XYChart.Series series = new XYChart.Series();
+        int i=0;
+        for(Long p: xy){
+            series.getData().add(new XYChart.Data<>(i,p));
+            i++;
+        }
+
+        lineChart.getData().add(series);
+        lineChart.setLegendVisible(false);
+        lineChart.setCreateSymbols(false);
+
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setOffsetX(0);
+        dropShadow.setOffsetY(3);
+        dropShadow.setColor(Color.GRAY);
+        dropShadow.setBlurType(BlurType.GAUSSIAN);
+        series.getNode().setEffect(dropShadow);
+        series.getNode().setStyle("-fx-stroke: #34abeb;");
+    }
 }
