@@ -22,7 +22,7 @@ public class ConfigDataHandler {
             BufferedReader br = new BufferedReader(new FileReader("PokeMongoAnalyticServer/conf/configFile.json"));
             configData = new Gson().fromJson(br, ConfigData.class);
         } catch (IOException ioe){
-            configData = new ConfigData(10, "", "", "MongoDb", "InMemory", 30);
+            configData = new ConfigData(10, "", "", "MongoDb", "InMemory", 30, "neo4j://localhost:7687", "neo4j://172.16.3.86:7687", "neo4j", "root", "Neo4j", "MongoDb");
             ioe.printStackTrace();
         }
     }

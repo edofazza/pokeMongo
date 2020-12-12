@@ -1,9 +1,12 @@
 import analytic.Analyzer;
 import analytic.AnalyzerFactory;
-import persistence.AnalyticStorage;
-import persistence.AnalyticStorageFactory;
+import bean.Pokemon;
+import persistence.*;
+import sun.rmi.server.Activation$ActivationSystemImpl_Stub;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 
 public class ServerStartup {
@@ -45,5 +48,33 @@ public class ServerStartup {
         as.setLastLogin(lastLogins);
         as.setUserNumber(userNumber);
         as.setLastLoginsByCountry(map);
+
+        //DYNAMIC CATCH RATE STUFF
+        PokemonManager pokemonManager = PokemonManagerFactory.buildManager();
+        TeamManager teamManager = TeamManagerFactory.buildManager();
+        ArrayList<Pokemon> pokemons = pokemonManager.getEveryPokemon();
+        int numTrainers;
+        double new_catch_rate;
+        Pokemon oldPokemon;
+        List<Double> capture_rates;
+        for(Pokemon p: pokemons){
+            oldPokemon = new Pokemon(p.getName(), p.getTypes(), p.getId(), p.getCapture_rate(), p.getCapture_rates(), (int)p.getHeight(), (int)p.getWeight(), p.getBiology(), p.getPortrait(), p.getSprite());
+            numTrainers = teamManager.getUsersNumberThatOwnAPokemon(p);
+            new_catch_rate = p.getCapture_rate()*(1 - (numTrainers*1.0)/(userNumber));
+            System.out.println(p.getName() + " " + numTrainers + " " + userNumber + " " + new_catch_rate);
+            capture_rates = p.getCapture_rates();
+            if(capture_rates.size() >= 30){
+                while(capture_rates.size() < 30)
+                    capture_rates.remove(0);
+            }
+
+            for(Double d: capture_rates){
+                System.out.println(p.getName() + " " + d.doubleValue());
+            }
+            capture_rates.add(new_catch_rate);
+            long count = pokemonManager.updatePokemon(oldPokemon, p);
+            System.out.println("Updated " + count + " rows");
+
+        }
     }
 }

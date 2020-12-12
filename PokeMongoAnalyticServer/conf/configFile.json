@@ -6,7 +6,11 @@
 
   "userDbArchitecture": "MongoDb",
   "analyticMemorySupport": "MongoDb",
-
-  "daysToRemember": 30
-
+  "teamDbArchitecture": "Neo4j",
+  "pokemonDbArchitecture": "MongoDb",
+  "daysToRemember": 30,
+  "localUriNeo4j": "neo4j://localhost:7687",
+  "remoteUriNeo4j": "neo4j://172.16.3.86:7687",
+  "userNeo4j": "neo4j",
+  "passwordNeo4j": "root"
 }
