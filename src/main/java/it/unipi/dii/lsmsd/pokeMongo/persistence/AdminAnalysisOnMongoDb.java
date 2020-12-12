@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 import com.google.gson.Gson;
 
+import com.mongodb.client.model.Sorts;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Analytic;
 import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.AdminAnalysis;
 import org.bson.Document;
@@ -87,7 +88,7 @@ public class AdminAnalysisOnMongoDb extends MongoDbDatabase implements AdminAnal
 
     @Override
     public ArrayList<Object> getAll() {
-        List<Document> docs= getCollection(collectionName).find().into(new ArrayList<>());
+        List<Document> docs= getCollection(collectionName).find().limit(numDays).sort(Sorts.descending("date")).into(new ArrayList<>());
         ArrayList<Object> analytics = new ArrayList<>();
         for(Document d:docs){
             analytics.add(DocumentToAnalytic(d));
