@@ -7,6 +7,10 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class CipherUserNodeGenerator {
@@ -18,10 +22,22 @@ public class CipherUserNodeGenerator {
 
         int i=0;
         for (User u: users) {
+            if (u.isAdmin())
+                continue;
+
             i++;
             String username = u.getUsername();
-            query += "CREATE (" + "p" + i + ":User { username: \"" + username + "\"})\n";
+            query = "CREATE (" + "p" + i + ":User { username: \"" + username + "\"})\n";
+            //System.out.print("CREATE (" + "p" + i + ":User { username: \"" + username + "\"})\n");
+
+            int nFile = i/9000;
+
+            try {
+                Files.write(Paths.get("cipherUserCode/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        System.out.println(query);
+        //System.out.println(query);
     }
 }

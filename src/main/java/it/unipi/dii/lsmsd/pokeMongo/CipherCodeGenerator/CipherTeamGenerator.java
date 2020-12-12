@@ -36,6 +36,9 @@ public class CipherTeamGenerator {
                             "WHERE p.name = \"" + p.getName() + "\" CREATE (n)-[:HAS {slot: " + i + "}]->(p)\n";
                 }
             }
+
+            // CALCULATE THE POINTS
+            //u.addTeam(TeamManagerFactory.buildManager().getUserTeam(u));
         }
         System.out.println(s);
     }
