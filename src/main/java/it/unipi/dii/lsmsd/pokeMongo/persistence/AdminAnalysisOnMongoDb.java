@@ -32,21 +32,21 @@ public class AdminAnalysisOnMongoDb extends MongoDbDatabase implements AdminAnal
     }
 
 
-    public long[] getLastLogins() {
-        long[] result = new long[numDays];
+    public List<Long> getLastLogins() {
+        List<Long> result = new ArrayList<>();
         ArrayList<Object> al= getAll();
         for(int i=0; i<numDays; i++){
-            result[i]=DocumentToAnalytic((Document)al.get(i)).getLastLogins();
+            result.add(DocumentToAnalytic((Document)al.get(i)).getLastLogins());
         }
         return result;
     }
 
 
-    public long[] getUserNumber() {
-        long[] result = new long[numDays];
+    public List<Long> getUserNumber() {
+        List<Long> result = new ArrayList<>();
         ArrayList<Object> al= getAll();
         for(int i=0; i<numDays; i++){
-            result[i]=DocumentToAnalytic((Document)al.get(i)).getUserCounter();
+            result.add(DocumentToAnalytic((Document)al.get(i)).getUserCounter());
         }
         return result;
     }

@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface AdminAnalysis {
-    long[] getLastLogins();
+    List<Long> getLastLogins();
 
-    long[] getUserNumber();
+    List<Long> getUserNumber();
 
     List<Map<String, Long>> getLastLoginsByCountry();
 }
