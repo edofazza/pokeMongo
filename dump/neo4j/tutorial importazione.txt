@@ -23,7 +23,7 @@ MATCH (from:User) WHERE from.username = line[0] MATCH (to:User) WHERE to.usernam
 
 //4
 LOAD CSV FROM "file:///cipherTeamWhole.csv" AS line
-MATCH (n:User) WHERE n.username = line[0] MATCH (p:Pokemon) WHERE p.name = line[1] CREATE (n)-[:HAS {slot: line[2]}]->(p)
+MATCH (n:User) WHERE n.username = line[0] MATCH (p:Pokemon) WHERE p.name = line[1] CREATE (n)-[:HAS {slot: toInteger(line[2])}]->(p)
 
 //5
 LOAD CSV FROM "file:///cipherPostWhole.csv" AS line
