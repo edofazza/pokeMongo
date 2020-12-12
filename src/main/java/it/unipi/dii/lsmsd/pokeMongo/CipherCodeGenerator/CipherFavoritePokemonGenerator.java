@@ -46,9 +46,11 @@ public class CipherFavoritePokemonGenerator {
 
                     String query = "MATCH (from:User) WHERE from.username = \"" + u.getUsername() + "\" MATCH (to:Pokemon) " +
                             "WHERE to.name = \""+ p.getName() +"\" MERGE (from)-[:LIKES]->(to)\n";
+                    String query2 = u.getUsername() + "," + p.getName() + "\n";
 
                     try {
-                        Files.write(Paths.get("cipherCodeRepo/cipherFavorite/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                        //Files.write(Paths.get("cipherCodeRepo/cipherFavorite/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                        Files.write(Paths.get("cipherCodeRepo/cipherFavorite/cipherFavoriteWhole.csv"), query2.getBytes(), StandardOpenOption.APPEND);
                     }catch (IOException e) {
                         e.printStackTrace();
                     }

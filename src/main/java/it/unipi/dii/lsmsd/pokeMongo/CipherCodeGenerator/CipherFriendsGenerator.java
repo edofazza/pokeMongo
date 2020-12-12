@@ -45,9 +45,10 @@ public class CipherFriendsGenerator {
 
                     String query = "MATCH (from:User) WHERE from.username = \"" + u.getUsername() + "\" MATCH (to:User) " +
                             " WHERE to.username = \"" + to + "\" MERGE (from)-[:FOLLOW]->(to)\n";
-
+                    String query2 = u.getUsername() + "," + to + "\n";
                     try {
-                        Files.write(Paths.get("cipherCodeRepo/cipherFriends/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                        //Files.write(Paths.get("cipherCodeRepo/cipherFriends/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                        Files.write(Paths.get("cipherCodeRepo/cipherFriends/cipherFriendsWhole.csv"), query2.getBytes(), StandardOpenOption.APPEND);
                     }catch (IOException e) {
                         e.printStackTrace();
                     }

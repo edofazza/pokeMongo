@@ -122,8 +122,10 @@ public class CipherPostGenerator {
                 String query = "MATCH (u:User) WHERE u.username = \"" + u.getUsername() + "\" MATCH (p:Pokemon) WHERE p.name = " + p.getName() + " " +
                         "CREATE (u)-[:CREATED]->(p1:Post{creationDate: \"" + localDateTime + "\", content: \"" + content + "\"})-[:TOPIC]->(p)\n";
 
+                String query3 = u.getUsername() + "," + p.getName() + "," + localDateTime + "," + content + "\n";
                 try {
-                    Files.write(Paths.get("cipherCodeRepo/cipherPost/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                    //Files.write(Paths.get("cipherCodeRepo/cipherPost/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                    Files.write(Paths.get("cipherCodeRepo/cipherPost/cipherPostWhole.csv"), query3.getBytes(), StandardOpenOption.APPEND);
                 }catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -176,8 +178,12 @@ public class CipherPostGenerator {
                             p.getName() + " CREATE (u)-[:CREATED]->(p1:Post{content: \"" +
                             contentSub + "\", creationDate: \"" + LocalDateTime.now() + "\"})-[:TOPIC]->(pTopic)\n";
 
+                    String query4 = user.getUsername() + "," + u.getUsername() + "," + localDateTime + "," + content + ","
+                            + p.getName() + "," + contentSub + "," + LocalDateTime.now() + "\n";
+
                     try {
-                        Files.write(Paths.get("cipherCodeRepo/cipherPost/cipherUser"+ nFile2 + ".txt"), query2.getBytes(), StandardOpenOption.APPEND);
+                        //Files.write(Paths.get("cipherCodeRepo/cipherPost/cipherUser"+ nFile2 + ".txt"), query2.getBytes(), StandardOpenOption.APPEND);
+                        Files.write(Paths.get("cipherCodeRepo/cipherPost/cipherSubpostWhole.csv"), query4.getBytes(), StandardOpenOption.APPEND);
                     }catch (IOException e) {
                         e.printStackTrace();
                     }

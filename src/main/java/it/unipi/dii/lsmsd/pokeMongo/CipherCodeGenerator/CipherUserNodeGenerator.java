@@ -19,7 +19,7 @@ public class CipherUserNodeGenerator {
         ArrayList<User> users =  userManager.getEveryUser();
 
         String query = new String();
-
+        String query2;
         int i=0;
         for (User u: users) {
             if (u.isAdmin())
@@ -28,12 +28,15 @@ public class CipherUserNodeGenerator {
             i++;
             String username = u.getUsername();
             query = "CREATE (" + "p" + i + ":User { username: \"" + username + "\"})\n";
+            query2 = username + "\n";
+
             //System.out.print("CREATE (" + "p" + i + ":User { username: \"" + username + "\"})\n");
 
-            int nFile = i/9000;
+            //int nFile = i/9000;
 
             try {
-                Files.write(Paths.get("cipherCodeRepo/cipherUserCode/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                //Files.write(Paths.get("cipherCodeRepo/cipherUserCode/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                Files.write(Paths.get("cipherCodeRepo/cipherUserCode/cipherUserWhole.csv"), query2.getBytes(), StandardOpenOption.APPEND);
             }catch (IOException e) {
                 e.printStackTrace();
             }

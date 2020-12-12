@@ -44,8 +44,11 @@ public class CipherTeamGenerator {
                     String query = "MATCH (n:User) WHERE n.username = \"" + u.getUsername() + "\" MATCH (p:Pokemon) " +
                             "WHERE p.name = \"" + p.getName() + "\" CREATE (n)-[:HAS {slot: " + i + "}]->(p)\n";
 
+                    String query2 = u.getUsername() + "," + p.getName() + "," + i + "\n";
+
                     try {
-                        Files.write(Paths.get("cipherCodeRepo/cipherTeam/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                        //Files.write(Paths.get("cipherCodeRepo/cipherTeam/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                        Files.write(Paths.get("cipherCodeRepo/cipherTeam/cipherTeamWhole.csv"), query2.getBytes(), StandardOpenOption.APPEND);
                     }catch (IOException e) {
                         e.printStackTrace();
                     }
