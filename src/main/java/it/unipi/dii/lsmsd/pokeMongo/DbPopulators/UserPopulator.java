@@ -30,7 +30,7 @@ public class UserPopulator {
             surnamesLength=surnamesFile.length();
             countriesLength=countriesFile.length();
 
-            for (int i = 0; i < (250 * 1000); i++) {
+            for (int i = 0; i < (150 * 1000); i++) {
                 try {
                     nameFile.seek((long) (Math.random() * namesLength));
                     nameFile.readLine();
