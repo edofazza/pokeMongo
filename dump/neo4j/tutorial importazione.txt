@@ -31,7 +31,7 @@ MATCH (n:User) WHERE n.username = line[0] MATCH (p:Pokemon) WHERE p.name = line[
 *** PROBLEMI CON IL PARSE DEI LOCALDATETIME
 //5 
 LOAD CSV FROM "file:///cipherPostWhole.csv" AS line
-MATCH (u:User) WHERE u.username = line[0] MATCH (p:Pokemon) WHERE p.name = line[1] CREATE (u)-[:CREATED]->(p1:Post{creationDate: line[2], content: line[3]})-[:TOPIC]->(p)
+MATCH (u:User) WHERE u.username = line[0] MATCH (p:Pokemon) WHERE p.name = line[1] CREATE (u)-[:CREATED]->(p1:Post{creationDate: localdatetime(line[2]), content: line[3]})-[:TOPIC]->(p)
 
 
 //5b
@@ -40,7 +40,7 @@ CREATE INDEX index_post_date FOR (p:Post) ON (p.creationDate)
 *** PROBLEMI CON IL PARSE DEI LOCALDATETIME
 //6
 LOAD CSV FROM "file:///cipherSubpostWhole.csv" AS line
-MATCH (u:User) WHERE u.username = line[0] MATCH (uTopic:User)-[:CREATED]->(pTopic:Post)-[:TOPIC]->(pokTopic:Pokemon) WHERE uTopic.username = line[1] and pTopic.creationDate = line[2] and pTopic.content = line[3] and pokTopic.name = line[4] CREATE (u)-[:CREATED]->(p1:Post{content: line[5], creationDate: line[6]})-[:TOPIC]->(pTopic)
+MATCH (u:User) WHERE u.username = line[0] MATCH (uTopic:User)-[:CREATED]->(pTopic:Post)-[:TOPIC]->(pokTopic:Pokemon) WHERE uTopic.username = line[1] and pTopic.creationDate = localdatetime(line[2]) and pTopic.content = line[3] and pokTopic.name = line[4] CREATE (u)-[:CREATED]->(p1:Post{content: line[5], creationDate: localdatetime(line[6])})-[:TOPIC]->(pTopic)
 
 
 DROP INDEX index_username
