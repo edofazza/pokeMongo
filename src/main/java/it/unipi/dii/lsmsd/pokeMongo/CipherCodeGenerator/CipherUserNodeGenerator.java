@@ -33,7 +33,7 @@ public class CipherUserNodeGenerator {
             int nFile = i/9000;
 
             try {
-                Files.write(Paths.get("cipherUserCode/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                Files.write(Paths.get("cipherCodeRepo/cipherUserCode/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
             }catch (IOException e) {
                 e.printStackTrace();
             }

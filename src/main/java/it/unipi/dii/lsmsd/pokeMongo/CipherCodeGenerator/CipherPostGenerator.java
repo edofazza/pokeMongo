@@ -7,6 +7,10 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -76,15 +80,17 @@ public class CipherPostGenerator {
         UserManager userManager = UserManagerFactory.buildManager();
         ArrayList<User> allUsers = userManager.getEveryUser();
 
+        int indice = 0;
         for (User u: allUsers) {
             if (u.isAdmin())
                 continue;
 
-            for (int i = 0; i < 5; i++) {
+            int nPost = (int) Math.floor(Math.random() * 3);
+            for (int i = 0; i < nPost; i++) {
                 String content;
 
                 // CHOOSE A POKEMON AT RANDOM
-                int indexPokemon = (int) Math.round(Math.random() * allPokemons.size());
+                int indexPokemon = (int) Math.round(Math.random() * (allPokemons.size() -1));
                 Pokemon p = allPokemons.get(indexPokemon);
 
                 // CHOOSE A CONTENT
@@ -104,11 +110,27 @@ public class CipherPostGenerator {
 
                 // CREATE QUERY
                 LocalDateTime localDateTime = LocalDateTime.now();
-                s += "MATCH (u:User) WHERE u.username = \"" + u.getUsername() + "\" MATCH (p:Pokemon) WHERE p.name = " + p.getName() + " " +
+                //s += "MATCH (u:User) WHERE u.username = \"" + u.getUsername() + "\" MATCH (p:Pokemon) WHERE p.name = " + p.getName() + " " +
+                  //      "CREATE (u)-[:CREATED]->(p1:Post{creationDate: \"" + localDateTime + "\", content: \"" + content + "\"})-[:TOPIC]->(p)\n";
+
+                int nFile = indice/7000;
+                indice++;
+
+                if (nFile > 76)
+                    nFile = 76;
+
+                String query = "MATCH (u:User) WHERE u.username = \"" + u.getUsername() + "\" MATCH (p:Pokemon) WHERE p.name = " + p.getName() + " " +
                         "CREATE (u)-[:CREATED]->(p1:Post{creationDate: \"" + localDateTime + "\", content: \"" + content + "\"})-[:TOPIC]->(p)\n";
 
+                try {
+                    Files.write(Paths.get("cipherCodeRepo/cipherPost/cipherUser"+ nFile + ".txt"), query.getBytes(), StandardOpenOption.APPEND);
+                }catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                //////////////////////////////////////////////////////////////////////////////////////////////////
                 // ADD SOME COMMENTS TO IT
-                int numOfAnswers = (int) Math.floor(Math.random() * 5);
+                int numOfAnswers = (int) Math.floor(Math.random() * 2);
 
                 for (int j = 0; j < numOfAnswers; j++) {
                     User user = allUsers.get((int) Math.floor(Math.random()*(allUsers.size() - 1)));
@@ -132,17 +154,36 @@ public class CipherPostGenerator {
                         contentSub = p.getName() + contents2[indexSub];
                     }
 
-                    s += "MATCH (u:User) WHERE u.username = " + user.getUsername() + " " +
+                    /*s += "MATCH (u:User) WHERE u.username = " + user.getUsername() + " " +
+                            "MATCH (uTopic:User)-[:CREATED]->(pTopic:Post)-[:TOPIC]->(pokTopic:Pokemon) " +
+                            "WHERE uTopic.username = \"" + u.getUsername() +
+                            "\" and pTopic.creationDate = \"" +  localDateTime + "\" " +
+                            "and pTopic.content = \"" + content + "\" and pokTopic.name = " +
+                            p.getName() + " CREATE (u)-[:CREATED]->(p1:Post{content: \"" +
+                            contentSub + "\", creationDate: \"" + LocalDateTime.now() + "\"})-[:TOPIC]->(pTopic)\n";*/
+
+                    int nFile2 = indice/6000;
+                    indice++;
+
+                    if (nFile2 > 76)
+                        nFile2 = 76;
+
+                    String query2 = "MATCH (u:User) WHERE u.username = " + user.getUsername() + " " +
                             "MATCH (uTopic:User)-[:CREATED]->(pTopic:Post)-[:TOPIC]->(pokTopic:Pokemon) " +
                             "WHERE uTopic.username = \"" + u.getUsername() +
                             "\" and pTopic.creationDate = \"" +  localDateTime + "\" " +
                             "and pTopic.content = \"" + content + "\" and pokTopic.name = " +
                             p.getName() + " CREATE (u)-[:CREATED]->(p1:Post{content: \"" +
                             contentSub + "\", creationDate: \"" + LocalDateTime.now() + "\"})-[:TOPIC]->(pTopic)\n";
+
+                    try {
+                        Files.write(Paths.get("cipherCodeRepo/cipherPost/cipherUser"+ nFile2 + ".txt"), query2.getBytes(), StandardOpenOption.APPEND);
+                    }catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
 
-        System.out.println(s);
     }
 }
