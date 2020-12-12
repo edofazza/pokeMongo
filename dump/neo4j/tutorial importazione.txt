@@ -1,9 +1,12 @@
 //METODO TESTATO SU WINDOWS 10
+
 1) Apri Neo4j Desktop, scheda DBMS, seleziona il database di PokeMongo e clicca su "Open Folder"
 2) Copia dentro la cartella import tutti i file ".csv"
 3) Sempre dalla stessa pagina di Neo4j Desktop vai su settings e setta "dbms.memory.heap.max_size=4G" (1G non basta per inserire i post)
    Clicca su Apply ed eventualmente riavvia il db se era acceso
-4) Esegui nel seguente ordine queste query
+
+4) Fai copia incolla di addPokemonCypher
+5) Esegui nel seguente ordine queste query
 
 //1
 LOAD CSV FROM "file:///cipherUserWhole.csv" AS line
@@ -25,7 +28,8 @@ MATCH (from:User) WHERE from.username = line[0] MATCH (to:User) WHERE to.usernam
 LOAD CSV FROM "file:///cipherTeamWhole.csv" AS line
 MATCH (n:User) WHERE n.username = line[0] MATCH (p:Pokemon) WHERE p.name = line[1] CREATE (n)-[:HAS {slot: toInteger(line[2])}]->(p)
 
-//5
+*** PROBLEMI CON IL PARSE DEI LOCALDATETIME
+//5 
 LOAD CSV FROM "file:///cipherPostWhole.csv" AS line
 MATCH (u:User) WHERE u.username = line[0] MATCH (p:Pokemon) WHERE p.name = line[1] CREATE (u)-[:CREATED]->(p1:Post{creationDate: line[2], content: line[3]})-[:TOPIC]->(p)
 
@@ -33,6 +37,7 @@ MATCH (u:User) WHERE u.username = line[0] MATCH (p:Pokemon) WHERE p.name = line[
 //5b
 CREATE INDEX index_post_date FOR (p:Post) ON (p.creationDate)
 
+*** PROBLEMI CON IL PARSE DEI LOCALDATETIME
 //6
 LOAD CSV FROM "file:///cipherSubpostWhole.csv" AS line
 MATCH (u:User) WHERE u.username = line[0] MATCH (uTopic:User)-[:CREATED]->(pTopic:Post)-[:TOPIC]->(pokTopic:Pokemon) WHERE uTopic.username = line[1] and pTopic.creationDate = line[2] and pTopic.content = line[3] and pokTopic.name = line[4] CREATE (u)-[:CREATED]->(p1:Post{content: line[5], creationDate: line[6]})-[:TOPIC]->(pTopic)
@@ -41,3 +46,6 @@ MATCH (u:User) WHERE u.username = line[0] MATCH (uTopic:User)-[:CREATED]->(pTopi
 DROP INDEX index_username
 DROP INDEX index_name
 DROP INDEX index_post_date
+
+//PER CANCELLARE TUTTO IL DB
+match (p) detach delete p
