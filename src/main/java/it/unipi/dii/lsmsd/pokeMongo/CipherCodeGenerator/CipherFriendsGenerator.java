@@ -33,7 +33,7 @@ public class CipherFriendsGenerator {
                 String to = allUsers.get(indexUser).getUsername();
                 if(!u.getUsername().equals(allUsers.get(indexUser).getUsername()))
                     s += "MATCH (from:User) WHERE from.username = \"" + u.getUsername() + "\" MATCH (to:User) " +
-                            " WHERE to.username = " + to + " MERGE (from)-[:FOLLOW]->(to)\n";
+                            " WHERE to.username = \"" + to + "\" MERGE (from)-[:FOLLOW]->(to)\n";
             }
 
         }
