@@ -91,7 +91,7 @@ public class AdminAnalysisOnMongoDb extends MongoDbDatabase implements AdminAnal
         List<Document> docs= getCollection(collectionName).find().limit(numDays).sort(Sorts.descending("date")).into(new ArrayList<>());
         ArrayList<Object> analytics = new ArrayList<>();
         for(Document d:docs){
-            analytics.add(DocumentToAnalytic(d));
+            analytics.add(d);
         }
         closeConnection();
         return analytics;
@@ -104,7 +104,7 @@ public class AdminAnalysisOnMongoDb extends MongoDbDatabase implements AdminAnal
         List<Document> docs= getCollection(collectionName).find((Bson)filter).into(new ArrayList<>());
         ArrayList<Object> analytics = new ArrayList<>();
         for(Document d:docs){
-            analytics.add(DocumentToAnalytic(d));
+            analytics.add(d);
         }
         closeConnection();
         return analytics;
