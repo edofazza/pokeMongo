@@ -1,12 +1,17 @@
 package persistence;
 
 import bean.Pokemon;
+import bean.PokemonAndCatchRate;
 import com.google.common.annotations.VisibleForTesting;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import javafx.util.Pair;
+import org.bson.*;
 import org.neo4j.driver.Record;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.bson.conversions.Bson;
 
 import static org.neo4j.driver.Values.parameters;
 
@@ -153,4 +158,22 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
         }
         return return_list;
     }
+
+    public void updateCatchRateOfPokemon(List<PokemonAndCatchRate> catch_rates){
+        String start = "[";
+        for(int i=0; i<catch_rates.size(); i++){
+            start += "{name:\"" + catch_rates.get(i).name + "\"," + "catchRate:" + catch_rates.get(i).catchRate + "}";
+            if(i < catch_rates.size() - 1)
+                start += ",";
+        }
+        start += "]";
+        System.out.println(start);
+
+
+        String query = "UNWIND " + start + "as catch " +
+         "MATCH (p:Pokemon{name: catch.name}) SET p.capture_rate = catch.catchRate";
+        update(query, parameters());
+
+    }
+
 }

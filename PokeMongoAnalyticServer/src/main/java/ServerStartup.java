@@ -1,6 +1,7 @@
 import analytic.Analyzer;
 import analytic.AnalyzerFactory;
 import bean.Pokemon;
+import bean.PokemonAndCatchRate;
 import javafx.util.Pair;
 import persistence.*;
 import sun.rmi.server.Activation$ActivationSystemImpl_Stub;
@@ -65,6 +66,7 @@ public class ServerStartup {
 
         start = System.currentTimeMillis();
         List<Pair<String, Integer>> trainersPerPokemon = teamManager.getUsersNumberThatOwnsAPokemonNotFiltered();
+        List<PokemonAndCatchRate> catchRatesOfPokemons = new ArrayList<>();
         end = System.currentTimeMillis();
         System.out.println("trainserPerPokemon: " + (end - start));
 
@@ -92,14 +94,18 @@ public class ServerStartup {
                     capture_rates.remove(0);
             }
 
+
+
+            capture_rates.add(new_catch_rate);
             for(Double d: capture_rates){
                 System.out.println(p.getName() + " " + d.doubleValue());
             }
-            capture_rates.add(new_catch_rate);
             long start3 = System.currentTimeMillis();
             long count = pokemonManager.updatePokemon(oldPokemon, p);
             long end3 = System.currentTimeMillis();
             System.out.println("Updated " + count + " rows. Duration: " + (end3 - start3));
+            catchRatesOfPokemons.add(new PokemonAndCatchRate(p.getName(), new_catch_rate));
         }
+        teamManager.updateCatchRateOfPokemon(catchRatesOfPokemons);
     }
 }
