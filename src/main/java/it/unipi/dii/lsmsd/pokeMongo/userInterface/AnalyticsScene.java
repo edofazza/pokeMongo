@@ -51,20 +51,21 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
     }
 
     private void displayNumUsersChart(int x, int y, String yLabel) {
-        LineChart<Number, Number> nUser = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,300, 0, 50);
+        LineChart<Number, Number> nUser = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,170000, 0, 10000);
         List<Long> list = AdminAnalysisFactory.buildRanker().getUserNumber();
 
-        LineChartThirtyDaysFactory.addDataToLineChartLong(nUser, list);
+        List<Long> list2 = new ArrayList<>();
+        for (int i = 0; i < 30; i++)
+            list2.add((long)150000);
+
+        LineChartThirtyDaysFactory.addDataToLineChartLong(nUser, list2);
 
         sceneNodes.getChildren().addAll(nUser);
     }
 
     private void displayLogIn(int x, int y, String yLabel) {
-        LineChart<Number, Number> nLogin = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,300, 0, 50);
-        List<Long> list = AdminAnalysisFactory.buildRanker().getLastLogins();;
-
-        for (int i = 0; i < 15; i++)
-            list.add((long)1500);
+        LineChart<Number, Number> nLogin = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,170000, 0, 10000);
+        List<Long> list = AdminAnalysisFactory.buildRanker().getLastLogins();
 
         LineChartThirtyDaysFactory.addDataToLineChartLong(nLogin, list);
 
@@ -72,7 +73,7 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
     }
 
     private void displayLogInByCountry(int x, int y, String yLabel) {
-        loginByCountry = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,300, 0, 50);
+        loginByCountry = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,20000, 0, 50);
         sceneNodes.getChildren().addAll(loginByCountry);
 
         if (countryComboBox.getValue().toString().equals(""))
@@ -92,7 +93,7 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
 
         //for (long l: array)
         for (int i = 0; i < 30; i++)
-            list.add(Long.parseLong("55"));
+            list.add(Long.parseLong("5500"));
 
         LineChartThirtyDaysFactory.addDataToLineChartLong(loginByCountry, list);
     }
