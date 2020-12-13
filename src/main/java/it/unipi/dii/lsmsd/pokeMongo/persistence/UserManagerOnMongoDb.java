@@ -215,11 +215,7 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public boolean register(User toRegister) {
-        Bson query = eq("username", toRegister.getUsername());
-        ArrayList<Object> alreadyPresent=getWithFilter(query);
         Logger.vvlog("Trying to register " + toRegister.getUsername());
-        if(alreadyPresent.size()>0)
-            return false;
         return insert(toRegister);
     }
 
