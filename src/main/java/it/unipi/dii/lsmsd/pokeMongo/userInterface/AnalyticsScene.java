@@ -54,11 +54,7 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
         LineChart<Number, Number> nUser = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,170000, 0, 10000);
         List<Long> list = AdminAnalysisFactory.buildRanker().getUserNumber();
 
-        List<Long> list2 = new ArrayList<>();
-        for (int i = 0; i < 30; i++)
-            list2.add((long)150000);
-
-        LineChartThirtyDaysFactory.addDataToLineChartLong(nUser, list2);
+        LineChartThirtyDaysFactory.addDataToLineChartLong(nUser, list);
 
         sceneNodes.getChildren().addAll(nUser);
     }
