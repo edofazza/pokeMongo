@@ -36,7 +36,7 @@ public class AdminAnalysisOnMongoDb extends MongoDbDatabase implements AdminAnal
     public List<Long> getLastLogins() {
         List<Long> result = new ArrayList<>();
         ArrayList<Object> al= getAll();
-        for(int i=0; i<numDays; i++){
+        for(int i=0; i  < al.size(); i++){
             result.add(DocumentToAnalytic((Document)al.get(i)).getLastLogins());
         }
         return result;
@@ -46,7 +46,7 @@ public class AdminAnalysisOnMongoDb extends MongoDbDatabase implements AdminAnal
     public List<Long> getUserNumber() {
         List<Long> result = new ArrayList<>();
         ArrayList<Object> al= getAll();
-        for(int i=0; i<numDays; i++){
+        for(int i=0; i < al.size(); i++){
             result.add(DocumentToAnalytic((Document)al.get(i)).getUserCounter());
         }
         return result;

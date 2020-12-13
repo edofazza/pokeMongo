@@ -52,13 +52,7 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
 
     private void displayNumUsersChart(int x, int y, String yLabel) {
         LineChart<Number, Number> nUser = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,300, 0, 50);
-        //long[] array = AdminAnalysisFactory.buildRanker().getLastLogins();
-
-        List<Long> list = AdminAnalysisFactory.buildRanker().getLastLogins();
-
-        //for (long l: array)
-        /*for (int i = 0; i < 30; i++)
-            list.add(Long.parseLong("55"));*/
+        List<Long> list = AdminAnalysisFactory.buildRanker().getUserNumber();
 
         LineChartThirtyDaysFactory.addDataToLineChartLong(nUser, list);
 
@@ -67,13 +61,10 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
 
     private void displayLogIn(int x, int y, String yLabel) {
         LineChart<Number, Number> nLogin = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,300, 0, 50);
-        //long[] array = AdminAnalysisFactory.buildRanker().getLastLogins();
+        List<Long> list = AdminAnalysisFactory.buildRanker().getLastLogins();;
 
-        List<Long> list = new ArrayList<>();
-
-        //for (long l: array)
-        for (int i = 0; i < 30; i++)
-            list.add(Long.parseLong("55"));
+        for (int i = 0; i < 15; i++)
+            list.add((long)150000);
 
         LineChartThirtyDaysFactory.addDataToLineChartLong(nLogin, list);
 
@@ -83,11 +74,15 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
     private void displayLogInByCountry(int x, int y, String yLabel) {
         loginByCountry = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,300, 0, 50);
         sceneNodes.getChildren().addAll(loginByCountry);
-        //long[] array = AdminAnalysisFactory.buildRanker().getLastLogins();
 
         if (countryComboBox.getValue().toString().equals(""))
             return;
+    }
 
+    private void changeCountry() {
+        loginByCountry.getYAxis().setLabel("Number of logins in " + countryComboBox.getValue().toString());
+
+        // QUERYING BY COUNTRY
         List<Long> list = new ArrayList<>();
 
         //for (long l: array)
@@ -95,11 +90,5 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
             list.add(Long.parseLong("55"));
 
         LineChartThirtyDaysFactory.addDataToLineChartLong(loginByCountry, list);
-    }
-
-    private void changeCountry() {
-        loginByCountry.getYAxis().setLabel("Number of logins in " + countryComboBox.getValue().toString());
-
-        // QUERYING BY COUNTRY
     }
 }
