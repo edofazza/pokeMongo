@@ -2,9 +2,11 @@ package persistence;
 
 import bean.Pokemon;
 import com.google.common.annotations.VisibleForTesting;
+import javafx.util.Pair;
 import org.neo4j.driver.Record;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.neo4j.driver.Values.parameters;
 
@@ -131,10 +133,24 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
 
     //FOR DYNAMIC CATCH RATE
     public int getUsersNumberThatOwnAPokemon(Pokemon p){
-        String query = "MATCH (p:Pokemon)<-[w:HAS]-(u:User) WHERE p.name = $name RETURN count(distinct u) as user_numbers";
+        String query = "MATCH (p:Pokemon)<-[w:HAS]-(u:User) WHERE p.name = $name RETURN count(u) as user_numbers";
         ArrayList<Object> res = getWithFilter(query, parameters("name", p.getName()));
         Record r = (Record)res.get(0);
         int num = r.get("user_numbers").asInt();
         return num;
+    }
+
+    public List<Pair<String, Integer>> getUsersNumberThatOwnsAPokemonNotFiltered(){
+        String query = " MATCH (p:Pokemon)<-[w:HAS]-(u:User) \n" +
+                "RETURN p.name, count(u) as user_count";
+        ArrayList<Object> res = getWithFilter(query);
+        List<Pair<String, Integer>> return_list = new ArrayList<>();
+        for(Object o: res){
+            Record r = (Record) o;
+            int num = r.get("user_count").asInt();
+            String name = r.get("p.name").asString();
+            return_list.add(new Pair<>(name, num));
+        }
+        return return_list;
     }
 }

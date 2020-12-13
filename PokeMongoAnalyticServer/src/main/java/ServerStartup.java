@@ -1,9 +1,14 @@
 import analytic.Analyzer;
 import analytic.AnalyzerFactory;
 import bean.Pokemon;
+import javafx.util.Pair;
 import persistence.*;
 import sun.rmi.server.Activation$ActivationSystemImpl_Stub;
 
+import javax.swing.*;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -52,17 +57,36 @@ public class ServerStartup {
         //DYNAMIC CATCH RATE STUFF
         PokemonManager pokemonManager = PokemonManagerFactory.buildManager();
         TeamManager teamManager = TeamManagerFactory.buildManager();
+
+        long start = System.currentTimeMillis();
         ArrayList<Pokemon> pokemons = pokemonManager.getEveryPokemon();
+        long end = System.currentTimeMillis();
+        System.out.println("getEveryPokemon: " + (end - start));
+
+        start = System.currentTimeMillis();
+        List<Pair<String, Integer>> trainersPerPokemon = teamManager.getUsersNumberThatOwnsAPokemonNotFiltered();
+        end = System.currentTimeMillis();
+        System.out.println("trainserPerPokemon: " + (end - start));
+
+        int index = 0;
         int numTrainers;
         double new_catch_rate;
         Pokemon oldPokemon;
         List<Double> capture_rates;
         for(Pokemon p: pokemons){
             oldPokemon = new Pokemon(p.getName(), p.getTypes(), p.getId(), p.getCapture_rate(), p.getCapture_rates(), (int)p.getHeight(), (int)p.getWeight(), p.getBiology(), p.getPortrait(), p.getSprite());
-            numTrainers = teamManager.getUsersNumberThatOwnAPokemon(p);
+            Pair<String, Integer> currentTrainers = trainersPerPokemon.get(index);;
+            if(trainersPerPokemon.get(index).getKey().equals(p.getName())){
+                numTrainers = currentTrainers.getValue();
+                index++;
+            } else {
+                numTrainers = 0;
+            }
+
             new_catch_rate = p.getCapture_rate()*(1 - (numTrainers*1.0)/(userNumber));
-            System.out.println(p.getName() + " " + numTrainers + " " + userNumber + " " + new_catch_rate);
+            System.out.println(p.getName() + "|" + currentTrainers.getKey() + " " + numTrainers + " " + userNumber + " " + new_catch_rate);
             capture_rates = p.getCapture_rates();
+
             if(capture_rates.size() >= 30){
                 while(capture_rates.size() < 30)
                     capture_rates.remove(0);
@@ -72,9 +96,10 @@ public class ServerStartup {
                 System.out.println(p.getName() + " " + d.doubleValue());
             }
             capture_rates.add(new_catch_rate);
+            long start3 = System.currentTimeMillis();
             long count = pokemonManager.updatePokemon(oldPokemon, p);
-            System.out.println("Updated " + count + " rows");
-
+            long end3 = System.currentTimeMillis();
+            System.out.println("Updated " + count + " rows. Duration: " + (end3 - start3));
         }
     }
 }
