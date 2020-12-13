@@ -64,7 +64,7 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
         List<Long> list = AdminAnalysisFactory.buildRanker().getLastLogins();;
 
         for (int i = 0; i < 15; i++)
-            list.add((long)150000);
+            list.add((long)1500);
 
         LineChartThirtyDaysFactory.addDataToLineChartLong(nLogin, list);
 
@@ -80,6 +80,11 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
     }
 
     private void changeCountry() {
+        if (countryComboBox.getValue().toString().equals("")) {
+            loginByCountry.getData().clear();
+            return;
+        }
+
         loginByCountry.getYAxis().setLabel("Number of logins in " + countryComboBox.getValue().toString());
 
         // QUERYING BY COUNTRY

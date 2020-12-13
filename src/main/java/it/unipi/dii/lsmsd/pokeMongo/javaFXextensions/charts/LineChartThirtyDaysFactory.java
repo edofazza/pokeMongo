@@ -33,6 +33,8 @@ public class LineChartThirtyDaysFactory {
 
 
     public static void addDataToLineChart(LineChart lineChart, List<Double> xy){
+        lineChart.getData().clear();
+
         XYChart.Series series = new XYChart.Series();
         int i=0;
         for(Double p: xy){
@@ -54,6 +56,8 @@ public class LineChartThirtyDaysFactory {
     }
 
     public static void addDataToLineChartLong(LineChart lineChart, List<Long> xy){
+        lineChart.getData().clear();
+
         XYChart.Series series = new XYChart.Series();
         int i=0;
         for(Long p: xy){
