@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
     CountryComboBox countryComboBox;
@@ -85,11 +86,12 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
         loginByCountry.getYAxis().setLabel("Number of logins in " + countryComboBox.getValue().toString());
 
         // QUERYING BY COUNTRY
+        List<Map<String, Long>> listOfMap = AdminAnalysisFactory.buildRanker().getLastLoginsByCountry();
         List<Long> list = new ArrayList<>();
 
-        //for (long l: array)
-        for (int i = 0; i < 30; i++)
-            list.add(Long.parseLong("5500"));
+        for (Map<String, Long> m: listOfMap) {
+            list.add(m.get(countryComboBox.getValue().toString()));
+        }
 
         LineChartThirtyDaysFactory.addDataToLineChartLong(loginByCountry, list);
     }
