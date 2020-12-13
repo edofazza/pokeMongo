@@ -156,7 +156,7 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
     @Override
     public List<String> getUserBySearch(String pattern) {
         List<String> usernameList = new ArrayList<>();
-        String query = "MATCH (u:User) WHERE u.username STARTS WITH $pattern RETURN u.username";
+        String query = "MATCH (u:User) WHERE u.username STARTS WITH $pattern RETURN u.username LIMIT 20";
         ArrayList<Object> res = getWithFilter(query, parameters("pattern", pattern));
         for(Object o: res){
             Record r =(Record)o;
