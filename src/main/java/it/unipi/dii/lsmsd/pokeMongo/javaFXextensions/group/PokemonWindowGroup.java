@@ -62,6 +62,9 @@ public class PokemonWindowGroup extends Group {
 
 
     private void displayFavorite(String name) {
+        if (CurrentUI.getUser().isAdmin())
+            return;
+
         FavoriteButton favoriteStar =  new FavoriteButton(560, 10, 40, name);
 
         getChildren().add(favoriteStar);

@@ -25,8 +25,11 @@ public class PostsPane extends Pane {
         this.pokemonName = pokemonName;
 
         displayPostsPresent();
-        displayTextArea();
-        displayButtonPost();
+
+        if (!CurrentUI.getUser().isAdmin()) {
+            displayTextArea();
+            displayButtonPost();
+        }
     }
 
     public void displayPostsPresent() {
