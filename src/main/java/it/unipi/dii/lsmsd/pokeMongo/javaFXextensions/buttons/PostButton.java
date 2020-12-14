@@ -6,6 +6,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.SubPostPane;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.vBox.SubPostsVBox;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PostManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PostManagerFactory;
+import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import javafx.scene.control.Button;
 import java.util.List;
 
@@ -38,9 +39,6 @@ public class PostButton extends Button {
         this(text, x, y, subPostsVBox, currentPost, numberOfAnswers);
 
         this.postButtonAnswer = postButton;
-
-        if (postButton == null)
-            System.out.println("goofy");
     }
 
     private void fillVBox() {
@@ -98,6 +96,9 @@ public class PostButton extends Button {
     }
 
     private void addCommentPane() {
+        if (CurrentUI.getUser().isAdmin())
+            return;
+
         SubPostInsertCommentPane subPostInsertCommentPane = new SubPostInsertCommentPane(currentPost, postButtonAnswer);
         subPostsVBox.getChildren().addAll(subPostInsertCommentPane);
     }
