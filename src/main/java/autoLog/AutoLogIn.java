@@ -7,7 +7,6 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
-import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 
 import java.util.ArrayList;
 
@@ -20,13 +19,12 @@ public class AutoLogIn {
         for (User user: allUsers) {
             if (Math.random() < .7)
                 continue;
-            //userManager.login(user.getUsername(), PasswordEncryptor.cipher(user.getPassword(), "randomSalt"));
+            userManager.login(user.getUsername(),user.getName() + user.getSurname() + "000");
 
             user.addTeam(retrieveTeam(user));
 
             // Update the point in mongodb
             userManager.updatePoints(user, user.getPoints());
-
         }
     }
 
