@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+import java.text.DecimalFormat;
+
 public class PokemonTeamForUserSelectedWindow extends Pane {
     Pokemon pokemon;
     // TODO: GET THE POKEMON TO SHOW AND THE VALUE RELATED TO IT
@@ -51,8 +53,10 @@ public class PokemonTeamForUserSelectedWindow extends Pane {
         if (pokemon == null)
             return;
 
-        Label pokemonpoints = new Label("Pts: " + (255 - pokemon.getCapture_rate()));
-        pokemonpoints.relocate(205, 32);
+        double currentPoint = (255 - pokemon.getCapture_rate())*100;
+        double points = Math.round(currentPoint);
+        Label pokemonpoints = new Label("Pts: " + ((double)points/100));
+        pokemonpoints.relocate(197, 32);
 
         getChildren().add(pokemonpoints);
     }
