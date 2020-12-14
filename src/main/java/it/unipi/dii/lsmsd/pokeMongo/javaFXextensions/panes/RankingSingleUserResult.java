@@ -13,10 +13,9 @@ public class RankingSingleUserResult extends Pane {
         Logger.vvlog("Creating RankingSingleUserResult for " + user.getUsername() + ": points = " + user.getPoints());
         UsernameLinkTeamButton usernameButton = new UsernameLinkTeamButton(user, 10, 12);
 
-        //Label teamNameLabel = new Label(user.getTeamName());
-        //teamNameLabel.relocate(100, 18);
-
-        Label pointsLabel = new Label(Double.toString(user.getPoints()));
+        double currentPoint = user.getPoints()*100;
+        double roundedPoints = Math.round(currentPoint);
+        Label pointsLabel = new Label(Double.toString(roundedPoints/100));
         pointsLabel.relocate(220, 18);
 
         getChildren().addAll(usernameButton, pointsLabel);
