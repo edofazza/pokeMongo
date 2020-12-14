@@ -28,7 +28,7 @@ public class CipherUserNodeGenerator {
             i++;
             String username = u.getUsername();
             String country = u.getCountry();
-            query = "CREATE (" + "p" + i + ":User { username: \"" + username + "\", country: \" " + country + "})\n";
+            query = "CREATE (" + "p" + i + ":User { username: \"" + username + "\", country: \" " + country + "\"})\n";
             query2 = username + "\n";
 
             //System.out.print("CREATE (" + "p" + i + ":User { username: \"" + username + "\"})\n");
