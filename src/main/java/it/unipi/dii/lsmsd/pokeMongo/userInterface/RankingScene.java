@@ -29,9 +29,10 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
         displayMostUsedPokemon();
         displayBestTeam();
 
-        displaySeparator();
-
-        displayFriends();
+        if (!CurrentUI.getUser().isAdmin()) {
+            displaySeparator();
+            displayFriends();
+        }
 
         setSceneMusic("ranking.mp3");
     }
