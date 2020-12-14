@@ -75,7 +75,11 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
      * Adds to the scene the points of the team
      */
     private void displayPoints() {
-        points = new FieldRelatedLabel("Points: " + CurrentUI.getUser().getPoints(), 570, 590);
+        double currentPoints = CurrentUI.getUser().getPoints();
+        currentPoints = Math.round(currentPoints*100);
+        currentPoints = currentPoints/100;
+
+        points = new FieldRelatedLabel("Points: " + currentPoints, 570, 590);
 
         sceneNodes.getChildren().add(points);
     }
