@@ -45,9 +45,9 @@ public class TeamUserWindowGroup extends Group {
         UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
 
         if (userNetworkManager.isFollowing(CurrentUI.getUser().getUsername(), user.getUsername()))
-            follow = new Button("UNFOLLOWING");
+            follow = new Button("UNFOLLOW");
         else
-            follow = new Button("FOLLOWING");
+            follow = new Button("FOLLOW");
 
         follow.setStyle("-fx-background-color: transparent; -fx-border-radius: 10; -fx-border-color: #4aa7e9; -fx-border-width: 2;" +
                 " -fx-text-fill: #4aa7e9; -fx-text-alignment: center;");
@@ -64,13 +64,13 @@ public class TeamUserWindowGroup extends Group {
 
         if (!userNetworkManager.isFollowing(CurrentUI.getUser().getUsername(), user.getUsername())) {
             // CHANGE THE LABEL
-            follow.setText("UNFOLLOWING");
+            follow.setText("UNFOLLOW");
 
             // ADD FOLLOWING RELATIONSHIP
             userNetworkManager.addFollow(CurrentUI.getUser(), user);
         }
         else {
-            follow.setText("FOLLOWING");
+            follow.setText("FOLLOW");
 
             userNetworkManager.removeFollow(CurrentUI.getUser(), user);
         }
