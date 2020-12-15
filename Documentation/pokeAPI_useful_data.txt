@@ -1,8 +1,0 @@
-PokeAPI useful data
-id
-name
-height
-weight
-types
-(portrait) other.official_artwork.front_default
-(sprite) sprites.front_default
