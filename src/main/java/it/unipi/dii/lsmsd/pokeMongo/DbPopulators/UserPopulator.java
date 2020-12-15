@@ -51,7 +51,7 @@ public class UserPopulator {
                     birthday = new Date(new Date().getTime() - (long) (Math.random() * 1500000000000D + 100000000000D));
                     Calendar c = Calendar.getInstance();
                     c.setTime(birthday);
-                    username = name + "_" + surname + c.get(Calendar.YEAR);
+                    username = name + "_" + surname + c.get(Calendar.YEAR); //use substring
                     User u = new User(admin, surname, name, username, password, email, birthday, country);
                     l.add(u);
 
