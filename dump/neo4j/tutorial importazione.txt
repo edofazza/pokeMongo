@@ -10,7 +10,7 @@
 
 //1
 LOAD CSV FROM "file:///cipherUserWhole.csv" AS line
-CREATE (:User{username: line[0]})
+CREATE (:User{username: line[0], country: line[1]})
 
 //1b (performance)
 CREATE INDEX index_username FOR (u:User) ON (u.username)
