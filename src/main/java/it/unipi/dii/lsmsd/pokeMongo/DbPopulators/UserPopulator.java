@@ -18,7 +18,7 @@ public class UserPopulator {
 
     public static void main(String[] args){
         ArrayList<Object> l = new ArrayList<>();
-        UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
+        //UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
         String name, surname, country, email, username, password;
         Boolean admin=false;
         Date birthday;
@@ -46,9 +46,12 @@ public class UserPopulator {
                     country = countriesFile.readLine();
 
                     email = name + "." + surname + "@lsmdb.unipi.it";
-                    username = name + "_" + surname;
+
                     password = name + surname + "000";
                     birthday = new Date(new Date().getTime() - (long) (Math.random() * 1500000000000D + 100000000000D));
+                    Calendar c = Calendar.getInstance();
+                    c.setTime(birthday);
+                    username = name + "_" + surname + c.get(Calendar.YEAR);
                     User u = new User(admin, surname, name, username, password, email, birthday, country);
                     l.add(u);
 
@@ -58,8 +61,10 @@ public class UserPopulator {
                         l.clear();
                     }
                     //userNetworkManager.addUser(u);
-                    Thread.sleep(5);
-                }catch (Exception e){}
+                }catch (Exception e){
+                    i--;
+                    continue;
+                }
             }
         }catch (Exception e){
             System.out.println("Error");
