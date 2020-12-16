@@ -1,9 +1,9 @@
 package it.unipi.dii.lsmsd.pokeMongo.utils;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.nio.file.*;
+import java.time.Instant;
+
 
 class LoggerThread extends Thread{
     private static String logFilePath="log/logFile.txt";
@@ -14,7 +14,8 @@ class LoggerThread extends Thread{
     }
 
     public void run(){
-        writeOnFile(msg);
+        String newMsg = Instant.now().toString() + " " + msg + "\n";
+        writeOnFile(newMsg);
     }
 
     private static synchronized void writeOnFile(String msg){
