@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  16 DEC 2020 21:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  16 DEC 2020 22:51
 entering extended mode
 **./pokeMongo.tex
 (pokeMongo.tex
@@ -340,11 +340,11 @@ n input line 59.
 [1
 
 {C:/Users/gxhan/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./img/marchio_u
-nipi_pant541-eps-converted-to.pdf>] (pokeMongo.toc)
+nipi_pant541-eps-converted-to.pdf>] (pokeMongo.toc [1])
 \tf@toc=\write3
 \openout3 = `pokeMongo.toc'.
 
- [1]
+ [2]
 \openout2 = `chapters/introduction.aux'.
 
 
@@ -353,32 +353,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--83
 
  []
 
-[2
+[3
 
-] [3]
+] [4]
 \openout2 = `chapters/analysis.aux'.
 
- (chapters/analysis.tex) [4
+ (chapters/analysis.tex) [5
 
 
 
 ]
 \openout2 = `chapters/project.aux'.
 
- (chapters/project.tex)
+ (chapters/project.tex) [6
+
+
+
+]
 \openout2 = `chapters/implementation.aux'.
 
 
-(chapters/implementation.tex)
+(chapters/implementation.tex) [7
+
+
+
+]
 \openout2 = `chapters/test.aux'.
 
- (chapters/test.tex) (pokeMongo.aux
+ (chapters/test.tex) [8
+
+
+
+] (pokeMongo.aux
 (chapters/introduction.aux) (chapters/analysis.aux) (chapters/project.aux)
 (chapters/implementation.aux) (chapters/test.aux)) ) 
 Here is how much of TeX's memory you used:
  6964 strings out of 480236
  108353 string characters out of 2880557
- 422475 words of memory out of 3000000
+ 426475 words of memory out of 3000000
  23418 multiletter control sequences out of 15000+200000
  545979 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -393,9 +405,9 @@ pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ect
 i1200.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi6
 00\ecbi2488.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
 c/dpi600\ecrm1728.pk>
-Output written on pokeMongo.pdf (5 pages, 149946 bytes).
+Output written on pokeMongo.pdf (9 pages, 173237 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
+ 350 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
