@@ -180,3 +180,18 @@ Users added have the only purpose of showing the application functionalities, \t
 	\item Analytics: evolution on time of a \textbf{Pokémon} catch rate
 	\item Analytics: evolution on time of number of logins per day/total \textbf{Users}/logins per day by country (admin only)
 \end{itemize}
+
+\subsection{Feasibility Study and Load Estimation}
+PokéMongo is an application designed to be spread worldwide and played by plenty of users. In this paragraph we will try to estimate a realistic computational and memory load, this valuation will be taken into account in the project stage and will be at the foundation of the choices presented in the next chapters
+
+\begin{itemize}
+	\item Since the globality of the app and the Social Network structure, we can estimate 5-10M of registered users. This means about 1M of logins-per-day.
+	\item Registered Pokémon are 893. Even though there is the possibility for an admin to add new Pokémon, we think that they will be no more than 1K at every time.
+	\item Expert users will probably generate a higher amount of posts/comments rather than new users. On average, there will be about 4-5M of posts/comments per day.
+	\item Beginners are likely to generate an higher load of follow/unfollow requests respect to expert users. On average, it’s reasonable to count about 5 follow/unfollow requests per login.
+	\item Pokéballs and Pokémon capture is the catchiest feature of the game. Very likely almost the totality of the users that logs into the app will spend all his/her available daily Pokéballs. Anyway it’s also probable that the most intriguing Pokémon will be the ones with low catch rate. Since there are 10 Pokéballs available each day, but the weighted average probability of catching a Pokémon can be estimated as near 10\%, there will be about 1M of team updates per day
+	\item As said in the previous point, we can count about 10 catch tries per day. It’s likely that the chosen Pokémon was taken from the provided favorite shortcut. Moreover, likes are integrating part of this Social Network, not only a practical tool for catching Pokémon. So we can say that there will be about 2M of likes per day.
+	\item We can estimate that on the average a user will consult ranking twice per day. Indeed immediately after log in and at the catching of a new Pokémon are possible occasions in which the user could be interested in seeing his/her progresses. For this reason we can consider 2M of ranking consulting per day
+	\item Very few users will change his/her settings or password, since they are long term fields: this kind of updates will be no more than 30-40K per day.
+\end{itemize}
+

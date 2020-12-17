@@ -494,9 +494,63 @@ In this case we can say $|W1| \gg |W2|$ because only admins and the User who cre
 We can make the same reasoning made for the \textit{username} field. We can also see that the \textit{creationDate} is not a UNIQUE among all posts but we can think that filters better than the \textit{content} field. Therefore, this field has been chosen specifically for creating an index for the \textbf{Post} entity.
 
 \subsection{Redundancies and consistency management}
+As said in the paragraph relative to non-functional requirements (2.2), performance is an issue for the presented application. Thus we decided, whenever we had to choose from fast queries and reduced memory consumption, to give more importance to the first one, introducing redundancies to minimize pseudo-join operations.
+Anyway, this has been done respecting a sort of “common sense”, so if we had to choose between spending a lot of memory for a minimum performance improvement or turning down the maniacal hunting of performance to the advantage of a relevant memory saving, we did the second one.  
+In the following paragraph are presented the main introduced redundancies and denormalizations, explaining also the implemented consistency mechanism to handle them.
+
+\subsubsection{Team Handling}
+In order to maximize response velocity, the \textbf{Team} Entity has been fully denormalized and decomposed. Indeed, as we explained before, a \textbf{Team} is nothing more than a name, and a collection of \textbf{Pokémon} owned by a user. To each team is associated an amount of points, computable starting from the Pokémon composing the \textbf{Team} and their catch rate.
+
+Since every \textbf{User} can have only a \textbf{Team}, the \textit{Team Name} property can be directly be stored into the Document Db’s user collection. 
+The amount of \textit{points} is not recomputed each time the \textbf{Team} is retrieved but it stored as a redundancy in the user collection until it is changed. 
+The collection of \textbf{Pokémon} is maintained as up to 6 edges between a \textbf{User} node and \textbf{Pokémon} nodes in the Graph Database. This choice is due the fact that:
+\begin{itemize}
+	\item An array of \textbf{Pokémon} in the user collection was not so good for ranking most used \textbf{Pokémon}
+	\item An array of owner \textbf{Users} in the \textbf{Pokémon} collection was bad for retrieving a \textbf{User’s team}.
+	\item Considering both the previous arrays was terribly memory-expensive and costly for write accesses. Since the \textbf{Team} is a central game-play write feature, this solution is not suitable.
+	\item Considering two arrays in the same fashion as before, but storing IDs instead of plain documents was the worst idea in terms of performance: it would determine a pseudo-join operation for each r/w access.
+	\item A \textbf{Team} collection would mean not overcoming the problems given by the relational model. 
+	\item Storing everything in a graph, thus repeating \textit{Team Name} and points in each relationship was extremely memory-consuming. In the implemented way the retrieving of all the information is still fast since it can be parallelized.
+\end{itemize}
+
+\subsubsection{User's Redundancies}
+The Document Database’s \textbf{User} collection already stores all the information about each \textbf{User}. Anyway, we decided to replicate some of these attributes in the Graph Database for performance purposes. In particular they are:
+
+\begin{itemize}
+	\item \textit{Username}: Despite the fact that DBMSs always provide an identification mechanism not related to the one made by the programmer, we chose to repeat the username to quickly retrieve friends’ and post/comment owners’ name. 
+	This additional field is not so memory-intensive but can speed-up very much these queries even through the addition of an index, as seen in the Paragraph (3.3.4) 
+	\item \textit{Country}. As considered in the Paragraphs (2.6) and (3.2.4), there will be very few \textbf{Users} that will update their settings compared to the ones that will consult rankings. Since the Most used \textbf{Pokémon} by Country is a Graph Database query, we decided to introduce this redundancy
+\end{itemize}
+
+\subsubsection{Pokemon's Redundancies}
+Like for the \textbf{Users}, a Document collection already stores Pokémon information. For similar causes we introduced these redundancies:
+\begin{itemize}
+	\item \textit{Name, capture rate, sprite, type}: everyone for the same reason that is speeding-up the retrieving of the information needed to capture a \textbf{Pokémon} and it to the team. In this way adding/removing/finding \textbf{Pokémon} in/from/of a \textbf{Team} is totally handled by the Graph Database, delegating to the Document Database the only task of storing the team name. 
+	If these speeded-up queries are very frequent (see paragraph 2.6), we can also assert that write accesses to the considered attributes are rare: \textit{name}, \textit{sprite} and \textit{type} are constant values of a \textbf{Pokémon}, and as we will see in the paragraph 3.6, capture rate is update only once-per-day.
+	Eventually, since \textbf{Pokémon} nodes are very few w.r.t. other nodes, these redundancies are not very memory-expensive
+\end{itemize}
+
+\subsubsection{The Analytic Collection}
+As said at paragraph 2.1, admin can consult usage statistics in order to evaluate business plans and other possible optimizations. 
+To do that, there are two possible approaches:
+\begin{itemize}
+	\item Computing analytics each time they need them
+	\item Storing computed analytics in a separated collection and retrieve them every time they are needed
+\end{itemize}
+
+Referring again to our non-functional requirements (par. 2.2), the mechanism that suits best the performance constraint is the second one. 
+For this reason, the Document Database hosts also an Analytic collection, structured as follows.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width= 0.4\textwidth]{img/analytic_collection.png}
+	\caption{Analytic Collection}
+\end{figure}
+
+This structure is very suitable for the queries presented in the par. 2.1. 
+As we will discuss in the par. 3.6, the Analytic collection is updated daily and using a bunch of strategies to minimize the database stress.
+
 
 \subsection{Database Properties}
-
 \subsubsection{Availability}
 \subsubsection{Replicas}
 \subsubsection{Eventual Consistency}

@@ -9,57 +9,62 @@
 \contentsline {subsection}{\numberline {2.3}Sources, Velocity properties and Volume of data}{9}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}UML Entities Diagram}{10}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Main application queries}{11}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Project}{13}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Adopted Databases}{13}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Document Database}{14}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Queries Handled}{14}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Entities handled}{14}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Collections structure}{15}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Indexes}{16}{subsubsection.3.2.4}%
-\contentsline {subparagraph}{Username}{16}{subsubsection.3.2.4}%
-\contentsline {subparagraph}{Country}{17}{figure.caption.7}%
-\contentsline {subparagraph}{Pokemon Name}{18}{figure.caption.8}%
-\contentsline {subsection}{\numberline {3.3}Graph Database}{19}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Queries Handled}{19}{subsubsection.3.3.1}%
-\contentsline {subparagraph}{Users related}{19}{subsubsection.3.3.1}%
-\contentsline {subparagraph}{Team related}{20}{subsubsection.3.3.1}%
-\contentsline {subparagraph}{Pokemon related}{21}{subsubsection.3.3.1}%
-\contentsline {subparagraph}{Post/Answer related}{21}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Entities handled}{21}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Graph structure}{22}{subsubsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.4}Indexes}{23}{subsubsection.3.3.4}%
-\contentsline {subparagraph}{Username}{23}{subsubsection.3.3.4}%
-\contentsline {subparagraph}{Pokemon Name}{24}{figure.caption.12}%
-\contentsline {subparagraph}{Post Creation Date}{26}{figure.caption.14}%
-\contentsline {subsection}{\numberline {3.4}Redundancies and consistency management}{27}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Database Properties}{27}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Availability}{27}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Replicas}{27}{subsubsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.3}Eventual Consistency}{27}{subsubsection.3.5.3}%
-\contentsline {subsubsection}{\numberline {3.5.4}Sharding}{27}{subsubsection.3.5.4}%
-\contentsline {subsubsection}{\numberline {3.5.5}Pros and Drawbacks}{27}{subsubsection.3.5.5}%
-\contentsline {subsection}{\numberline {3.6}Client, Server and Daemon Thread}{27}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Technologies and Frameworks}{27}{subsection.3.7}%
-\contentsline {section}{\numberline {4}Implementation}{28}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Package structure and information hiding}{28}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Packaging strategy and information hiding}{28}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}UML package diagram}{28}{subsubsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.2}APIs and SPIs}{28}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Main tools}{28}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}GSON}{28}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Caching mechanism and multimedia management}{28}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Password Encryptor}{28}{subsubsection.4.3.3}%
-\contentsline {subsubsection}{\numberline {4.3.4}Logger}{28}{subsubsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.4}Analytics queries}{28}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}User Rankings}{28}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Pokémon Rankings}{28}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}Usage Statistics}{28}{subsubsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.4}Dynamic Catch Rate}{28}{subsubsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.5}Business logic}{28}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Points computing}{28}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Dynamic Catch Rate Computing}{28}{subsubsection.4.5.2}%
-\contentsline {section}{\numberline {5}Test}{29}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Privacy and Security}{29}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Unit Test}{29}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Robustness}{29}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Performance}{29}{subsection.5.4}%
+\contentsline {subsection}{\numberline {2.6}Feasibility Study and Load Estimation}{12}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Project}{14}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Adopted Databases}{14}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Document Database}{15}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Queries Handled}{15}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Entities handled}{15}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Collections structure}{16}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Indexes}{17}{subsubsection.3.2.4}%
+\contentsline {subparagraph}{Username}{17}{subsubsection.3.2.4}%
+\contentsline {subparagraph}{Country}{18}{figure.caption.7}%
+\contentsline {subparagraph}{Pokemon Name}{19}{figure.caption.8}%
+\contentsline {subsection}{\numberline {3.3}Graph Database}{20}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Queries Handled}{20}{subsubsection.3.3.1}%
+\contentsline {subparagraph}{Users related}{20}{subsubsection.3.3.1}%
+\contentsline {subparagraph}{Team related}{21}{subsubsection.3.3.1}%
+\contentsline {subparagraph}{Pokemon related}{22}{subsubsection.3.3.1}%
+\contentsline {subparagraph}{Post/Answer related}{22}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Entities handled}{22}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Graph structure}{23}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Indexes}{24}{subsubsection.3.3.4}%
+\contentsline {subparagraph}{Username}{24}{subsubsection.3.3.4}%
+\contentsline {subparagraph}{Pokemon Name}{25}{figure.caption.12}%
+\contentsline {subparagraph}{Post Creation Date}{27}{figure.caption.14}%
+\contentsline {subsection}{\numberline {3.4}Redundancies and consistency management}{28}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Team Handling}{28}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}User's Redundancies}{29}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Pokemon's Redundancies}{29}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}The Analytic Collection}{30}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Database Properties}{31}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Availability}{31}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Replicas}{31}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Eventual Consistency}{31}{subsubsection.3.5.3}%
+\contentsline {subsubsection}{\numberline {3.5.4}Sharding}{31}{subsubsection.3.5.4}%
+\contentsline {subsubsection}{\numberline {3.5.5}Pros and Drawbacks}{31}{subsubsection.3.5.5}%
+\contentsline {subsection}{\numberline {3.6}Client, Server and Daemon Thread}{31}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Technologies and Frameworks}{31}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Implementation}{32}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Package structure and information hiding}{32}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Packaging strategy and information hiding}{32}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}UML package diagram}{32}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}APIs and SPIs}{32}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Main tools}{32}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}GSON}{32}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Caching mechanism and multimedia management}{32}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Password Encryptor}{32}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Logger}{32}{subsubsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.4}Analytics queries}{32}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}User Rankings}{32}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Pokémon Rankings}{32}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Usage Statistics}{32}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}Dynamic Catch Rate}{32}{subsubsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.5}Business logic}{32}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Points computing}{32}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Dynamic Catch Rate Computing}{32}{subsubsection.4.5.2}%
+\contentsline {section}{\numberline {5}Test}{33}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Privacy and Security}{33}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Unit Test}{33}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Robustness}{33}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Performance}{33}{subsection.5.4}%
