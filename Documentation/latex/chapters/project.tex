@@ -353,12 +353,145 @@ The property stored are the following:
 	\item LIKES (relationship): no properties needed
 	\item HAS (relationship): slot
 	\item CREATED (relationship): no properties needed
-	\item TOPIC (relationship): no properties neede
+	\item TOPIC (relationship): no properties needed
 \end{itemize}
 
 
 \subsubsection{Indexes}
+\subparagraph{Username} As seen in the Indexes Paragraph for MongoDB, the queries that involve the \textit{username} field are the following:
+\begin{center}
+	\begin{tabular}{|c | c |} 
+		\hline
+		\textbf{Type} & \textbf{Query} \\ [0.5ex] 
+		\hline
+		\textbf{W1} & Insertion of a new \textbf{User} in the GraphDB\\ 
+		\hline
+		\textbf{W2} & Deletion of an existing \textbf{User} in the GraphDB \\
+		\hline
+		\textbf{R1} & Search of a \textbf{User} u by username when an answer to a u's Post is written \\
+		\hline
+		\textbf{R2} & Search of a user by username when a new follow request is submitted \\
+		\hline
+	\end{tabular}
+\end{center}
+Assuming that the number of new registration is far more higher that the number of Users deletion, we can state that $|W1| \gg |W2|$. Furthermore, is likely that the numbers of login per day are far more than the new registrations at high User number loads, as stated in the Paragraph 2.6.\\
+So, let $x$ be the number of new logins per day, we can say that the number of each read operation will probably be a multiple of $x$, so, at the end, we can state that $|Ri| \gg |W1| \gg |W2|, i = 1,2$. Hence, the application, at the GraphDB side, is \textbf{read intensive} and this statement leads to prove that an usage of an index for this field is good.\\
+All things considered, from Neo4j Desktop we can compute the following command, which is a simple find by username, in order to get some performance statistics before and after the index addition:
+\begin{lstlisting}[language=python]
+	neo4j$ explain match (p:User) where p.username = "Grahm_Gschwendtner1989" return p
+\end{lstlisting}
 
+\begin{figure}[H]
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/user_without_index_1.png} 
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/user_with_index_1.png}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[H]
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/user_without_index_2.png} 
+		\caption{Results without index}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/user_with_index_2.png}
+		\caption{Results with index}
+	\end{subfigure}
+\end{figure}
+
+In this case we can notice a huge improvement in the number of rows handled with several order of magnitude and a slightly improvement on the timing. Even if the timing improvement is not incredible we have to take into consideration the extreme simplicity of the "find by username" query, which does not show properly the benefits of handling only one row at the beginning of the query computation. 
+
+\subparagraph{Pokemon Name}
+The queries that involve the \textit{name} field are the following
+
+\begin{center}
+	\begin{tabular}{| c | c |} 
+		\hline
+		\textbf{Type} & \textbf{Query} \\ [0.5ex] 
+		\hline
+		\textbf{W1} & Insertion of a new \textbf{Pokemon} in the GraphDB\\ 
+		\hline
+		\textbf{W2} & Deletion of an existing \textbf{User} in the GraphDB \\
+		\hline
+		\textbf{R1} & Search of a \textbf{Pokemon} by name in order to catch it \\
+		\hline
+		\textbf{R2} & Search of a \textbf{Pokemon} by name in order to create a post on it\\
+		\hline
+		\textbf{R3} & Search of a \textbf{Pokemon} by name in order to save it as a favourite pokemon \\
+		\hline
+	\end{tabular}
+\end{center}
+As said before, the number of addition or deletion of a Pokemon are extremely rare due to the fact that only the admin could do that. So the writing operation of pokemon are done only by the admins where the read operation are done by the normal users, which number is surely bigger. This consideration is enough to consider the operations on this field as \textbf{read intensive} and is enough to justify the presence of an index. In the following figure are presented the query and the relative performance results.
+\begin{lstlisting}[language=python]
+	neo4j$ explain match (p:Pokemon) where p.name = "pikachu" return p
+\end{lstlisting}
+
+\begin{figure}[H]
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/pokemon_without_index_1.png} 
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/pokemon_with_index_1.png}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[H]
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/pokemon_without_index_2.png} 
+		\caption{Results without index}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/pokemon_with_index_2.png}
+		\caption{Results with index}
+	\end{subfigure}
+\end{figure}
+
+Even in this case we can see a slightly improvement on the timing performance and an improvement on the rows considered at the beginning of the query computation. The total number of pokemon is small with respect to other entities but surely the 3 grade of magnitude of difference for the estimated row should grant a big advantage with bigger and more complicated queries on Neo4j.
+\subparagraph{Post Creation Date}
+The queries that involve the \textit{creation date} field are the following
+
+\begin{center}
+	\begin{tabular}{| c | c |} 
+		\hline
+		\textbf{Type} & \textbf{Query} \\ [0.5ex] 
+		\hline
+		\textbf{W1} & Insertion of a new \textbf{Post} in the GraphDB\\ 
+		\hline
+		\textbf{W2} & Deletion of an existing \textbf{Post} in the GraphDB \\
+		\hline
+		\textbf{R1} & Search of a \textbf{Post]} in order to be addressed as a topic of an Answer\\
+		\hline
+		\textbf{R2} & Search of a \textbf{Post} in order to show every post related to a Pokemon\\
+		\hline
+	\end{tabular}
+\end{center}
+
+In this case we can say $|W1| \gg |W2|$ because only admins and the User who created the it can delete a \textbf{Post}. Then, in general, we can state even that if a \textbf{User} writes down, say 1 post per day, we can surely expect that he isn't the only one who has wrote a \textbf{Post}. So, in order to write a \textbf{Post} the \textbf{User} will view other \textbf{Posts} of a specific \textbf{Pokemon} (see UML Use Case Diagram for details). We can make the same reasoning even to the replies to a Post, because in order to make a reply the viewing action will come first. All things considered, we can assume that all the operation on the \textit{creationDate} of a \textbf{Post} are \textbf{read intensive}. In the following figure are presented the query and the relative performance results.
+
+\begin{lstlisting}[language=python]
+	neo4j$ explain match (p:Post) where p.creationDate = "2020-12-15T22:05:32.382000000" return p
+\end{lstlisting}
+
+\begin{figure}[H]
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/post_without_index_1.png} 
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/post_with_index_1.png}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[H]
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/post_without_index_2.png} 
+		\caption{Results without index}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth]{img/post_with_index_2.png}
+		\caption{Results with index}
+	\end{subfigure}
+\end{figure}
+
+We can make the same reasoning made for the \textit{username} field. We can also see that the \textit{creationDate} is not a UNIQUE among all posts but we can think that filters better than the \textit{content} field. Therefore, this field has been chosen specifically for creating an index for the \textbf{Post} entity.
 
 \subsection{Redundancies and consistency management}
 
