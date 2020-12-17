@@ -17,8 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Specific pane showing the elements needed to add or remove a pokemon
