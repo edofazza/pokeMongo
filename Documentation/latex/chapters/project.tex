@@ -198,11 +198,11 @@ In terms of execution time, the final report is the following:
 	> db.user.pokemon({name: "pikachu"}).explain("executionStats")
 \end{lstlisting}
 \begin{figure}[H]
-	\begin{subfigure}{0.5\textwidth}
+	\begin{subfigure}{0.48\textwidth}
 		\includegraphics[width=0.9\linewidth]{img/PokemonNameNoIndex.png} 
 		\caption{Results without index}
 	\end{subfigure}
-	\begin{subfigure}{0.5\textwidth}
+	\begin{subfigure}{0.48\textwidth}
 		\includegraphics[width=0.9\linewidth]{img/PokemonNameIndex.png}
 		\caption{Results with index}
 	\end{subfigure}
@@ -214,8 +214,149 @@ For the reasons explained before and because of the very high ratio between read
 
 \subsection{Graph Database}
 \subsubsection{Queries Handled}
+\subparagraph{Users related}
+\begin{center}
+	\begin{tabular}{|p{0.45\textwidth}| p{0.45\textwidth} |} 
+		\hline
+		\textbf{Application Queries} & \textbf{Graph Queries} \\ [0.5ex] 
+		\hline
+		Insert a new \textbf{User} into the system at registration time 		
+		& Insert a new USER node into the graph\\ 
+		\hline
+		Create a \textit{follow} relationship between the current \textbf{User} and the selected \textbf{User}		
+		& Add a new FOLLOW edge from the current \textbf{User} Node to the selected \textbf{User} Node \\ 
+		\hline
+		Retrieve recommended users
+		& Match all the USER nodes at distance 2 from the given USER node U according to one of these patterns(the first one has precedence)
+		(U)—FOLLOWS$\rightarrow$(USER f)—FOLLOWS $\rightarrow$(USER recomm.)
+		(U)—LIKES$\rightarrow$(POKEMON p)$\leftarrow$LIKES—(USER recomm.)
+		\\
+		\hline
+		Retrieve friend list of a \textbf{User} U
+		& Match all the USER nodes linked to the related \textbf{User} Node of U by an outcoming FOLLOWS edge\\
+		\hline	
+		Retrieve user’s favorite Pokémon 
+		& Match all the POKEMON nodes which are linked to the USER node U through a LIKES edge\\
+		\hline	
+		Remove a Pokémon from the favorite ones
+		& Delete a LIKES edge\\
+		\hline
+		Modify user settings (country)
+		& Modify USER node by changing the country property\\
+		\hline	
+		Remove a user (admin only)
+		& Delete a USER node\\
+		\hline		
+		Remove a follow relationship
+		& Delete a FOLLOWS edge\\
+		\hline
+		Analytics: find $\%$ of users that owns a Pokémon
+		& Count outcoming HAS edges from the POKEMON node p. 
+		Divide the result by the total number of USER nodes\\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subparagraph{Team related}
+\begin{center}
+	\begin{tabular}{|p{0.45\textwidth}| p{0.45\textwidth} |} 
+		\hline
+		\textbf{Application Queries} & \textbf{Graph Queries} \\ [0.5ex] 
+		\hline
+		Retrieve \textbf{Team} composition based on \textbf{User}		
+		& Given USER u, retrieve all the POKEMON nodes connected to u through a HAS edge\\ 
+		\hline
+		Insert a Pokémon into a team
+		& Add a OWNS relationship between a USER node and a POKEMON node\\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subparagraph{Pokemon related}
+\begin{center}
+	\begin{tabular}{|p{0.45\textwidth}| p{0.45\textwidth} |} 
+		\hline
+		\textbf{Application Queries} & \textbf{Graph Queries} \\ [0.5ex] 
+		\hline
+		Create a new \textbf{Pokémon} (admin only)		
+		& Insert a new POKEMON node into the graph\\  
+		\hline
+		Update \textbf{Pokémon} catch rate
+		& Modify USER node by changing the \textit{catch rate} property\\
+		\hline
+		Remove a Pokémon (admin only)
+		& Delete a POKEMON node\\
+		\hline	
+		Analytics: ranking of most popular Pokémon in world/each country
+		& Count $n_{i} = $ number of HAS incoming edges of POKEMON node $p_{i}$, for each POKEMON node.
+		Sort $k$ highest $n_{1}…n_{k}$ and return relative $p_{1}…p_{k}$
+		\\
+		\hline
+	\end{tabular}
+\end{center}
+\subparagraph{Post/Answer related}
+\begin{center}
+	\begin{tabular}{|p{0.45\textwidth}| p{0.45\textwidth} |} 
+		\hline
+		\textbf{Application Queries} & \textbf{Graph Queries} \\ [0.5ex] 
+		\hline
+		Create a new \textbf{Post}		
+		& Add a new POST node into the graph\\ 
+		\hline
+		Create a new \textbf{Answer}	
+		& Add a new POST node into the graph\\ 
+		\hline	
+		Retrieve all the posts related to a Pokémon
+		& Match all the POST nodes which are linked to the POKEMON node P through a TOPIC edge\\
+		\hline
+		Retrieve all the answers to a post
+		& Match all the POST nodes which are linked to the POST node P through a TOPIC edge\\
+		\hline
+		Remove a post (only admin and post’s owner)
+		& Delete a POST node\\
+		\hline	
+	\end{tabular}
+\end{center}
+
+
+
 \subsubsection{Entities handled}
+The Graph Database stores all the information needed to build the NETWORK INFRASTRUCTURE of the application:
+\begin{itemize}
+	\item \textbf{User}’s \textit{usernames} and \textit{country}
+	\item \textbf{Pokémon}’s name
+	\item \textbf{Post}’s \textit{creation date} and \textit{content}
+	\item \textbf{HAS relationships} for team handling, storing also the chosen \textit{slot} for consistency checking
+	\item \textbf{LIKES relationships} between a \textbf{User} and a \textbf{Pokémon}, for favourites handling
+	\item \textbf{FOLLOWS relationships} between \textbf{users}
+	\item \textbf{TOPIC relationships} between a \textbf{Post} and a \textbf{Pokémon}, in order to see the posts written about a specific Pokémon
+	\item \textbf{TOPIC relationships} also between a \textbf{Post} and another \textbf{Post}, in order to visualize the comments to a \textbf{Post}  
+	\item \textbf{CREATED relationships} between a \textbf{User} and a \textbf{Post} to map the owner of each post/comment
+\end{itemize}
+
 \subsubsection{Graph structure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/graph_structure.png}
+	\caption{Graph Structure}
+\end{figure}
+
+In the previous image a portion of the graph structure is reported. 
+\textbf{Pokémon} nodes are pink, \textbf{User} ones are green, blue nodes represent \textbf{Posts}.
+
+The property stored are the following:
+\begin{itemize}
+	\item USER (node): \textit{country}, \textit{username}
+	\item POKEMON (node): \textit{name}, \textit{capture rate},  \textit{sprite}, \textit{type}
+	\item POST (node): \textit{content}, \textit{creation date}
+	\item FOLLOW (relationship): no properties needed
+	\item LIKES (relationship): no properties needed
+	\item HAS (relationship): slot
+	\item CREATED (relationship): no properties needed
+	\item TOPIC (relationship): no properties neede
+\end{itemize}
+
+
 \subsubsection{Indexes}
 
 
