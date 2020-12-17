@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  17 DEC 2020 12:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  17 DEC 2020 15:13
 entering extended mode
 **./pokeMongo.tex
 (pokeMongo.tex
@@ -343,7 +343,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip56
 )
-(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2020/08/23 v1.3g Sub-captions (AR)
+\c@subfigure=\count287
+\c@subtable=\count288
+) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \ttl@box=\box52
 \beforetitleunit=\skip57
@@ -360,28 +364,28 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count287
-\c@Blindtext=\count288
-\c@blind@countparstart=\count289
-\blind@countxx=\count290
-\blindtext@numBlindtext=\count291
-\blind@countyy=\count292
-\c@blindlist=\count293
-\c@blindlistlevel=\count294
-\c@blindlist@level=\count295
-\blind@listitem=\count296
-\c@blind@listcount=\count297
-\c@blind@levelcount=\count298
-\blind@mathformula=\count299
-\blind@Mathformula=\count300
-\c@blind@randomcount=\count301
-\c@blind@randommax=\count302
-\c@blind@pangramcount=\count303
-\c@blind@pangrammax=\count304
+\c@blindtext=\count289
+\c@Blindtext=\count290
+\c@blind@countparstart=\count291
+\blind@countxx=\count292
+\blindtext@numBlindtext=\count293
+\blind@countyy=\count294
+\c@blindlist=\count295
+\c@blindlistlevel=\count296
+\c@blindlist@level=\count297
+\blind@listitem=\count298
+\c@blind@listcount=\count299
+\c@blind@levelcount=\count300
+\blind@mathformula=\count301
+\blind@Mathformula=\count302
+\c@blind@randomcount=\count303
+\c@blind@randommax=\count304
+\c@blind@pangramcount=\count305
+\c@blind@pangrammax=\count306
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count305
+\c@float@type=\count307
 \float@exts=\toks23
 \float@box=\box53
 \@float@everytoks=\toks24
@@ -390,28 +394,28 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count306
+\l__kernel_color_stack_int=\count308
 \l__pdf_internal_box=\box55
 ) (pokeMongo.aux (chapters/introduction.aux) (chapters/analysis.aux)
 (chapters/project.aux) (chapters/implementation.aux) (chapters/test.aux))
 \openout1 = `pokeMongo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
@@ -431,21 +435,21 @@ Package graphics Info: Driver file: pdftex.def on input line 105.
 \Gin@req@height=\dimen179
 \Gin@req@width=\dimen180
 )
-\c@lstlisting=\count307
+\c@lstlisting=\count309
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count308
+\scratchcounter=\count310
 \scratchdimen=\dimen181
 \scratchbox=\box56
-\nofMPsegments=\count309
-\nofMParguments=\count310
+\nofMPsegments=\count311
+\nofMParguments=\count312
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count311
+\MPscratchCnt=\count313
 \MPscratchDim=\dimen182
-\MPnumerator=\count312
-\makeMPintoPDFobject=\count313
+\MPnumerator=\count314
+\makeMPintoPDFobject=\count315
 \everyMPtoPDFconversion=\toks26
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -458,7 +462,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 55.
+Package hyperref Info: Link coloring OFF on input line 56.
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -470,11 +474,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count314
+\c@section@level=\count316
 )
-LaTeX Info: Redefining \ref on input line 55.
-LaTeX Info: Redefining \pageref on input line 55.
-LaTeX Info: Redefining \nameref on input line 55.
+LaTeX Info: Redefining \ref on input line 56.
+LaTeX Info: Redefining \pageref on input line 56.
+LaTeX Info: Redefining \nameref on input line 56.
  (pokeMongo.out) (pokeMongo.out)
 \@outlinefile=\write3
 \openout3 = `pokeMongo.out'.
@@ -489,7 +493,7 @@ t>
 File: img/marchio_unipi_pant541-eps-converted-to.pdf Graphic file (type pdf)
 <use img/marchio_unipi_pant541-eps-converted-to.pdf>
 Package pdftex.def Info: img/marchio_unipi_pant541-eps-converted-to.pdf  used o
-n input line 59.
+n input line 60.
 (pdftex.def)             Requested size: 390.0pt x 207.81781pt.
 [1
 
@@ -499,7 +503,7 @@ ation with the same identifier (name{page.1}) has been already used, duplicate
 ignored
 <to be read again> 
                    \relax 
-l.38 ...rline {4.3}Main tools}{14}{subsection.4.3}
+l.41 ...rline {4.3}Main tools}{21}{subsection.4.3}
                                                   % [1])
 \tf@toc=\write4
 \openout4 = `pokeMongo.toc'.
@@ -509,13 +513,13 @@ l.38 ...rline {4.3}Main tools}{14}{subsection.4.3}
 
 
 (chapters/introduction.tex)
-Overfull \hbox (21.70879pt too wide) in paragraph at lines 5--83
+Overfull \hbox (21.70879pt too wide) in paragraph at lines 5--84
 \OT1/cmr/m/n/12 teams (ac-cord-ing to the val-ues cited be-fore) and the most u
 sed/-caught \OT1/cmr/bx/n/12 Pokemon\OT1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--83
+Underfull \hbox (badness 10000) in paragraph at lines 5--84
 
  []
 
@@ -576,51 +580,167 @@ Overfull \hbox (21.4975pt too wide) in paragraph at lines 181--182
 ) [12]
 \openout2 = `chapters/project.aux'.
 
- (chapters/project.tex) [13
+ (chapters/project.tex
+Overfull \hbox (3.38075pt too wide) in paragraph at lines 8--9
+[]\OT1/cmr/m/n/12 Rankings are real-time OLAP queries: they need fast ag-gre-ga
+-tion strate-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+
+ []
+
+[13
 
 
 
 ]
+Overfull \hbox (21.4975pt too wide) in paragraph at lines 36--37
+[]\OT1/cmr/m/n/12 Analytics: evo-lu-tion on time of num-ber of lo-gins per day/
+-to-tal \OT1/cmr/bx/n/12 Users\OT1/cmr/m/n/12 /logins
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
+
+ []
+
+[14]
+<img/user_collection.png, id=382, 706.13812pt x 181.42781pt>
+File: img/user_collection.png Graphic file (type png)
+<use img/user_collection.png>
+Package pdftex.def Info: img/user_collection.png  used on input line 50.
+(pdftex.def)             Requested size: 390.0pt x 100.20363pt.
+<img/pokemon_collection.png, id=383, 682.80093pt x 188.20313pt>
+File: img/pokemon_collection.png Graphic file (type png)
+<use img/pokemon_collection.png>
+Package pdftex.def Info: img/pokemon_collection.png  used on input line 66.
+(pdftex.def)             Requested size: 390.0pt x 107.498pt.
+ [15 <./img/user_collection.png>]
+Overfull \hbox (12.91444pt too wide) in paragraph at lines 84--99
+ [] 
+ []
+
+[16 <./img/pokemon_collection.png>]
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+<img/UsernameNoIndex.png, id=396, 237.13594pt x 73.02281pt>
+File: img/UsernameNoIndex.png Graphic file (type png)
+<use img/UsernameNoIndex.png>
+Package pdftex.def Info: img/UsernameNoIndex.png  used on input line 114.
+(pdftex.def)             Requested size: 175.49881pt x 54.04381pt.
+<img/UsernameIndex.png, id=397, 209.28188pt x 73.02281pt>
+File: img/UsernameIndex.png Graphic file (type png)
+<use img/UsernameIndex.png>
+Package pdftex.def Info: img/UsernameIndex.png  used on input line 118.
+(pdftex.def)             Requested size: 175.49881pt x 61.23509pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 113--121
+[]$[]$ $[]$ 
+ []
+
+
+Overfull \hbox (5.50058pt too wide) in paragraph at lines 127--128
+[] [] \OT1/cmr/bx/n/12 Coun-try[] \OT1/cmr/m/n/12 As seen be-fore, start-ing fr
+om the ap-pli-ca-tion queries we demon-
+ []
+
+[17 <./img/UsernameNoIndex.png> <./img/UsernameIndex.png>]
+<img/CountryNoIndex.png, id=412, 224.33812pt x 72.27pt>
+File: img/CountryNoIndex.png Graphic file (type png)
+<use img/CountryNoIndex.png>
+Package pdftex.def Info: img/CountryNoIndex.png  used on input line 158.
+(pdftex.def)             Requested size: 175.49881pt x 56.53796pt.
+<img/CountryIndex.png, id=413, 204.765pt x 73.02281pt>
+File: img/CountryIndex.png Graphic file (type png)
+<use img/CountryIndex.png>
+Package pdftex.def Info: img/CountryIndex.png  used on input line 162.
+(pdftex.def)             Requested size: 175.49881pt x 62.59001pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 157--165
+[]$[]$ $[]$ 
+ []
+
+
+Overfull \hbox (33.73784pt too wide) in paragraph at lines 176--191
+ [] 
+ []
+
+[18 <./img/CountryNoIndex.png> <./img/CountryIndex.png>]
+<img/PokemonNameNoIndex.png, id=424, 207.02344pt x 73.02281pt>
+File: img/PokemonNameNoIndex.png Graphic file (type png)
+<use img/PokemonNameNoIndex.png>
+Package pdftex.def Info: img/PokemonNameNoIndex.png  used on input line 202.
+(pdftex.def)             Requested size: 175.49881pt x 61.90475pt.
+<img/PokemonNameIndex.png, id=425, 210.7875pt x 72.27pt>
+File: img/PokemonNameIndex.png Graphic file (type png)
+<use img/PokemonNameIndex.png>
+Package pdftex.def Info: img/PokemonNameIndex.png  used on input line 206.
+(pdftex.def)             Requested size: 175.49881pt x 60.17264pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 201--209
+[]$[]$ $[]$ 
+ []
+
+) [19 <./img/PokemonNameNoIndex.png> <./img/PokemonNameIndex.png>] [20]
 \openout2 = `chapters/implementation.aux'.
 
- (chapters/implementation.tex) [14
+
+(chapters/implementation.tex) [21
 
 
 
 ]
 \openout2 = `chapters/test.aux'.
 
-
-(chapters/test.tex) [15
-
+ (chapters/test.tex) [22
 
 
-] (pokeMongo.aux (chapters/introduction.aux)
-(chapters/analysis.aux) (chapters/project.aux) (chapters/implementation.aux)
-(chapters/test.aux))
+
+] (pokeMongo.aux
+(chapters/introduction.aux) (chapters/analysis.aux) (chapters/project.aux)
+(chapters/implementation.aux) (chapters/test.aux))
 Package rerunfilecheck Info: File `pokeMongo.out' has not changed.
 (rerunfilecheck)             Checksum: BA89B62BBD372E7104169378245C015F;3865.
  ) 
 Here is how much of TeX's memory you used:
- 10804 strings out of 480236
- 172541 string characters out of 2880557
- 515941 words of memory out of 3000000
- 27073 multiletter control sequences out of 15000+200000
- 541886 words of font info for 52 fonts, out of 3000000 for 9000
+ 11379 strings out of 480236
+ 179108 string characters out of 2880557
+ 707232 words of memory out of 3000000
+ 27606 multiletter control sequences out of 15000+200000
+ 543363 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,6n,77p,685b,527s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 70i,8n,77p,685b,1335s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmbx12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmbxti10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/gxhan/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/gxhan/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/gxhan/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on pokeMongo.pdf (16 pages, 505540 bytes).
+ts/cm/cmbx10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/gxhan/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/gxhan/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/gxhan/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users
+/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C
+:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmti12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmtt10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmtt12.pfb>
+Output written on pokeMongo.pdf (23 pages, 627370 bytes).
 PDF statistics:
- 428 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
- 453 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 514 PDF objects out of 1000 (max. 8388607)
+ 107 named destinations out of 1000 (max. 500000)
+ 493 words of extra memory for PDF output out of 10000 (max. 10000000)
 
