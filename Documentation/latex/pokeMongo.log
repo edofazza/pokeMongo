@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  17 DEC 2020 15:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  17 DEC 2020 17:05
 entering extended mode
 **./pokeMongo.tex
 (pokeMongo.tex
@@ -503,7 +503,7 @@ ation with the same identifier (name{page.1}) has been already used, duplicate
 ignored
 <to be read again> 
                    \relax 
-l.41 ...rline {4.3}Main tools}{21}{subsection.4.3}
+l.45 ...rline {4.3}Main tools}{24}{subsection.4.3}
                                                   % [1])
 \tf@toc=\write4
 \openout4 = `pokeMongo.toc'.
@@ -683,64 +683,99 @@ Overfull \hbox (33.73784pt too wide) in paragraph at lines 176--191
 File: img/PokemonNameNoIndex.png Graphic file (type png)
 <use img/PokemonNameNoIndex.png>
 Package pdftex.def Info: img/PokemonNameNoIndex.png  used on input line 202.
-(pdftex.def)             Requested size: 175.49881pt x 61.90475pt.
+(pdftex.def)             Requested size: 168.47736pt x 59.42781pt.
 <img/PokemonNameIndex.png, id=425, 210.7875pt x 72.27pt>
 File: img/PokemonNameIndex.png Graphic file (type png)
 <use img/PokemonNameIndex.png>
 Package pdftex.def Info: img/PokemonNameIndex.png  used on input line 206.
-(pdftex.def)             Requested size: 175.49881pt x 60.17264pt.
+(pdftex.def)             Requested size: 168.47736pt x 57.76422pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 201--209
-[]$[]$ $[]$ 
+Underfull \hbox (badness 1297) in paragraph at lines 230--234
+[]\OT1/cmr/m/n/12 Match all the USER nodes at
  []
 
-) [19 <./img/PokemonNameNoIndex.png> <./img/PokemonNameIndex.png>] [20]
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--234
+\OT1/cmr/m/n/12 f)|FOLLOWS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--234
+\OMS/cmsy/m/n/12 !$\OT1/cmr/m/n/12 (USER recomm.)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--234
+\OT1/cmr/m/n/12 (U)|LIKES$\OMS/cmsy/m/n/12 !$\OT1/cmr/m/n/12 (POKEMON
+ []
+
+[19 <./img/PokemonNameNoIndex.png> <./img/PokemonNameIndex.png>]
+Underfull \hbox (badness 1603) in paragraph at lines 270--271
+[]\OT1/cmr/m/n/12 Add a OWNS re-la-tion-ship be-
+ []
+
+[20]
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 292.
+
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 292.
+
+[21]
+<img/graph_structure.png, id=445, 721.19438pt x 438.13687pt>
+File: img/graph_structure.png Graphic file (type png)
+<use img/graph_structure.png>
+Package pdftex.def Info: img/graph_structure.png  used on input line 340.
+(pdftex.def)             Requested size: 390.0pt x 236.93134pt.
+ [22 <./img/graph_structure.png>]) [23]
 \openout2 = `chapters/implementation.aux'.
 
-
-(chapters/implementation.tex) [21
+ (chapters/implementation.tex)
+[24
 
 
 
 ]
 \openout2 = `chapters/test.aux'.
 
- (chapters/test.tex) [22
+ (chapters/test.tex) [25
 
 
 
-] (pokeMongo.aux
-(chapters/introduction.aux) (chapters/analysis.aux) (chapters/project.aux)
-(chapters/implementation.aux) (chapters/test.aux))
+] (pokeMongo.aux (chapters/introduction.aux)
+(chapters/analysis.aux) (chapters/project.aux) (chapters/implementation.aux)
+(chapters/test.aux))
 Package rerunfilecheck Info: File `pokeMongo.out' has not changed.
 (rerunfilecheck)             Checksum: BA89B62BBD372E7104169378245C015F;3865.
  ) 
 Here is how much of TeX's memory you used:
- 11379 strings out of 480236
- 179108 string characters out of 2880557
+ 11390 strings out of 480236
+ 179315 string characters out of 2880557
  707232 words of memory out of 3000000
- 27606 multiletter control sequences out of 15000+200000
+ 27612 multiletter control sequences out of 15000+200000
  543363 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,8n,77p,685b,1335s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 70i,10n,77p,685b,1335s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmbx12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/gxhan/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/gxhan/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/gxhan/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users
-/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C
-:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmti12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmtt10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmtt12.pfb>
-Output written on pokeMongo.pdf (23 pages, 627370 bytes).
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/gxhan/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/gxhan/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users
+/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><
+C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
+6.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr8.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmti12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/gxhan/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on pokeMongo.pdf (26 pages, 713018 bytes).
 PDF statistics:
- 514 PDF objects out of 1000 (max. 8388607)
- 107 named destinations out of 1000 (max. 500000)
- 493 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 540 PDF objects out of 1000 (max. 8388607)
+ 111 named destinations out of 1000 (max. 500000)
+ 498 words of extra memory for PDF output out of 10000 (max. 10000000)
 
