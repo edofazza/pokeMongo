@@ -1,15 +1,1 @@
 
-2020-12-16T17:57:26.577Z [LOG] Starting of the application
-2020-12-16T17:57:27.101Z [VVLOG] Creating MusicButton at (1250, 670)
-2020-12-16T17:57:27.104Z [VVLOG] Setting musicOn image
-2020-12-16T17:57:27.113Z [VVLOG] Creating TitleLabel 'PokeMongo'
-2020-12-16T17:57:27.296Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
-2020-12-16T17:57:27.381Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
-2020-12-16T17:57:27.382Z [LOG] SHOWING LOGIN PAGE
-2020-12-16T17:57:27.383Z [VVLOG] Creating FieldRelatedLabel 'Username' at (550, 170)
-2020-12-16T17:57:27.401Z [VVLOG] Creating FieldRelatedLabel 'Password' at (550, 270)
-2020-12-16T17:57:27.403Z [VVLOG] Creating Regular button 'LOG IN' at (700, 370)
-2020-12-16T17:57:27.406Z [VVLOG] Creating Regular button 'SIGN UP' at (500, 370)
-2020-12-16T17:57:27.407Z [VLOG] Setting song: opening.mp3
-2020-12-16T17:57:27.471Z [VLOG] CHANGING SONG
-2020-12-16T17:57:27.540Z [VLOG] Setting song: opening.mp3
