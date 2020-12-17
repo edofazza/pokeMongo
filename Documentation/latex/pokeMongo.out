@@ -35,25 +35,27 @@
 \BOOKMARK [2][-]{subsection.3.6}{Client, Server and Daemon Thread}{section.3}% 35
 \BOOKMARK [2][-]{subsection.3.7}{Technologies and Frameworks}{section.3}% 36
 \BOOKMARK [1][-]{section.4}{Implementation}{}% 37
-\BOOKMARK [2][-]{subsection.4.1}{Package structure and information hiding}{section.4}% 38
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Packaging strategy and information hiding}{subsection.4.1}% 39
-\BOOKMARK [3][-]{subsubsection.4.1.2}{UML package diagram}{subsection.4.1}% 40
-\BOOKMARK [2][-]{subsection.4.2}{APIs and SPIs}{section.4}% 41
-\BOOKMARK [2][-]{subsection.4.3}{Main tools}{section.4}% 42
-\BOOKMARK [3][-]{subsubsection.4.3.1}{GSON}{subsection.4.3}% 43
-\BOOKMARK [3][-]{subsubsection.4.3.2}{Caching mechanism and multimedia management}{subsection.4.3}% 44
-\BOOKMARK [3][-]{subsubsection.4.3.3}{Password Encryptor}{subsection.4.3}% 45
-\BOOKMARK [3][-]{subsubsection.4.3.4}{Logger}{subsection.4.3}% 46
-\BOOKMARK [2][-]{subsection.4.4}{Analytics queries}{section.4}% 47
-\BOOKMARK [3][-]{subsubsection.4.4.1}{User Rankings}{subsection.4.4}% 48
-\BOOKMARK [3][-]{subsubsection.4.4.2}{Pok\351mon Rankings}{subsection.4.4}% 49
-\BOOKMARK [3][-]{subsubsection.4.4.3}{Usage Statistics}{subsection.4.4}% 50
-\BOOKMARK [3][-]{subsubsection.4.4.4}{Dynamic Catch Rate}{subsection.4.4}% 51
-\BOOKMARK [2][-]{subsection.4.5}{Business logic}{section.4}% 52
-\BOOKMARK [3][-]{subsubsection.4.5.1}{Points computing}{subsection.4.5}% 53
-\BOOKMARK [3][-]{subsubsection.4.5.2}{Dynamic Catch Rate Computing}{subsection.4.5}% 54
-\BOOKMARK [1][-]{section.5}{Test}{}% 55
-\BOOKMARK [2][-]{subsection.5.1}{Privacy and Security}{section.5}% 56
-\BOOKMARK [2][-]{subsection.5.2}{Unit Test}{section.5}% 57
-\BOOKMARK [2][-]{subsection.5.3}{Robustness}{section.5}% 58
-\BOOKMARK [2][-]{subsection.5.4}{Performance}{section.5}% 59
+\BOOKMARK [2][-]{subsection.4.1}{Package structure}{section.4}% 38
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Package Analysis: Bean}{subsection.4.1}% 39
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Package Analysis: Cache}{subsection.4.1}% 40
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Packaging strategy and information hiding}{subsection.4.1}% 41
+\BOOKMARK [3][-]{subsubsection.4.1.4}{UML package diagram}{subsection.4.1}% 42
+\BOOKMARK [2][-]{subsection.4.2}{APIs and SPIs}{section.4}% 43
+\BOOKMARK [2][-]{subsection.4.3}{Main tools}{section.4}% 44
+\BOOKMARK [3][-]{subsubsection.4.3.1}{GSON}{subsection.4.3}% 45
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Caching mechanism and multimedia management}{subsection.4.3}% 46
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Password Encryptor}{subsection.4.3}% 47
+\BOOKMARK [3][-]{subsubsection.4.3.4}{Logger}{subsection.4.3}% 48
+\BOOKMARK [2][-]{subsection.4.4}{Analytics queries}{section.4}% 49
+\BOOKMARK [3][-]{subsubsection.4.4.1}{User Rankings}{subsection.4.4}% 50
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Pok\351mon Rankings}{subsection.4.4}% 51
+\BOOKMARK [3][-]{subsubsection.4.4.3}{Usage Statistics}{subsection.4.4}% 52
+\BOOKMARK [3][-]{subsubsection.4.4.4}{Dynamic Catch Rate}{subsection.4.4}% 53
+\BOOKMARK [2][-]{subsection.4.5}{Business logic}{section.4}% 54
+\BOOKMARK [3][-]{subsubsection.4.5.1}{Points computing}{subsection.4.5}% 55
+\BOOKMARK [3][-]{subsubsection.4.5.2}{Dynamic Catch Rate Computing}{subsection.4.5}% 56
+\BOOKMARK [1][-]{section.5}{Test}{}% 57
+\BOOKMARK [2][-]{subsection.5.1}{Privacy and Security}{section.5}% 58
+\BOOKMARK [2][-]{subsection.5.2}{Unit Test}{section.5}% 59
+\BOOKMARK [2][-]{subsection.5.3}{Robustness}{section.5}% 60
+\BOOKMARK [2][-]{subsection.5.4}{Performance}{section.5}% 61
