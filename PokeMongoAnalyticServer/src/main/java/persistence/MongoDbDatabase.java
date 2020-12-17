@@ -27,8 +27,9 @@ public abstract class MongoDbDatabase implements Database{
 
     @Override
     public void startConnection(){
-        connection=MongoClients.create(clusterAddress + "?" + retryWrites + "&" + writeConcern + "&" +
-                writeTimeout + "&" + readPreference + "&" + readConcern);
+        //connection=MongoClients.create(clusterAddress + "?" + retryWrites + "&" + writeConcern + "&" +
+        //        writeTimeout + "&" + readPreference + "&" + readConcern);
+        connection= MongoClients.create("mongodb://" + host + ":" + port);
     }
 
     @Override
