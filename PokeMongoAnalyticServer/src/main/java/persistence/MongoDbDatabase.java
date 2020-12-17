@@ -18,9 +18,17 @@ public abstract class MongoDbDatabase implements Database{
     private int port = 27017;
     private String dbName="pokeMongo";
 
+    private final String clusterAddress = "mongodb://172.16.3.85:27017,172.16.3.86:27017,172.16.3.87:27017/";
+    private final String retryWrites = "retryWrites=true";
+    private final String writeConcern = "w=majority&journal=true";
+    private final String writeTimeout = "wtimeout=10000";
+    private final String readPreference = "readPreference=secondaryPreferred&maxStalenessSeconds=120";
+    private final String readConcern = "readConcernLevel=snapshot";
+
     @Override
     public void startConnection(){
-        connection=MongoClients.create("mongodb://" + host + ":" + port);
+        connection=MongoClients.create(clusterAddress + "?" + retryWrites + "&" + writeConcern + "&" +
+                writeTimeout + "&" + readPreference + "&" + readConcern);
     }
 
     @Override
