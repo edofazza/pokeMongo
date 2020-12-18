@@ -552,13 +552,90 @@ As we will discuss in the par. 3.6, the Analytic collection is updated daily and
 
 \subsection{Database Properties}
 \subsubsection{Availability}
+A very important non-functional requirement of the application is availability.\\ 
+Indeed, \textbf{Users} expect to always have access to the game.
+To ensure availability, a cluster of virtual machines has been used, as described in the next paragraph, moreover as reported in paragraphs 3.5.3 and 3.5.4 further mechanism has been projected/implemented in order to guarantee a high level of availability.\\
+To ensure it, not only architectural solutions have been exploited, but also software design ones: as described more in deep in the paragraph 3.6, we decided to defer analytics operations, computing aggregate results only once a day (midnight US) instead of every time data is required.\\
+This means faster response time of the application during the normal usage, reducing load on the servers. On the other hand, a little overhead in the database is generated at that time, and we have to consider that even if we can estimate a low usage rate in the US at midnight, due to the time zone variation somewhere users might experience some delay. This point is better discussed at the paragraph 3.6     
 \subsubsection{Replicas}
-\subsubsection{Eventual Consistency}
-\subsubsection{Sharding}
-\subsubsection{Pros and Drawbacks}
+As anticipated in the previous paragraph, the application is provided with replicas support. \\
+Replicas are copies of the main server, updated in a deferred way and used not only for backup purposes, but also for taking in charge of some read operations (if configured properly) so that to reduce load on the primary server. \\
+The Replicas Architecture used is a Master-Slave fashion, in which only the master can be in charge of write operations.\\
+The Replicas Mechanism allows us to ensure a high level of availability of the cluster, overcoming possible server’s crashes/breakdowns. Fault-tolerance and also scalability are guaranteed, together with an accurate design of the eventual consistency, presented in the next paragraph. \\
+Even though we achieve a single-server breakdown fault-tolerance, our network is still exposed to a possible down of the link with the cluster.
 
+\subsubsection{Eventual Consistency}
+As described before, we preferred guaranteeing low latencies and high availability rather than a strict consistency.\\ 
+To be precise, we wanted to achieve a read-your-writes consistency for game players, since they expect that, at the catching/freeing up of a Pokémon, their team and their ranking position is immediately updated taking into account this modifies.
+At the same time, we implemented a causal-consistency for the Social Network management: a user usually sees immediately his own posts, but in any way it’s ensured that Posts referring to the same Pokémon will be always in order.
+Eventually, for what concerns admins’ analytic data, there is no real consistency warranties that data will be updated: the relative deferred write operation ensures that data has been correctly memorized and journaled, but when a read operation arrive we don’t know if it will pick up new or old data.
+\begin{itemize}
+	\item The read-your-write consistency is been implemented according to the official documentation of Mongo at https://docs.mongodb.com/manual/ reference/read-concern/\#read-your-own-writes. \\
+	So write-concern is majority, read-concern is also majority and read-preference is on the primary when possible (preferred). 
+ 	\item Social Network’s causal consistency is ensured by the Neo4J framework, that is the specific Graph Database we decided to use(see par. 3.7 for further details)
+	\item The eventual consistency for usage analytic data is structured this way: On write operations, the control is returned to the application if the majority of the servers in the cluster have acknowledged it and only after the operation has been correctly journaled. As described by MongoDb documentation, this is enough to guarantee that the operation cannot be lost. Other servers’ data will be eventually consistent, anyway reads are performed in just one of the secondaries, immediately after taking a snapshot of the database, so that the aggregation operations will not deteriorate server’s performance. Since we have no control on which secondary server will be in charge of each read operation, we cannot ensure any kind of consistency, in fact:
+
+	\begin{itemize}
+		\item Read and writes are made from different actors, so is meaningless talking about read-your-writes consistency
+		\item Since there are no sessions, it’s pointless considering a sort of session-consistency
+		\item We cannot ensure monotonic-read-consistency: since we don’t know the secondary server that will be in charge of each read operation, it can happen that, given two reads $r_{i}—HB \rightarrow r_{i+1}, r_{i}$ reads from an updated server while $r_{i+1}$ doesn’t.
+		\item Theoretically we have no monotonic-write-consistency since the connection with the servers crosses Internet, so we cannot know if an older write request will be received after a newer one. \\
+		From a practical point of view we are sure that this kind of consistency will be always guaranteed, due the fact that 2 consecutive writes come 24 hours one from the other
+		\item There are no cause-effect relationship in this kind of data, so no eventual consistency		
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Sharding}
+\textbf{N.B.} Despite the fact that we projected here a Sharding mechanism, this is not been implemented in the database cluster. \medskip \\
+Sharding consists on partitioning data according to a specific policy. Data can be retrieved in the right server/cluster/partition using a Sharding Key.\\
+A good Sharding algorithm is the one that permits to retrieve quickly data, but also to partition it homogeneously.\\
+In our application we chose to design a \textbf{Geographical Sharding}: each partition is in charge of data generated by users coming from a specific bunch of countries. This kind of division is able to guarantee both the properties discussed before.
+\begin{itemize}
+	\item It’s easy-to-retrieve because the Sharding Key is a pure key, thus it does not need any computation. As we will see in the chapter 4, it’s convenient to keep in memory (caching) data of the user currently logged: this means that the calculation of the Sharding Key is no more than a simple read access in the main memory
+	\item It’s also homogenous if we plan accurately how to partition countries among servers/clusters. Indeed it’s not realistic to assert equal usage distribution on every country, but could either not being enough partitioning according to continents/areas.\\
+	Against this problem the most useful tool provided by the application is the usage analytic collection: in this way admins are always updated on the amount of load generated by each country, and so they can plan wisely how and where to dispose servers/clusters.\\
+	In this way a further optimization could be applied to the application: whereas a cluster is in charge of a particular area, analytic aggregations could be performed  at local midnight instead of at 00:00:00 U.S.\\
+	(eg. Let us suppose that, starting from the analytic data provided, admins decided to put a new server on the north of Italy to serve Italy, Switzerland and Austria. We could change the application so that the daemon thread that computes analytic data will go in execution at 00:00:00 Central Europe instead of 00:00:00 U.S.)
+\end{itemize}
+\subsubsection{Pros and Drawbacks}
+Starting from the characteristics of the database infrastructure described in this paragraph, we can state the following considerations:
+\begin{enumerate}
+	\item The followed project approach prefers in general performance over storage saving. Thus, to guarantee a good game experience with over 5M of users a discrete storage capability is required.
+	\item Availability is ensured by always-on servers and use of replicas. However there could be little delays when analytics are written. 
+	\item There is no strict consistency among different servers, for no service. For our purposes, eventual consistencies are been finely designed depending on the specific task. They can be consulted at the paragraph 3.5.3.
+	\item The architecture is the master-slave one: this means that master can be a single point of failure. Although, DBs adopted are capable of performing an election in case of primary’s fault, in this case the system will be still capable of working but every NON-JOURNALED write will be lost.  
+	\item In spite the fact that this is a performance-centered project, we decide to repeat rankings computing each time a read request arrives. Surely this is not the fastest approach, but we thought that providing a user each time the most updated ranking possible was the best way to encourage him/her to play and try to climb the charts.
+\end{enumerate}
 
 \subsection{Client, Server and Daemon Thread}
+The architecture of our application involves the presence of clients, that will be the users’ devices, and of some servers that will run in one ore more clusters of machines and that will handle all the data according to the instructions given by clients.\\
+The applicative code runs entirely on the clients: every interaction with the GUI is handled locally and may trigger a send of a request to the database.\\
+In order to minimize servers’ computational load, they do not execute applicative code, but they only are in charge of providing answers to queries.\\
+This means that the application has not been designed as independent from the database infrastructure, but as we will discuss in chapter 4 an accurate information hiding mechanism prevents strong dependencies on the backend implementation.\\
+Apart from the usage analytics (and image download/caching), the applicative code is synchronized with query responses: it stops waiting for an answer from the database. \medskip \\
+As already cited before, an analytic function is performed in a deferred fashion every day at 00:00:00, and it is in charge of computing usage statistics rather than updating all Pokémon’s catch rates. \\
+Thus, a daemon thread is required: it wakes up at 00:00:00, aggregates data as described in par. 2.5, updates the Analytics collection on the Document Database and eventually sleeps for 24 hours.\\
+This operation cannot be performed by normal clients, since it can be computed only once for everyone and it would require a user to have his own device always on; anyway we wanted not to make it be performed by servers, both to reduce their computational efforts and because we cannot take for granted physical access to the server’s file system. \medskip \\
+
+For those reasons we decide to introduce an additional “special” client in which to host the daemon thread. This client must be always-on, does not need high computational power nor a large amount of memory and runs his own piece of applicative code.\\
+To simulate its presence, we implemented its methods/classes in a separated module of the application, so that we have no coupling at all between normal clients and this one. \\
+\textbf{N.B.} : admin’s devices are normal clients!\\
+In the following picture a schema of the application architecture is reported.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/architecture.png}
+	\caption{Service Architecture}
+\end{figure}
+
 
 \subsection{Technologies and Frameworks}
-
+The most important technologies and framework we chose to build up our project are discussed here. For a more accurate report of these refer to chapter 4.
+\begin{itemize}
+\item As Document Database we chose is MongoDB: this framework is very easy-to-use, is suitable for large data collections and supports indexing, clustering, replica sets and Sharding. DMBS is optimized for analytics, and the query language is very well integrated with the most famous programming languages.
+\item The Graph Database selected is Neo4J, an intuitive and powerful framework, supports indexing, clustering and replicas. Neo4j provides a very expressive query language and some fundamental ensured properties, like Safety (fault-tolerance), Scaling (through Replicas) and Causal Consistency.
+\item The main programming language used is Java 8. It provides JavaFX support for GUI design, drivers for the communication with databases and it is compatible with all the main available frameworks/plugins
+\item Maven as build and dependency manager, it is been used to organize the code, support pre-build tests, import quickly dependencies and dividing the project into the two modules as explained in the previous chapter
+\item Mockito for building up very simple mock-ups in order to conduct tests on the interaction between classes
+\item Junit for testing classes/methods and for fast bug discovering/recovering    
+\end{itemize}
