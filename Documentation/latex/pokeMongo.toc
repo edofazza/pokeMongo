@@ -65,22 +65,33 @@
 \contentsline {subsubsection}{\numberline {4.1.8}Package Analysis: userInterface}{46}{subsubsection.4.1.8}%
 \contentsline {subsubsection}{\numberline {4.1.9}Package Analysis: utils}{48}{subsubsection.4.1.9}%
 \contentsline {subsubsection}{\numberline {4.1.10}Obfuscation}{48}{subsubsection.4.1.10}%
-\contentsline {subsection}{\numberline {4.2}APIs and SPIs}{49}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Main tools}{49}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}GSON}{49}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Caching mechanism and multimedia management}{49}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Password Encryptor}{49}{subsubsection.4.3.3}%
-\contentsline {subsubsection}{\numberline {4.3.4}Logger}{49}{subsubsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.4}Analytics queries}{49}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}User Rankings}{49}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Pokémon Rankings}{49}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}Usage Statistics}{49}{subsubsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.4}Dynamic Catch Rate}{49}{subsubsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.5}Business logic}{49}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Points computing}{49}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Dynamic Catch Rate Computing}{49}{subsubsection.4.5.2}%
-\contentsline {section}{\numberline {5}Test}{50}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Privacy and Security}{50}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Unit Test}{50}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Robustness}{50}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Performance}{50}{subsection.5.4}%
+\contentsline {subsection}{\numberline {4.2}Main tools}{49}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}GSON}{49}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Caching mechanism and multimedia management}{49}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Password Encryptor}{50}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Logger}{50}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Form Validator}{52}{subsubsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.3}Business Logic}{54}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Points computing}{55}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Dynamic Catch Rate computing}{55}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Analytics queries}{55}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}User Rankings}{55}{subsubsection.4.4.1}%
+\contentsline {paragraph}{World Best Team}{56}{subsubsection.4.4.1}%
+\contentsline {paragraph}{Friends Best Team}{56}{lstnumber.-12.7}%
+\contentsline {paragraph}{Country Best Team}{57}{lstnumber.-14.8}%
+\contentsline {subsubsection}{\numberline {4.4.2}Pokemon Rankings}{57}{subsubsection.4.4.2}%
+\contentsline {paragraph}{World Best Pokemon}{57}{subsubsection.4.4.2}%
+\contentsline {paragraph}{Country Best Pokemon}{58}{lstnumber.-16.6}%
+\contentsline {subsubsection}{\numberline {4.4.3}Usage Statistics}{58}{subsubsection.4.4.3}%
+\contentsline {paragraph}{Total Users}{58}{subsubsection.4.4.3}%
+\contentsline {paragraph}{Today Login}{58}{lstnumber.-18.7}%
+\contentsline {paragraph}{Country Today Login}{59}{lstnumber.-19.11}%
+\contentsline {subsubsection}{\numberline {4.4.4}Dynamic Catch Rate}{59}{subsubsection.4.4.4}%
+\contentsline {section}{\numberline {5}Test}{62}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Privacy and Security}{62}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Unit Test}{62}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Robustness}{62}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Performance}{62}{subsection.5.4}%
+\contentsline {section}{\numberline {6}User Manual}{63}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Normal User Manual}{63}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Admin Manual}{63}{subsection.6.2}%
