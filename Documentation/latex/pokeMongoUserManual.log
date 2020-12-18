@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  18 DEC 2020 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  18 DEC 2020 18:34
 entering extended mode
 **./pokeMongoUserManual.tex
 (pokeMongoUserManual.tex
@@ -566,82 +566,82 @@ Package pdftex.def Info: img/userManual/main.png  used on input line 20.
 <img/userManual/pokedex.png, id=117, 1284.8pt x 731.73375pt>
 File: img/userManual/pokedex.png Graphic file (type png)
 <use img/userManual/pokedex.png>
-Package pdftex.def Info: img/userManual/pokedex.png  used on input line 28.
+Package pdftex.def Info: img/userManual/pokedex.png  used on input line 29.
 (pdftex.def)             Requested size: 390.0pt x 222.11217pt.
 <img/userManual/pokedex2.png, id=118, 1284.8pt x 731.73375pt>
 File: img/userManual/pokedex2.png Graphic file (type png)
 <use img/userManual/pokedex2.png>
-Package pdftex.def Info: img/userManual/pokedex2.png  used on input line 35.
+Package pdftex.def Info: img/userManual/pokedex2.png  used on input line 36.
 (pdftex.def)             Requested size: 390.0pt x 222.11217pt.
  [4 <./img/userManual/pokedex.png>]
 <img/userManual/pokemon_info.png, id=125, 1108.14pt x 684.5575pt>
 File: img/userManual/pokemon_info.png Graphic file (type png)
 <use img/userManual/pokemon_info.png>
-Package pdftex.def Info: img/userManual/pokemon_info.png  used on input line 41
+Package pdftex.def Info: img/userManual/pokemon_info.png  used on input line 42
 .
 (pdftex.def)             Requested size: 390.0pt x 240.92528pt.
  [5 <./img/userManual/pokedex2.png>]
 <img/userManual/team.png, id=132, 1284.8pt x 731.73375pt>
 File: img/userManual/team.png Graphic file (type png)
 <use img/userManual/team.png>
-Package pdftex.def Info: img/userManual/team.png  used on input line 51.
+Package pdftex.def Info: img/userManual/team.png  used on input line 52.
 (pdftex.def)             Requested size: 390.0pt x 222.11217pt.
 
 [6 <./img/userManual/pokemon_info.png>]
 <img/userManual/catch.png, id=140, 1284.8pt x 731.73375pt>
 File: img/userManual/catch.png Graphic file (type png)
 <use img/userManual/catch.png>
-Package pdftex.def Info: img/userManual/catch.png  used on input line 59.
+Package pdftex.def Info: img/userManual/catch.png  used on input line 61.
 (pdftex.def)             Requested size: 390.0pt x 222.11217pt.
  [7 <./img/userManual/team.png>]
 <img/userManual/friends.png, id=147, 1284.8pt x 729.72626pt>
 File: img/userManual/friends.png Graphic file (type png)
 <use img/userManual/friends.png>
-Package pdftex.def Info: img/userManual/friends.png  used on input line 66.
+Package pdftex.def Info: img/userManual/friends.png  used on input line 68.
 (pdftex.def)             Requested size: 390.0pt x 221.50282pt.
 <img/userManual/team_popup.png, id=148, 602.25pt x 430.60875pt>
 File: img/userManual/team_popup.png Graphic file (type png)
 <use img/userManual/team_popup.png>
-Package pdftex.def Info: img/userManual/team_popup.png  used on input line 73.
+Package pdftex.def Info: img/userManual/team_popup.png  used on input line 75.
 (pdftex.def)             Requested size: 390.0pt x 278.86078pt.
 
 [8 <./img/userManual/catch.png> <./img/userManual/friends.png>]
 <img/userManual/ranking.png, id=157, 1286.8075pt x 731.73375pt>
 File: img/userManual/ranking.png Graphic file (type png)
 <use img/userManual/ranking.png>
-Package pdftex.def Info: img/userManual/ranking.png  used on input line 81.
+Package pdftex.def Info: img/userManual/ranking.png  used on input line 83.
 (pdftex.def)             Requested size: 390.0pt x 221.76605pt.
  [9 <./img/userManual/team_popup.png>]
 <img/userManual/settings.png, id=164, 1284.8pt x 731.73375pt>
 File: img/userManual/settings.png Graphic file (type png)
 <use img/userManual/settings.png>
-Package pdftex.def Info: img/userManual/settings.png  used on input line 90.
+Package pdftex.def Info: img/userManual/settings.png  used on input line 92.
 (pdftex.def)             Requested size: 390.0pt x 222.11217pt.
  [10 <./img/userManual/ranking.png>]
 <img/userManual/admin_homepage.png, id=171, 1284.8pt x 731.73375pt>
 File: img/userManual/admin_homepage.png Graphic file (type png)
 <use img/userManual/admin_homepage.png>
 Package pdftex.def Info: img/userManual/admin_homepage.png  used on input line 
-98.
+100.
 (pdftex.def)             Requested size: 390.0pt x 222.11217pt.
  [11 <./img/userManual/settings.png> <./img/userManual/admin_homepage.png>]
 <img/userManual/admin_pokemon_window.png, id=180, 1106.1325pt x 681.54625pt>
 File: img/userManual/admin_pokemon_window.png Graphic file (type png)
 <use img/userManual/admin_pokemon_window.png>
 Package pdftex.def Info: img/userManual/admin_pokemon_window.png  used on input
- line 106.
+ line 109.
 (pdftex.def)             Requested size: 390.0pt x 240.29189pt.
 <img/userManual/usage_statistics.png, id=181, 1286.8075pt x 731.73375pt>
 File: img/userManual/usage_statistics.png Graphic file (type png)
 <use img/userManual/usage_statistics.png>
 Package pdftex.def Info: img/userManual/usage_statistics.png  used on input lin
-e 116.
+e 119.
 (pdftex.def)             Requested size: 390.0pt x 221.76605pt.
  [12 <./img/userManual/admin_pokemon_window.png>]
 <img/userManual/add_pokemon.png, id=189, 1284.8pt x 731.73375pt>
 File: img/userManual/add_pokemon.png Graphic file (type png)
 <use img/userManual/add_pokemon.png>
-Package pdftex.def Info: img/userManual/add_pokemon.png  used on input line 125
+Package pdftex.def Info: img/userManual/add_pokemon.png  used on input line 128
 .
 (pdftex.def)             Requested size: 390.0pt x 222.11217pt.
  [13 <./img/userManual/usage_statistics.png>]
@@ -649,12 +649,12 @@ Package pdftex.def Info: img/userManual/add_pokemon.png  used on input line 125
 File: img/userManual/remove_pokemon.png Graphic file (type png)
 <use img/userManual/remove_pokemon.png>
 Package pdftex.def Info: img/userManual/remove_pokemon.png  used on input line 
-131.
+134.
 (pdftex.def)             Requested size: 390.0pt x 222.11217pt.
 <img/userManual/delete_user.png, id=197, 1284.8pt x 731.73375pt>
 File: img/userManual/delete_user.png Graphic file (type png)
 <use img/userManual/delete_user.png>
-Package pdftex.def Info: img/userManual/delete_user.png  used on input line 138
+Package pdftex.def Info: img/userManual/delete_user.png  used on input line 141
 .
 (pdftex.def)             Requested size: 390.0pt x 222.11217pt.
  [14 <./img/userManual/add_pokemon.png> <./img/userManual/remove_pokemon.png>])
@@ -670,14 +670,14 @@ Here is how much of TeX's memory you used:
  27314 multiletter control sequences out of 15000+200000
  541021 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,7n,77p,802b,365s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 70i,7n,77p,973b,365s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbxti10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmr12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/gxhan/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on pokeMongoUserManual.pdf (16 pages, 5669434 bytes).
+Output written on pokeMongoUserManual.pdf (16 pages, 5674990 bytes).
 PDF statistics:
  243 PDF objects out of 1000 (max. 8388607)
  50 named destinations out of 1000 (max. 500000)
