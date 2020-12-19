@@ -4,43 +4,44 @@ According to concept presented in the previous chapter we can make the following
 \begin{enumerate}
 \item Because of the performance constraint, a fast backend is required. Moreover, since the aim is to spread the application worldwide, the database infrastructure should be easy to distribute.
 \item \textbf{Pokémon} must store heterogeneous data like URLs, different kinds of bios, float arrays and so on.
-\item \textbf{Users} are divided into normal users and admins. Although the second ones are few, a denormalized approach could be better to handle the fact that these two categories have very different attributes.
+\item \textbf{Users} are divided into \textit{normal users} and \textit{admins}. Although the second ones are few, a denormalized approach could be better to handle the fact that these two categories have very different attributes.
 \item Rankings are real-time OLAP queries: they need fast aggregation strategies.
-\item Favorite Pokémon, Friends, Posts and Answers together form a real Social Network.
-\item A \textbf{Team}, in a normalized relational model, could be seen as a relationship table between Users and Pokémon. Anyway, a huge table with a lot of duplicated PokémonID is not scalable due to the requirements of this application. There is a need to find the best way to perform quickly both the retrieving of a \textbf{User}’s team and the ranking of the most used \textbf{Pokémon}, optimizing if possible memory consumption.
+\item Favorite \textbf{Pokémon}, Friends, \textbf{Posts} and \textbf{Answers} together form a real Social Network.
+\item A \textbf{Team}, in a normalized relational model, could be seen as a relationship table between \textbf{Users} and \textbf{Pokémon}. Anyway, a huge table with a lot of duplicated PokémonID is not scalable due to the requirements of this application. There is a need to find the best way to perform quickly both the retrieving of a \textbf{User}’s team and the ranking of the most used \textbf{Pokémon}, optimizing if possible memory consumption.
 \end{enumerate}
 
-The points 1 to 4 guided the choice of a \textbf{Document Database} for handling User and Pokémon data. The flexibility, denormalization and performance of this kind of the database make it the most appropriate one.\medspace \\
+The points 1 to 4 guided the choice of a \textbf{Document Database} for handling \textbf{User} and \textbf{Pokémon} data. The flexibility, denormalization and performance of this kind of the database make it the most appropriate one.\medspace \\
 
-The point 5 is best handled by a \textbf{Graph DB}, optimized for networks and different kinds of relationships. Moreover, we realized that the best way to handle a team is to decompose it in a set of Graph Relationships (USER – OWNS $\rightarrow$ POKEMON).  Indeed, in this way queries mentioned at point 6 are very fast (just counting incoming/outcoming edges, see paragraph 3.3.1), and there are no useless, waste-memory repetitions of User IDs/Pokémon IDs. \\
-Since each user can have only a team, team name and points are stored in the user collection.
+The point 5 is best handled by a \textbf{Graph DB}, optimized for networks and different kinds of relationships. Moreover, we realized that the best way to handle a \textbf{Team} is to decompose it in a set of Graph Relationships (USER – OWNS $\rightarrow$ POKEMON).  Indeed, in this way queries mentioned at point 6 are very fast (just counting incoming/outcoming edges, see paragraph 3.3.1), and there are no useless, waste-memory repetitions of User IDs/Pokémon IDs. \\
+Since each \textbf{User} can have only a \textbf{Team}, \textit{team name} and \textit{points} are stored in the \textbf{User} collection.
 
 
 \subsection{Document Database}
 \subsubsection{Queries Handled}
+\textbf{NOTE: the queries implementation will be presented in the Chapter 4}
 \begin{itemize}
 	\item Insert a \textbf{User} into the system at registration time
-	\item Create a new \textbf{Pokémon} (admin only)
+	\item Create a new \textbf{Pokémon} (\textit{admin} only)
 	\item Retrieve \textbf{User} information at login time
-	\item Retrieve a \textbf{User} by username
+	\item Retrieve a \textbf{User} by \textit{username}
 	\item Retrieve \textbf{Pokémon} information using several filters
-	\item Retrieve a \textbf{Pokémon} by name when trying to catch it
-	\item Modify \textbf{User} settings (email, password, country)
-	\item Update \textbf{Team}’s name
-	\item Update \textbf{Team}’s points
-	\item Update \textbf{Pokémon}’s catch rates 
-	\item Remove a \textbf{User} (admin only)
-	\item Remove a \textbf{Pokémon} (admin only)
-	\item Analytics: ranking of best \textbf{Teams} in the world/each country/among friends
-	\item Analytics: evolution on time of a \textbf{Pokémon} catch rate
-	\item Analytics: evolution on time of number of logins per day/total \textbf{Users}/logins per day by country (admin only)
+	\item Retrieve a \textbf{Pokémon} by \textit{name} when trying to catch it
+	\item Modify \textbf{User} settings (\textit{email, password, country})
+	\item Update \textbf{Team}’s \textit{name}
+	\item Update \textbf{Team}’s \textit{points}
+	\item Update \textbf{Pokémon}’s \textit{catch rates} 
+	\item Remove a \textbf{User} (\textit{admin} only)
+	\item Remove a \textbf{Pokémon} (\textit{admin} only)
+	\item \textbf{Analytics}: ranking of best \textbf{Teams} in the world/each \textit{country}/among friends
+	\item \textbf{Analytics}: evolution on time of a \textbf{Pokémon} \textit{catch rate}
+	\item \textbf{Analytics}: evolution on time of number of logins per day/total \textbf{Users}/logins per day by \textit{country} (admin only)
 \end{itemize}
 \subsubsection{Entities handled}
 Document Database stores information about \textbf{Users} and \textbf{Pokèmons}. \medspace \\ 
 
-In particular it remembers \textbf{User}’s anagraphics and login data, last login, remaining Pokéballs, team name and earned points; a Boolean field distinguish admin from normal users. Admins have no points nor team or Pokéballs.\\
+In particular it remembers \textbf{User}’s anagraphics and login data, last login, remaining Pokéballs, \textit{team name} and earned \textit{points}; a Boolean field distinguish admin from normal users. Admins have no points nor team or Pokéballs.\\
 
-In a separate collection are stored data about \textbf{Pokémon}: PokédexId (source: PokeAPI), characteristics, one or more types, bio, images URLs, current capture$\_$rate and its last 30 catch$\_$rates stored into an array of Floats.\\
+In a separate collection are stored data about \textbf{Pokémon}: PokédexId (source: PokeAPI), characteristics, one or more types, bio, images URLs, current capture$\_$rate and its last 30 catch$\_$rates stored into an array of floats.\\
 
 The details of the collections are reported in the following paragraph.
 
@@ -52,13 +53,13 @@ The details of the collections are reported in the following paragraph.
 \end{figure}
 Relevant Attributes:
 \begin{itemize}
-	\item \textit{Admin}: \textbf{true} $\rightarrow$ admin, \textbf{false} $\rightarrow$ normal user
+	\item \textit{Admin}: \textbf{true} $\rightarrow$ \textit{admin}, \textbf{false} $\rightarrow$ \textit{normal user}
 	\item \textit{Username}: unique mnemonic ID of the user
 	\item \textit{Email}: must respect typical e-mail format
 	\item \textit{Password}: encrypted version of the user-chosen password
-	\item \textit{Last Login}: timestamp of the last time the user logged into the application
+	\item \textit{Last Login}: timestamp of the last time the \textbf{User} logged into the application
 	\item \textit{dailyPokeball}: number of daily Pokéballs left. They are up to 10 per day
-	\item \textit{points}: worth of his/her team
+	\item \textit{points}: worth of his/her \textbf{Team}
 \end{itemize}
 
 \begin{figure}[H]
@@ -69,9 +70,9 @@ Relevant Attributes:
 Relevant Attributes:
 \begin{itemize}
 	\item \textit{Id}: Pokédex ID (unique)
-	\item \textit{Name}: unique mnemonic ID of the Pokémon
-	\item \textit{Capture$\_$Rate}: current index of probability to catch the Pokémon
-	\item \textit{Portrait/Sprite}: URLs of the graphical representations of this Pokémon
+	\item \textit{Name}: unique mnemonic ID of the \textbf{Pokémon}
+	\item \textit{Capture$\_$Rate}: current index of probability to catch the \textbf{Pokémon}
+	\item \textit{Portrait/Sprite}: URLs of the graphical representations of this \textbf{Pokémon}
 	\item \textit{Capture$\_$Rates}: array of the last 30 values of the capture$\_$rate, one for each of the last 30 days.
 \end{itemize}
 
@@ -85,21 +86,21 @@ The field \textit{username} is involved in the following queries:
 		\hline
 		\textbf{Type} & \textbf{Query} \\ [0.5ex] 
 		\hline
-		\textbf{W1} & Insert a new username at registration time of an arbitrary user \\ 
+		\textbf{W1} & Insert a new \textit{username} at registration time of an arbitrary \textbf{User} \\ 
 		\hline
-		\textbf{W2} & Remove a username when an admin delete’s a user from the system \\
+		\textbf{W2} & Remove a \textit{username} when an admin delete’s a \textbf{User} from the system \\
 		\hline
-		\textbf{R1} & Check uniqueness of a username at registration time \\
+		\textbf{R1} & Check uniqueness of a \textit{username} at registration time \\
 		\hline
-		\textbf{R2} & Check user’s credential at login time \\
+		\textbf{R2} & Check \textbf{User}’s credential at login time \\
 		\hline
-		\textbf{R3} & Find a user by username when a new follow request is submitted \\
+		\textbf{R3} & \colorbox{BurntOrange}{Find a \textbf{user} by \textit{username} when a new follow request is submitted} \\
 		\hline
 	\end{tabular}
 \end{center}
 
-Assuming that a registered user will play the game for about 100 days before “getting bored”, we can state that the number of logins-per-day will be 100 times the number of registrations-per-day: this means that the queries R1+R2 are submitted 101 times more than query W1.\\
-Moreover, we can assert that query W2 will be very rare, while R3 is a popular query among the network structure of the application, say 30 times the number of registered users: we find out that read operations on this field are about 130 times the number of write operations.
+Assuming that a registered \textbf{User} will play the game for about 100 days before “getting bored”, we can state that the number of logins-per-day will be 100 times the number of registrations-per-day: this means that the queries R1+R2 are submitted 101 times more than query W1.\\
+Moreover, we can assert that query W2 will be very rare, while R3 is a popular query among the network structure of the application, say 30 times the number of registered \textbf{Users}: we find out that read operations on this field are about 130 times the number of write operations.
 Now consider MongoDb performances with and without using an index on the username field, in a Database populated by 250k users.
 
 \begin{lstlisting}[language=python]
@@ -120,31 +121,31 @@ After submitting the previous command the following results are obtained.
 	\end{subfigure}
 \end{figure}
 
-In the picture on the left is reported the output of the query when we do not use an index. Execution time is huge due to the very high number of docs examined. On the contrary, with an index, the same query need an execution time almost 100 times lower, and of course thanks to the index, DBMS only need to examinate one document. Moreover the unique property permits to eliminate the need of submitting query R1 at each registration.\\
-Considering the very high speed-up ratio of the indexing and the high frequency of this kind of queries w.r.t. the write operations (as explained before), a UNIQUE INDEX on username has been created.
+In the picture on the left is reported the output of the query when we do not use an index. Execution time is huge due to the very high number of docs examined. On the contrary, with an index, the same query need an execution time almost 100 times lower, and of course thanks to the index, DBMS only need to examine one document. Moreover the \textit{unique} property permits to eliminate the need of submitting query R1 at each registration.\\
+Considering the very high speed-up ratio of the indexing and the high frequency of this kind of queries w.r.t. the write operations (as explained before), \textbf{a UNIQUE INDEX on \textit{username} has been created}.
 
 \subparagraph{Country}
 As seen before, starting from the application queries we demonstrate the benefits of an index in the field \textit{country}.
 
 \begin{center}
-	\begin{tabular}{|c | c |} 
+	\begin{tabular}{| c | c |} 
 		\hline
 		\textbf{Type} & \textbf{Query} \\ [0.5ex] 
 		\hline
-		\textbf{W1} & Insert the country data at registration timer \\ 
+		\textbf{W1} & Insert the \textit{country} data at registration timer \\ 
 		\hline
-		\textbf{W2} & Remove all the user’s data if a user is banned by an admin \\
+		\textbf{W2} & Remove all the \textbf{User}’s data if a \textbf{User} is banned by an \textit{admin} \\
 		\hline
-		\textbf{W3} & Changing of settings after a user changes residence’s country \\
+		\textbf{W3} & Changing of settings after a user changes residence’s \textit{country} \\
 		\hline
-		\textbf{R1} & Rank all users by country \\
+		\textbf{R1} & Rank all \textbf{Users} by \textit{country} \\
 		\hline
 		\textbf{R2} & Rank countries with the highest logins-per-day ratios \\
 		\hline
 	\end{tabular}
 \end{center}
 
-Let $x$ be the number of registrations-per-day (W1), w.r.t this number W2 and W3 are very rare operations. Indeed, even though we can expect mischievous behaviors from some user, the number of country changes will never be comparable with $x$.\\
+Let $x$ be the number of registrations-per-day (W1), w.r.t this number W2 and W3 are very rare operations. Indeed, even though we can expect mischievous behaviours from some user, the number of country changes will never be comparable with $x$.\\
 On the other hand, in order to guarantee a read-your-own-write eventual consistency on ranking R1, this query is recomputed every time a user asks to see the ranking itself. Thus, since the gameplay is highly based on rankings, we can estimate that R1 frequency will be about $400x$.\\
 Furthermore we have to consider R2. Despite the fact that this query is executed just once per day (so $frequency(R2) \ll x$), it is an asynchronous procedure sensitive to execution time since it needs to lock the entire collection, make it unavailable to users for a while.\\
 As seen before, let us compare DBMS performances with and without a country index.
@@ -164,28 +165,28 @@ As seen before, let us compare DBMS performances with and without a country inde
 	\end{subfigure}
 \end{figure}
 
-Considering again about 250k users, without an index we need to scan the whole database, which means a medium-high execution time for each request.\\
-On the contrary, we have a very high increase of performances introducing and index on country: execution time is about 58 times lower and the only documents examined are the ones that must be returned.\\
-To summarize, considering the difference in frequency between reads and writes and the high decrease of execution time, an index on country has been introduced.
+Considering again about 250k \textbf{Users}, without an index we need to scan the whole database, which means a medium-high execution time for each request.\\
+On the contrary, we have a very high increase of performances introducing and index on \textit{country}: execution time is about 58 times lower and the only documents examined are the ones that must be returned.\\
+To summarize, considering the difference in frequency between reads and writes and the high decrease of execution time, \textbf{an index on \textit{country} has been introduced}.
 
 \subparagraph{Pokemon Name}
 
-Queries on Pokémon’s name:
+Queries on \textbf{Pokémon}’s \textit{name}:
 
 \begin{center}
 	\begin{tabular}{|c | c |} 
 		\hline
 		\textbf{Type} & \textbf{Query} \\ [0.5ex] 
 		\hline
-		\textbf{W1} & Insert a new Pokémon into the Database \\ 
+		\textbf{W1} & Insert a new \textbf{Pokémon} into the Database \\ 
 		\hline
-		\textbf{W2} & Delete a Pokémon from the Database \\
+		\textbf{W2} & Delete a \textbf{Pokémon} from the Database \\
 		\hline
-		\textbf{R1} & Search a Pokémon by name in the Pokédex \\
+		\textbf{R1} & Search a \textbf{Pokémon} by \textit{name} in the \textit{Pokédex} \\
 		\hline
-		\textbf{R2} & Browse a Pokémon by name in Catch’Em’All in order to try to catch it \\
+		\textbf{R2} & Browse a \textbf{Pokémon} by \textit{name} in \textit{Catch’Em’All} in order to try to catch it \\
 		\hline
-		\textbf{R3} & Check name’s uniqueness of each Pokémon when added to the database \\
+		\textbf{R3} & Check \textit{name}’s uniqueness of each \textbf{Pokémon} when added to the database \\
 		\hline
 	\end{tabular}
 \end{center}
@@ -210,13 +211,16 @@ In terms of execution time, the final report is the following:
 
 
 Even if we have little changes on execution time due to the limited number of \textbf{Pokémon}, we can see how the index permits to decrease very much the number of examined documents. \\
-For the reasons explained before and because of the very high ratio between reads and writes, we consider this little improvement enough relevant for the application purposes. 
+For the reasons explained before and because of the very high ratio between reads and writes, we consider this little improvement enough relevant for the application purposes. All things considered, \textbf{an index on \textit{pokemon name} has been introduced}. 
 
 \subsection{Graph Database}
 \subsubsection{Queries Handled}
 \subparagraph{Users related}
+\begingroup
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.5} % Default
 \begin{center}
-	\begin{tabular}{|p{0.45\textwidth}| p{0.45\textwidth} |} 
+	\begin{longtable}{|m{0.45\textwidth}| m{0.45\textwidth} |} 
 		\hline
 		\textbf{Application Queries} & \textbf{Graph Queries} \\ [0.5ex] 
 		\hline
@@ -226,77 +230,90 @@ For the reasons explained before and because of the very high ratio between read
 		Create a \textit{follow} relationship between the current \textbf{User} and the selected \textbf{User}		
 		& Add a new FOLLOW edge from the current \textbf{User} Node to the selected \textbf{User} Node \\ 
 		\hline
-		Retrieve recommended users
-		& Match all the USER nodes at distance 2 from the given USER node U according to one of these patterns(the first one has precedence)
-		(U)—FOLLOWS$\rightarrow$(USER f)—FOLLOWS $\rightarrow$(USER recomm.)
-		(U)—LIKES$\rightarrow$(POKEMON p)$\leftarrow$LIKES—(USER recomm.)
-		\\
+		Retrieve \textit{recommended} \textbf{Users} (1)
+		& Match all the USER nodes at distance 2 from the given USER node U according to one of these patterns:
+		(U)—FOLLOWS$\rightarrow$(USER f)—FOLLOWS $\rightarrow$(USER recomm.)\\
+		\hline
+		Retrieve \textit{recommended} \textbf{Users} (2)
+		& Match all the USER nodes at distance 2 from the given USER node U according to one of these patterns:
+		(U)—LIKES$\rightarrow$(POKEMON p)$\leftarrow$LIKES—(USER recomm.)\\
 		\hline
 		Retrieve friend list of a \textbf{User} U
 		& Match all the USER nodes linked to the related \textbf{User} Node of U by an outcoming FOLLOWS edge\\
 		\hline	
-		Retrieve user’s favorite Pokémon 
+		Retrieve \textbf{User}’s favourite \textbf{Pokémon} 
 		& Match all the POKEMON nodes which are linked to the USER node U through a LIKES edge\\
 		\hline	
-		Remove a Pokémon from the favorite ones
+		Remove a \textbf{Pokémon} from the favourite ones
 		& Delete a LIKES edge\\
 		\hline
-		Modify user settings (country)
+		Modify \textbf{User} settings (\textit{country})
 		& Modify USER node by changing the country property\\
 		\hline	
-		Remove a user (admin only)
+		Remove a \textbf{User} (\textit{admin} only)
 		& Delete a USER node\\
 		\hline		
-		Remove a follow relationship
+		Remove a \textit{follow} relationship
 		& Delete a FOLLOWS edge\\
 		\hline
-		Analytics: find $\%$ of users that owns a Pokémon
+		Analytics: find $\%$ of users that owns a \textbf{Pokémon}
 		& Count outcoming HAS edges from the POKEMON node p. 
 		Divide the result by the total number of USER nodes\\
 		\hline
-	\end{tabular}
+	\end{longtable}
 \end{center}
-
+\endgroup
 \subparagraph{Team related}
+\begingroup
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.5} % Default
 \begin{center}
-	\begin{tabular}{|p{0.45\textwidth}| p{0.45\textwidth} |} 
+	\begin{longtable}{|m{0.45\textwidth}| m{0.45\textwidth} |} 
 		\hline
 		\textbf{Application Queries} & \textbf{Graph Queries} \\ [0.5ex] 
 		\hline
 		Retrieve \textbf{Team} composition based on \textbf{User}		
 		& Given USER u, retrieve all the POKEMON nodes connected to u through a HAS edge\\ 
 		\hline
-		Insert a Pokémon into a team
+		Insert a \textbf{Pokémon} into a \textbf{Team}
 		& Add a OWNS relationship between a USER node and a POKEMON node\\
 		\hline
-	\end{tabular}
+	\end{longtable}
 \end{center}
+\endgroup
 
 \subparagraph{Pokemon related}
+\begingroup
+\setlength{\tabcolsep}{10pt} 
+\renewcommand{\arraystretch}{1.5} 
 \begin{center}
-	\begin{tabular}{|p{0.45\textwidth}| p{0.45\textwidth} |} 
+	\begin{longtable}{|m{0.45\textwidth}| m{0.45\textwidth} |} 
 		\hline
 		\textbf{Application Queries} & \textbf{Graph Queries} \\ [0.5ex] 
 		\hline
-		Create a new \textbf{Pokémon} (admin only)		
+		Create a new \textbf{Pokémon} (\textit{admin} only)		
 		& Insert a new POKEMON node into the graph\\  
 		\hline
 		Update \textbf{Pokémon} catch rate
 		& Modify USER node by changing the \textit{catch rate} property\\
 		\hline
-		Remove a Pokémon (admin only)
+		Remove a \textbf{Pokémon} (\textit{admin} only)
 		& Delete a POKEMON node\\
 		\hline	
-		Analytics: ranking of most popular Pokémon in world/each country
+		\textbf{Analytics}: ranking of most popular \textit{Pokémon} in world/each country
 		& Count $n_{i} = $ number of HAS incoming edges of POKEMON node $p_{i}$, for each POKEMON node.
-		Sort $k$ highest $n_{1}…n_{k}$ and return relative $p_{1}…p_{k}$
-		\\
+		Sort $k$ highest $n_{1}…n_{k}$ and return relative $p_{1}…p_{k}$\\
 		\hline
-	\end{tabular}
+	\end{longtable}
 \end{center}
+\endgroup
+
 \subparagraph{Post/Answer related}
+\begingroup
+\setlength{\tabcolsep}{10pt} 
+\renewcommand{\arraystretch}{1.5} % Default
 \begin{center}
-	\begin{tabular}{|p{0.45\textwidth}| p{0.45\textwidth} |} 
+	\begin{longtable}{|m{0.45\textwidth}| m{0.45\textwidth} |} 
 		\hline
 		\textbf{Application Queries} & \textbf{Graph Queries} \\ [0.5ex] 
 		\hline
@@ -306,18 +323,18 @@ For the reasons explained before and because of the very high ratio between read
 		Create a new \textbf{Answer}	
 		& Add a new POST node into the graph\\ 
 		\hline	
-		Retrieve all the posts related to a Pokémon
+		Retrieve all the \textbf{Posts} related to a \textbf{Pokémon}
 		& Match all the POST nodes which are linked to the POKEMON node P through a TOPIC edge\\
 		\hline
-		Retrieve all the answers to a post
+		Retrieve all the \textbf{Answers} to a \textbf{Post}
 		& Match all the POST nodes which are linked to the POST node P through a TOPIC edge\\
 		\hline
-		Remove a post (only admin and post’s owner)
+		Remove a \textbf{Post} (only \textit{admin} and \textit{post’s creator})
 		& Delete a POST node\\
 		\hline	
-	\end{tabular}
+	\end{longtable}
 \end{center}
-
+\endgroup
 
 
 \subsubsection{Entities handled}
@@ -326,12 +343,12 @@ The Graph Database stores all the information needed to build the NETWORK INFRAS
 	\item \textbf{User}’s \textit{usernames} and \textit{country}
 	\item \textbf{Pokémon}’s name
 	\item \textbf{Post}’s \textit{creation date} and \textit{content}
-	\item \textbf{HAS relationships} for team handling, storing also the chosen \textit{slot} for consistency checking
+	\item \textbf{HAS relationships} for \textbf{Team} handling, storing also the chosen \textit{slot} for consistency checking
 	\item \textbf{LIKES relationships} between a \textbf{User} and a \textbf{Pokémon}, for favourites handling
-	\item \textbf{FOLLOWS relationships} between \textbf{users}
-	\item \textbf{TOPIC relationships} between a \textbf{Post} and a \textbf{Pokémon}, in order to see the posts written about a specific Pokémon
-	\item \textbf{TOPIC relationships} also between a \textbf{Post} and another \textbf{Post}, in order to visualize the comments to a \textbf{Post}  
-	\item \textbf{CREATED relationships} between a \textbf{User} and a \textbf{Post} to map the owner of each post/comment
+	\item \textbf{FOLLOWS relationships} between \textbf{Users}
+	\item \textbf{TOPIC relationships} between a \textbf{Post} and a \textbf{Pokémon}, in order to see the \textbf{Posts} written about a specific \textbf{Pokémon}
+	\item \textbf{TOPIC relationships} also between a \textbf{Post} and another \textbf{Post}, in order to visualize the \textbf{Answers} to a \textbf{Post}  
+	\item \textbf{CREATED relationships} between a \textbf{User} and a \textbf{Post} to map the owner of each \textbf{Post}/\textbf{Answers}
 \end{itemize}
 
 \subsubsection{Graph structure}
@@ -344,14 +361,14 @@ The Graph Database stores all the information needed to build the NETWORK INFRAS
 In the previous image a portion of the graph structure is reported. 
 \textbf{Pokémon} nodes are pink, \textbf{User} ones are green, blue nodes represent \textbf{Posts}.
 
-The property stored are the following:
+The properties stored are the following:
 \begin{itemize}
 	\item USER (node): \textit{country}, \textit{username}
 	\item POKEMON (node): \textit{name}, \textit{capture rate},  \textit{sprite}, \textit{type}
 	\item POST (node): \textit{content}, \textit{creation date}
 	\item FOLLOW (relationship): no properties needed
 	\item LIKES (relationship): no properties needed
-	\item HAS (relationship): slot
+	\item HAS (relationship): \textit{slot} (integer)
 	\item CREATED (relationship): no properties needed
 	\item TOPIC (relationship): no properties needed
 \end{itemize}

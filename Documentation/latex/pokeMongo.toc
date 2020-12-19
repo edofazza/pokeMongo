@@ -23,72 +23,72 @@
 \contentsline {subsection}{\numberline {3.3}Graph Database}{20}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Queries Handled}{20}{subsubsection.3.3.1}%
 \contentsline {subparagraph}{Users related}{20}{subsubsection.3.3.1}%
-\contentsline {subparagraph}{Team related}{21}{subsubsection.3.3.1}%
-\contentsline {subparagraph}{Pokemon related}{22}{subsubsection.3.3.1}%
-\contentsline {subparagraph}{Post/Answer related}{22}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Entities handled}{22}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Graph structure}{23}{subsubsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.4}Indexes}{24}{subsubsection.3.3.4}%
-\contentsline {subparagraph}{Username}{24}{subsubsection.3.3.4}%
-\contentsline {subparagraph}{Pokemon Name}{25}{figure.caption.12}%
-\contentsline {subparagraph}{Post Creation Date}{27}{figure.caption.14}%
-\contentsline {subsection}{\numberline {3.4}Redundancies and consistency management}{28}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Team Handling}{28}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}User's Redundancies}{29}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Pokemon's Redundancies}{29}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}The Analytic Collection}{30}{subsubsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.5}Database Properties}{31}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Availability}{31}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Replicas}{32}{subsubsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.3}Eventual Consistency}{32}{subsubsection.3.5.3}%
-\contentsline {subsubsection}{\numberline {3.5.4}Sharding}{33}{subsubsection.3.5.4}%
-\contentsline {subsubsection}{\numberline {3.5.5}Pros and Drawbacks}{34}{subsubsection.3.5.5}%
-\contentsline {subsection}{\numberline {3.6}Client, Server and Daemon Thread}{35}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Technologies and Frameworks}{36}{subsection.3.7}%
-\contentsline {section}{\numberline {4}Implementation}{38}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Package structure}{38}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Package Analysis: Bean}{38}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Package Analysis: Cache}{40}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Package Analysis: dataAnalysis}{40}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Package Analysis: exceptions}{41}{subsubsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {4.1.5}Package Analysis: javafxextensions}{42}{subsubsection.4.1.5}%
-\contentsline {subparagraph}{javafxextensions: buttons}{42}{subsubsection.4.1.5}%
-\contentsline {subparagraph}{javafxextensions: charts}{44}{table.1}%
-\contentsline {subparagraph}{javafxextensions: choicebox}{44}{figure.caption.25}%
-\contentsline {subparagraph}{javafxextensions: combobox}{45}{figure.caption.26}%
-\contentsline {subparagraph}{javafxextensions: group}{45}{figure.caption.27}%
-\contentsline {subparagraph}{javafxextensions: imageviews}{46}{figure.caption.28}%
-\contentsline {subparagraph}{javafxextensions: labels}{46}{figure.caption.29}%
-\contentsline {subparagraph}{javafxextensions: panes}{46}{figure.caption.30}%
-\contentsline {subsubsection}{\numberline {4.1.6}Package Analysis: persistence}{49}{subsubsection.4.1.6}%
-\contentsline {subsubsection}{\numberline {4.1.7}Package Analysis: security}{52}{subsubsection.4.1.7}%
-\contentsline {subsubsection}{\numberline {4.1.8}Package Analysis: userInterface}{52}{subsubsection.4.1.8}%
-\contentsline {subsubsection}{\numberline {4.1.9}Package Analysis: utils}{54}{subsubsection.4.1.9}%
-\contentsline {subsubsection}{\numberline {4.1.10}Obfuscation}{54}{subsubsection.4.1.10}%
-\contentsline {subsection}{\numberline {4.2}Main tools}{55}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}GSON}{55}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Caching mechanism and multimedia management}{55}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Password Encryptor}{56}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Logger}{56}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Form Validator}{58}{subsubsection.4.2.5}%
-\contentsline {subsection}{\numberline {4.3}Business Logic}{60}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Points computing}{61}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Dynamic Catch Rate computing}{61}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Analytics queries}{61}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}User Rankings}{61}{subsubsection.4.4.1}%
-\contentsline {paragraph}{World Best Team}{62}{subsubsection.4.4.1}%
-\contentsline {paragraph}{Friends Best Team}{62}{lstnumber.-12.7}%
-\contentsline {paragraph}{Country Best Team}{63}{lstnumber.-14.8}%
-\contentsline {subsubsection}{\numberline {4.4.2}Pokemon Rankings}{63}{subsubsection.4.4.2}%
-\contentsline {paragraph}{World Best Pokemon}{63}{subsubsection.4.4.2}%
-\contentsline {paragraph}{Country Best Pokemon}{64}{lstnumber.-16.6}%
-\contentsline {subsubsection}{\numberline {4.4.3}Usage Statistics}{64}{subsubsection.4.4.3}%
-\contentsline {paragraph}{Total Users}{64}{subsubsection.4.4.3}%
-\contentsline {paragraph}{Today Login}{64}{lstnumber.-18.7}%
-\contentsline {paragraph}{Country Today Login}{65}{lstnumber.-19.11}%
-\contentsline {subsubsection}{\numberline {4.4.4}Dynamic Catch Rate}{65}{subsubsection.4.4.4}%
-\contentsline {section}{\numberline {5}Test}{68}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Privacy and Security}{68}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Unit Test}{68}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Robustness}{68}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Performance}{68}{subsection.5.4}%
+\contentsline {subparagraph}{Team related}{21}{table.1}%
+\contentsline {subparagraph}{Pokemon related}{22}{table.2}%
+\contentsline {subparagraph}{Post/Answer related}{22}{table.3}%
+\contentsline {subsubsection}{\numberline {3.3.2}Entities handled}{23}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Graph structure}{24}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Indexes}{25}{subsubsection.3.3.4}%
+\contentsline {subparagraph}{Username}{25}{subsubsection.3.3.4}%
+\contentsline {subparagraph}{Pokemon Name}{26}{figure.caption.12}%
+\contentsline {subparagraph}{Post Creation Date}{28}{figure.caption.14}%
+\contentsline {subsection}{\numberline {3.4}Redundancies and consistency management}{29}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Team Handling}{29}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}User's Redundancies}{30}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Pokemon's Redundancies}{30}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}The Analytic Collection}{31}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Database Properties}{32}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Availability}{32}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Replicas}{33}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Eventual Consistency}{33}{subsubsection.3.5.3}%
+\contentsline {subsubsection}{\numberline {3.5.4}Sharding}{34}{subsubsection.3.5.4}%
+\contentsline {subsubsection}{\numberline {3.5.5}Pros and Drawbacks}{35}{subsubsection.3.5.5}%
+\contentsline {subsection}{\numberline {3.6}Client, Server and Daemon Thread}{36}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Technologies and Frameworks}{37}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Implementation}{39}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Package structure}{39}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Package Analysis: Bean}{39}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Package Analysis: Cache}{41}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Package Analysis: dataAnalysis}{41}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Package Analysis: exceptions}{42}{subsubsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.5}Package Analysis: javafxextensions}{43}{subsubsection.4.1.5}%
+\contentsline {subparagraph}{javafxextensions: buttons}{43}{subsubsection.4.1.5}%
+\contentsline {subparagraph}{javafxextensions: charts}{45}{table.5}%
+\contentsline {subparagraph}{javafxextensions: choicebox}{45}{figure.caption.25}%
+\contentsline {subparagraph}{javafxextensions: combobox}{46}{figure.caption.26}%
+\contentsline {subparagraph}{javafxextensions: group}{46}{figure.caption.27}%
+\contentsline {subparagraph}{javafxextensions: imageviews}{47}{figure.caption.28}%
+\contentsline {subparagraph}{javafxextensions: labels}{47}{figure.caption.29}%
+\contentsline {subparagraph}{javafxextensions: panes}{47}{figure.caption.30}%
+\contentsline {subsubsection}{\numberline {4.1.6}Package Analysis: persistence}{50}{subsubsection.4.1.6}%
+\contentsline {subsubsection}{\numberline {4.1.7}Package Analysis: security}{53}{subsubsection.4.1.7}%
+\contentsline {subsubsection}{\numberline {4.1.8}Package Analysis: userInterface}{53}{subsubsection.4.1.8}%
+\contentsline {subsubsection}{\numberline {4.1.9}Package Analysis: utils}{55}{subsubsection.4.1.9}%
+\contentsline {subsubsection}{\numberline {4.1.10}Obfuscation}{55}{subsubsection.4.1.10}%
+\contentsline {subsection}{\numberline {4.2}Main tools}{56}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}GSON}{56}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Caching mechanism and multimedia management}{56}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Password Encryptor}{57}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Logger}{57}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Form Validator}{59}{subsubsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.3}Business Logic}{61}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Points computing}{62}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Dynamic Catch Rate computing}{62}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Analytics queries}{62}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}User Rankings}{62}{subsubsection.4.4.1}%
+\contentsline {paragraph}{World Best Team}{63}{subsubsection.4.4.1}%
+\contentsline {paragraph}{Friends Best Team}{63}{lstnumber.-12.7}%
+\contentsline {paragraph}{Country Best Team}{64}{lstnumber.-14.8}%
+\contentsline {subsubsection}{\numberline {4.4.2}Pokemon Rankings}{64}{subsubsection.4.4.2}%
+\contentsline {paragraph}{World Best Pokemon}{64}{subsubsection.4.4.2}%
+\contentsline {paragraph}{Country Best Pokemon}{65}{lstnumber.-16.6}%
+\contentsline {subsubsection}{\numberline {4.4.3}Usage Statistics}{65}{subsubsection.4.4.3}%
+\contentsline {paragraph}{Total Users}{65}{subsubsection.4.4.3}%
+\contentsline {paragraph}{Today Login}{65}{lstnumber.-18.7}%
+\contentsline {paragraph}{Country Today Login}{66}{lstnumber.-19.11}%
+\contentsline {subsubsection}{\numberline {4.4.4}Dynamic Catch Rate}{66}{subsubsection.4.4.4}%
+\contentsline {section}{\numberline {5}Test}{69}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Privacy and Security}{69}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Unit Test}{69}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Robustness}{69}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Performance}{69}{subsection.5.4}%
