@@ -1,5 +1,8 @@
 package it.unipi.dii.lsmsd.pokeMongo.config;
 
+/**
+ * This class contains all the basic information about the configurations in our system.
+ */
 public class ConfigData {
     public int numRowsRanking;
     public String usernameSpeedLogin;

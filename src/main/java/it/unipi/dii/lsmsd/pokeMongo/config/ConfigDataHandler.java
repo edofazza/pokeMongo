@@ -1,8 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.config;
 
 import com.google.gson.Gson;
-import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,6 +9,10 @@ public class ConfigDataHandler {
     public ConfigData configData;
     private static ConfigDataHandler instance;
 
+    /**
+     * Singleton
+     * @return the instance related to the ConfigDataHandler
+     */
     public static ConfigDataHandler getInstance(){
         if(instance == null){
             instance = new ConfigDataHandler();
@@ -18,6 +20,9 @@ public class ConfigDataHandler {
         return instance;
     }
 
+    /**
+     * Loads the configuration file and create a new <code>ConfigData</code>
+     */
     public ConfigDataHandler(){
         try{
             BufferedReader br = new BufferedReader(new FileReader("config/configFile.json"));
