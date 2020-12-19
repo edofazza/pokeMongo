@@ -1,7 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.bean;
 
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
