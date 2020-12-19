@@ -37,6 +37,9 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
         setSceneMusic("ranking.mp3");
     }
 
+    /**
+     * Displays a button by which the user can select the country he want to now the ranking
+     */
     private void displayCountryButton() {
         try {
             country = new CountryComboBox(100, 100);
@@ -47,6 +50,9 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
         } catch (IOException e) { e.printStackTrace(); }
     }
 
+    /**
+     * Displays the MOST USED POKEMON ranking
+     */
     private void displayMostUsedPokemon() {
         FieldRelatedLabel mostUsedLabel = new FieldRelatedLabel("MOST USED POKEMON", 100, 170);
 
@@ -55,6 +61,9 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().addAll(mostUsedLabel, mostUsedPokemon);
     }
 
+    /**
+     * Displays the BEST TEAM ranking
+     */
     private void displayBestTeam() {
         FieldRelatedLabel bestTeamLabel = new FieldRelatedLabel("BEST TEAM", 500, 170);
 
@@ -63,6 +72,9 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().addAll(bestTeamLabel, bestTeam);
     }
 
+    /**
+     * Displays the ranking between the user and his friends
+     */
     private void displayFriends() {
         FieldRelatedLabel friendsLabel = new FieldRelatedLabel("FRIENDS", 900, 170);
 
@@ -71,6 +83,9 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().addAll(friendsLabel, friends);
     }
 
+    /**
+     * Graphical separator (line) that divides the friends ranking to the other two
+     */
     private void displaySeparator() {
         Separator sep = new Separator();
         sep.setOrientation(Orientation.VERTICAL);
@@ -80,6 +95,9 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().add(sep);
     }
 
+    /**
+     * Action taken when the user changes the country. Display the ranking associated to the selected country
+     */
     private void countryChanged() {
         String tmpCountry = country.getValue().toString();
 

@@ -172,6 +172,9 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().add(submitButton);
     }
 
+    /**
+     * Handles all the changed fields in order to store them in the db
+     */
     private void submitbuttonAction() {
         resultUpdateLabel.setStyle("-fx-background-color: #FF211A;");
 

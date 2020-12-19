@@ -29,7 +29,7 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
     private InvalidFormEntryLabel invalidFormEntryLabel;
 
     /**
-     * <em>Constructor</em>. Called a series of function in order to create the <em>Node</em>
+     * <em>Constructor</em>. Calls a series of function in order to create the <em>Node</em>
      * needed to set the scene up. It also sets the music.
      */
     public CatchEmAll() {
@@ -110,11 +110,17 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().add(tryToCatch);
     }
 
+    /**
+     *  Add to the scene an invisible label, that will be used to display the result of the catch
+     */
     private void displayResultLabel() {
         invalidFormEntryLabel = new InvalidFormEntryLabel("", 600, 550, false);
         sceneNodes.getChildren().add(invalidFormEntryLabel);
     }
 
+    /**
+     *  Add to the scene a scrollpane with a list of all the favorite pokemon of the user
+     */
     private void displayFavoritePokemons() {
         FieldRelatedLabel favoritePokemonLabel = new FieldRelatedLabel("Favorite Pokemons", 900, 150);
         favoritePokemonLabel.setStyle("-fx-text-fill: #acac02;");
@@ -126,9 +132,14 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
 
 
     //---------------------------------------
-    // METHODS TO BE PLACED SOMEWHERE ELSE
+    // ACTION METHODS
     //---------------------------------------
 
+    /**
+     * Check if the pokemon in input exits, if so it formats the scene adding the information (image and odd) of the
+     * pokemon selected
+     * @param pokemonName name of a possible existing pokemon
+     */
     private void loadPokemonInfoByName(String pokemonName){
         if (invalidFormEntryLabel.isVisible())
             invalidFormEntryLabel.setVisible(false);
@@ -150,6 +161,10 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
         }
     }
 
+    /**
+     * Triggered when the user try to catch a Pokemon. Checks if a pokemon is selected and then calculate if it's capture
+     * or not
+     */
     private void tryToCatchAction() {
         if (pokemon != null && CurrentUI.getNumberOfPokeball() != 0) {
             TeamManager teamManager = TeamManagerFactory.buildManager();

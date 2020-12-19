@@ -93,6 +93,9 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
         sceneNodes.getChildren().add(saveButton);
     }
 
+    /**
+     * Action of the SAVE button. It simply save the information of the team at the moment of the click
+     */
     private void saveButtonAction() {
         // save the team name
         UserManager userManager = UserManagerFactory.buildManager();
@@ -115,6 +118,10 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
         points.setText("Points: " + CurrentUI.getUser().getPoints());
     }
 
+    /**
+     * This function queries the db in order to get information about the team of the current user
+     * @return an array of Pokemons
+     */
     private Pokemon[] retrieveTeam() {
         TeamManager teamManager = TeamManagerFactory.buildManager();
         return teamManager.getUserTeam(CurrentUI.getUser());

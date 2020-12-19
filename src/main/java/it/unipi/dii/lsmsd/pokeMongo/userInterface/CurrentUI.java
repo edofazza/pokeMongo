@@ -3,7 +3,6 @@ package it.unipi.dii.lsmsd.pokeMongo.userInterface;
 import com.google.common.annotations.VisibleForTesting;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.cache.PokeMongoImageCache;
-import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -108,12 +107,22 @@ public class CurrentUI {
         return "No team name";
     }
 
+    /**
+     * Removes the user stored in memory (<code>userLogged</code>) when the user logged out (in order to avoid error and to be coherent).
+     */
     protected static void userExit() {
         userLogged = null;
     }
 
 
     /////////////////////// IMAGE //////////////////////////
+
+    /**
+     * Return a sort of Image that can be loaded also after the entire scene is loaded, in this way we doesn't slow down
+     * the application
+     * @param url of the image to be displayed
+     * @return A CompletableFuture<Image>
+     */
     public static CompletableFuture<Image> getImage(String url) {
         return pokeMongoImageCache.getDataIfPresent(url);
     }
