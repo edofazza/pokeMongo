@@ -8,6 +8,13 @@ import javafx.scene.control.Button;
 public class DeleteSubPostButton extends Button {
     private SubPostPane subPostPane;
 
+    /**
+     *
+     * @param text what is written in the button
+     * @param x the x axis position
+     * @param y the y axis position
+     * @param subPostPane the PostPane this button is related to
+     */
     public DeleteSubPostButton(String text, int x, int y, SubPostPane subPostPane) {
         super(text);
         relocate(x, y);
@@ -18,6 +25,9 @@ public class DeleteSubPostButton extends Button {
         setOnAction(e -> deleteSubPost());
     }
 
+    /**
+     * Delete the SubPostPane related to this button
+     */
     private void deleteSubPost() {
         PostManager postManager = PostManagerFactory.buildManager();
         postManager.deleteResponse(subPostPane.getPost());

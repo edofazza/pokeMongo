@@ -7,6 +7,11 @@ public class FavoritePokemonSingleResultForScrollPane extends Button {
     private String pokemonName;
     private CatchEmAllTextField selectedPokemon;
 
+    /**
+     *
+     * @param name name of the pokemon
+     * @param selectedPokemon the <code>CatchEmAllTextField</code> we want to interact with
+     */
     public FavoritePokemonSingleResultForScrollPane(String name, CatchEmAllTextField selectedPokemon) {
         super(name);
         this.pokemonName = name;
@@ -19,8 +24,11 @@ public class FavoritePokemonSingleResultForScrollPane extends Button {
         getStyleClass().add("FavoritePokemonSingleResultForScrollPane");
     }
 
+    /**
+     * Action taken when the button is pressed. Inserts the name of the favorite pokemon in the
+     * <code>CatchEmAllTextField</code>
+     */
     private void addToTextField() {
         selectedPokemon.setText(pokemonName);
-
     }
 }

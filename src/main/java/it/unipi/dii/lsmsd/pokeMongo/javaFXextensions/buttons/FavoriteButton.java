@@ -13,6 +13,13 @@ public class FavoriteButton extends Button {
 
     private boolean favorite;
 
+    /**
+     *
+     * @param x the x axis position
+     * @param y the y axis position
+     * @param dimension the dimension of the image
+     * @param name the name of the pokemon where this button is displayed
+     */
     public FavoriteButton(int x, int y, int dimension, String name) {
         super();
         Logger.vvlog("Creating FavoriteButton at (" + x + ", " + y + ")");
@@ -48,16 +55,26 @@ public class FavoriteButton extends Button {
         }
     }
 
+    /**
+     * Switches the favorite situation
+     */
     private void changeStyle() {
         favorite = !favorite;
         setImage();
     }
 
+    /**
+     * Checks in the db if the pokemon selected is one the user's favorite or not
+     * @return true if favorite
+     */
     private boolean isFavorite() {
         UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
         return userNetworkManager.isFavorite(CurrentUI.getUser().getUsername(), name);
     }
 
+    /**
+     * Changes the CSS style of the button depending if the pokemon is favorite or not
+     */
     private void setStyleButton() {
         if (favorite) {
             setStyle(" -fx-border-color: transparent;" +

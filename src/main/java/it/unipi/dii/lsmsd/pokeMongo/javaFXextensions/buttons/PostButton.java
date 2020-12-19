@@ -22,6 +22,15 @@ public class PostButton extends Button {
     private PostButton postButtonAnswer;
     private PostButton postButtonComment;
 
+    /**
+     *
+     * @param text what's should be written in it
+     * @param x the x axis position
+     * @param y the y axis potion
+     * @param subPostsVBox the SubPostsVBox is related to
+     * @param currentPost the current post this button is related to
+     * @param numberOfAnswers the number of answers related to the post.
+     */
     public PostButton(String text, int x, int y, SubPostsVBox subPostsVBox, Post currentPost, int numberOfAnswers) {
         super(text);
         relocate(x, y);
@@ -35,12 +44,25 @@ public class PostButton extends Button {
         setOnAction(e -> fillVBox());
     }
 
+    /**
+     *
+     * @param text what's should be written in it
+     * @param x the x axis position
+     * @param y the y axis potion
+     * @param subPostsVBox the SubPostsVBox is related to
+     * @param currentPost the current post this button is related to
+     * @param numberOfAnswers the number of answers related to the post.
+     * @param postButton a PostButton that refers to an Answer PostButton
+     */
     public PostButton(String text, int x, int y, SubPostsVBox subPostsVBox, Post currentPost, int numberOfAnswers, PostButton postButton) {
         this(text, x, y, subPostsVBox, currentPost, numberOfAnswers);
 
         this.postButtonAnswer = postButton;
     }
 
+    /**
+     * Fills the <code>subPostsVBox</code> with the appropriate elements
+     */
     private void fillVBox() {
         subPostsVBox.getChildren().clear();
 
@@ -81,6 +103,9 @@ public class PostButton extends Button {
 
     }
 
+    /**
+     * Called by the Answer for refreshing the comments.
+     */
     // Called by answer (using Comment)
     private void refresh() {
         subPostsVBox.getChildren().clear();
@@ -95,6 +120,9 @@ public class PostButton extends Button {
             addCommentPane();
     }
 
+    /**
+     * Adds a <code>SubPostInsertCommentPane</code> in the <code>subPostsVBox</code>
+     */
     private void addCommentPane() {
         if (CurrentUI.getUser().isAdmin())
             return;
@@ -103,6 +131,9 @@ public class PostButton extends Button {
         subPostsVBox.getChildren().addAll(subPostInsertCommentPane);
     }
 
+    /**
+     * Inserts a the replies for the Post this button is related to in the <code>subPostsVBox</code>
+     */
     private void addReplies() {
         PostManager postManagerFactory = PostManagerFactory.buildManager();
         List<Post> subpostList = postManagerFactory.getPostsByPost(currentPost);
@@ -117,37 +148,65 @@ public class PostButton extends Button {
         }
     }
 
+    /**
+     * Changes the text of the button
+     * @param text the new text
+     */
     public void setTextButton(String text) {
         this.text = text;
         setText(text);
     }
 
+    /**
+     * Increment the number of answers and then refreshes the Pane related to the subposts
+     */
     public void newAnswerPosted() {
         increment();
         refresh();
     }
 
+    /**
+     * Decrements the number of answers and then refreshes the Pane related to the subposts
+     */
     public void answerRemoved() {
         decrement();
         refresh();
     }
 
+    /**
+     * Increments the number of answers
+     */
     private void increment() {
         numberOfAnswers++;
     }
 
+    /**
+     * Decrements the number of answers
+     */
     private void decrement() {
         numberOfAnswers--;
     }
 
+    /**
+     * Check if the <code>canComment</code> boolean is true
+     * @return true if the comment button is selected
+     */
     public boolean getCanComment() {
         return canComment;
     }
 
+    /**
+     * Check if the <code>answersPresent</code> boolean is true
+     * @return true if the comment button is selected
+     */
     public boolean getAnswersPresent() {
         return answersPresent;
     }
 
+    /**
+     * Called by the Answer one in order to know which is the Comment PostButton it has to communicate with
+     * @param postButtonComment the PostButton related to the Comment features
+     */
     public void setCommentButton(PostButton postButtonComment) {
         this.postButtonComment = postButtonComment;
     }
