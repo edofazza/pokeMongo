@@ -14,7 +14,7 @@ public class TypeComboBox extends ComboBox {
     public TypeComboBox(int x, int y) throws IOException {
         Logger.vvlog("Creating TypeComboBox at (" + x + ", " + y + ")");
         relocate(x, y);
-        List<String> myList = Files.lines(Paths.get("types.txt")).collect(Collectors.toList());
+        List<String> myList = Files.lines(Paths.get("txt/types.txt")).collect(Collectors.toList());
         setItems(FXCollections.observableArrayList(myList));
         setValue("");
 
