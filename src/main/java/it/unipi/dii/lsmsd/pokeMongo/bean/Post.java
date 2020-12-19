@@ -34,6 +34,10 @@ public class Post {
         return pokemonName;
     }
 
+    /**
+     * Formats the date as "dd-MM-yyyy HH:mm"
+     * @return a String containg the formatted date
+     */
     public String getFormattedDate(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         String formatDateTime = publishDate.format(formatter);

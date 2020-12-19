@@ -153,6 +153,10 @@ public class User {
         resetPoint();
     }
 
+
+    /**
+     * Calculated the points associated to the team
+     */
     private void resetPoint() {
         points = 0;
         double times = 1.5;

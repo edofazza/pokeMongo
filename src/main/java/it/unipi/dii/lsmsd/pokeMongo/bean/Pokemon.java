@@ -138,12 +138,22 @@ public class Pokemon {
         return capture_rates;
     }
 
+    /**
+     * Formats the type as a String "Type0, Type1", if the type1 is not present than it returns simply a String
+     * containing "Type0"
+     * @return a String with the formatted type as a string
+     */
     public String getTypeSingleString() {
         if (types.length > 1)
             return types[0] + ", " + types[1];
         return types[0];
     }
 
+    /**
+     * Formats the type as a String ""Type0", "Type1"", if the type1 is not present than it returns simply a String
+     * containing ""Type0"". This is useful for generating cipher code
+     * @return a String with the formatted type as a string
+     */
     public String getTypesSingleStringForCipher() {
         if (types.length > 1)
             return "\"" + types[0] + "\", \"" + types[1] + "\"";
