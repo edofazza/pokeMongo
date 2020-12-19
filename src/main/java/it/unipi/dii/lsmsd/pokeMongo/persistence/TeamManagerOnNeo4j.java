@@ -48,7 +48,6 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager, 
     }
 
     @Override
-    //TODO: elimina anche le relazioni di match
     public boolean deletePokemon(String pokemonName){
         String query = "MATCH (p:Pokemon) WHERE p.name = $name DETACH DELETE p";
         return remove(query, parameters("name", pokemonName));
