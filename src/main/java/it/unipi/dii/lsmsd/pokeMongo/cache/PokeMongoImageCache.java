@@ -26,7 +26,7 @@ public class PokeMongoImageCache implements PokeMongoCache {
         cache = Caffeine.newBuilder()
                 .expireAfterAccess(10, TimeUnit.MINUTES) //After this time without read/write the resource is deallocated
                 .maximumSize(1000) //In numero di immagini
-                .recordStats() //TODO: Should be commented at release stage, now it could be useful
+                //.recordStats()
                 .buildAsync(k -> PokemonImage.get(k));
     }
 
