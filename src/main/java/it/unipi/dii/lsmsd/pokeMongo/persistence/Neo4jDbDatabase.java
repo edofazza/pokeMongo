@@ -70,7 +70,6 @@ public abstract class Neo4jDbDatabase implements Database {
         return true;
     }
 
-    //TODO non è un override di database
     public boolean insert(Object query, Object value){
         if(!(query instanceof String) || !(value instanceof Value)){
             return false;
@@ -101,7 +100,6 @@ public abstract class Neo4jDbDatabase implements Database {
         return true;
     }
 
-    //TODO non è un override di database
     public boolean remove(Object query, Object value){
         if(!(query instanceof String) || !(value instanceof Value))
             return false;
@@ -154,7 +152,6 @@ public abstract class Neo4jDbDatabase implements Database {
         return records;
     }
 
-    //TODO: non è una override di database
     public ArrayList<Object> getWithFilter(Object query, Object value){
         if(!(query instanceof String))
             return null;

@@ -47,7 +47,7 @@ public class RankingScollPane extends ScrollPane {
         if (rankingTypes == RankingTypes.BESTTEAM){
             UserRanker userRanker = UserRankerFactory.buildRanker();
             List<User> userList = null;
-            // TODO: add the result by country
+
             if (country.equals("")) { // WORLD
                 userList = userRanker.bestWorldTeams();
             } else {

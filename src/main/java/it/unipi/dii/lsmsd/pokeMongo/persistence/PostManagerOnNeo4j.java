@@ -1,6 +1,5 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
-import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Post;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePostException;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
@@ -22,9 +21,7 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
     }
 
 
-    public boolean insertResponse(Post newPost, Post topic) throws DuplicatePostException{
-        if(existResponse(newPost))
-            throw new DuplicatePostException();
+    public boolean insertResponse(Post newPost, Post topic) {
         Logger.vlog("NEW POST INFO: " + newPost.getAuthorUsername() + " " + newPost.getContent() + " " + newPost.getPokemonName() + " " + newPost.getPublishDate());
         Logger.vlog("TOPIC POST INFO: " + topic.getAuthorUsername() + " " + topic.getContent() + " " + topic.getPokemonName() + " " + topic.getPublishDate());
 
@@ -45,8 +42,6 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
         return remove(query, parameters("username", p.getAuthorUsername(), "name", p.getPokemonName(), "date", p.getPublishDate(), "content", p.getContent()));
     }
 
-    //TODO: si potrebbe inglobare in una deletePost generica
-    //TODO: non ci sono riferimenti al Post che fa da topic
     public boolean deleteResponse(Post p){
         String query = "MATCH (u:User)-[:CREATED]->(p:Post) " +
                 " WHERE u.username = $username and p.creationDate = $date and p.content = $content" +
@@ -65,16 +60,6 @@ public class PostManagerOnNeo4j extends Neo4jDbDatabase implements PostManager{
                 "WHERE u.username = $username and p.creationDate = $date and p.content = $content " +
                 "and p1.name = $name return count(p) as post_count";
         ArrayList<Object> res = getWithFilter(query, parameters("username", p.getAuthorUsername(), "name", p.getPokemonName(), "date", p.getPublishDate(), "content", p.getContent()));
-        Record d = (Record)res.get(0);
-        return (d.get("post_count").asInt() > 0);
-    }
-
-    //TODO: non è il massimo ma per adesso lasciamola così
-    public boolean existResponse(Post p){
-        String query = "MATCH (u:User)-[:CREATED]->(p:Post) " +
-                "WHERE u.username = $username and p.creationDate = $date and p.content = $content " +
-                "return count(p) as post_count";
-        ArrayList<Object> res = getWithFilter(query, parameters("username", p.getAuthorUsername(), "date", p.getPublishDate(), "content", p.getContent()));
         Record d = (Record)res.get(0);
         return (d.get("post_count").asInt() > 0);
     }

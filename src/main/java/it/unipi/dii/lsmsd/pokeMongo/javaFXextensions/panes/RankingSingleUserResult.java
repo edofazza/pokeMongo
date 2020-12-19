@@ -7,8 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 public class RankingSingleUserResult extends Pane {
-
-    // TODO: points type should be decided
+    
     public RankingSingleUserResult(User user) {
         Logger.vvlog("Creating RankingSingleUserResult for " + user.getUsername() + ": points = " + user.getPoints());
         UsernameLinkTeamButton usernameButton = new UsernameLinkTeamButton(user, 10, 12);

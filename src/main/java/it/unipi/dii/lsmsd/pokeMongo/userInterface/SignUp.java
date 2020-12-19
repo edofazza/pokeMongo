@@ -140,7 +140,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         nameTF = new TextField();
         nameTF.relocate(750, 200);
-        nameTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleName(nameTF, invalidNameLabel)); //TODO: maybe setOnKeyReleased event trigger it's not the best choice
+        nameTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleName(nameTF, invalidNameLabel));
 
         sceneNodes.getChildren().addAll(nameLabel, invalidNameLabel, nameTF);
     }
@@ -253,7 +253,6 @@ public class SignUp extends PokeSceneWithTitle {
 
                 // ADD IT ALSO IN NEO4J
                 UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
-                //TODO: maybe we could use this part as a duplicate username control
                 try{
                     userNetworkManager.addUser(user);
                 } catch(DuplicateUserException due){

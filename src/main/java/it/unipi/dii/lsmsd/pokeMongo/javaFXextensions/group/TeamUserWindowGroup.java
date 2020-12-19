@@ -13,7 +13,6 @@ public class TeamUserWindowGroup extends Group {
     private User user;
     private Button follow;
 
-    // TODO: retrieve the data from the user
     public TeamUserWindowGroup(User user) {
         Logger.vvlog("Creating TeamUserWindowGroup");
 

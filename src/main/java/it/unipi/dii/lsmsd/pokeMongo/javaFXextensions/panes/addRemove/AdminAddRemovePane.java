@@ -107,7 +107,6 @@ public class AdminAddRemovePane extends Pane {
             !catchRateTF.getText().equals("") && !portraitTF.getText().equals("") && !spriteTF.getText().equals("") ) {
             PokemonManager pokemonManager = PokemonManagerFactory.buildManager();
 
-            //TODO: Gestione tipi potrebbe essere gestita meglio con una List<String>
             String[] types;
             int size = 2;
             if(type1TF.getValue().toString().equals("") || type2TF.getValue().toString().equals(""))
@@ -130,7 +129,6 @@ public class AdminAddRemovePane extends Pane {
                             spriteTF.getText()
                     )
             ) ) {
-                //TODO
                 TeamManager teamManager = TeamManagerFactory.buildManager();
                 try{
                     teamManager.addPokemon(new Pokemon(

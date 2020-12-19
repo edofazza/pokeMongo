@@ -18,15 +18,15 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
         return deleteUser(u.getUsername());
     }
 
-    // TODO: eliminare poi anche tutte le relazioni di like e post scritti
     @Override
     public boolean deleteUser(String username){
-        String query = "MATCH (u:User) WHERE u.username = $username DETACH DELETE u";
+        String query = "MATCH (u:User) OPTIONAL MATCH (u)-[:CREATED]->(p:Post) " +
+                "OPTIONAL MATCH (p)<-[:TOPIC]-(p1:Post)" +
+                "WHERE u.username = $username DETACH DELETE u, p, p1";
         return remove(query, parameters("username", username));
     }
 
     @Override
-    //TODO: Eventualmente se il bean non è stato ancora creato si può passare direttamente lo username proposto in fase di registrazione
     public boolean addUser(User u) throws DuplicateUserException{
         if(userAlreadyExists(u))
             throw new DuplicateUserException();
@@ -56,7 +56,11 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
     }
 
     @Override
-    //TODO: non genera ancora i bean, necessita di essere processata su mongoDb
+    /**
+     * It doesn't create a bean object yet
+     * @param target
+     * @result List of usernames
+     */
     public List<String> getFollowersUsernames(User target){
         List<String> followersUsernames = new ArrayList<String>();
         String query = "MATCH (to:User)-[h:FOLLOW]->(from:User) WHERE from.username = $username RETURN to.username";
@@ -112,7 +116,6 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
     }
 
     @Override
-    //TODO: Forse si può spostare ma dato che i liked pokemon si riferiscono ad un utente l'ho messa qui
     public List<String> getLikedPokemonNames(User u){
         List<String> liked = new ArrayList<>();
         String query = "MATCH (to:Pokemon)<-[h:LIKES]-(from:User) WHERE from.username = $username RETURN to.name";

@@ -39,7 +39,6 @@ public class PokemonWindowGroup extends Group {
      * @param catchRate catch rate of the pokemon (value between 1 and 255)
      * @param biology description of the pokemon
      */
-    //TODO: type is an array, change it
     public PokemonWindowGroup(String portraitUrl, String spriteUrl, String name, String type,
                               String weight, String height, String catchRate, List<Double> catchRates, String biology) {
 
@@ -80,7 +79,7 @@ public class PokemonWindowGroup extends Group {
         portrait.relocate(20, 30);
         getChildren().add(portrait);
 
-        CurrentUI.getImage(url).thenAccept(k -> {portrait.setImage(k);}); //TODO not fx thread error
+        CurrentUI.getImage(url).thenAccept(k -> {portrait.setImage(k);}); // not fx thread error
     }
 
     /**
@@ -95,7 +94,7 @@ public class PokemonWindowGroup extends Group {
 
         getChildren().add(sprite);
 
-        CurrentUI.getImage(url).thenAccept(k -> {sprite.setImage(k);}); //TODO not fx thread error
+        CurrentUI.getImage(url).thenAccept(k -> {sprite.setImage(k);}); // not fx thread error
     }
 
     /**

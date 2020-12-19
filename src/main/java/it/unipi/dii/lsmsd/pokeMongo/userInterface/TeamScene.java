@@ -45,7 +45,6 @@ public class TeamScene extends PokeSceneWithHeaderAndBackButton {
     /**
      * Adds to the scene the six <code>PokemonPane</code> forming the six Pokemon of the team.
      */
-    // TODO: fare il trash button come una classe e attribuirgli il css
     private void displayPokemon() {
         for (int i = 0; i < 3; ++i){
             PokemonPane pp = new PokemonPane(150, 180 + i*110, CurrentUI.getUser().getFromTeam(i));

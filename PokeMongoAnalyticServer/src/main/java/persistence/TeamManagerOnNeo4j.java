@@ -16,7 +16,7 @@ import org.bson.conversions.Bson;
 import static org.neo4j.driver.Values.parameters;
 
 public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
-    
+
     //FOR DYNAMIC CATCH RATE
     public int getUsersNumberThatOwnAPokemon(Pokemon p){
         String query = "MATCH (p:Pokemon)<-[w:HAS]-(u:User) WHERE p.name = $name RETURN count(u) as user_numbers";

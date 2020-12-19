@@ -84,8 +84,6 @@ public class Settings extends PokeSceneWithHeaderAndBackButton {
     private void displayOldPassword() {
         FieldRelatedLabel oldPasswordLabel = new FieldRelatedLabel("Old Password*", 350, 270);
 
-        //TODO: query to db to find if the password matches with the old one
-
         oldPasswordTF = new PasswordField();
         oldPasswordTF.relocate(350, 300);
 

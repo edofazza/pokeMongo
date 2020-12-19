@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
 
 public class PokemonTeamForUserSelectedWindow extends Pane {
     Pokemon pokemon;
-    // TODO: GET THE POKEMON TO SHOW AND THE VALUE RELATED TO IT
+
     public PokemonTeamForUserSelectedWindow(Pokemon pokemon, int x, int y) {
         relocate(x, y);
         setPrefSize(260, 90);
@@ -33,7 +33,7 @@ public class PokemonTeamForUserSelectedWindow extends Pane {
 
         ImageView sprite = new ImageView();
         CurrentUI.getImage(pokemon.getSprite())
-                .thenAccept(k -> sprite.setImage(k)); //TODO not fx thread
+                .thenAccept(k -> sprite.setImage(k)); // not fx thread
         sprite.setFitHeight(90);
         sprite.setFitWidth(90);
 

@@ -19,7 +19,7 @@ public class PokemonSingleResultPane extends Pane {
     public PokemonSingleResultPane(Pokemon pokemon) {
         this.pokemon = pokemon;
         ImageView img = new ImageView();
-        CurrentUI.getImage(pokemon.getSprite()).thenAccept(k -> img.setImage(k)); //TODO not fx thread exception
+        CurrentUI.getImage(pokemon.getSprite()).thenAccept(k -> img.setImage(k)); // not fx thread exception
         img.setFitWidth(60);
         img.setFitHeight(60);
 

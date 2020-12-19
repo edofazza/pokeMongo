@@ -31,7 +31,6 @@ public class PokedexResultScrollPane extends ScrollPane {
     /**
      * Adds the results obtained to the VBox. The results are all <code>PokemonResultPanePokedex</code>
      */
-    // TODO: THE QUERY on mongo db will add element in the VBox
     public static void addResult(ArrayList<Pokemon> result) {
         for (Pokemon p: result) {
             PokemonSingleResultPane prpp = new PokemonSingleResultPane(p);

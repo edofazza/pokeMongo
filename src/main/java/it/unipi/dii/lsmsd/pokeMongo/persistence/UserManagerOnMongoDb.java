@@ -56,7 +56,6 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
 
-        //TODO: Added Password Encryption, watch effects
         for(Object o: toInsert){
             if(!(o instanceof User)){
                 closeConnection();
@@ -91,7 +90,6 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
 
-        //TODO: Added Password Encryption, watch effects
         User userToInsert = (User)toInsert;
         userToInsert.setPassword(PasswordEncryptor.encryptPassword(userToInsert.getPassword()));
         Document doc = UserToDocument(userToInsert);
@@ -175,7 +173,6 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public User login(String username, String password) {
-        //TODO: Added Password Encryption, watch effects
         Bson query = and(eq("username", username), eq("password", PasswordEncryptor.encryptPassword(password)));
         ArrayList<Object> matched = getWithFilter(query);
         if(matched.size()!=1)
@@ -227,7 +224,6 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
     @Override
     public boolean changePassword(User target, String newPassword) {
-        //TODO: Added Password Encryption, watch effects
         Logger.vvlog("Trying to update " + target.getUsername() + " password");
         return update(target, set("password", PasswordEncryptor.encryptPassword(newPassword)));
     }

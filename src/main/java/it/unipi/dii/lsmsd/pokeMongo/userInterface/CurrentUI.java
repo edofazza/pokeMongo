@@ -108,7 +108,6 @@ public class CurrentUI {
         return "No team name";
     }
 
-    // TODO: handle exit
     protected static void userExit() {
         userLogged = null;
     }

@@ -26,14 +26,12 @@ public class PokemonPane extends Pane {
      * @param y the x axis position
      *
      */
-    // TODO: deve mettere il default solo se non è presente un pokemon per lo slot
     public PokemonPane(int x, int y, Pokemon p) {
         relocate(x, y);
         setPrefSize(400, 150);
 
         this.pokemon = p;
 
-        // TODO: gestire l'inserimento dell'evento in modo migliore
         trashCanButton = new TrashCanButton(350, 50);
         trashCanButton.setOnAction(e -> remove());
 
