@@ -108,7 +108,7 @@ class AnalyticStorageOnMongoDb extends MongoDbDatabase implements AnalyticStorag
         if(!(toInsert instanceof Analytic))
             return false;
         MongoCollection<Document> collection = getCollection(collectionName);  //also opens connection
-        
+
         Analytic analyticToInsert = (Analytic) toInsert;
         Document doc = AnalyticToDocument(analyticToInsert);
         collection.insertOne(doc);
