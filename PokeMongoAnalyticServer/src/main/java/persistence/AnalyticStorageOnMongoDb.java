@@ -15,7 +15,7 @@ import static com.mongodb.client.model.Filters.*;
 import static com.mongodb.client.model.Updates.addToSet;
 import static com.mongodb.client.model.Updates.set;
 
-public class AnalyticStorageOnMongoDb extends MongoDbDatabase implements AnalyticStorage{
+class AnalyticStorageOnMongoDb extends MongoDbDatabase implements AnalyticStorage{
     private String collectionName="analytic";
     private Analytic myAnalytic;
     private int numDays;
