@@ -54,12 +54,4 @@ public interface TeamManager {
      */
     Pokemon[] getUserTeam(User trainer);
 
-
-    /**
-     * Retrieves all the teams of all friends of a user
-     * @param u User whose friends' team are retrieved
-     * @return a list of Pokemon indicating friends' team
-     */
-    ArrayList<Pokemon> getFriendsTeam(User u);
-
 }

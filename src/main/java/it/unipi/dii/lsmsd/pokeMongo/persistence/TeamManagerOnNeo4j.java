@@ -110,19 +110,6 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager, 
         return getPokemons(pokemonArrayList, res);
     }
 
-    @Override
-    public ArrayList<Pokemon> getFriendsTeam(User u){
-        //Prima ottengo user amici
-        //Da mongo db ottengo il punteggio degli amici
-        //per ogni user amico computo la squadra
-        /*
-        String query = "MATCH (n:User)-[:FOLLOW]->(n1:User) where n.username = $username return n1.username";
-        ArrayList<Map<String, ArrayList<Pokemon>>> friendsTeam = new ArrayList<>();
-        String query = "MATCH (u:User)-[h:]->(p:Pokemon) WHERE u.country = $country return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT 25";
-        */
-        return null;
-    }
-
 
     private ArrayList<Pokemon> getPokemons(ArrayList<Pokemon> pokemonArrayList, ArrayList<Object> res) {
         for(Object o: res){
