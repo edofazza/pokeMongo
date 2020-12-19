@@ -19,5 +19,5 @@ public interface PokeMongoCache {
      * @param url  Url of the resource to be obtained
      * @return Object associated to the url
      */
-    public Object getDataIfPresent(String url);
+    Object getDataIfPresent(String url);
 }

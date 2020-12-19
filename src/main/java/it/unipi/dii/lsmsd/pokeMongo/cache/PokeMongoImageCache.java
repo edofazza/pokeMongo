@@ -1,12 +1,9 @@
 package it.unipi.dii.lsmsd.pokeMongo.cache;
 
 import com.github.benmanes.caffeine.cache.AsyncLoadingCache;
-import com.github.benmanes.caffeine.cache.Caffeine;
-import com.google.common.annotations.VisibleForTesting;
+import com.github.benmanes.caffeine.cache.Caffeine;;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.image.Image;
-import com.github.benmanes.caffeine.cache.Cache;
-
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +12,10 @@ public class PokeMongoImageCache implements PokeMongoCache {
     private static PokeMongoImageCache instance;
     private AsyncLoadingCache<String, Image> cache;
 
+    /**
+     * Singleton
+     * @return the private PokeMongoImageCache.
+     */
     public static PokeMongoImageCache getInstance() {
         if (instance == null) {
             instance = new PokeMongoImageCache();
