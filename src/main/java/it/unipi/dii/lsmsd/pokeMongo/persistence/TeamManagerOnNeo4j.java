@@ -110,7 +110,8 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager, 
     }
 
 
-    private ArrayList<Pokemon> getPokemons(ArrayList<Pokemon> pokemonArrayList, ArrayList<Object> res) {
+    @VisibleForTesting
+    public ArrayList<Pokemon> getPokemons(ArrayList<Pokemon> pokemonArrayList, ArrayList<Object> res) {
         for(Object o: res){
             Record r =(Record)o;
             String name = r.get("p.name").asString();

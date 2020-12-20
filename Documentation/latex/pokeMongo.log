@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  20 DEC 2020 14:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  20 DEC 2020 16:19
 entering extended mode
 **./pokeMongo.tex
 (pokeMongo.tex
@@ -1359,23 +1359,24 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69]) [70]
 \openout2 = `chapters/test.aux'.
 
- (chapters/test.tex) [71
+ (chapters/test.tex [71
 
 
 
-] (pokeMongo.aux (chapters/introduction.aux) (chapters/analysis.aux)
-(chapters/project.aux) (chapters/implementation.aux) (chapters/test.aux))
+] [72]) [73] (pokeMongo.aux (chapters/introduction.aux)
+(chapters/analysis.aux) (chapters/project.aux) (chapters/implementation.aux)
+(chapters/test.aux))
 Package rerunfilecheck Info: File `pokeMongo.out' has not changed.
 (rerunfilecheck)             Checksum: 95155F53EB6D3CF8AA5E58FA28A3B647;4932.
  ) 
 Here is how much of TeX's memory you used:
- 12493 strings out of 480236
- 198150 string characters out of 2880557
- 925997 words of memory out of 3000000
- 28244 multiletter control sequences out of 15000+200000
+ 12608 strings out of 480236
+ 200404 string characters out of 2880557
+ 925998 words of memory out of 3000000
+ 28282 multiletter control sequences out of 15000+200000
  543660 words of font info for 58 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,9n,77p,910b,1903s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 70i,9n,77p,910b,1977s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt
 1000.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcrm1200.pk><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/
@@ -1395,9 +1396,9 @@ public/amsfonts/cm/cmr8.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts
 TeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/gxhan/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/gxhan/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on pokeMongo.pdf (72 pages, 4295913 bytes).
+Output written on pokeMongo.pdf (74 pages, 4313855 bytes).
 PDF statistics:
- 1322 PDF objects out of 1440 (max. 8388607)
- 536 named destinations out of 1000 (max. 500000)
+ 1423 PDF objects out of 1440 (max. 8388607)
+ 613 named destinations out of 1000 (max. 500000)
  762 words of extra memory for PDF output out of 10000 (max. 10000000)
 

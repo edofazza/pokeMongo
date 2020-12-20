@@ -644,3 +644,54 @@ a number' at (910, 285)
 2020-12-19T20:15:31.847Z [VVLOG] Creating HomePageCentralButton at (490, 230)
 2020-12-19T20:15:31.846Z [VVLOG] Creating HomePageCentralButton at (490, 230)
 2020-12-19T20:15:31.846Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-20T13:46:18.582Z [VLOG] Getting pokemon collection
+2020-12-20T13:46:18.582Z [VLOG] Getting pokeMongo Database
+2020-12-20T13:46:18.582Z [VLOG] Starting connection with MongoDB
+2020-12-20T13:46:18.872Z [VLOG] Closing connection with MongoDB
+2020-12-20T13:46:18.893Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-20T13:46:18.893Z [VLOG] ENCRYPTION | encrypt-pw: 04520e8faadfc50330bae9619568dba9a88f9d418795a9ad7bfdabf04a1befa7
+2020-12-20T13:46:18.896Z [VLOG] ENCRYPTION | encrypt-pw: 6898e51fe98a5b5159003007aa0fbc18883e79d181cad4ec283abc61ae993834
+2020-12-20T13:46:18.897Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-20T13:46:18.897Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-20T13:46:18.900Z [VLOG] Getting user collection
+2020-12-20T13:46:18.900Z [VLOG] Starting connection with MongoDB
+2020-12-20T13:46:18.900Z [VLOG] Getting pokeMongo Database
+2020-12-20T13:46:18.901Z [VLOG] Closing connection with MongoDB
+2020-12-20T13:49:34.413Z [VLOG] Starting connection with MongoDB
+2020-12-20T13:49:34.413Z [VLOG] Getting pokemon collection
+2020-12-20T13:49:34.413Z [VLOG] Getting pokeMongo Database
+2020-12-20T13:49:34.713Z [VLOG] Closing connection with MongoDB
+2020-12-20T13:49:34.732Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-20T13:49:34.732Z [VLOG] ENCRYPTION | encrypt-pw: 04520e8faadfc50330bae9619568dba9a88f9d418795a9ad7bfdabf04a1befa7
+2020-12-20T13:49:34.736Z [VLOG] ENCRYPTION | encrypt-pw: 6898e51fe98a5b5159003007aa0fbc18883e79d181cad4ec283abc61ae993834
+2020-12-20T13:49:34.738Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-20T13:49:34.738Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-20T13:49:34.741Z [VLOG] Getting user collection
+2020-12-20T13:49:34.742Z [VLOG] Starting connection with MongoDB
+2020-12-20T13:49:34.742Z [VLOG] Getting pokeMongo Database
+2020-12-20T13:49:34.744Z [VLOG] Closing connection with MongoDB
+2020-12-20T13:52:41.626Z [VLOG] Getting pokeMongo Database
+2020-12-20T13:52:41.626Z [VLOG] Getting user collection
+2020-12-20T13:52:41.626Z [VLOG] Starting connection with MongoDB
+2020-12-20T13:52:41.949Z [VLOG] Closing connection with MongoDB
+2020-12-20T13:53:29.456Z [VLOG] Getting user collection
+2020-12-20T13:53:29.456Z [VLOG] Getting pokeMongo Database
+2020-12-20T13:53:29.456Z [VLOG] Starting connection with MongoDB
+2020-12-20T13:53:29.788Z [VLOG] Closing connection with MongoDB
+2020-12-20T13:54:36.101Z [VLOG] Getting pokeMongo Database
+2020-12-20T13:54:36.101Z [VLOG] Starting connection with MongoDB
+2020-12-20T13:54:36.101Z [VLOG] Getting pokemon collection
+2020-12-20T13:54:36.412Z [VLOG] Closing connection with MongoDB
+2020-12-20T13:54:51.078Z [VLOG] Getting pokemon collection
+2020-12-20T13:54:51.078Z [VLOG] Starting connection with MongoDB
+2020-12-20T13:54:51.078Z [VLOG] Getting pokeMongo Database
+2020-12-20T13:54:51.390Z [VLOG] Closing connection with MongoDB
+2020-12-20T13:54:51.403Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-20T13:54:51.403Z [VLOG] ENCRYPTION | encrypt-pw: 04520e8faadfc50330bae9619568dba9a88f9d418795a9ad7bfdabf04a1befa7
+2020-12-20T13:54:51.407Z [VLOG] ENCRYPTION | encrypt-pw: 6898e51fe98a5b5159003007aa0fbc18883e79d181cad4ec283abc61ae993834
+2020-12-20T13:54:51.408Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-20T13:54:51.408Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-20T13:54:51.412Z [VLOG] Getting user collection
+2020-12-20T13:54:51.412Z [VLOG] Starting connection with MongoDB
+2020-12-20T13:54:51.412Z [VLOG] Getting pokeMongo Database
+2020-12-20T13:54:51.413Z [VLOG] Closing connection with MongoDB
