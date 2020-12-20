@@ -9,11 +9,11 @@ import java.io.*;
 import java.util.*;
 
 public class UserPopulator {
-    private final static String pathNames="names.txt";
+    private final static String pathNames="txt/names.txt";
     private static long namesLength;
-    private final static String pathSurnames="surnames.txt";
+    private final static String pathSurnames="txt/surnames.txt";
     private static long surnamesLength;
-    private final static String pathCountries="countries.txt";
+    private final static String pathCountries="tzt/countries.txt";
     private static long countriesLength;
 
     public static void main(String[] args){

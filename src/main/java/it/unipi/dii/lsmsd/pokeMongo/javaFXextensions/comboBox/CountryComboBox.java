@@ -21,7 +21,7 @@ public class CountryComboBox extends ComboBox {
     public CountryComboBox(int x, int y) throws IOException {
         Logger.vvlog("Creating CountryComboBox at (" + x + ", " + y + ")");
         relocate(x, y);
-        List<String> myList = Files.lines(Paths.get("countries.txt")).collect(Collectors.toList());
+        List<String> myList = Files.lines(Paths.get("txt/countries.txt")).collect(Collectors.toList());
         setItems(FXCollections.observableArrayList(myList));
         setValue("");
 
