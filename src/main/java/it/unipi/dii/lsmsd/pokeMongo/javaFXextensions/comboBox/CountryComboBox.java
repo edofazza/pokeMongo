@@ -11,6 +11,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CountryComboBox extends ComboBox {
+
+    /**
+     *
+     * @param x the x axis position
+     * @param y the y axis position
+     * @throws IOException possible caused by reading a file
+     */
     public CountryComboBox(int x, int y) throws IOException {
         Logger.vvlog("Creating CountryComboBox at (" + x + ", " + y + ")");
         relocate(x, y);

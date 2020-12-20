@@ -10,7 +10,17 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Creates a ComboBox with the names of the pokemon types
+ */
 public class TypeComboBox extends ComboBox {
+
+    /**
+     *
+     * @param x the x axis position
+     * @param y the y axis position
+     * @throws IOException
+     */
     public TypeComboBox(int x, int y) throws IOException {
         Logger.vvlog("Creating TypeComboBox at (" + x + ", " + y + ")");
         relocate(x, y);
