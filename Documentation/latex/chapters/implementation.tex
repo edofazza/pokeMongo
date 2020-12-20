@@ -1,6 +1,6 @@
 \section{Implementation}
 \subsection{Package structure}
-Package structure decision was as important task in PokeMongo, we wanted to ensure an high level of readability and maintainability.
+Package structure decision was as important task in \textbf{\textit{PokèMongo}}, we wanted to ensure an high level of readability and maintainability.
 Although the classical “root package” which specifies the “domain.company.projet”, in our case “it.unipi.dii.lsmsd.pokemongo”, all the packages are structured \textit{by layers}. In this way, we decided to name the packages according to they function architecturally rather than their identity according to the business domain. Here the structure: 
 
 \begin{figure}[H]
@@ -13,7 +13,7 @@ We tried to maintain the name of the packages as simple as possible, and in a wa
 We also followed the convention of having the first character in the package names in lower case, in order to avoid conflicts with class or interface names.
 
 \subsubsection{Package Analysis: Bean}
-The “bean” package contains few classes that are used as beans while the application runs.
+The \textit{bean} package contains few classes that are used as beans while the application runs.
 
 \begin{figure}[H]
 	\centering
@@ -21,34 +21,41 @@ The “bean” package contains few classes that are used as beans while the app
 	\caption{Bean Package Class Structure}
 \end{figure}
 
+\begingroup
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.5} % Default
 \begin{center}
-	\begin{tabular}{| m{9em} | m{22em} |} 
+	\begin{longtable}{| m{9em} | m{22em} |} 
 		\hline
 		\textbf{Class Name} & \textbf{Short Description} \\ [0.5ex] 
 		\hline
-		User & The User class is used for instantiating object that refers to a specific user\\ 
+		User & The \textbf{User} class is used for instantiating object that refers to a specific user\\ 
 		\hline
-		Pokemon & The Pokemon class is used for instantiating object that refers to a specific Pokemon\\
+		Pokemon & The \textbf{Pokemon} class is used for instantiating object that refers to a specific Pokemon\\
 		\hline
-		Post & The Post class is used for instantiating object that refers to a specific Post. Responses (aka subPosts) are considered post also.\\
+		Post & The \textbf{Post} class is used for instantiating object that refers to a specific \textbf{Post}. Responses (aka subPosts) are considered post also.\\
 		\hline
 		Analytic & This class is used for containing the information regarding a particular day.\\
 		\hline
-		CountryData & Used in the Analytic bean, it contains the information regarding a single country and the analytic strictly associated to it.\\
+		CountryData & Used in the \textbf{Analytic} bean, it contains the information regarding a single country and the analytic strictly associated to it.\\
 		\hline
-	\end{tabular}
+	\end{longtable}
 \end{center}
+\endgroup
 
 \subsubsection{Package Analysis: Cache}
-The cache package contains classes that are helpful for caching images, we will talk about that in chapter 4.3.2. Despite what written above, this is one of the few packages that has a feature logic structure inside. We maintain in this package not only the classes/interface that handle the caching functionality, but also a javafx class extension which is PokemonImage. This class is strictly connected to the caching systems, because it contains the image we want to cache. We decided to use this approach to have a cleaner look and an easier maintainability for the caching systems. 
+The \textit{cache} package contains classes that are helpful for caching images, we will talk about that in chapter 4.3.2. Despite what written above, this is one of the few packages that has a feature logic structure inside. We maintain in this package not only the classes/interface that handle the caching functionality, but also a javafx class extension which is \textit{PokemonImage}. This class is strictly connected to the caching systems, because it contains the image we want to cache. We decided to use this approach to have a cleaner look and an easier maintainability for the caching systems. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{img/cache_package.png}
 	\caption{Cache Package Class Structure}
 \end{figure}
 
+\begingroup
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.5} % Default
 \begin{center}
-	\begin{tabular}{| m{14em} | m{19em} |} 
+	\begin{longtable}{| m{14em} | m{19em} |} 
 		\hline
 		\textbf{Class Name} & \textbf{Short Description} \\ [0.5ex] 
 		\hline
@@ -58,8 +65,9 @@ The cache package contains classes that are helpful for caching images, we will 
 		\hline
 		PokemonImage & An Image (javaFX) extension that will contains the image we want to show to the user in the GUI.\\ 
 		\hline
-	\end{tabular}
+	\end{longtable}
 \end{center}
+\endgroup
 
 \subsubsection{Package Analysis: dataAnalysis}
 This package is used for instantiating factory structures about the data analysis we made in the project. Every factory is dependent of an interface. 
@@ -70,57 +78,70 @@ This package is used for instantiating factory structures about the data analysi
 	\caption{dataAnalysis Package Class Structure}
 \end{figure}
 
+\begingroup
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.5} % Default
 \begin{center}
-	\begin{tabular}{| m{14em} | m{19em} |} 
+	\begin{longtable}{| m{14em} | m{19em} |} 
 		\hline
 		\textbf{Class Name} & \textbf{Short Description} \\ [0.5ex] 
 		\hline
-		AdminAnalytics &Simply an interface for the analytics related to the admin user\\ 
+		AdminAnalytics &Simply an interface for the analytics related to the admin \textbf{User}\\ 
 		\hline
 		AdminAnalysisFactory & Has a static method that returns a specific implementation of the interface AdminAnalytics\\ 
 		\hline
-		UserRanker & Simply an interface for the analytics for user ranking.\\ 
+		UserRanker & Simply an interface for the analytics for \textbf{User} ranking.\\ 
 		\hline
 		UserRankerFactory & Has a static method that returns a specific implementation of the interface UserRanker\\ 
 		\hline
-		PokemonRanker & Simply an interface for the analytics for pokemon ranking\\ 
+		PokemonRanker & Simply an interface for the analytics for \textbf{Pokèmon} ranking\\ 
 		\hline
 		PokemonRankerFactory & Has a static method that returns a specific implementation of the interface PokemonRanker\\
 		\hline
-	\end{tabular}
+	\end{longtable}
 \end{center}
+\endgroup
 
 \subsubsection{Package Analysis: exceptions}
-This package contains classes that extend the class Exception of Java. 
+This package contains classes that extend the class \textit{Exception} of Java. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/exceptions_package.png}
 	\caption{Exceptions Package Class Structure}
 \end{figure}
+
+\begingroup
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.5} % Default
 \begin{center}
-	\begin{tabular}{| m{14em} | m{19em} |} 
+	\begin{longtable}{| m{14em} | m{19em} |} 
 		\hline
 		\textbf{Class Name} & \textbf{Short Description} \\ [0.5ex] 
 		\hline
-		SlotAlreadyOccupiedException &Exception thrown when a user try to catch a Pokemon and he has the slot he want to use already occupied by one other Pokemon\\ 
+		SlotAlreadyOccupiedException & Exception thrown when a user try to catch a \textbf{Pokèmon} and he has the \textit{slot} he want to use already occupied by one other \textbf{Pokèmon}\\ 
 		\hline
-		DuplicatePokemonException & Exception thrown when an admin try to insert a Pokemon that is already present\\ 
+		DuplicatePokemonException & Exception thrown when an admin try to insert a \textbf{Pokèmon} that is already present\\ 
 		\hline
-		DuplicateUserException & Exception thrown when an anonymous user try to create a register user, but the username he writes is already taken.\\ 
+		DuplicateUserException & Exception thrown when an anonymous \textbf{User} try to create a register \textbf{User}, but the \textit{username} he writes is already taken.\\ 
 		\hline
-		DuplicatePostException & Exception thrown if an identical Post is created\\ 
+		DuplicatePostException & Exception thrown if an identical \textbf{Post} is created\\ 
 		\hline
-	\end{tabular}
+	\end{longtable}
 \end{center}
+\endgroup
+
 \subsubsection{Package Analysis: javafxextensions}
 In this package are present 11 sub-packages, any of them related to a specific extension of a JavaFX Node.
 \subparagraph{javafxextensions: buttons}
-Here are present all the classes that extend Button from JavaFX
+Here are present all the classes that extend \textit{Button} from JavaFX
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/javafx_buttons_package.png}
 	\caption{javafxExtension/buttons Package Class Structure}
 \end{figure}
+\begingroup
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.5} % Default
 \begin{center}
 	\begin{longtable}{| m{14em} | m{19em} |} 
 		\hline
@@ -132,29 +153,34 @@ Here are present all the classes that extend Button from JavaFX
 		\hline
 		RegularButton & For creating buttons like “BACK”, “SUBMIT”, etc…\\ 
 		\hline
-		TrashButton & Button for eliminating a Pokemon in the Team\\ 
+		TrashButton & Button for eliminating a \textbf{Pokèmon} in the \textbf{Team}\\ 
 		\hline
 		CircleButton & Helpful for creating button with a circular shape\\ 
 		\hline
-		PostButton & Specific button for submitting a comment in the post section of a Pokemon\\
+		PostButton & Specific button for submitting a comment in the post section of a \textbf{Pokèmon}\\
 		\hline
-		DeletePostButton & Button for deleting a SubPost (aka response)\\
+		DeletePostButton & Button for deleting a \textbf{SubPost} (aka response)\\
 		\hline
-		FilterPokemonResultButton & Specific button for displaying the name of a Pokemon in a query result. At the click it creates a new Stage with the information about the Pokemon (check PokemonWindowGroup).\\
+		FilterPokemonResultButton & Specific button for displaying the name of a \textbf{Pokèmon} in a query result. At the click it creates a new Stage with the information about the \textbf{Pokèmon} (check PokemonWindowGroup).\\
 		\hline
-		FavoritePokemonSingleResultFor ScrollPane & This button is used for showing the name of the Pokemon than are Favourite. Clicking on it will be a shortcut for capturing the Pokemon the button says about.\\
+		FavoritePokemonSingleResultFor ScrollPane & This button is used for showing the name of the \textbf{Pokèmon} than are Favourite. Clicking on it will be a shortcut for capturing the \textbf{Pokèmon} the button says about.\\
 		\hline
-		UsernameLinkTeamButton & Specific button for displaying the username of a User in a query result. At the click it creates a new Stage with the team of the User (check TeamUserWindowGroup).\\
+		UsernameLinkTeamButton & Specific button for displaying the \textit{username} of a \textbf{User} in a query result. At the click it creates a new Stage with the team of the User (check TeamUserWindowGroup).\\
 		\hline
 	\end{longtable}
 \end{center}
+\endgroup
+
 \subparagraph{javafxextensions: charts}
-It contains a class that extends LineChart from JavaFX.
+It contains a class that extends \textit{LineChart} from JavaFX.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/javafx_charts_package.png}
 	\caption{javafxExtensions/charts Package Class Structure}
 \end{figure}
+\begingroup
+\setlength{\tabcolsep}{10pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.5} % Default
 \begin{center}
 	\begin{tabular}{| m{14em} | m{19em} |} 
 		\hline
@@ -164,6 +190,8 @@ It contains a class that extends LineChart from JavaFX.
 		\hline
 	\end{tabular}
 \end{center}
+\endgroup
+
 \subparagraph{javafxextensions: choicebox}
 It contains a class that extends LineChart from JavaFX.
 \begin{figure}[H]
