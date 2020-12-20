@@ -12,6 +12,14 @@ import java.util.List;
 public class FavoriteCatchEmAllScrollPane extends ScrollPane {
     private VBox root;
 
+    /**
+     *
+     * @param x the x axis position
+     * @param y the y axis position
+     * @param width the width you want to set
+     * @param height the height you want to set
+     * @param selectedPokemon a CatchEmAllTextField
+     */
     public FavoriteCatchEmAllScrollPane(int x, int y, int width, int height, CatchEmAllTextField selectedPokemon) {
         relocate(x, y);
         setPrefSize(width, height);
@@ -23,6 +31,10 @@ public class FavoriteCatchEmAllScrollPane extends ScrollPane {
         retrieveFavoritePokemons(selectedPokemon);
     }
 
+    /**
+     * Inserts in the <code>root</code> the <code>FavoritePokemonSingleResultForScrollPane</code>
+     * @param selectedPokemon a CatchEmAllTextField
+     */
     private void retrieveFavoritePokemons(CatchEmAllTextField selectedPokemon) {
         List<String> pokemonNames = (UserNetworkManagerFactory.buildManager()).getLikedPokemonNames(CurrentUI.getUser());
 

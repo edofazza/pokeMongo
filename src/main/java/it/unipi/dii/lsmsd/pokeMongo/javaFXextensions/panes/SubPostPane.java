@@ -14,6 +14,12 @@ public class SubPostPane extends Pane {
     private SubPostsVBox rootFather;
     private PostButton postButton;
 
+    /**
+     *
+     * @param post the post this subpost is related to
+     * @param rootFather the <code>SubPostsVBox</code>
+     * @param p the <code>PostButton</code> this subpost is related to
+     */
     public SubPostPane(Post post, SubPostsVBox rootFather, PostButton p) {
         setPrefSize(340, 85);
         relocate(55, 0);
@@ -32,6 +38,9 @@ public class SubPostPane extends Pane {
         displayContent();
     }
 
+    /**
+     * Display the username of the author
+     */
     private void displayUsername() {
         Label username = new Label("USER: " + post.getAuthorUsername());
         username.relocate(5, 5);
@@ -39,12 +48,18 @@ public class SubPostPane extends Pane {
         getChildren().add(username);
     }
 
+    /**
+     * Only if the user logged is the author or an admin. This method add a delete button to the <code>PostPane</code>
+     */
     private void displayDeleteButton() {
         DeleteSubPostButton deleteSubPostButton = new DeleteSubPostButton("Delete", 140, 0, this);
 
         getChildren().add(deleteSubPostButton);
     }
 
+    /**
+     * Displays the published date
+     */
     private void displayDate() {
         Label date = new Label(post.getFormattedDate());
         date.relocate(210, 5);
@@ -52,6 +67,9 @@ public class SubPostPane extends Pane {
         getChildren().add(date);
     }
 
+    /**
+     * Displays the content of the post
+     */
     private void displayContent() {
         TextArea content = new TextArea(post.getContent());
         content.setPrefSize(332, 30);
@@ -62,11 +80,18 @@ public class SubPostPane extends Pane {
         getChildren().add(content);
     }
 
+    /**
+     * Removes the PostPane from the <code>fatherRoot</code>
+     */
     public void removeItself() {
         postButton.answerRemoved();
         rootFather.getChildren().remove(this);
     }
 
+    /**
+     *
+     * @return <code>post</code>
+     */
     public Post getPost() {
         return post;
     }

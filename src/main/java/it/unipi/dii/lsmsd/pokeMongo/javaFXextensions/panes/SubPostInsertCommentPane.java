@@ -12,12 +12,21 @@ import javafx.scene.layout.Pane;
 
 import java.time.LocalDateTime;
 
+
+/**
+ * A specific Pane that contains a text box for writing responses to a post and a button for publishing them
+ */
 public class SubPostInsertCommentPane extends Pane {
     private Post currentPost;
     private TextArea writePost;
 
     private PostButton postButtonAnswer;
 
+    /**
+     *
+     * @param currentPost the post this pane is related to
+     * @param postButtonAnswer the PostButton answer this pane is related to
+     */
     public SubPostInsertCommentPane(Post currentPost, PostButton postButtonAnswer) {
         this.currentPost = currentPost;
         this.postButtonAnswer = postButtonAnswer;
@@ -34,6 +43,9 @@ public class SubPostInsertCommentPane extends Pane {
         getChildren().addAll(writePost, postButton);
     }
 
+    /**
+     * Posting action
+     */
     private void post() {
         if(writePost.getText().equals(""))
             return;

@@ -8,17 +8,9 @@ import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Group;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.util.Pair;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 

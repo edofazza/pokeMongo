@@ -9,10 +9,18 @@ import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+/**
+ * This particular Group is used for creating the elements to be added in the
+ * window which shows the information of a team related to a specific user.
+ */
 public class TeamUserWindowGroup extends Group {
     private User user;
     private Button follow;
 
+    /**
+     * Constructs the scene
+     * @param user the user the stage is related to
+     */
     public TeamUserWindowGroup(User user) {
         Logger.vvlog("Creating TeamUserWindowGroup");
 
@@ -30,6 +38,9 @@ public class TeamUserWindowGroup extends Group {
         displayPokemons();
     }
 
+    /**
+     * Displays the name of the team
+     */
     private void displayTeamName() {
         Label teamLabel = new Label(user.getTeamName());
         teamLabel.setStyle("-fx-font-size: 23; -fx-font-family: 'Arial Black'; -fx-text-fill: blue;");
@@ -39,7 +50,9 @@ public class TeamUserWindowGroup extends Group {
     }
 
 
-
+    /**
+     * Displays the following button
+     */
     private void displayFollowButton() {
         UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
 
@@ -58,6 +71,9 @@ public class TeamUserWindowGroup extends Group {
         getChildren().addAll(follow);
     }
 
+    /**
+     * Handles the follow or unfollow action
+     */
     private void followUnfollow() {
         UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
 
@@ -75,6 +91,9 @@ public class TeamUserWindowGroup extends Group {
         }
     }
 
+    /**
+     * Display the pokemons of the user this page is related to
+     */
     private void displayPokemons() {
         for (int i = 0; i < 3; i++) {
             PokemonTeamForUserSelectedWindow p0 = new PokemonTeamForUserSelectedWindow(user.getFromTeam(i), 10, 50+i*(35+90));

@@ -19,6 +19,14 @@ public class RankingScollPane extends ScrollPane {
     private VBox root;
     private RankingTypes rankingTypes;
 
+    /**
+     *
+     * @param x the x axis position
+     * @param y the y axis position
+     * @param width the width you want to set
+     * @param height the height you want to set
+     * @param rt a <code>RankingTypes</code>
+     */
     public RankingScollPane(int x, int y, int width, int height, RankingTypes rt) {
         rankingTypes = rt;
 
@@ -33,12 +41,15 @@ public class RankingScollPane extends ScrollPane {
         getFriendsRanking();
     }
 
+    /**
+     * Clears <code>root</code>
+     */
     private void clearResults() {
         root.getChildren().clear();
     }
 
     /**
-     * To be called everytime that country changes.
+     * To be called everytime the country changes.
      */
     public void changeCountry(String country) {
         clearResults();
@@ -78,6 +89,10 @@ public class RankingScollPane extends ScrollPane {
         }
     }
 
+
+    /**
+     * Sets the Friends Ranking information
+     */
     public void getFriendsRanking(){
 
         //get friends usernames

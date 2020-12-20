@@ -38,6 +38,9 @@ public class PokedexResultScrollPane extends ScrollPane {
         }
     }
 
+    /**
+     * Clears <code>root</code>
+     */
     public static void clearVBox() {
         root.getChildren().clear();
     }

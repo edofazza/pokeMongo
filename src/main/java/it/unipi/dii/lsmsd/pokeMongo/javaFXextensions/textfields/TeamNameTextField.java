@@ -38,6 +38,9 @@ public class TeamNameTextField extends TextField {
         verify();
     }
 
+    /**
+     * Checks if the name given as input doesn't exceed the limit number of characters
+     */
     private void verify() {
         if (getText().length() > limit) {
             setText(getText().substring(0, limit));

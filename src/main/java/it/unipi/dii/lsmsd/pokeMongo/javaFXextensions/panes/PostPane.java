@@ -16,6 +16,12 @@ public class PostPane extends Pane {
     private int numberOfAnswers;
     private VBox fatherRoot;
 
+    /**
+     *
+     * @param post the post this pane is related
+     * @param numberOfAnswers number of answer of a post
+     * @param fatherRoot the VBox this PostPane is attached
+     */
     public PostPane(Post post, int numberOfAnswers, VBox fatherRoot) {
         setMinHeight(90);
         setPrefWidth(380);
@@ -35,6 +41,9 @@ public class PostPane extends Pane {
         displayButtons();
     }
 
+    /**
+     * Displays the username of the author
+     */
     private void displayUsername() {
         Label username = new Label("USER: " + post.getAuthorUsername());
         username.relocate(5, 5);
@@ -42,12 +51,18 @@ public class PostPane extends Pane {
         getChildren().add(username);
     }
 
+    /**
+     * Only if the user logged is the author or an admin. This method add a delete button to the <code>PostPane</code>
+     */
     private void displayDeleteButton() {
         DeletePostButton deletePostButton = new DeletePostButton("Delete", 160, 0, this);
 
         getChildren().add(deletePostButton);
     }
 
+    /**
+     * Displays the published date
+     */
     private void displayDate() {
         Label date = new Label(post.getFormattedDate());
         date.relocate(250, 5);
@@ -55,6 +70,9 @@ public class PostPane extends Pane {
         getChildren().add(date);
     }
 
+    /**
+     * Displays the content of the post
+     */
     private void displayContent() {
         TextArea content = new TextArea(post.getContent());
         content.setPrefSize(368, 30);
@@ -65,6 +83,9 @@ public class PostPane extends Pane {
         getChildren().add(content);
     }
 
+    /**
+     * Displays the two <code>PostButton</code> for commenting and viewing the answers
+     */
     private void displayButtons() {
         SubPostsVBox subPostsVBox = new SubPostsVBox(20, 95);
         PostButton answers = new PostButton("Answers (" + numberOfAnswers + ")" , 90, 58, subPostsVBox, post, numberOfAnswers);
@@ -74,10 +95,17 @@ public class PostPane extends Pane {
         getChildren().addAll(comment, answers, subPostsVBox);
     }
 
+    /**
+     * Removes the PostPane from the <code>fatherRoot</code>
+     */
     public void removeItself() {
         fatherRoot.getChildren().remove(this);
     }
 
+    /**
+     *
+     * @return <code>post</code>
+     */
     public Post getPost() {
         return post;
     }

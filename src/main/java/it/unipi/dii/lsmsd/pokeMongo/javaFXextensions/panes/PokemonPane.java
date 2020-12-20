@@ -82,6 +82,9 @@ public class PokemonPane extends Pane {
         addToPane();
     }
 
+    /**
+     * Sets the pokemon as null and changed as true, then it calls the <code>setToDefault</code> method
+     */
     private void remove() {
         pokemon = null;
         changed = true;
@@ -89,6 +92,10 @@ public class PokemonPane extends Pane {
         setToDefault();
     }
 
+    /**
+     *
+     * @return the value of <code>changed</code>
+     */
     public boolean isChanged() {
         return changed;
     }

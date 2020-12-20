@@ -8,6 +8,10 @@ import javafx.scene.layout.Pane;
 
 public class RankingSingleUserResult extends Pane {
 
+    /**
+     *  Creates a specific pane that is used in a ScrollPane
+     * @param user the user this class is related to
+     */
     public RankingSingleUserResult(User user) {
         Logger.vvlog("Creating RankingSingleUserResult for " + user.getUsername() + ": points = " + user.getPoints());
         UsernameLinkTeamButton usernameButton = new UsernameLinkTeamButton(user, 10, 12);

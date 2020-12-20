@@ -10,6 +10,11 @@ import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import javafx.scene.control.Button;
 import java.util.List;
 
+/**
+ * To use this class you have to create two object, one related to the answer and the other to the comment part. First you
+ * create the answer PostButton, then the comment one giving it as input. Done that, you have to let the answer PostButton
+ * to know which is the comment PostButton it has to interact with (<code>setCommentButton</code>)
+ */
 public class PostButton extends Button {
     private String text;
     private SubPostsVBox subPostsVBox;

@@ -83,7 +83,6 @@ public class AdminAddRemovePane extends Pane {
         displayName();
         displayHeight();
         displayType2();
-        //displayPoints();
         displayBiology();
         displaySpriteUrl();
 
@@ -97,6 +96,9 @@ public class AdminAddRemovePane extends Pane {
         getChildren().add(addButton);
     }
 
+    /**
+     * Checks if every field is properly inserted, then it adds the pokemon in the dbs
+     */
     private void addButtonAction() {
         // prepare label for result
         resultOperation.relocate(650, 350);
@@ -184,6 +186,11 @@ public class AdminAddRemovePane extends Pane {
         getChildren().addAll(pokemonName, removeButton);
     }
 
+    /**
+     * Action taken when the admin user removes a pokemon. If the textfield is empty then it returns a error in a form
+     * of a label; if he inputs something then the method checks if the pokemon is present or not, if it does than the
+     * Pokemon is removed, otherwise the methods shows an error up as a label.
+     */
     private void removeButtonAction() {
         if (pokemonName.getText().equals("")) {
             resultOperation.setText("Insert pokemon's name");
@@ -314,6 +321,9 @@ public class AdminAddRemovePane extends Pane {
         getChildren().addAll(type1, type2TF);
     }
 
+    /**
+     * Adds to the pane the nodes related to the Biology
+     */
     private void displayBiology() {
         FieldRelatedLabel points = new FieldRelatedLabel("Biology", 400, 210);
 

@@ -9,9 +9,18 @@ import javafx.scene.layout.Pane;
 
 import java.text.DecimalFormat;
 
+/**
+ * Pane related to a single pokemon in the <code>TeamUserWindowGroup</code>
+ */
 public class PokemonTeamForUserSelectedWindow extends Pane {
     Pokemon pokemon;
 
+    /**
+     *
+     * @param pokemon the pokemon this pane is related
+     * @param x the x axis position
+     * @param y the y axis position
+     */
     public PokemonTeamForUserSelectedWindow(Pokemon pokemon, int x, int y) {
         relocate(x, y);
         setPrefSize(260, 90);
@@ -27,6 +36,9 @@ public class PokemonTeamForUserSelectedWindow extends Pane {
         displayPokemonPoints();
     }
 
+    /**
+     * Displays the spirite of <code>pokemon</code>
+     */
     private void displayPokemonSprite() {
         if (pokemon == null)
             return;
@@ -40,6 +52,9 @@ public class PokemonTeamForUserSelectedWindow extends Pane {
         getChildren().add(sprite);
     }
 
+    /**
+     * Displays the name of the pokemon
+     */
     private void displayPokemonName() {
         if (pokemon == null)
             return;
@@ -49,6 +64,9 @@ public class PokemonTeamForUserSelectedWindow extends Pane {
         getChildren().add(pokemonNameButton);
     }
 
+    /**
+     * Displays the points of the pokemon
+     */
     private void displayPokemonPoints() {
         if (pokemon == null)
             return;
