@@ -11,6 +11,18 @@ import javafx.util.Pair;
 import java.util.List;
 
 public class LineChartThirtyDaysFactory {
+    /**
+     * Creates a LineChart with the specs given
+     * @param width
+     * @param height
+     * @param x the x axis position
+     * @param y the y axis position
+     * @param yLabelName the label on the y axis
+     * @param yMax the max value of y
+     * @param yMin the min value of y
+     * @param yTick the tick in the y axis
+     * @return
+     */
     public static LineChart getLineChartThirtyDays(double width, double height, double x, double y, String yLabelName, int yMax, int yMin, int yTick){
         final NumberAxis xAxis = new NumberAxis();
         xAxis.setLabel("Days");
@@ -31,7 +43,11 @@ public class LineChartThirtyDaysFactory {
     }
 
 
-
+    /**
+     * Adds data to the chart
+     * @param lineChart A LineChart object
+     * @param xy List of doubles
+     */
     public static void addDataToLineChart(LineChart lineChart, List<Double> xy){
         lineChart.getData().clear();
 
@@ -55,6 +71,11 @@ public class LineChartThirtyDaysFactory {
         series.getNode().setStyle("-fx-stroke: #34abeb;");
     }
 
+    /**
+     * Adds data to the chart
+     * @param lineChart A LineChart object
+     * @param xy List of longs
+     */
     public static void addDataToLineChartLong(LineChart lineChart, List<Long> xy){
         lineChart.getData().clear();
 
