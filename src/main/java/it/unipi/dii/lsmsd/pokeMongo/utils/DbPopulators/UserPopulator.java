@@ -1,4 +1,4 @@
-package it.unipi.dii.lsmsd.pokeMongo.DbPopulators;
+package it.unipi.dii.lsmsd.pokeMongo.utils.DbPopulators;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
