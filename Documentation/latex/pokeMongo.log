@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  20 DEC 2020 12:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  20 DEC 2020 14:19
 entering extended mode
 **./pokeMongo.tex
 (pokeMongo.tex
@@ -1110,8 +1110,12 @@ Package pdftex.def Info: img/javafx_charts_package.png  used on input line 178.
 
 (pdftex.def)             Requested size: 272.99881pt x 48.36562pt.
 
-Overfull \hbox (38.94595pt too wide) in paragraph at lines 185--192
- [] 
+Overfull \hbox (38.94595pt too wide) in alignment at lines 185--191
+ [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 191
  []
 
 <img/javafx_choicebox_package.png, id=689, 467.7475pt x 128.48pt>
@@ -1127,213 +1131,251 @@ Overfull \hbox (9.85725pt too wide) in paragraph at lines 196--201
  []
 
 [46 <./img/javafx_charts_package.png>]
-Overfull \hbox (22.94595pt too wide) in paragraph at lines 203--210
- [] 
+Overfull \hbox (38.94595pt too wide) in alignment at lines 207--213
+ [] [] 
  []
 
-<img/javafx_combobox_package.png, id=696, 983.675pt x 250.9375pt>
+
+Underfull \vbox (badness 10000) detected at line 213
+ []
+
+<img/javafx_combobox_package.png, id=697, 983.675pt x 250.9375pt>
 File: img/javafx_combobox_package.png Graphic file (type png)
 <use img/javafx_combobox_package.png>
-Package pdftex.def Info: img/javafx_combobox_package.png  used on input line 21
-5.
+Package pdftex.def Info: img/javafx_combobox_package.png  used on input line 22
+1.
 (pdftex.def)             Requested size: 312.00119pt x 79.59326pt.
 
-Overfull \hbox (22.94595pt too wide) in paragraph at lines 219--230
- [] 
+Overfull \hbox (38.94595pt too wide) in alignment at lines 228--238
+ [] [] 
  []
 
-<img/javafx_group_package.png, id=697, 1899.095pt x 664.4825pt>
+
+Underfull \vbox (badness 10000) detected at line 238
+ []
+
+<img/javafx_group_package.png, id=698, 1899.095pt x 664.4825pt>
 File: img/javafx_group_package.png Graphic file (type png)
 <use img/javafx_group_package.png>
-Package pdftex.def Info: img/javafx_group_package.png  used on input line 236.
+Package pdftex.def Info: img/javafx_group_package.png  used on input line 246.
 (pdftex.def)             Requested size: 312.00119pt x 109.16847pt.
 [47 <./img/javafx_choicebox_package.png> <./img/javafx_combobox_package.png>]
-Overfull \hbox (22.94595pt too wide) in paragraph at lines 240--249
- [] 
+Overfull \hbox (38.94595pt too wide) in alignment at lines 253--261
+ [] [] 
  []
 
-<img/javafx_imageviews_package.png, id=706, 586.19pt x 182.6825pt>
+
+Underfull \vbox (badness 10000) detected at line 261
+ []
+
+<img/javafx_imageviews_package.png, id=709, 586.19pt x 182.6825pt>
 File: img/javafx_imageviews_package.png Graphic file (type png)
 <use img/javafx_imageviews_package.png>
 Package pdftex.def Info: img/javafx_imageviews_package.png  used on input line 
-254.
+269.
 (pdftex.def)             Requested size: 195.0pt x 60.77043pt.
 
-Overfull \hbox (22.94595pt too wide) in paragraph at lines 258--265
+Overfull \hbox (38.94595pt too wide) in paragraph at lines 276--283
  [] 
  []
 
-<img/javafx_labels_package.png, id=707, 1887.05pt x 349.305pt>
+<img/javafx_labels_package.png, id=710, 1887.05pt x 349.305pt>
 File: img/javafx_labels_package.png Graphic file (type png)
 <use img/javafx_labels_package.png>
-Package pdftex.def Info: img/javafx_labels_package.png  used on input line 271.
+Package pdftex.def Info: img/javafx_labels_package.png  used on input line 290.
 
 (pdftex.def)             Requested size: 312.00119pt x 57.75009pt.
 [48 <./img/javafx_group_package.png> <./img/javafx_imageviews_package.png>]
-Overfull \hbox (22.94595pt too wide) in paragraph at lines 275--290
+Overfull \hbox (38.94595pt too wide) in paragraph at lines 297--312
  [] 
  []
 
-<img/javafx_panes_package.png, id=717, 483.552pt x 304.191pt>
+<img/javafx_panes_package.png, id=721, 483.552pt x 304.191pt>
 File: img/javafx_panes_package.png Graphic file (type png)
 <use img/javafx_panes_package.png>
-Package pdftex.def Info: img/javafx_panes_package.png  used on input line 295.
+Package pdftex.def Info: img/javafx_panes_package.png  used on input line 319.
 (pdftex.def)             Requested size: 390.0pt x 245.349pt.
-<img/javafx_panes_package2.png, id=718, 483.552pt x 253.9305pt>
+<img/javafx_panes_package2.png, id=722, 483.552pt x 253.9305pt>
 File: img/javafx_panes_package2.png Graphic file (type png)
 <use img/javafx_panes_package2.png>
-Package pdftex.def Info: img/javafx_panes_package2.png  used on input line 299.
+Package pdftex.def Info: img/javafx_panes_package2.png  used on input line 323.
 
 (pdftex.def)             Requested size: 390.0pt x 204.81078pt.
 [49 <./img/javafx_labels_package.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 311--311
+Underfull \hbox (badness 10000) in paragraph at lines 338--338
 []|\OT1/cmr/m/n/12 PokemonTeamForUserSelected
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--327
+Underfull \hbox (badness 3849) in paragraph at lines 344--345
+[]|\OT1/cmr/m/n/12 Specific Scroll-Pane to vi-su-al-ize friends
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 350--351
+[]|\OT1/cmr/m/n/12 Specific Scroll-Pane to vi-su-al-ize the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
 []|\OT1/cmr/m/n/12 RankingPokemonSingleResult
  []
 
 
-Overfull \hbox (22.94595pt too wide) in alignment at lines 303--333
+Overfull \hbox (38.94595pt too wide) in alignment at lines 330--360
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 333
+Underfull \vbox (badness 10000) detected at line 360
  []
 
 [50 <./img/javafx_panes_package.png> <./img/javafx_panes_package2.png>]
-<img/javafx_panes_package3.png, id=734, 1389.19pt x 1369.115pt>
+<img/javafx_panes_package3.png, id=738, 1389.19pt x 1369.115pt>
 File: img/javafx_panes_package3.png Graphic file (type png)
 <use img/javafx_panes_package3.png>
-Package pdftex.def Info: img/javafx_panes_package3.png  used on input line 339.
+Package pdftex.def Info: img/javafx_panes_package3.png  used on input line 367.
 
 (pdftex.def)             Requested size: 272.99881pt x 269.05501pt.
 
 [51]
-Underfull \hbox (badness 4291) in paragraph at lines 347--348
+Underfull \hbox (badness 4291) in paragraph at lines 379--380
 []|\OT1/cmr/m/n/12 Specific Pane for the AD-D/RE-MOVE
  []
 
 
-Overfull \hbox (22.94595pt too wide) in paragraph at lines 343--352
- [] 
+Overfull \hbox (38.94595pt too wide) in alignment at lines 375--383
+ [] [] 
  []
 
-<img/persistence_package.png, id=739, 2543.5025pt x 3953.77126pt>
+
+Underfull \vbox (badness 10000) detected at line 383
+ []
+
+<img/persistence_package.png, id=743, 2543.5025pt x 3953.77126pt>
 File: img/persistence_package.png Graphic file (type png)
 <use img/persistence_package.png>
-Package pdftex.def Info: img/persistence_package.png  used on input line 359.
+Package pdftex.def Info: img/persistence_package.png  used on input line 392.
 (pdftex.def)             Requested size: 350.99762pt x 545.5607pt.
 [52 <./img/javafx_panes_package3.png>]
-Underfull \hbox (badness 1342) in paragraph at lines 378--379
+Underfull \hbox (badness 4660) in paragraph at lines 408--409
+[]|\OT1/cmr/m/n/12 Shared in-ter-face for the man-ag-ing of
+ []
+
+
+Underfull \hbox (badness 4660) in paragraph at lines 410--411
+[]|\OT1/cmr/m/n/12 Shared in-ter-face for the man-ag-ing of
+ []
+
+
+Underfull \hbox (badness 1342) in paragraph at lines 414--415
 []|\OT1/cmr/m/n/12 Implementation of Database spe-cific for
  []
 
 
-Underfull \hbox (badness 2884) in paragraph at lines 378--379
+Underfull \hbox (badness 2884) in paragraph at lines 414--415
 \OT1/cmr/m/n/12 Mon-goDB, to be ex-tended with other
  []
 
 
-Underfull \hbox (badness 1342) in paragraph at lines 386--387
+Underfull \hbox (badness 1342) in paragraph at lines 422--423
 []|\OT1/cmr/m/n/12 Implementation of Database spe-cific for
  []
 
 
-Overfull \hbox (22.94595pt too wide) in alignment at lines 364--405
+Overfull \hbox (38.94595pt too wide) in alignment at lines 400--441
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 405
+Underfull \vbox (badness 10000) detected at line 441
  []
 
 [53 <./img/persistence_package.png>]
-Overfull \hbox (22.94595pt too wide) in alignment at lines 405--406
+Overfull \hbox (38.94595pt too wide) in alignment at lines 441--442
  [] [] 
  []
 
 [54]
-<img/userInterface_package.png, id=758, 4111.36pt x 2272.49pt>
+<img/userInterface_package.png, id=763, 4111.36pt x 2272.49pt>
 File: img/userInterface_package.png Graphic file (type png)
 <use img/userInterface_package.png>
-Package pdftex.def Info: img/userInterface_package.png  used on input line 417.
+Package pdftex.def Info: img/userInterface_package.png  used on input line 454.
 
 (pdftex.def)             Requested size: 390.0pt x 215.54204pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 433--433
+ [55]
+Underfull \hbox (badness 10000) in paragraph at lines 473--473
 []|\OT1/cmr/m/n/12 PokeSceneWithBlastoise
  []
 
 
-Underfull \hbox (badness 2932) in paragraph at lines 437--438
+Underfull \hbox (badness 2932) in paragraph at lines 477--478
 \OT1/cmr/m/n/12 neWith-Header and the PokeSce-neWith-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 441--441
+Underfull \hbox (badness 10000) in paragraph at lines 481--481
 []|\OT1/cmr/m/n/12 PokeSceneWithHeaderAndBack
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 461--462
+Underfull \hbox (badness 1577) in paragraph at lines 501--502
 []|\OT1/cmr/m/n/12 Enum con-tain-ing the dif-fer-ent types of
  []
 
 
-Overfull \hbox (22.94595pt too wide) in alignment at lines 421--462
+Overfull \hbox (38.94595pt too wide) in alignment at lines 461--502
  [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 462
+Underfull \vbox (badness 10000) detected at line 502
  []
 
-[55 <./img/userInterface_package.png>]
-Overfull \hbox (22.94595pt too wide) in alignment at lines 462--469
+
+Overfull \hbox (38.94595pt too wide) in alignment at lines 502--509
  [] [] 
  []
 
-[56]
-<img/utils_package.png, id=770, 1264.725pt x 433.62pt>
+[56 <./img/userInterface_package.png>] [57]
+<img/utils_package.png, id=779, 1264.725pt x 433.62pt>
 File: img/utils_package.png Graphic file (type png)
 <use img/utils_package.png>
-Package pdftex.def Info: img/utils_package.png  used on input line 475.
+Package pdftex.def Info: img/utils_package.png  used on input line 516.
 (pdftex.def)             Requested size: 272.99881pt x 93.597pt.
 
-Overfull \hbox (22.94595pt too wide) in paragraph at lines 479--488
- [] 
+Overfull \hbox (38.94595pt too wide) in alignment at lines 523--531
+ [] [] 
  []
 
-[57 <./img/utils_package.png>]
+
+Underfull \vbox (badness 10000) detected at line 531
+ []
+
+[58 <./img/utils_package.png>]
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-[58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69]) [70]
+[59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69]) [70]
 \openout2 = `chapters/test.aux'.
 
-
-(chapters/test.tex) [71
-
+ (chapters/test.tex) [71
 
 
-] (pokeMongo.aux (chapters/introduction.aux)
-(chapters/analysis.aux) (chapters/project.aux) (chapters/implementation.aux)
-(chapters/test.aux))
+
+] (pokeMongo.aux (chapters/introduction.aux) (chapters/analysis.aux)
+(chapters/project.aux) (chapters/implementation.aux) (chapters/test.aux))
 Package rerunfilecheck Info: File `pokeMongo.out' has not changed.
 (rerunfilecheck)             Checksum: 95155F53EB6D3CF8AA5E58FA28A3B647;4932.
  ) 
 Here is how much of TeX's memory you used:
- 12485 strings out of 480236
- 198126 string characters out of 2880557
- 958917 words of memory out of 3000000
- 28238 multiletter control sequences out of 15000+200000
+ 12493 strings out of 480236
+ 198150 string characters out of 2880557
+ 925997 words of memory out of 3000000
+ 28244 multiletter control sequences out of 15000+200000
  543660 words of font info for 58 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,8n,77p,900b,1958s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 70i,9n,77p,910b,1903s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt
 1000.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcrm1200.pk><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/
@@ -1353,9 +1395,9 @@ public/amsfonts/cm/cmr8.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts
 TeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/gxhan/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/gxhan/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on pokeMongo.pdf (72 pages, 4294134 bytes).
+Output written on pokeMongo.pdf (72 pages, 4295913 bytes).
 PDF statistics:
- 1319 PDF objects out of 1440 (max. 8388607)
- 534 named destinations out of 1000 (max. 500000)
+ 1322 PDF objects out of 1440 (max. 8388607)
+ 536 named destinations out of 1000 (max. 500000)
  762 words of extra memory for PDF output out of 10000 (max. 10000000)
 
