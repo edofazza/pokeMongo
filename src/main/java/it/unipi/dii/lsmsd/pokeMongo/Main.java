@@ -5,8 +5,7 @@ import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
+import java.util.logging.LogManager;
 
 /**
  * Main Class of the application
@@ -18,7 +17,6 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage primaryStage) {
-
         Scene scene = new CurrentUI().initScene();
         primaryStage.setTitle("pokeMongo");
         primaryStage.setScene(scene);
@@ -31,6 +29,10 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         Logger.log("Starting of the application");
+
+        // removes the log messages from the dbs
+        LogManager.getLogManager().reset();
+
         launch(args);
     }
 }
