@@ -170,6 +170,10 @@ public class PokemonWindowGroup extends Group {
         getChildren().addAll(biologyTitle, biologyText);
     }
 
+    /**
+     * Adds to the class the Nodes related to the pokemon's posts.
+     * @param name the name of the pokemon
+     */
     private void displayPosts(String name) {
         Label postLabel = new Label("POSTS");
         postLabel.relocate( 815, 70);
@@ -180,6 +184,10 @@ public class PokemonWindowGroup extends Group {
         getChildren().addAll(postLabel, pane);
     }
 
+    /**
+     * Displays the label related to the chart
+     * @param name the name of the pokemon
+     */
     private void displayCatchRateTimePlot(String name){
         Label catchRatePlot = new Label(name.toUpperCase(Locale.ROOT) + " CATCH RATE PLOT");
         catchRatePlot.relocate(210, 380);
@@ -187,29 +195,16 @@ public class PokemonWindowGroup extends Group {
         getChildren().addAll(catchRatePlot);
     }
 
+    /**
+     * Displays the chart about the catch rate
+     * @param name the name of the pokemon
+     * @param catchRates a list of doubles that contains the catch rate flotation in a window of prefixed entries
+     */
     private void displayLineChart(String name, List<Double> catchRates){
         //GET DATA OF DYNAMIC CATCH RATE
         LineChart<Number, Number> lineChart1 = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, 15, 400, "Catch Rate",300, 0, 50);
         LineChartThirtyDaysFactory.addDataToLineChart(lineChart1, catchRates);
 
-
-        /*
-        List<Pair<Double, Double>> pairList = new ArrayList<>();
-        pairList.add(new Pair<Double, Double>(1.0, 3.0));
-        pairList.add(new Pair<Double, Double>(2.0, 25.0));
-        pairList.add(new Pair<Double, Double>(3.0, 3.0));
-        pairList.add(new Pair<Double, Double>(4.0, 3.0));
-        pairList.add(new Pair<Double, Double>(5.0, 3.0));
-        pairList.add(new Pair<Double, Double>(6.0, 3.0));
-        pairList.add(new Pair<Double, Double>(7.0, 3.0));
-        pairList.add(new Pair<Double, Double>(8.0, 3.0));
-        pairList.add(new Pair<Double, Double>(9.0, 3.0));
-        pairList.add(new Pair<Double, Double>(10.0, 3.0));
-
-
-        LineChart<Number, Number> lineChart1 = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, 15, 400, "Catch Rate",300, 0, 50);
-        LineChartThirtyDaysFactory.addDataToLineChart(lineChart1, pairList);
-        */
         getChildren().addAll(lineChart1);
     }
 }
