@@ -2,8 +2,6 @@ package it.unipi.dii.lsmsd.pokeMongo.DbPopulators;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManager;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserNetworkManagerFactory;
 
 import java.io.*;
 import java.util.*;

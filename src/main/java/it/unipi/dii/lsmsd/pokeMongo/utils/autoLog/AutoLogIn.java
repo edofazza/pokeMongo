@@ -1,4 +1,4 @@
-package autoLog;
+package it.unipi.dii.lsmsd.pokeMongo.utils.autoLog;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
@@ -6,7 +6,6 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
-import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 
 import java.util.ArrayList;
 
