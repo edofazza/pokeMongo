@@ -3,7 +3,6 @@ package it.unipi.dii.lsmsd.pokeMongo.persistence;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 
 import java.util.*;
-import java.util.Map;
 
 public interface PokemonManager {
 

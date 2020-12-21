@@ -6,23 +6,13 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
-import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
-import javafx.util.Pair;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import static com.mongodb.client.model.Aggregates.*;
 import static com.mongodb.client.model.Filters.*;
-import static com.mongodb.client.model.Projections.*;
-import static com.mongodb.client.model.Sorts.descending;
-import static com.mongodb.client.model.Updates.inc;
-import static com.mongodb.client.model.Updates.set;
 import static it.unipi.dii.lsmsd.pokeMongo.persistence.Filter.*;
 
 class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{

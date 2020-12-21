@@ -4,8 +4,6 @@ import it.unipi.dii.lsmsd.pokeMongo.bean.*;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePokemonException;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.SlotAlreadyOccupiedException;
 
-import java.util.ArrayList;
-
 public interface TeamManager {
 
     /**

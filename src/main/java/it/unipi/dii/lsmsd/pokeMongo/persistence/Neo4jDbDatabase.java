@@ -28,6 +28,7 @@ public abstract class Neo4jDbDatabase implements Database {
     @Override
     public void closeConnection() {
         driver.close();
+        driver=null;
     }
 
     private Driver getConnection() {
@@ -36,30 +37,13 @@ public abstract class Neo4jDbDatabase implements Database {
         return driver;
     }
 
-    public boolean insert(ArrayList<Object> toInsert){
-        getConnection();
-        for(Object query: toInsert){
-            if(!(query instanceof String)){
-                closeConnection();
-                return false;
-            }
-            try (Session session = driver.session()) {
-                session.writeTransaction((TransactionWork<Void>) tx -> {
-                    tx.run((String)query);
-                    return null;
-                });
-            }
-        }
-        closeConnection();
-        return true;
-    }
 
     @Override
     public boolean insert(Object query){
         if(!(query instanceof String)){
             return false;
         }
-        startConnection();
+        getConnection();
         try (Session session = driver.session()) {
             session.writeTransaction((TransactionWork<Void>) tx -> {
                 tx.run((String)query);
@@ -74,7 +58,7 @@ public abstract class Neo4jDbDatabase implements Database {
         if(!(query instanceof String) || !(value instanceof Value)){
             return false;
         }
-        startConnection();
+        getConnection();
         try (Session session = driver.session()) {
             session.writeTransaction((TransactionWork<Void>) tx -> {
                 tx.run((String)query, (Value)value);
@@ -89,7 +73,7 @@ public abstract class Neo4jDbDatabase implements Database {
     public boolean remove(Object query){
         if(!(query instanceof String))
             return false;
-        startConnection();
+        getConnection();
         try (Session session = driver.session()) {
             session.writeTransaction((TransactionWork<Void>) tx -> {
                 tx.run((String)query);
@@ -103,7 +87,7 @@ public abstract class Neo4jDbDatabase implements Database {
     public boolean remove(Object query, Object value){
         if(!(query instanceof String) || !(value instanceof Value))
             return false;
-        startConnection();
+        getConnection();
         try (Session session = driver.session()) {
             session.writeTransaction((TransactionWork<Void>) tx -> {
                 tx.run((String)query, (Value)value);
@@ -117,7 +101,7 @@ public abstract class Neo4jDbDatabase implements Database {
     @Override
     public ArrayList<Object> getAll(){
         ArrayList<Object> records = new ArrayList<>();
-        startConnection();
+        getConnection();
         try (Session session = driver.session()) {
             session.readTransaction((TransactionWork<Void>) tx -> {
                 Result result = tx.run("MATCH (n) RETURN n");
@@ -137,7 +121,7 @@ public abstract class Neo4jDbDatabase implements Database {
         if(!(query instanceof String))
             return null;
         ArrayList<Object> records = new ArrayList<>();
-        startConnection();
+        getConnection();
         try (Session session = driver.session()) {
             session.readTransaction((TransactionWork<Void>) tx -> {
                 Result result = tx.run((String)query);
@@ -156,7 +140,7 @@ public abstract class Neo4jDbDatabase implements Database {
         if(!(query instanceof String))
             return null;
         ArrayList<Object> records = new ArrayList<>();
-        startConnection();
+        getConnection();
         try (Session session = driver.session()) {
             session.readTransaction((TransactionWork<Void>) tx -> {
                 Result result = tx.run((String)query, (Value)value);
@@ -175,7 +159,7 @@ public abstract class Neo4jDbDatabase implements Database {
     public boolean update(Object target, Object newValue){
         if(!(target instanceof String) || !(newValue instanceof Value))
             return false;
-        startConnection();
+        getConnection();
         try (Session session = driver.session()) {
             session.writeTransaction((TransactionWork<Void>) tx -> {
                 tx.run((String)target, (Value)newValue);
