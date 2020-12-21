@@ -64,31 +64,32 @@
 \contentsline {subsubsection}{\numberline {4.1.7}Package Analysis: security}{55}{subsubsection.4.1.7}%
 \contentsline {subsubsection}{\numberline {4.1.8}Package Analysis: userInterface}{55}{subsubsection.4.1.8}%
 \contentsline {subsubsection}{\numberline {4.1.9}Package Analysis: utils}{58}{subsubsection.4.1.9}%
-\contentsline {subsubsection}{\numberline {4.1.10}Obfuscation}{58}{subsubsection.4.1.10}%
-\contentsline {subsection}{\numberline {4.2}Main tools}{58}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}GSON}{59}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Caching mechanism and multimedia management}{59}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Password Encryptor}{60}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Logger}{60}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Form Validator}{62}{subsubsection.4.2.5}%
-\contentsline {subsection}{\numberline {4.3}Business Logic}{64}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Points computing}{64}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Dynamic Catch Rate computing}{65}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Analytics queries}{65}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}User Rankings}{65}{subsubsection.4.4.1}%
-\contentsline {paragraph}{World Best Team}{65}{subsubsection.4.4.1}%
-\contentsline {paragraph}{Friends Best Team}{66}{lstnumber.-12.7}%
-\contentsline {paragraph}{Country Best Team}{67}{lstnumber.-14.8}%
-\contentsline {subsubsection}{\numberline {4.4.2}Pokemon Rankings}{67}{subsubsection.4.4.2}%
-\contentsline {paragraph}{World Best Pokemon}{67}{subsubsection.4.4.2}%
-\contentsline {paragraph}{Country Best Pokemon}{67}{lstnumber.-16.6}%
-\contentsline {subsubsection}{\numberline {4.4.3}Usage Statistics}{68}{subsubsection.4.4.3}%
-\contentsline {paragraph}{Total Users}{68}{subsubsection.4.4.3}%
-\contentsline {paragraph}{Today Login}{68}{lstnumber.-18.7}%
-\contentsline {paragraph}{Country Today Login}{69}{lstnumber.-19.11}%
-\contentsline {subsubsection}{\numberline {4.4.4}Dynamic Catch Rate}{69}{subsubsection.4.4.4}%
-\contentsline {section}{\numberline {5}Test}{71}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Privacy and Security}{71}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Unit Test}{71}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Robustness}{73}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Performance}{73}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {4.1.10}APIs and SPIs}{59}{subsubsection.4.1.10}%
+\contentsline {subsubsection}{\numberline {4.1.11}Obfuscation}{62}{subsubsection.4.1.11}%
+\contentsline {subsection}{\numberline {4.2}Main tools}{62}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}GSON}{62}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Caching mechanism and multimedia management}{62}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Password Encryptor}{63}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Logger}{64}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Form Validator}{66}{subsubsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.3}Business Logic}{68}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Points computing}{68}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Dynamic Catch Rate computing}{68}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Analytics queries}{69}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}User Rankings}{69}{subsubsection.4.4.1}%
+\contentsline {paragraph}{World Best Team}{69}{subsubsection.4.4.1}%
+\contentsline {paragraph}{Friends Best Team}{69}{lstnumber.-15.7}%
+\contentsline {paragraph}{Country Best Team}{70}{lstnumber.-17.8}%
+\contentsline {subsubsection}{\numberline {4.4.2}Pokemon Rankings}{71}{subsubsection.4.4.2}%
+\contentsline {paragraph}{World Best Pokemon}{71}{subsubsection.4.4.2}%
+\contentsline {paragraph}{Country Best Pokemon}{71}{lstnumber.-19.6}%
+\contentsline {subsubsection}{\numberline {4.4.3}Usage Statistics}{71}{subsubsection.4.4.3}%
+\contentsline {paragraph}{Total Users}{71}{subsubsection.4.4.3}%
+\contentsline {paragraph}{Today Login}{72}{lstnumber.-21.7}%
+\contentsline {paragraph}{Country Today Login}{72}{lstnumber.-22.11}%
+\contentsline {subsubsection}{\numberline {4.4.4}Dynamic Catch Rate}{73}{subsubsection.4.4.4}%
+\contentsline {section}{\numberline {5}Test}{75}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Privacy and Security}{75}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Unit Test}{75}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Robustness}{77}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Performance}{77}{subsection.5.4}%

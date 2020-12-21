@@ -45,23 +45,24 @@
 \BOOKMARK [3][-]{subsubsection.4.1.7}{Package Analysis: security}{subsection.4.1}% 45
 \BOOKMARK [3][-]{subsubsection.4.1.8}{Package Analysis: userInterface}{subsection.4.1}% 46
 \BOOKMARK [3][-]{subsubsection.4.1.9}{Package Analysis: utils}{subsection.4.1}% 47
-\BOOKMARK [3][-]{subsubsection.4.1.10}{Obfuscation}{subsection.4.1}% 48
-\BOOKMARK [2][-]{subsection.4.2}{Main tools}{section.4}% 49
-\BOOKMARK [3][-]{subsubsection.4.2.1}{GSON}{subsection.4.2}% 50
-\BOOKMARK [3][-]{subsubsection.4.2.2}{Caching mechanism and multimedia management}{subsection.4.2}% 51
-\BOOKMARK [3][-]{subsubsection.4.2.3}{Password Encryptor}{subsection.4.2}% 52
-\BOOKMARK [3][-]{subsubsection.4.2.4}{Logger}{subsection.4.2}% 53
-\BOOKMARK [3][-]{subsubsection.4.2.5}{Form Validator}{subsection.4.2}% 54
-\BOOKMARK [2][-]{subsection.4.3}{Business Logic}{section.4}% 55
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Points computing}{subsection.4.3}% 56
-\BOOKMARK [3][-]{subsubsection.4.3.2}{Dynamic Catch Rate computing}{subsection.4.3}% 57
-\BOOKMARK [2][-]{subsection.4.4}{Analytics queries}{section.4}% 58
-\BOOKMARK [3][-]{subsubsection.4.4.1}{User Rankings}{subsection.4.4}% 59
-\BOOKMARK [3][-]{subsubsection.4.4.2}{Pokemon Rankings}{subsection.4.4}% 60
-\BOOKMARK [3][-]{subsubsection.4.4.3}{Usage Statistics}{subsection.4.4}% 61
-\BOOKMARK [3][-]{subsubsection.4.4.4}{Dynamic Catch Rate}{subsection.4.4}% 62
-\BOOKMARK [1][-]{section.5}{Test}{}% 63
-\BOOKMARK [2][-]{subsection.5.1}{Privacy and Security}{section.5}% 64
-\BOOKMARK [2][-]{subsection.5.2}{Unit Test}{section.5}% 65
-\BOOKMARK [2][-]{subsection.5.3}{Robustness}{section.5}% 66
-\BOOKMARK [2][-]{subsection.5.4}{Performance}{section.5}% 67
+\BOOKMARK [3][-]{subsubsection.4.1.10}{APIs and SPIs}{subsection.4.1}% 48
+\BOOKMARK [3][-]{subsubsection.4.1.11}{Obfuscation}{subsection.4.1}% 49
+\BOOKMARK [2][-]{subsection.4.2}{Main tools}{section.4}% 50
+\BOOKMARK [3][-]{subsubsection.4.2.1}{GSON}{subsection.4.2}% 51
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Caching mechanism and multimedia management}{subsection.4.2}% 52
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Password Encryptor}{subsection.4.2}% 53
+\BOOKMARK [3][-]{subsubsection.4.2.4}{Logger}{subsection.4.2}% 54
+\BOOKMARK [3][-]{subsubsection.4.2.5}{Form Validator}{subsection.4.2}% 55
+\BOOKMARK [2][-]{subsection.4.3}{Business Logic}{section.4}% 56
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Points computing}{subsection.4.3}% 57
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Dynamic Catch Rate computing}{subsection.4.3}% 58
+\BOOKMARK [2][-]{subsection.4.4}{Analytics queries}{section.4}% 59
+\BOOKMARK [3][-]{subsubsection.4.4.1}{User Rankings}{subsection.4.4}% 60
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Pokemon Rankings}{subsection.4.4}% 61
+\BOOKMARK [3][-]{subsubsection.4.4.3}{Usage Statistics}{subsection.4.4}% 62
+\BOOKMARK [3][-]{subsubsection.4.4.4}{Dynamic Catch Rate}{subsection.4.4}% 63
+\BOOKMARK [1][-]{section.5}{Test}{}% 64
+\BOOKMARK [2][-]{subsection.5.1}{Privacy and Security}{section.5}% 65
+\BOOKMARK [2][-]{subsection.5.2}{Unit Test}{section.5}% 66
+\BOOKMARK [2][-]{subsection.5.3}{Robustness}{section.5}% 67
+\BOOKMARK [2][-]{subsection.5.4}{Performance}{section.5}% 68

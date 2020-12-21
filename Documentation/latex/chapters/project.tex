@@ -12,7 +12,7 @@ According to concept presented in the previous chapter we can make the following
 
 The points 1 to 4 guided the choice of a \textbf{Document Database} for handling \textbf{User} and \textbf{Pokémon} data. The flexibility, denormalization and performance of this kind of the database make it the most appropriate one.\medspace \\
 
-The point 5 is best handled by a \textbf{Graph DB}, optimized for networks and different kinds of relationships. Moreover, we realized that the best way to handle a \textbf{Team} is to decompose it in a set of Graph Relationships (USER – OWNS $\rightarrow$ POKEMON).  Indeed, in this way queries mentioned at point 6 are very fast (just counting incoming/outcoming edges, see paragraph 3.3.1), and there are no useless, waste-memory repetitions of User IDs/Pokémon IDs. \\
+The point 5 is best handled by a \textbf{Graph DB}, optimized for networks and different kinds of relationships. Moreover, we realized that the best way to handle a \textbf{Team} is to decompose it in a set of Graph Relationships (USER – OWNS $\rightarrow$ POKEMON).  Indeed, in this way queries mentioned at point 6 are very fast (just counting incoming/outcoming edges, see paragraph 3.3.1), and there are no useless, waste-memory repetitions of User IDs/Pokémon IDs (for a more detailed motivation of this choice see Paragraph 3.4.1). \\
 Since each \textbf{User} can have only a \textbf{Team}, \textit{team name} and \textit{points} are stored in the \textbf{User} collection.
 
 
@@ -94,7 +94,7 @@ The field \textit{username} is involved in the following queries:
 		\hline
 		\textbf{R2} & Check \textbf{User}’s credential at login time \\
 		\hline
-		\textbf{R3} & \colorbox{BurntOrange}{Find a \textbf{user} by \textit{username} when a new follow request is submitted} \\
+		\textbf{R3} & Find a \textbf{user} by \textit{username} in order to proceed with a follow/unfollow action \\
 		\hline
 	\end{tabular}
 \end{center}
@@ -520,7 +520,7 @@ In order to maximize response velocity, the \textbf{Team} Entity has been fully 
 
 Since every \textbf{User} can have only a \textbf{Team}, the \textit{Team Name} property can be directly be stored into the Document Db’s \textbf{User} collection. 
 The amount of \textit{points} is not recomputed each time the \textbf{Team} is retrieved but it stored as a redundancy in the user collection until it is changed. \\
-The collection of \textbf{Pokémon} is maintained as up to 6 edges between a \textbf{User} node and \textbf{Pokémon} nodes in the \textbf{Graph Database}. \colorbox{BurntOrange}{This choice is due the fact that}:
+The collection of \textbf{Pokémon} is maintained as up to 6 edges between a \textbf{User} node and \textbf{Pokémon} nodes in the \textbf{Graph Database}. This choice is due the fact that:
 \begin{itemize}
 	\item An array of \textbf{Pokémon} in the user collection was not so good for ranking most used \textbf{Pokémon}
 	\item An array of owner \textbf{Users} in the \textbf{Pokémon} collection was bad for retrieving a \textbf{User’s team}.
