@@ -139,21 +139,6 @@ class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
         return null;
     }
 
-
-
-
-//    @Override
-//    public ArrayList<Pokemon> searchWithFilter(Map<Filter, String> parameters) {
-//        ArrayList<Filter> keys = new ArrayList<>(parameters.keySet());
-//        Bson query = queryBuilder(parameters);
-//        Logger.vvlog("SEARCH WITH FILTER query: " + query);
-//        ArrayList<Pokemon> result = new ArrayList<>();
-//        ArrayList<Object> matched = getWithFilter(query);
-//        for(Object o:matched)
-//            result.add((Pokemon)o);
-//        return result;
-//    }
-
     @Override
     public ArrayList<Pokemon> getEveryPokemon(){
         ArrayList<Object> pokemons = getAll();
