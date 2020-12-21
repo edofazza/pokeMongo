@@ -1,7 +1,5 @@
 package persistence;
 
-import java.util.ArrayList;
-
 
 /**
  * Shared interface among Databases, defines remote connections and structures of basic CRUD operations

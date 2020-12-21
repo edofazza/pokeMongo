@@ -97,19 +97,6 @@ public abstract class Neo4jDbDatabase implements Database {
         return true;
     }
 
-    public boolean remove(Object query, Object value){
-        if(!(query instanceof String) || !(value instanceof Value))
-            return false;
-        startConnection();
-        try (Session session = driver.session()) {
-            session.writeTransaction((TransactionWork<Void>) tx -> {
-                tx.run((String)query, (Value)value);
-                return null;
-            });
-        }
-        closeConnection();
-        return true;
-    }
 
     @Override
     public ArrayList<Object> getAll(){

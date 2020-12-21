@@ -4,12 +4,7 @@ import bean.Pokemon;
 import bean.PokemonAndCatchRate;
 import javafx.util.Pair;
 import persistence.*;
-import sun.rmi.server.Activation$ActivationSystemImpl_Stub;
 
-import javax.swing.*;
-import java.time.Duration;
-import java.time.Instant;
-import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -19,7 +14,7 @@ public class ServerStartup {
     private static boolean started=false;
 
     public static void main(String[] args){
-       /*try {
+       try {
             while (true) {
                 long timeToSleep;
                 if (!started) {         //first time starts at 00:00:01
@@ -34,14 +29,14 @@ public class ServerStartup {
                 } else {
                     timeToSleep=24*60*60*1000; //once per day
                 }
-                Thread.sleep(timeToSleep);*/
-                updateAll();/*
+                Thread.sleep(timeToSleep);
+                updateAll();
             }
         }
         catch (InterruptedException i){
             System.out.println(i.getMessage());
             i.printStackTrace();
-        }*/
+        }
     }
 
     private static void updateAll(){

@@ -3,6 +3,7 @@ package persistence;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+//not completed, at the moment is not useful for application purposes
 class AnalyticStorageOnLevelDb extends LevelDbDatabase implements AnalyticStorage{
     private final int numDays;
     private static AnalyticStorageOnLevelDb instance;

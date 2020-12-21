@@ -6,7 +6,6 @@ public class AnalyticStorageFactory {
     public static AnalyticStorage buildAnalyzer(){
         String technology = getTechnologyConfiguration();
         int daysToRemember = getDaysConfiguration();
-        //Logger.vlog("Obtaining technology: " + technology);
         switch (technology){
             case "LevelDb":
                 return AnalyticStorageOnLevelDb.getInstance(daysToRemember);
@@ -19,7 +18,6 @@ public class AnalyticStorageFactory {
                     throw new IllegalArgumentException();
                 }catch (IllegalArgumentException iae){
                     iae.printStackTrace();
-                    //Logger.error("Invalid database technology or missing implementation");
                 };
                 return null;
         }

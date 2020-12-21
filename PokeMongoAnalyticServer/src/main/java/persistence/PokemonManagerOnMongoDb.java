@@ -9,9 +9,7 @@ import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.mongodb.client.model.Filters.*;
 import static com.mongodb.client.model.Updates.*;
@@ -140,19 +138,6 @@ class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
     }
 
 
-
-
-//    @Override
-//    public ArrayList<Pokemon> searchWithFilter(Map<Filter, String> parameters) {
-//        ArrayList<Filter> keys = new ArrayList<>(parameters.keySet());
-//        Bson query = queryBuilder(parameters);
-//        Logger.vvlog("SEARCH WITH FILTER query: " + query);
-//        ArrayList<Pokemon> result = new ArrayList<>();
-//        ArrayList<Object> matched = getWithFilter(query);
-//        for(Object o:matched)
-//            result.add((Pokemon)o);
-//        return result;
-//    }
 
     @Override
     public ArrayList<Pokemon> getEveryPokemon(){

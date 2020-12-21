@@ -2,16 +2,11 @@ package persistence;
 
 import bean.Pokemon;
 import bean.PokemonAndCatchRate;
-import com.google.common.annotations.VisibleForTesting;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import javafx.util.Pair;
-import org.bson.*;
 import org.neo4j.driver.Record;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.bson.conversions.Bson;
 
 import static org.neo4j.driver.Values.parameters;
 

@@ -6,7 +6,6 @@ public class AnalyzerFactory {
 
     public static Analyzer buildAnalyzer(){
         String technology = getConfiguration();
-        //Logger.vlog("Obtaining technology: " + technology);
         switch (technology){
             case "MongoDb":
                 return new AnalyzerOnMongoDb();
@@ -15,7 +14,6 @@ public class AnalyzerFactory {
                     throw new IllegalArgumentException();
                 }catch (IllegalArgumentException iae){
                     iae.printStackTrace();
-                    //Logger.error("Invalid database technology or missing implementation");
                 };
                 return null;
         }
