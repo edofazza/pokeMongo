@@ -9,7 +9,6 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
-import it.unipi.dii.lsmsd.pokeMongo.security.PasswordEncryptor;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.event.ActionEvent;
 import javafx.scene.control.PasswordField;

@@ -12,9 +12,6 @@ import java.util.ArrayList;
 public abstract class MongoDbDatabase implements Database{
     private MongoClient connection;
 
-    private final String provaLocalCluster1 = "mongodb://localhost:27018,localhost:27019,localhost:27020/";
-    private final String provaLocalCluster2 = "?retryWrites=true?w=majority&wtimeout=10000";
-
     //read-your-writes consistency as guaranteed by https://docs.mongodb.com/manual/reference/read-concern/#read-concern-levels
     private final String clusterAddress = "mongodb://172.16.3.85:27017,172.16.3.86:27017,172.16.3.87:27017/";
     private final String retryWrites = "retryWrites=true";
@@ -35,9 +32,6 @@ public abstract class MongoDbDatabase implements Database{
         //                            + "&" + readPreference + "&" + readConcern);
 
         connection = MongoClients.create("mongodb://" + host + ":" + port);
-
-        // FOR LOCAL CLUSTER ONLY WITH RUNNING PROCESSES ON POWERSHELL
-        // connection = MongoClients.create(provaLocalCluster1 + provaLocalCluster2);
 
     }
 
@@ -71,7 +65,6 @@ public abstract class MongoDbDatabase implements Database{
         getCollection(name).drop();
     }
 
-    @Override
     public abstract boolean insert(ArrayList<Object> toInsert);
 
     @Override

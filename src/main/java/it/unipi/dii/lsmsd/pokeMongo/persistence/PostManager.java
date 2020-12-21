@@ -1,12 +1,10 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
-import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Post;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePostException;
 import javafx.util.Pair;
 
 import java.util.List;
-import java.util.Map;
 
 public interface PostManager {
 

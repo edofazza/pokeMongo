@@ -2,6 +2,7 @@ package persistence;
 
 import java.util.*;
 
+//not completed, at the moment is not useful for application purposes
 class AnalyticStorageOnLocalMemory implements AnalyticStorage{
     private final int numDays;
     private static AnalyticStorageOnLocalMemory instance;

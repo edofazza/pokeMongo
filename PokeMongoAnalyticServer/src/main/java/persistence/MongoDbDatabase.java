@@ -4,11 +4,9 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-//import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
-import javax.print.Doc;
 import java.util.*;
 
 public abstract class MongoDbDatabase implements Database{
@@ -34,7 +32,6 @@ public abstract class MongoDbDatabase implements Database{
 
     @Override
     public void closeConnection() {
-        //Logger.vlog("Closing connection with MongoDB");
         if(connection!=null) {
             connection.close();
             connection = null;
@@ -48,17 +45,14 @@ public abstract class MongoDbDatabase implements Database{
     }
 
     private MongoDatabase getDatabase(){
-        //Logger.vlog("Getting " + dbName + " Database");
         return getConnection().getDatabase(dbName);
     }
 
     public MongoCollection<Document> getCollection(String name){
-        //Logger.vlog("Getting " + name + " collection");
         return getDatabase().getCollection(name);
     }
 
     public void dropCollection(String name){
-        //Logger.vlog("Dropping " + name + " Database");
         getCollection(name).drop();
     }
 
@@ -80,8 +74,4 @@ public abstract class MongoDbDatabase implements Database{
 
     protected abstract Object aggregate(List<Bson> pipeline);
 
-    private void showError(){
-        Thread.currentThread().interrupt();
-        System.out.println("WRITE ACCESS NOT ALLOWED FOR THREAD " + Thread.currentThread().getName());
-    }
 }

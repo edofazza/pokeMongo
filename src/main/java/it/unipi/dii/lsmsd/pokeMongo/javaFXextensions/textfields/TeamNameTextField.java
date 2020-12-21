@@ -2,8 +2,6 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields;
 
 import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;
 
 /**

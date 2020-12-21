@@ -2,7 +2,6 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.group.TeamUserWindowGroup;
-import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

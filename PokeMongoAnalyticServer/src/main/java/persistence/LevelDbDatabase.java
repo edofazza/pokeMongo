@@ -2,8 +2,7 @@ package persistence;
 
 import org.iq80.leveldb.*;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 import static org.iq80.leveldb.impl.Iq80DBFactory.*;

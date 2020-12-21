@@ -9,9 +9,7 @@ import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.mongodb.client.model.Filters.*;
 import static com.mongodb.client.model.Updates.*;
@@ -138,6 +136,7 @@ class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
     protected Object aggregate(List<Bson> pipeline) {
         return null;
     }
+
 
     @Override
     public ArrayList<Pokemon> getEveryPokemon(){

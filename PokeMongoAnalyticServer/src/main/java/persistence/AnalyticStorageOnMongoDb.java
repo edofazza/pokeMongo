@@ -7,13 +7,10 @@ import com.mongodb.client.result.DeleteResult;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
-import javax.print.Doc;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static com.mongodb.client.model.Filters.*;
-import static com.mongodb.client.model.Updates.addToSet;
-import static com.mongodb.client.model.Updates.set;
 
 class AnalyticStorageOnMongoDb extends MongoDbDatabase implements AnalyticStorage{
     private String collectionName="analytic";
@@ -36,32 +33,6 @@ class AnalyticStorageOnMongoDb extends MongoDbDatabase implements AnalyticStorag
     private Analytic DocumentToAnalytic(Document d){
         return new Gson().fromJson(d.toJson(), Analytic.class);
     }
-
-
-    public long[] getLastLogins() {
-        long[] result = new long[numDays];
-        ArrayList<Object> al= getAll();
-        for(int i=0; i<numDays; i++){
-            result[i]=DocumentToAnalytic((Document)al.get(i)).getLastLogins();
-        }
-        return result;
-    }
-
-
-    public long[] getUserNumber() {
-        long[] result = new long[numDays];
-        ArrayList<Object> al= getAll();
-        for(int i=0; i<numDays; i++){
-            result[i]=DocumentToAnalytic((Document)al.get(i)).getUserCounter();
-        }
-        return result;
-    }
-
-
-    public List<Map<String, Long>> getLastLoginsByCountry() {
-        return null;
-    }
-
 
 
     @Override

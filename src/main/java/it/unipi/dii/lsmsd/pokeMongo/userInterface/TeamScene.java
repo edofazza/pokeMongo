@@ -11,7 +11,6 @@ import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerFactory;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManager;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
-import java.util.ArrayList;
 
 /**
  * This class is used to display the <code>Node</code> concerning the Team.

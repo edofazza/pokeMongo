@@ -1,6 +1,5 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
-import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicateUserException;
 

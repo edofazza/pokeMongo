@@ -6,14 +6,11 @@ import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.PokemonRanker;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicatePokemonException;
-import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicateUserException;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.SlotAlreadyOccupiedException;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import org.neo4j.driver.Record;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import static org.neo4j.driver.Values.parameters;
 
@@ -21,7 +18,6 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager, 
 
     @Override
     @VisibleForTesting
-    // eventualmente insertAPokemonIntoTeam(Team t, int slot)
     public boolean insertAPokemonIntoTeam(User u, Pokemon p, int slot) {
         String query = "MATCH (n:User) WHERE n.username = $username " +
                 "MATCH (p:Pokemon) WHERE p.name = $pokemon CREATE (n)-[:HAS {slot: $slot}]->(p)";
@@ -75,7 +71,6 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager, 
 
     @Override
     @VisibleForTesting
-    //eventualmente ritorna un Team
     public Pokemon[] getUserTeam(User target) {
         Pokemon[] team = new Pokemon[6];
         String query = "MATCH (u:User)-[h:HAS]->(p:Pokemon) WHERE u.username = $username RETURN p.name, p.type, p.sprite, p.capture_rate, h.slot";

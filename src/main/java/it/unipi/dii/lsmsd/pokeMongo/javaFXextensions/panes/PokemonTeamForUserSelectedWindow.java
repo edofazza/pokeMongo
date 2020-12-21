@@ -7,8 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-import java.text.DecimalFormat;
-
 /**
  * Pane related to a single pokemon in the <code>TeamUserWindowGroup</code>
  */

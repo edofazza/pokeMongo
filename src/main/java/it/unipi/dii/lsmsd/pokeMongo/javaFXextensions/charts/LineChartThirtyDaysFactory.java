@@ -6,7 +6,6 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
-import javafx.util.Pair;
 
 import java.util.List;
 
