@@ -180,7 +180,7 @@ public class User {
                     types.add(tyArray[1]);
                 }
 
-            points += (255 - p.getCapture_rate());
+            points += (256 - p.getCapture_rate());
 
             types.add(tyArray[0]);
         }

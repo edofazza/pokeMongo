@@ -2,7 +2,6 @@ package it.unipi.dii.lsmsd.pokeMongo.dataAnalysis;
 
 import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.AdminAnalysisOnMongoDb;
-import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 
 public class AdminAnalysisFactory {
