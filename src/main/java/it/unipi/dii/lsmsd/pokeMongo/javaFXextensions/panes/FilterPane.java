@@ -9,7 +9,6 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.FilterTextFieldO
 import it.unipi.dii.lsmsd.pokeMongo.persistence.Filter;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManager;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.PokemonManagerFactory;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
