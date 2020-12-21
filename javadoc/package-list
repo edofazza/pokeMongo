@@ -3,7 +3,7 @@ analytic
 bean
 conf
 it.unipi.dii.lsmsd.pokeMongo
-it.unipi.dii.lsmsd.pokeMongo.CipherCodeGenerator
+it.unipi.dii.lsmsd.pokeMongo.cipherCodeGenerator
 it.unipi.dii.lsmsd.pokeMongo.bean
 it.unipi.dii.lsmsd.pokeMongo.cache
 it.unipi.dii.lsmsd.pokeMongo.config
