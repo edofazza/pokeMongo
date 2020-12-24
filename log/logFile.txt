@@ -2491,3 +2491,17 @@ spaces, dots and apostrophes' at (510, 190)
 2020-12-24T10:11:24.331Z [VVLOG] Creating Regular button 'BACK' at (200, 600)
 2020-12-24T10:11:24.177Z [VVLOG] Creating CountryComboBox at (750, 500)
 2020-12-24T10:11:24.174Z [VVLOG] Creating FieldRelatedLabel 'Country' at (750, 470)
+2020-12-24T11:45:51.226Z [VLOG] Getting pokeMongo Database
+2020-12-24T11:45:51.226Z [VLOG] Getting pokemon collection
+2020-12-24T11:45:51.226Z [VLOG] Starting connection with MongoDB
+2020-12-24T11:45:51.535Z [VLOG] Closing connection with MongoDB
+2020-12-24T11:45:51.554Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-24T11:45:51.554Z [VLOG] ENCRYPTION | encrypt-pw: 04520e8faadfc50330bae9619568dba9a88f9d418795a9ad7bfdabf04a1befa7
+2020-12-24T11:45:51.557Z [VLOG] ENCRYPTION | encrypt-pw: 6898e51fe98a5b5159003007aa0fbc18883e79d181cad4ec283abc61ae993834
+2020-12-24T11:45:51.558Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-24T11:45:51.559Z [VLOG] ENCRYPTION | encrypt-pw: 3f6055c6be5aa1188135c3190cf0629a096b693eb4ef2ac25dc005050e2f1195
+2020-12-24T11:45:51.564Z [VLOG] Getting user collection
+2020-12-24T11:45:51.564Z [VLOG] Getting pokeMongo Database
+2020-12-24T11:45:51.564Z [VLOG] Starting connection with MongoDB
+2020-12-24T11:45:51.565Z [VLOG] Closing connection with MongoDB
+2020-12-24T11:45:51.588Z [WARNING] NullPointerException avoided
