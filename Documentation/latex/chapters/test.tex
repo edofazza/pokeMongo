@@ -1,5 +1,35 @@
 \section{Test}
 \subsection{Privacy and Security}
+\subsubsection{Privacy Issues}
+The only data about a \textbf{User} stored and managed by the application is just the one submitted by the \textbf{User} himself at login time, plus a timestamp of the last login.\\
+The only data about a \textbf{User} visible by other \textbf{Users} are: \textit{username}, \textit{country}, \textit{team name}, \textit{points}. \\
+The timestamp of the last login is used for applicative purposes only, and it’s aggregated in evaluating the \textbf{Analytics}. For no reason \textit{admins} or other \textbf{Users} can access to the last login timestamp of a \textbf{User}.
+\subsubsection{Password Encryption}
+As discussed in the paragraph 4.3.3, all the \textbf{Users}’ passwords are strongly encrypted and they are never compared using their plain text version. \\
+The encryption is performed immediately after the click on the submit button, this means that no module/class/driver/DB of the application can have access to the plain text password, but the Password Encryptor itself.\\
+Moreover, given the encrypted password, there is no way to retrieve back the plain text one, nor to correctly access to the application using the hashed one.\\
+The application does not deal with Record \& Playback attacks, anyway having no access to the source Java code is very difficult to use it to successfully steal an account.
+\subsubsection{Input Injections}
+\textbf{N.B.} In the real implementation we used an input obfuscation to hide password input. In the following example it has been removed for demonstrative purposes only.
+
+\begin{figure}[H]
+	\centering
+	\caption{Example 1: : \textit{usernames} are real registered \textit{username}, \textit{passwords} are famous MongoDB injection strings.}
+	\includegraphics[width=\textwidth]{img/privacy_1.png}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/privacy_2.png}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\caption{Example 2: input validation on the signup form blocks code injection attempts (it would have removed all the collection)}
+	\includegraphics[width=\textwidth]{img/privacy_3.png}
+\end{figure}
+
+
 \subsection{Unit Test}
 While writing the implementation of the various Classes of the project, Unit Tests were written in order to check if the modules were working properly. The main types of test written are the following:
 \begin{itemize}
