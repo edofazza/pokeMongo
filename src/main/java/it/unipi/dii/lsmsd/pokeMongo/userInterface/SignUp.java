@@ -89,7 +89,7 @@ public class SignUp extends PokeSceneWithTitle {
     private void displayNicknameFields() {
         FieldRelatedLabel usernameLabel = new FieldRelatedLabel("Username", 350, 270);
 
-        invalidUsernameLabel = new InvalidFormEntryLabel("Surname must only contain letters,\nnumbers, spaces and _", 510, 290, false);
+        invalidUsernameLabel = new InvalidFormEntryLabel("Username must only contain letters,\nnumbers, spaces and _", 510, 290, false);
 
         usernameTF = new TextField();
         usernameTF.relocate(350, 300);
