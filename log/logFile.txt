@@ -1749,3 +1749,699 @@ a number' at (910, 285)
 2020-12-20T15:32:56.956Z [LOG] SHOWING HOMEPAGE
 2020-12-20T15:32:56.956Z [VVLOG] Creating HomePageCentralButton at (490, 230)
 2020-12-20T15:32:56.955Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:02:39.176Z [LOG] Starting of the application
+2020-12-24T09:02:40.528Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:02:40.530Z [VVLOG] Setting musicOn image
+2020-12-24T09:02:40.574Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:02:40.776Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:02:40.822Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:02:40.822Z [LOG] SHOWING LOGIN PAGE
+2020-12-24T09:02:40.823Z [VVLOG] Creating FieldRelatedLabel 'Username' at (550, 170)
+2020-12-24T09:02:40.963Z [VVLOG] Creating FieldRelatedLabel 'Password' at (550, 270)
+2020-12-24T09:02:40.964Z [VVLOG] Creating Regular button 'LOG IN' at (700, 370)
+2020-12-24T09:02:40.965Z [VLOG] Setting song: opening.mp3
+2020-12-24T09:02:40.964Z [VVLOG] Creating Regular button 'SIGN UP' at (500, 370)
+2020-12-24T09:02:41.780Z [VLOG] CHANGING SONG
+2020-12-24T09:02:42.148Z [VLOG] Setting song: opening.mp3
+2020-12-24T09:02:47.928Z [LOG] CHANGE OF SCENE
+2020-12-24T09:02:47.957Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:02:47.957Z [VVLOG] Setting musicOn image
+2020-12-24T09:02:47.958Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:02:47.958Z [LOG] SHOWING SIGN-UP PAGE
+2020-12-24T09:02:47.958Z [VVLOG] Creating FieldRelatedLabel 'Surname' at (350, 170)
+2020-12-24T09:02:47.959Z [VVLOG] Creating InvalidFormEntryLabel 'Surname must only contain letters,
+spaces, dots and apostrophes' at (510, 190)
+2020-12-24T09:02:47.960Z [VVLOG] Creating FieldRelatedLabel 'Name' at (750, 170)
+2020-12-24T09:02:47.961Z [VVLOG] Creating InvalidFormEntryLabel 'Name must only contain letters,
+spaces, dots and apostrophes' at (910, 190)
+2020-12-24T09:02:47.962Z [VVLOG] Creating FieldRelatedLabel 'Username' at (350, 270)
+2020-12-24T09:02:47.962Z [VVLOG] Creating FieldRelatedLabel 'Email' at (750, 270)
+2020-12-24T09:02:47.962Z [VVLOG] Creating InvalidFormEntryLabel 'Email must follow the format:
+example@domain.tld' at (910, 290)
+2020-12-24T09:02:47.963Z [VVLOG] Creating FieldRelatedLabel 'Password' at (350, 370)
+2020-12-24T09:02:47.963Z [VVLOG] Creating InvalidFormEntryLabel 'Password must contain at least:
+8 characters, a letter and
+a number' at (510, 380)
+2020-12-24T09:02:47.964Z [VVLOG] Creating FieldRelatedLabel 'Confirm Password' at (750, 370)
+2020-12-24T09:02:47.964Z [VVLOG] Creating InvalidFormEntryLabel 'Does not match with the other password' at (910, 400)
+2020-12-24T09:02:47.965Z [VVLOG] Creating FieldRelatedLabel 'Birthday' at (350, 470)
+2020-12-24T09:02:47.965Z [VVLOG] Creating InvalidFormEntryLabel 'Birthday must not be
+a day in the future' at (540, 490)
+2020-12-24T09:02:48.009Z [VVLOG] Creating FieldRelatedLabel 'Country' at (750, 470)
+2020-12-24T09:02:48.045Z [VVLOG] Creating CountryComboBox at (750, 500)
+2020-12-24T09:02:48.072Z [VVLOG] Creating Regular button 'BACK' at (200, 600)
+2020-12-24T09:02:48.073Z [VVLOG] Creating Regular button 'SUBMIT' at (1000, 600)
+2020-12-24T09:02:48.074Z [VLOG] CHANGING SONG
+2020-12-24T09:02:48.074Z [VLOG] Setting song: pallet_town.mp3
+2020-12-24T09:03:36.293Z [VLOG] Stopping song
+2020-12-24T09:03:36.293Z [VVLOG] Setting musicOn image
+2020-12-24T09:04:10.024Z [VLOG] Obtaining technology: MongoDb
+2020-12-24T09:04:10.028Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:04:10.028Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:04:10.028Z [VLOG] Getting user collection
+2020-12-24T09:04:10.028Z [VVLOG] Trying to register TiHoFregato
+2020-12-24T09:04:10.437Z [VLOG] ENCRYPTION | encrypt-pw: 57dadaa6853a4689c81a914da9897a5b604f47b42f57c71681e9a049c1ebfd86
+2020-12-24T09:04:10.453Z [VVLOG] Getting document from User
+Document: {"admin":false,"username":"TiHoFregato","email":"TiHoFregato@TiHoFregato.com","password":"57dadaa6853a4689c81a914da9897a5b604f47b42f57c71681e9a049c1ebfd86","surname":"TiHoFregato","name":"TiHoFregato","birthDay":"2019-12-31T00:00:00.000Z","country":"Philippines","teamName":"Team name","lastLogin":"2020-12-24T10:04:10.001Z","dailyPokeball":10,"points":0.0}
+2020-12-24T09:04:10.475Z [VVLOG] ADDED {"admin": false, "username": "TiHoFregato", "email": "TiHoFregato@TiHoFregato.com", "password": "57dadaa6853a4689c81a914da9897a5b604f47b42f57c71681e9a049c1ebfd86", "surname": "TiHoFregato", "name": "TiHoFregato", "birthDay": "2019-12-31T00:00:00.000Z", "country": "Philippines", "teamName": "Team name", "lastLogin": "2020-12-24T10:04:10.001Z", "dailyPokeball": 10, "points": 0.0}
+2020-12-24T09:04:10.841Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:04:10.869Z [VVLOG] Creating InvalidFormEntryLabel 'Sign up successfully done' at (800, 600)
+2020-12-24T09:04:10.882Z [VLOG] Obtaining technology: Neo4j
+2020-12-24T09:04:10.993Z [VLOG] Starting connection with Neo4j
+2020-12-24T09:04:13.190Z [VLOG] Starting connection with Neo4j
+2020-12-24T09:04:57.323Z [LOG] CHANGE OF SCENE
+2020-12-24T09:04:57.324Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:04:57.324Z [VVLOG] Setting musicOn image
+2020-12-24T09:04:57.325Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:04:57.377Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:04:57.419Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:04:57.419Z [VVLOG] Creating FieldRelatedLabel 'Username' at (550, 170)
+2020-12-24T09:04:57.419Z [LOG] SHOWING LOGIN PAGE
+2020-12-24T09:04:57.420Z [VVLOG] Creating FieldRelatedLabel 'Password' at (550, 270)
+2020-12-24T09:04:57.420Z [VVLOG] Creating Regular button 'LOG IN' at (700, 370)
+2020-12-24T09:04:57.420Z [VVLOG] Creating Regular button 'SIGN UP' at (500, 370)
+2020-12-24T09:05:13.421Z [VLOG] Obtaining technology: MongoDb
+2020-12-24T09:05:13.423Z [VLOG] ENCRYPTION | encrypt-pw: 57dadaa6853a4689c81a914da9897a5b604f47b42f57c71681e9a049c1ebfd86
+2020-12-24T09:05:13.424Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:05:13.424Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:05:13.424Z [VLOG] Getting user collection
+2020-12-24T09:05:13.842Z [VVLOG] Getting User from Document
+Document: {"_id": {"$oid": "5fd655edacd68f5ed52cb864"}, "admin": false, "username": "edofazza", "email": "edo@edo.it", "password": "57dadaa6853a4689c81a914da9897a5b604f47b42f57c71681e9a049c1ebfd86", "surname": "edo", "name": "edo", "birthDay": "1998-12-11T00:00:00.000Z", "country": "Italy", "teamName": "Team name", "lastLogin": "2020-12-20T12:11:29.530Z", "dailyPokeball": 10, "points": 756.0148617834141}
+2020-12-24T09:05:13.843Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:05:13.862Z [VVLOG] Trying to update number of pokeball of edofazza to 10
+2020-12-24T09:05:13.864Z [VLOG] Getting user collection
+2020-12-24T09:05:13.864Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:05:13.864Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:05:14.015Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:05:14.016Z [VVLOG] UPDATED 0 user
+2020-12-24T09:05:14.016Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:05:14.016Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:05:14.016Z [VLOG] Getting user collection
+2020-12-24T09:05:14.016Z [VVLOG] Updated last login for edofazza: 2020-12-24T10:05:13.844Z
+2020-12-24T09:05:14.144Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:05:14.145Z [VVLOG] UPDATED 1 user
+2020-12-24T09:05:14.163Z [VLOG] Obtaining technology: Neo4j
+2020-12-24T09:05:14.171Z [VLOG] Starting connection with Neo4j
+2020-12-24T09:05:14.693Z [VLOG] Getting user collection
+2020-12-24T09:05:14.693Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:05:14.693Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:05:14.693Z [VVLOG] Trying to update points of edofazza: 759.0148617834141
+2020-12-24T09:05:14.754Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:05:14.755Z [VVLOG] UPDATED 1 user
+2020-12-24T09:05:14.755Z [LOG] CHANGE OF SCENE
+2020-12-24T09:05:14.755Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:05:14.756Z [VVLOG] Creating FieldRelatedLabel 'edofazza' at (10, 10)
+2020-12-24T09:05:14.755Z [VVLOG] Setting musicOn image
+2020-12-24T09:05:14.768Z [VVLOG] Loading BackgroundImage at 'pokeball.png'(1100, 10)
+2020-12-24T09:05:14.768Z [VVLOG] Creating FieldRelatedLabel 'x10' at (1150, 20)
+2020-12-24T09:05:14.768Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:05:14.768Z [VVLOG] Setting musicOn image
+2020-12-24T09:05:14.768Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:05:14.816Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:05:14.854Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:05:14.854Z [LOG] SHOWING HOMEPAGE
+2020-12-24T09:05:14.855Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:05:14.856Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:05:14.856Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:05:14.856Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:05:14.857Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:05:14.857Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:05:14.856Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:05:15.075Z [LOG] CHANGE OF SCENE
+2020-12-24T09:05:15.075Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:05:15.076Z [VVLOG] Creating FieldRelatedLabel 'edofazza' at (10, 10)
+2020-12-24T09:05:15.076Z [VVLOG] Setting musicOn image
+2020-12-24T09:05:15.088Z [VVLOG] Loading BackgroundImage at 'pokeball.png'(1100, 10)
+2020-12-24T09:05:15.088Z [VVLOG] Creating FieldRelatedLabel 'x10' at (1150, 20)
+2020-12-24T09:05:15.088Z [VVLOG] Creating Regular button 'BACK' at (200, 600)
+2020-12-24T09:05:15.089Z [LOG] SHOWING FRIENDS PAGE
+2020-12-24T09:05:15.089Z [VVLOG] Creating FieldRelatedLabel 'FRIENDS' at (100, 70)
+2020-12-24T09:05:15.138Z [VLOG] Obtaining technology: Neo4j
+2020-12-24T09:05:15.138Z [VLOG] Starting connection with Neo4j
+2020-12-24T09:05:15.421Z [VLOG] COMPUTING BEST FRIENDS TEAMS
+2020-12-24T09:05:15.423Z [VLOG] Getting user collection
+2020-12-24T09:05:15.423Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:05:15.423Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:05:15.652Z [VVLOG] Getting User from Document
+Document: {"username": "Antwaun_Magallanes", "birthDay": "1975-04-04T04:28:45.606Z", "country": "Liberia", "teamName": "Team name", "points": 1871.2155258631035}
+2020-12-24T09:05:15.653Z [VVLOG] Getting User from Document
+Document: {"username": "Suresh_Kleimann", "birthDay": "2017-10-12T00:42:57.337Z", "country": "Venezuela", "teamName": "Team name", "points": 0}
+2020-12-24T09:05:15.653Z [VVLOG] Getting User from Document
+Document: {"username": "Saba_Kirchvogel", "birthDay": "2016-09-30T08:38:38.839Z", "country": "Chile", "teamName": "Team name", "points": 0}
+2020-12-24T09:05:15.654Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:05:15.674Z [VVLOG] Creating RankingSingleUserResult for Antwaun_Magallanes: points = 1871.2155258631035
+2020-12-24T09:05:15.677Z [VVLOG] Creating UsernameLinkTeamButton 'Antwaun_Magallanes' at (10, 12)
+2020-12-24T09:05:15.677Z [VVLOG] Creating RankingSingleUserResult for Suresh_Kleimann: points = 0.0
+2020-12-24T09:05:15.678Z [VVLOG] Creating UsernameLinkTeamButton 'Suresh_Kleimann' at (10, 12)
+2020-12-24T09:05:15.678Z [VVLOG] Creating UsernameLinkTeamButton 'Saba_Kirchvogel' at (10, 12)
+2020-12-24T09:05:15.678Z [VVLOG] Creating RankingSingleUserResult for Saba_Kirchvogel: points = 0.0
+2020-12-24T09:05:15.680Z [VVLOG] Creating FieldRelatedLabel 'SEARCH USERS' at (75, 100)
+2020-12-24T09:05:15.681Z [VVLOG] Creating CatchEmAllTextField 'Type for searching' at (50, 130)
+2020-12-24T09:05:15.683Z [VVLOG] Creating FieldRelatedLabel 'RECOMMENDED BY FRIENDS' at (2, 10)
+2020-12-24T09:05:15.683Z [VLOG] Obtaining technology: Neo4j
+2020-12-24T09:05:15.683Z [VLOG] Starting connection with Neo4j
+2020-12-24T09:05:16.189Z [VLOG] COMPUTING BEST FRIENDS TEAMS
+2020-12-24T09:05:16.189Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:05:16.189Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:05:16.189Z [VLOG] Getting user collection
+2020-12-24T09:05:16.276Z [VVLOG] Getting User from Document
+Document: {"username": "Jaquanna_Bakheloff", "birthDay": "1992-08-15T06:05:20.561Z", "country": "United States", "teamName": "Team name", "points": 600.2922350682081}
+2020-12-24T09:05:16.277Z [VVLOG] Getting User from Document
+Document: {"username": "Danitra_Dziedzi", "birthDay": "1997-06-12T03:53:46.295Z", "country": "Nigeria", "teamName": "Team name", "points": 0}
+2020-12-24T09:05:16.277Z [VVLOG] Getting User from Document
+Document: {"username": "Carolann_Sagredo", "birthDay": "1996-12-15T14:14:54.334Z", "country": "Congo {Democratic Rep}", "teamName": "Team name", "points": 0}
+2020-12-24T09:05:16.278Z [VVLOG] Getting User from Document
+Document: {"username": "Landin_Trondle", "birthDay": "1989-09-10T01:36:37.424Z", "country": "Malawi", "teamName": "Team name", "points": 0}
+2020-12-24T09:05:16.278Z [VVLOG] Getting User from Document
+Document: {"username": "Tarren_Landaberea", "birthDay": "1980-11-09T14:21:32.229Z", "country": "Latvia", "teamName": "Team name", "points": 0}
+2020-12-24T09:05:16.279Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:05:16.279Z [VVLOG] Creating RankingSingleUserResult for Jaquanna_Bakheloff: points = 600.2922350682081
+2020-12-24T09:05:16.280Z [VVLOG] Creating UsernameLinkTeamButton 'Jaquanna_Bakheloff' at (10, 12)
+2020-12-24T09:05:16.280Z [VVLOG] Creating RankingSingleUserResult for Danitra_Dziedzi: points = 0.0
+2020-12-24T09:05:16.281Z [VLOG] Starting connection with Neo4j
+2020-12-24T09:05:16.280Z [VLOG] Obtaining technology: Neo4j
+2020-12-24T09:05:16.280Z [VVLOG] Creating FieldRelatedLabel 'RECOMMENDED BY POKEMON' at (328, 10)
+2020-12-24T09:05:16.280Z [VVLOG] Creating UsernameLinkTeamButton 'Tarren_Landaberea' at (10, 12)
+2020-12-24T09:05:16.280Z [VVLOG] Creating RankingSingleUserResult for Tarren_Landaberea: points = 0.0
+2020-12-24T09:05:16.280Z [VVLOG] Creating UsernameLinkTeamButton 'Landin_Trondle' at (10, 12)
+2020-12-24T09:05:16.280Z [VVLOG] Creating RankingSingleUserResult for Landin_Trondle: points = 0.0
+2020-12-24T09:05:16.280Z [VVLOG] Creating UsernameLinkTeamButton 'Carolann_Sagredo' at (10, 12)
+2020-12-24T09:05:16.280Z [VVLOG] Creating RankingSingleUserResult for Carolann_Sagredo: points = 0.0
+2020-12-24T09:05:16.280Z [VVLOG] Creating UsernameLinkTeamButton 'Danitra_Dziedzi' at (10, 12)
+2020-12-24T09:05:16.672Z [VLOG] COMPUTING BEST FRIENDS TEAMS
+2020-12-24T09:05:16.672Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:05:16.672Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:05:16.672Z [VLOG] Getting user collection
+2020-12-24T09:05:16.754Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:06:08.884Z [LOG] CHANGE OF SCENE
+2020-12-24T09:06:08.885Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:06:08.885Z [VVLOG] Setting musicOn image
+2020-12-24T09:06:08.885Z [VVLOG] Creating FieldRelatedLabel 'edofazza' at (10, 10)
+2020-12-24T09:06:08.897Z [VVLOG] Loading BackgroundImage at 'pokeball.png'(1100, 10)
+2020-12-24T09:06:08.897Z [VVLOG] Creating FieldRelatedLabel 'x10' at (1150, 20)
+2020-12-24T09:06:08.898Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:06:08.898Z [VVLOG] Setting musicOn image
+2020-12-24T09:06:08.898Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:06:08.945Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:06:08.981Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:06:08.981Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:08.981Z [LOG] SHOWING HOMEPAGE
+2020-12-24T09:06:08.981Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:08.981Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:08.981Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:08.981Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:08.981Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:08.981Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:16.605Z [LOG] Starting of the application
+2020-12-24T09:06:16.863Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:06:16.866Z [VVLOG] Setting musicOn image
+2020-12-24T09:06:16.870Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:06:16.999Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:06:17.043Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:06:17.043Z [LOG] SHOWING LOGIN PAGE
+2020-12-24T09:06:17.045Z [VVLOG] Creating FieldRelatedLabel 'Username' at (550, 170)
+2020-12-24T09:06:17.051Z [VVLOG] Creating FieldRelatedLabel 'Password' at (550, 270)
+2020-12-24T09:06:17.052Z [VVLOG] Creating Regular button 'LOG IN' at (700, 370)
+2020-12-24T09:06:17.053Z [VLOG] Setting song: opening.mp3
+2020-12-24T09:06:17.052Z [VVLOG] Creating Regular button 'SIGN UP' at (500, 370)
+2020-12-24T09:06:17.149Z [VLOG] CHANGING SONG
+2020-12-24T09:06:17.222Z [VLOG] Setting song: opening.mp3
+2020-12-24T09:06:23.143Z [VLOG] Obtaining technology: MongoDb
+2020-12-24T09:06:23.172Z [VLOG] ENCRYPTION | encrypt-pw: 57dadaa6853a4689c81a914da9897a5b604f47b42f57c71681e9a049c1ebfd86
+2020-12-24T09:06:23.172Z [VLOG] Getting user collection
+2020-12-24T09:06:23.172Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:06:23.172Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:06:23.349Z [VVLOG] Getting User from Document
+Document: {"_id": {"$oid": "5fd658e67baf070749c9c2fc"}, "admin": true, "username": "admin", "email": "edo@a.it", "password": "57dadaa6853a4689c81a914da9897a5b604f47b42f57c71681e9a049c1ebfd86", "surname": "edo", "name": "edo", "birthDay": "1998-12-11T00:00:00.000Z", "country": "Italy", "teamName": "Team name", "lastLogin": "2020-12-15T15:41:36.141Z", "dailyPokeball": 10, "points": 0.0}
+2020-12-24T09:06:23.360Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:06:23.367Z [VVLOG] Trying to update number of pokeball of admin to 10
+2020-12-24T09:06:23.368Z [VLOG] Getting user collection
+2020-12-24T09:06:23.368Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:06:23.368Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:06:23.461Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:06:23.462Z [VVLOG] UPDATED 0 user
+2020-12-24T09:06:23.462Z [VVLOG] Updated last login for admin: 2020-12-24T10:06:23.366Z
+2020-12-24T09:06:23.462Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:06:23.462Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:06:23.462Z [VLOG] Getting user collection
+2020-12-24T09:06:23.527Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:06:23.528Z [VVLOG] UPDATED 1 user
+2020-12-24T09:06:23.529Z [VLOG] Obtaining technology: Neo4j
+2020-12-24T09:06:23.538Z [VLOG] Starting connection with Neo4j
+2020-12-24T09:06:24.317Z [VVLOG] Trying to update points of admin: 0.0
+2020-12-24T09:06:24.317Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:06:24.317Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:06:24.317Z [VLOG] Getting user collection
+2020-12-24T09:06:24.378Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:06:24.379Z [VVLOG] UPDATED 0 user
+2020-12-24T09:06:24.404Z [LOG] CHANGE OF SCENE
+2020-12-24T09:06:24.406Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:06:24.406Z [VVLOG] Setting musicOn image
+2020-12-24T09:06:24.407Z [VVLOG] Creating FieldRelatedLabel 'admin' at (10, 10)
+2020-12-24T09:06:24.407Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:06:24.407Z [VVLOG] Setting musicOn image
+2020-12-24T09:06:24.407Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:06:24.456Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:06:24.494Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:06:24.495Z [LOG] SHOWING HOMEPAGE
+2020-12-24T09:06:24.496Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:24.496Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:24.497Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:24.497Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:24.498Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:24.498Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:06:24.498Z [VLOG] Setting song: professor_oak_theme.mp3
+2020-12-24T09:06:24.498Z [VLOG] CHANGING SONG
+2020-12-24T09:06:25.871Z [LOG] CHANGE OF SCENE
+2020-12-24T09:06:25.872Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:06:25.872Z [VVLOG] Setting musicOn image
+2020-12-24T09:06:25.873Z [VVLOG] Creating FieldRelatedLabel 'admin' at (10, 10)
+2020-12-24T09:06:25.875Z [VVLOG] Creating InvalidFormEntryLabel 'Add Pokemon,Remove Pokemon' at (270, 100)
+2020-12-24T09:06:25.874Z [LOG] SHOWING ADD/REMOVE PAGE
+2020-12-24T09:06:25.873Z [VVLOG] Creating Regular button 'BACK' at (200, 600)
+2020-12-24T09:06:25.878Z [VVLOG] Creating AdminAddRemovePane at (300, 200)
+2020-12-24T09:06:25.880Z [VVLOG] Creating InvalidFormEntryLabel '' at (650, 350)
+2020-12-24T09:06:25.908Z [VVLOG] Creating circle button at (270, 100)
+2020-12-24T09:06:25.909Z [VVLOG] Creating circle button at (770, 100)
+2020-12-24T09:06:25.910Z [VLOG] CHANGING SONG
+2020-12-24T09:06:25.910Z [VLOG] Setting song: catchemAll.mp3
+2020-12-24T09:06:27.422Z [VVLOG] Creating FieldRelatedLabel 'Pokedex ID' at (0, 0)
+2020-12-24T09:06:27.423Z [VVLOG] Creating OnlyDecimalsTextField at (0, 30)
+2020-12-24T09:06:27.424Z [VVLOG] Creating FieldRelatedLabel 'Weight' at (0, 70)
+2020-12-24T09:06:27.424Z [VVLOG] Creating OnlyDecimalsTextField at (0, 100)
+2020-12-24T09:06:27.425Z [VVLOG] Creating FieldRelatedLabel 'Type1' at (0, 140)
+2020-12-24T09:06:27.429Z [VVLOG] Creating TypeComboBox at (0, 170)
+2020-12-24T09:06:27.447Z [VVLOG] Creating FieldRelatedLabel 'Catch Rate' at (0, 210)
+2020-12-24T09:06:27.447Z [VVLOG] Creating OnlyDecimalsTextField at (0, 240)
+2020-12-24T09:06:27.447Z [VVLOG] Creating FieldRelatedLabel 'Portrait URL' at (0, 280)
+2020-12-24T09:06:27.447Z [VVLOG] Creating FieldRelatedLabel 'Pokemon Name' at (400, 0)
+2020-12-24T09:06:27.448Z [VVLOG] Creating FieldRelatedLabel 'Height' at (400, 70)
+2020-12-24T09:06:27.448Z [VVLOG] Creating OnlyDecimalsTextField at (400, 100)
+2020-12-24T09:06:27.448Z [VVLOG] Creating FieldRelatedLabel 'Type2' at (400, 140)
+2020-12-24T09:06:27.448Z [VVLOG] Creating TypeComboBox at (400, 170)
+2020-12-24T09:06:27.449Z [VVLOG] Creating FieldRelatedLabel 'Biology' at (400, 210)
+2020-12-24T09:06:27.449Z [VVLOG] Creating FieldRelatedLabel 'Sprite URL' at (400, 280)
+2020-12-24T09:06:27.455Z [VVLOG] Creating Regular button 'ADD' at (650, 310)
+2020-12-24T09:06:59.126Z [VLOG] Stopping song
+2020-12-24T09:06:59.126Z [VVLOG] Setting musicOn image
+2020-12-24T09:14:41.527Z [VVLOG] Creating CatchEmAllTextField 'Pokemon name' at (200, 50)
+2020-12-24T09:14:41.528Z [VVLOG] Creating Regular button 'REMOVE' at (270, 120)
+2020-12-24T09:14:42.874Z [VVLOG] Creating FieldRelatedLabel 'Pokedex ID' at (0, 0)
+2020-12-24T09:14:42.874Z [VVLOG] Creating OnlyDecimalsTextField at (0, 30)
+2020-12-24T09:14:42.875Z [VVLOG] Creating OnlyDecimalsTextField at (0, 100)
+2020-12-24T09:14:42.875Z [VVLOG] Creating FieldRelatedLabel 'Weight' at (0, 70)
+2020-12-24T09:14:42.878Z [VVLOG] Creating Regular button 'ADD' at (650, 310)
+2020-12-24T09:14:42.878Z [VVLOG] Creating FieldRelatedLabel 'Sprite URL' at (400, 280)
+2020-12-24T09:14:42.878Z [VVLOG] Creating FieldRelatedLabel 'Biology' at (400, 210)
+2020-12-24T09:14:42.877Z [VVLOG] Creating TypeComboBox at (400, 170)
+2020-12-24T09:14:42.877Z [VVLOG] Creating FieldRelatedLabel 'Type2' at (400, 140)
+2020-12-24T09:14:42.877Z [VVLOG] Creating OnlyDecimalsTextField at (400, 100)
+2020-12-24T09:14:42.877Z [VVLOG] Creating FieldRelatedLabel 'Height' at (400, 70)
+2020-12-24T09:14:42.876Z [VVLOG] Creating FieldRelatedLabel 'Pokemon Name' at (400, 0)
+2020-12-24T09:14:42.876Z [VVLOG] Creating FieldRelatedLabel 'Portrait URL' at (0, 280)
+2020-12-24T09:14:42.876Z [VVLOG] Creating OnlyDecimalsTextField at (0, 240)
+2020-12-24T09:14:42.876Z [VVLOG] Creating FieldRelatedLabel 'Catch Rate' at (0, 210)
+2020-12-24T09:14:42.875Z [VVLOG] Creating TypeComboBox at (0, 170)
+2020-12-24T09:14:42.875Z [VVLOG] Creating FieldRelatedLabel 'Type1' at (0, 140)
+2020-12-24T09:14:44.156Z [LOG] CHANGE OF SCENE
+2020-12-24T09:14:44.157Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:14:44.157Z [VVLOG] Setting musicOn image
+2020-12-24T09:14:44.158Z [VVLOG] Creating FieldRelatedLabel 'admin' at (10, 10)
+2020-12-24T09:14:44.158Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:14:44.158Z [VVLOG] Setting musicOn image
+2020-12-24T09:14:44.158Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:14:44.208Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:14:44.243Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:14:44.243Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:14:44.244Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:14:44.243Z [LOG] SHOWING HOMEPAGE
+2020-12-24T09:14:44.244Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:14:44.244Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:14:44.244Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:14:44.244Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:05.429Z [LOG] CHANGE OF SCENE
+2020-12-24T09:15:05.430Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:05.430Z [VVLOG] Creating FieldRelatedLabel 'admin' at (10, 10)
+2020-12-24T09:15:05.430Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:05.431Z [VVLOG] Creating circle button at (770, 100)
+2020-12-24T09:15:05.431Z [VVLOG] Creating circle button at (270, 100)
+2020-12-24T09:15:05.431Z [VVLOG] Creating InvalidFormEntryLabel '' at (650, 350)
+2020-12-24T09:15:05.431Z [VVLOG] Creating AdminAddRemovePane at (300, 200)
+2020-12-24T09:15:05.431Z [VVLOG] Creating InvalidFormEntryLabel 'Add Pokemon,Remove Pokemon' at (270, 100)
+2020-12-24T09:15:05.431Z [LOG] SHOWING ADD/REMOVE PAGE
+2020-12-24T09:15:05.431Z [VVLOG] Creating Regular button 'BACK' at (200, 600)
+2020-12-24T09:15:06.521Z [LOG] CHANGE OF SCENE
+2020-12-24T09:15:06.521Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:06.522Z [VVLOG] Creating FieldRelatedLabel 'admin' at (10, 10)
+2020-12-24T09:15:06.521Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:06.522Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:15:06.522Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:06.522Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:06.570Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:15:06.608Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:15:06.608Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:06.608Z [LOG] SHOWING HOMEPAGE
+2020-12-24T09:15:06.609Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:06.609Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:06.609Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:06.608Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:06.608Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:07.882Z [LOG] CHANGE OF SCENE
+2020-12-24T09:15:07.883Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:07.883Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:07.883Z [VVLOG] Creating FieldRelatedLabel 'admin' at (10, 10)
+2020-12-24T09:15:07.884Z [VVLOG] Creating FieldRelatedLabel 'Choose a country' at (650, 142)
+2020-12-24T09:15:07.883Z [LOG] SHOWING ANALYTICS PAGE
+2020-12-24T09:15:07.883Z [VVLOG] Creating Regular button 'BACK' at (200, 600)
+2020-12-24T09:15:07.896Z [VVLOG] Creating CountryComboBox at (650, 170)
+2020-12-24T09:15:07.965Z [VLOG] Getting analytic collection
+2020-12-24T09:15:07.965Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:15:07.965Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:15:08.013Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:15:08.036Z [VLOG] Getting analytic collection
+2020-12-24T09:15:08.036Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:15:08.036Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:15:08.040Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:15:09.502Z [LOG] CHANGE OF SCENE
+2020-12-24T09:15:09.503Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:09.503Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:09.503Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:09.503Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:15:09.503Z [VVLOG] Creating FieldRelatedLabel 'admin' at (10, 10)
+2020-12-24T09:15:09.503Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:09.554Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:15:09.590Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:15:09.590Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:09.591Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:09.590Z [LOG] SHOWING HOMEPAGE
+2020-12-24T09:15:09.591Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:09.590Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:09.590Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:09.590Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:10.256Z [LOG] CHANGE OF SCENE
+2020-12-24T09:15:10.256Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:10.256Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:10.257Z [VVLOG] Creating FieldRelatedLabel 'admin' at (10, 10)
+2020-12-24T09:15:10.257Z [LOG] SHOWING RANKING SCENE
+2020-12-24T09:15:10.257Z [VVLOG] Creating Regular button 'BACK' at (200, 600)
+2020-12-24T09:15:10.257Z [VVLOG] Creating CountryComboBox at (100, 100)
+2020-12-24T09:15:10.258Z [VVLOG] Creating FieldRelatedLabel 'MOST USED POKEMON' at (100, 170)
+2020-12-24T09:15:10.262Z [VLOG] Starting connection with Neo4j
+2020-12-24T09:15:11.045Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/345.png
+2020-12-24T09:15:11.173Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.174Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/235.png
+2020-12-24T09:15:11.184Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:15:11.184Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:15:11.184Z [VLOG] Getting user collection
+2020-12-24T09:15:11.182Z [VLOG] 2020-12-10T10:15:11.182Z
+2020-12-24T09:15:11.182Z [VLOG] COMPUTING BEST WORLD TEAMS
+2020-12-24T09:15:11.181Z [VVLOG] Creating FieldRelatedLabel 'BEST TEAM' at (500, 170)
+2020-12-24T09:15:11.180Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.180Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/715.png
+2020-12-24T09:15:11.180Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.180Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/627.png
+2020-12-24T09:15:11.179Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.179Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/857.png
+2020-12-24T09:15:11.179Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.179Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/477.png
+2020-12-24T09:15:11.179Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.179Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/356.png
+2020-12-24T09:15:11.179Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.179Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/670.png
+2020-12-24T09:15:11.179Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.179Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/72.png
+2020-12-24T09:15:11.178Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.178Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/647.png
+2020-12-24T09:15:11.178Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.178Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/449.png
+2020-12-24T09:15:11.178Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.178Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/628.png
+2020-12-24T09:15:11.178Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.178Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/426.png
+2020-12-24T09:15:11.178Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.177Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/872.png
+2020-12-24T09:15:11.177Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.177Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/457.png
+2020-12-24T09:15:11.177Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.177Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/487.png
+2020-12-24T09:15:11.177Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.177Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/144.png
+2020-12-24T09:15:11.177Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.177Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/687.png
+2020-12-24T09:15:11.177Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.176Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/748.png
+2020-12-24T09:15:11.176Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.176Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/104.png
+2020-12-24T09:15:11.176Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.176Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/310.png
+2020-12-24T09:15:11.176Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.176Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/214.png
+2020-12-24T09:15:11.176Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.175Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/455.png
+2020-12-24T09:15:11.175Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.175Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/639.png
+2020-12-24T09:15:11.175Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.175Z [VLOG] Attemp to get image at: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/372.png
+2020-12-24T09:15:11.174Z [VVLOG] Creating FilterPokemonResultButton at (70, 12)
+2020-12-24T09:15:11.510Z [VVLOG] Creating UsernameLinkTeamButton 'Nikcole_Esnarreaga' at (10, 12)
+2020-12-24T09:15:11.510Z [VVLOG] Creating RankingSingleUserResult for Nikcole_Esnarreaga: points = 867.2684522142657
+2020-12-24T09:15:11.510Z [VVLOG] Creating UsernameLinkTeamButton 'Brent_Sankait' at (10, 12)
+2020-12-24T09:15:11.510Z [VVLOG] Creating RankingSingleUserResult for Brent_Sankait: points = 872.2412289474737
+2020-12-24T09:15:11.510Z [VVLOG] Creating UsernameLinkTeamButton 'Savanna_Garcia Arias' at (10, 12)
+2020-12-24T09:15:11.510Z [VVLOG] Creating RankingSingleUserResult for Savanna_Garcia Arias: points = 882.2272472696724
+2020-12-24T09:15:11.510Z [VVLOG] Creating UsernameLinkTeamButton 'Latiya_Savall' at (10, 12)
+2020-12-24T09:15:11.510Z [VVLOG] Creating RankingSingleUserResult for Latiya_Savall: points = 882.2332879945594
+2020-12-24T09:15:11.510Z [VVLOG] Creating UsernameLinkTeamButton 'Dawayne_Liebold' at (10, 12)
+2020-12-24T09:15:11.510Z [VVLOG] Creating RankingSingleUserResult for Dawayne_Liebold: points = 882.2334280113614
+2020-12-24T09:15:11.510Z [VVLOG] Creating UsernameLinkTeamButton 'Sameul_De Gispert' at (10, 12)
+2020-12-24T09:15:11.509Z [VVLOG] Creating RankingSingleUserResult for Sameul_De Gispert: points = 882.6557786934432
+2020-12-24T09:15:11.509Z [VVLOG] Creating UsernameLinkTeamButton 'Laurelin_Talarico' at (10, 12)
+2020-12-24T09:15:11.509Z [VVLOG] Creating RankingSingleUserResult for Laurelin_Talarico: points = 887.2246202877678
+2020-12-24T09:15:11.509Z [VVLOG] Creating UsernameLinkTeamButton 'Rabia_Mass' at (10, 12)
+2020-12-24T09:15:11.509Z [VVLOG] Creating RankingSingleUserResult for Rabia_Mass: points = 902.2082716592658
+2020-12-24T09:15:11.509Z [VVLOG] Creating UsernameLinkTeamButton 'Augustus_Besten' at (10, 12)
+2020-12-24T09:15:11.509Z [VVLOG] Creating RankingSingleUserResult for Augustus_Besten: points = 902.6412769532344
+2020-12-24T09:15:11.509Z [VVLOG] Creating UsernameLinkTeamButton 'Salome_Andronikov' at (10, 12)
+2020-12-24T09:15:11.509Z [VVLOG] Creating RankingSingleUserResult for Salome_Andronikov: points = 920.5840034137431
+2020-12-24T09:15:11.509Z [VVLOG] Creating UsernameLinkTeamButton 'James_Salami' at (10, 12)
+2020-12-24T09:15:11.509Z [VVLOG] Creating RankingSingleUserResult for James_Salami: points = 920.6072728727447
+2020-12-24T09:15:11.509Z [VVLOG] Creating UsernameLinkTeamButton 'Berlinda_Bockhold' at (10, 12)
+2020-12-24T09:15:11.509Z [VVLOG] Creating RankingSingleUserResult for Berlinda_Bockhold: points = 930.5638676641197
+2020-12-24T09:15:11.509Z [VVLOG] Creating UsernameLinkTeamButton 'Shawnise_Oliveras' at (10, 12)
+2020-12-24T09:15:11.508Z [VVLOG] Creating RankingSingleUserResult for Shawnise_Oliveras: points = 939.1314157698924
+2020-12-24T09:15:11.508Z [VVLOG] Creating UsernameLinkTeamButton 'Tamicka_Turmel' at (10, 12)
+2020-12-24T09:15:11.508Z [VVLOG] Creating RankingSingleUserResult for Tamicka_Turmel: points = 940.5523662839541
+2020-12-24T09:15:11.508Z [VVLOG] Creating UsernameLinkTeamButton 'Chanc_Jivoderov' at (10, 12)
+2020-12-24T09:15:11.508Z [VVLOG] Creating RankingSingleUserResult for Chanc_Jivoderov: points = 947.5147751063462
+2020-12-24T09:15:11.508Z [VVLOG] Creating UsernameLinkTeamButton 'Jorie_Holdermuller' at (10, 12)
+2020-12-24T09:15:11.508Z [VVLOG] Creating RankingSingleUserResult for Jorie_Holdermuller: points = 957.5457654918591
+2020-12-24T09:15:11.508Z [VVLOG] Creating UsernameLinkTeamButton 'Jocob_Agarev' at (10, 12)
+2020-12-24T09:15:11.508Z [VVLOG] Creating RankingSingleUserResult for Jocob_Agarev: points = 969.5397114320385
+2020-12-24T09:15:11.507Z [VVLOG] Creating UsernameLinkTeamButton 'Princeston_Merkli' at (10, 12)
+2020-12-24T09:15:11.507Z [VVLOG] Creating RankingSingleUserResult for Princeston_Merkli: points = 990.4845581469776
+2020-12-24T09:15:11.507Z [VVLOG] Creating UsernameLinkTeamButton 'Janssen_Askew' at (10, 12)
+2020-12-24T09:15:11.507Z [VVLOG] Creating RankingSingleUserResult for Janssen_Askew: points = 995.4930258297663
+2020-12-24T09:15:11.507Z [VVLOG] Creating UsernameLinkTeamButton 'Valorie_Engelschall' at (10, 12)
+2020-12-24T09:15:11.507Z [VVLOG] Creating RankingSingleUserResult for Valorie_Engelschall: points = 1010.4418530223627
+2020-12-24T09:15:11.507Z [VVLOG] Creating UsernameLinkTeamButton 'Yuliana_Leborgne' at (10, 12)
+2020-12-24T09:15:11.507Z [VVLOG] Creating RankingSingleUserResult for Yuliana_Leborgne: points = 1025.4280513661638
+2020-12-24T09:15:11.507Z [VVLOG] Creating UsernameLinkTeamButton 'Shavaughn_Popovici' at (10, 12)
+2020-12-24T09:15:11.507Z [VVLOG] Creating RankingSingleUserResult for Shavaughn_Popovici: points = 1027.4142963822324
+2020-12-24T09:15:11.506Z [VVLOG] Creating UsernameLinkTeamButton 'Rosenda_Meisel' at (10, 12)
+2020-12-24T09:15:11.506Z [VVLOG] Creating RankingSingleUserResult for Rosenda_Meisel: points = 1037.4057353549094
+2020-12-24T09:15:11.506Z [VVLOG] Creating UsernameLinkTeamButton 'Mason_Fuehrmann' at (10, 12)
+2020-12-24T09:15:11.506Z [VVLOG] Creating RankingSingleUserResult for Mason_Fuehrmann: points = 1185.5854702564307
+2020-12-24T09:15:11.506Z [VVLOG] Creating UsernameLinkTeamButton 'Antwaun_Magallanes' at (10, 12)
+2020-12-24T09:15:11.504Z [VVLOG] Creating RankingSingleUserResult for Antwaun_Magallanes: points = 1871.2155258631035
+2020-12-24T09:15:11.502Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:15:11.501Z [VVLOG] Getting User from Document
+Document: {"username": "Nikcole_Esnarreaga", "birthDay": "1976-05-17T02:13:15.672Z", "country": "Tanzania", "teamName": "Team name", "points": 867.2684522142657}
+2020-12-24T09:15:11.501Z [VVLOG] Getting User from Document
+Document: {"username": "Brent_Sankait", "birthDay": "2002-05-10T15:36:40.751Z", "country": "Russian Federation", "teamName": "Team name", "points": 872.2412289474737}
+2020-12-24T09:15:11.501Z [VVLOG] Getting User from Document
+Document: {"username": "Savanna_Garcia Arias", "birthDay": "1977-05-16T20:03:42.450Z", "country": "Lithuania", "teamName": "Team name", "points": 882.2272472696724}
+2020-12-24T09:15:11.500Z [VVLOG] Getting User from Document
+Document: {"username": "Latiya_Savall", "birthDay": "2008-10-09T08:26:01.856Z", "country": "Japan", "teamName": "Team name", "points": 882.2332879945594}
+2020-12-24T09:15:11.500Z [VVLOG] Getting User from Document
+Document: {"username": "Dawayne_Liebold", "birthDay": "1978-02-08T07:48:10.006Z", "country": "Liechtenstein", "teamName": "Team name", "points": 882.2334280113614}
+2020-12-24T09:15:11.499Z [VVLOG] Getting User from Document
+Document: {"username": "Sameul_De Gispert", "birthDay": "1980-10-27T23:59:24.444Z", "country": "Sao Tome & Principe", "teamName": "Team name", "points": 882.6557786934432}
+2020-12-24T09:15:11.499Z [VVLOG] Getting User from Document
+Document: {"username": "Laurelin_Talarico", "birthDay": "1973-03-05T23:29:56.061Z", "country": "Argentina", "teamName": "Team name", "points": 887.2246202877678}
+2020-12-24T09:15:11.498Z [VVLOG] Getting User from Document
+Document: {"username": "Rabia_Mass", "birthDay": "1989-01-28T06:24:27.729Z", "country": "Norway", "teamName": "Team name", "points": 902.2082716592658}
+2020-12-24T09:15:11.498Z [VVLOG] Getting User from Document
+Document: {"username": "Augustus_Besten", "birthDay": "1981-11-03T11:06:37.726Z", "country": "Ethiopia", "teamName": "Team name", "points": 902.6412769532344}
+2020-12-24T09:15:11.497Z [VVLOG] Getting User from Document
+Document: {"username": "Salome_Andronikov", "birthDay": "1994-05-26T06:02:21.695Z", "country": "South Africa", "teamName": "Team name", "points": 920.5840034137431}
+2020-12-24T09:15:11.497Z [VVLOG] Getting User from Document
+Document: {"username": "James_Salami", "birthDay": "1982-05-24T10:56:15.159Z", "country": "France", "teamName": "Team name", "points": 920.6072728727447}
+2020-12-24T09:15:11.496Z [VVLOG] Getting User from Document
+Document: {"username": "Berlinda_Bockhold", "birthDay": "2011-03-08T12:14:28.218Z", "country": "Haiti", "teamName": "Team name", "points": 930.5638676641197}
+2020-12-24T09:15:11.496Z [VVLOG] Getting User from Document
+Document: {"username": "Shawnise_Oliveras", "birthDay": "1997-07-19T13:00:10.010Z", "country": "Namibia", "teamName": "Team name", "points": 939.1314157698924}
+2020-12-24T09:15:11.495Z [VVLOG] Getting User from Document
+Document: {"username": "Tamicka_Turmel", "birthDay": "1994-04-14T12:14:08.190Z", "country": "Chad", "teamName": "Team name", "points": 940.5523662839541}
+2020-12-24T09:15:11.495Z [VVLOG] Getting User from Document
+Document: {"username": "Chanc_Jivoderov", "birthDay": "1990-03-07T18:37:53.284Z", "country": "Estonia", "teamName": "Team name", "points": 947.5147751063462}
+2020-12-24T09:15:11.494Z [VVLOG] Getting User from Document
+Document: {"username": "Jorie_Holdermuller", "birthDay": "2003-01-03T03:17:52.853Z", "country": "Senegal", "teamName": "Team name", "points": 957.5457654918591}
+2020-12-24T09:15:11.494Z [VVLOG] Getting User from Document
+Document: {"username": "Jocob_Agarev", "birthDay": "1996-08-19T14:52:57.557Z", "country": "Turkmenistan", "teamName": "Team name", "points": 969.5397114320385}
+2020-12-24T09:15:11.493Z [VVLOG] Getting User from Document
+Document: {"username": "Princeston_Merkli", "birthDay": "1989-12-13T04:09:27.025Z", "country": "Ethiopia", "teamName": "Team name", "points": 990.4845581469776}
+2020-12-24T09:15:11.493Z [VVLOG] Getting User from Document
+Document: {"username": "Janssen_Askew", "birthDay": "2004-11-28T19:39:39.755Z", "country": "El Salvador", "teamName": "Team name", "points": 995.4930258297663}
+2020-12-24T09:15:11.492Z [VVLOG] Getting User from Document
+Document: {"username": "Valorie_Engelschall", "birthDay": "2016-11-02T03:37:27.009Z", "country": "Bulgaria", "teamName": "Team name", "points": 1010.4418530223627}
+2020-12-24T09:15:11.492Z [VVLOG] Getting User from Document
+Document: {"username": "Yuliana_Leborgne", "birthDay": "1983-10-08T00:17:48.584Z", "country": "Chad", "teamName": "Team name", "points": 1025.4280513661638}
+2020-12-24T09:15:11.491Z [VVLOG] Getting User from Document
+Document: {"username": "Shavaughn_Popovici", "birthDay": "1989-05-31T01:43:14.375Z", "country": "Honduras", "teamName": "Team name", "points": 1027.4142963822324}
+2020-12-24T09:15:11.491Z [VVLOG] Getting User from Document
+Document: {"username": "Rosenda_Meisel", "birthDay": "2007-10-05T18:23:11.334Z", "country": "Cape Verde", "teamName": "Team name", "points": 1037.4057353549094}
+2020-12-24T09:15:11.490Z [VVLOG] Getting User from Document
+Document: {"username": "Mason_Fuehrmann", "birthDay": "1991-09-28T00:37:31.688Z", "country": "Suriname", "teamName": "Team name", "points": 1185.5854702564307}
+2020-12-24T09:15:11.490Z [VVLOG] Getting User from Document
+Document: {"username": "Antwaun_Magallanes", "birthDay": "1975-04-04T04:28:45.606Z", "country": "Liberia", "teamName": "Team name", "points": 1871.2155258631035}
+2020-12-24T09:15:17.939Z [LOG] CHANGE OF SCENE
+2020-12-24T09:15:17.939Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:17.939Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:17.940Z [VVLOG] Creating FieldRelatedLabel 'admin' at (10, 10)
+2020-12-24T09:15:17.940Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:17.940Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:17.940Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:15:17.988Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:15:18.031Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:15:18.032Z [LOG] SHOWING HOMEPAGE
+2020-12-24T09:15:18.032Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:18.032Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:18.032Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:18.032Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:18.032Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:18.032Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:19.165Z [LOG] CHANGE OF SCENE
+2020-12-24T09:15:19.166Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:19.166Z [LOG] SHOWING POKEDEX
+2020-12-24T09:15:19.166Z [VVLOG] Creating Regular button 'BACK' at (200, 600)
+2020-12-24T09:15:19.210Z [VVLOG] Creating FilterLabel 'Name' at (78, 17)
+2020-12-24T09:15:19.166Z [VVLOG] Creating FieldRelatedLabel 'admin' at (10, 10)
+2020-12-24T09:15:19.166Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:19.211Z [VVLOG] Creating FilterTextField at (120, 15)
+2020-12-24T09:15:19.211Z [VVLOG] Creating FilterLabel 'Pokedex ID' at (280, 17)
+2020-12-24T09:15:19.222Z [VVLOG] Creating FilterTextField at (355, 15)
+2020-12-24T09:15:19.223Z [VVLOG] Creating FilterTextFieldOnlyNumeric at (355, 15)
+2020-12-24T09:15:19.223Z [VVLOG] Creating FilterLabel 'Min Weight' at (483, 17)
+2020-12-24T09:15:19.223Z [VVLOG] Creating FilterLabel 'Max Weight' at (693, 17)
+2020-12-24T09:15:19.223Z [VVLOG] Creating FilterTextFieldOnlyNumeric at (560, 15)
+2020-12-24T09:15:19.224Z [VVLOG] Creating FilterTextField at (120, 60)
+2020-12-24T09:15:19.223Z [VVLOG] Creating FilterTextField at (560, 15)
+2020-12-24T09:15:19.224Z [VVLOG] Creating FilterTextField at (355, 60)
+2020-12-24T09:15:19.224Z [VVLOG] Creating FilterLabel 'Max Height' at (280, 60)
+2020-12-24T09:15:19.224Z [VVLOG] Creating FilterTextFieldOnlyNumeric at (120, 60)
+2020-12-24T09:15:19.224Z [VVLOG] Creating FilterLabel 'Min Height' at (48, 60)
+2020-12-24T09:15:19.224Z [VVLOG] Creating FilterTextFieldOnlyNumeric at (775, 15)
+2020-12-24T09:15:19.223Z [VVLOG] Creating FilterTextField at (775, 15)
+2020-12-24T09:15:19.224Z [VVLOG] Creating FilterLabel 'Type1' at (515, 60)
+2020-12-24T09:15:19.224Z [VVLOG] Creating FilterTextFieldOnlyNumeric at (355, 60)
+2020-12-24T09:15:19.225Z [VVLOG] Creating TypeComboBox at (560, 60)
+2020-12-24T09:15:19.226Z [VVLOG] Creating TypeForFilteringComboBox at (560, 60)
+2020-12-24T09:15:19.226Z [VVLOG] Creating FilterLabel 'Type2' at (730, 60)
+2020-12-24T09:15:19.226Z [VVLOG] Creating TypeComboBox at (775, 60)
+2020-12-24T09:15:19.226Z [VVLOG] Creating TypeForFilteringComboBox at (775, 60)
+2020-12-24T09:15:19.226Z [VVLOG] Creating FilterLabel 'Min Catch Rate' at (20, 103)
+2020-12-24T09:15:19.226Z [VVLOG] Creating FilterTextField at (120, 103)
+2020-12-24T09:15:19.227Z [VVLOG] Creating FilterLabel 'Max Catch Rate' at (250, 103)
+2020-12-24T09:15:19.227Z [VVLOG] Creating FilterTextFieldOnlyNumeric at (355, 103)
+2020-12-24T09:15:19.227Z [VVLOG] Creating FilterTextFieldOnlyNumeric at (120, 103)
+2020-12-24T09:15:19.227Z [VVLOG] Creating FilterLabel 'Max Points' at (700, 103)
+2020-12-24T09:15:19.227Z [VVLOG] Creating FilterTextFieldOnlyNumeric at (775, 103)
+2020-12-24T09:15:19.227Z [VVLOG] Creating FilterTextFieldOnlyNumeric at (560, 103)
+2020-12-24T09:15:19.227Z [VVLOG] Creating FilterTextField at (560, 103)
+2020-12-24T09:15:19.227Z [VVLOG] Creating FilterLabel 'Min Points' at (488, 103)
+2020-12-24T09:15:19.227Z [VVLOG] Creating FilterTextField at (355, 103)
+2020-12-24T09:15:19.227Z [VVLOG] Creating Regular button 'filter' at (900, 160)
+2020-12-24T09:15:19.227Z [VVLOG] Creating FilterTextField at (775, 103)
+2020-12-24T09:15:28.136Z [VLOG] Obtaining technology: MongoDb
+2020-12-24T09:15:28.138Z [VLOG] Query built: {"name": "null"}
+2020-12-24T09:15:28.138Z [VVLOG] SEARCH WITH FILTER query: Document{{name=null}}
+2020-12-24T09:15:28.139Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:15:28.139Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:15:28.138Z [VLOG] Getting pokemon collection
+2020-12-24T09:15:28.216Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:15:29.718Z [VLOG] Obtaining technology: MongoDb
+2020-12-24T09:15:29.718Z [VLOG] Query built: {"name": "null"}
+2020-12-24T09:15:29.723Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:15:29.719Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:15:29.719Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:15:29.718Z [VLOG] Getting pokemon collection
+2020-12-24T09:15:29.718Z [VVLOG] SEARCH WITH FILTER query: Document{{name=null}}
+2020-12-24T09:15:51.644Z [VLOG] Obtaining technology: MongoDb
+2020-12-24T09:15:51.645Z [VLOG] Query built: {"name": "{name: \"bulbasaur\"}"}
+2020-12-24T09:15:51.645Z [VLOG] Starting connection with MongoDB
+2020-12-24T09:15:51.645Z [VLOG] Getting pokeMongo Database
+2020-12-24T09:15:51.645Z [VLOG] Getting pokemon collection
+2020-12-24T09:15:51.645Z [VVLOG] SEARCH WITH FILTER query: Document{{name={name: "bulbasaur"}}}
+2020-12-24T09:15:51.650Z [VLOG] Closing connection with MongoDB
+2020-12-24T09:15:53.703Z [LOG] CHANGE OF SCENE
+2020-12-24T09:15:53.704Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:53.704Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:53.704Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:15:53.704Z [VVLOG] Creating FieldRelatedLabel 'admin' at (10, 10)
+2020-12-24T09:15:53.704Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:15:53.704Z [VVLOG] Setting musicOn image
+2020-12-24T09:15:53.753Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:15:53.792Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:15:53.793Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:53.792Z [LOG] SHOWING HOMEPAGE
+2020-12-24T09:15:53.793Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:53.793Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:53.793Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:53.793Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:15:53.793Z [VVLOG] Creating HomePageCentralButton at (490, 230)
+2020-12-24T09:54:56.453Z [LOG] Starting of the application
+2020-12-24T09:54:56.731Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:54:56.736Z [VVLOG] Setting musicOn image
+2020-12-24T09:54:56.741Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:54:56.844Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T09:54:56.891Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T09:54:56.891Z [LOG] SHOWING LOGIN PAGE
+2020-12-24T09:54:56.892Z [VVLOG] Creating FieldRelatedLabel 'Username' at (550, 170)
+2020-12-24T09:54:56.899Z [VVLOG] Creating FieldRelatedLabel 'Password' at (550, 270)
+2020-12-24T09:54:56.899Z [VVLOG] Creating Regular button 'LOG IN' at (700, 370)
+2020-12-24T09:54:56.900Z [VVLOG] Creating Regular button 'SIGN UP' at (500, 370)
+2020-12-24T09:54:56.913Z [VLOG] Setting song: opening.mp3
+2020-12-24T09:54:57.070Z [VLOG] CHANGING SONG
+2020-12-24T09:54:57.228Z [VLOG] Setting song: opening.mp3
+2020-12-24T09:54:59.784Z [LOG] CHANGE OF SCENE
+2020-12-24T09:54:59.806Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T09:54:59.806Z [VVLOG] Setting musicOn image
+2020-12-24T09:54:59.807Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T09:54:59.807Z [LOG] SHOWING SIGN-UP PAGE
+2020-12-24T09:54:59.807Z [VVLOG] Creating FieldRelatedLabel 'Surname' at (350, 170)
+2020-12-24T09:54:59.807Z [VVLOG] Creating InvalidFormEntryLabel 'Surname must only contain letters,
+spaces, dots and apostrophes' at (510, 190)
+2020-12-24T09:54:59.808Z [VVLOG] Creating FieldRelatedLabel 'Name' at (750, 170)
+2020-12-24T09:54:59.809Z [VVLOG] Creating InvalidFormEntryLabel 'Name must only contain letters,
+spaces, dots and apostrophes' at (910, 190)
+2020-12-24T09:54:59.809Z [VVLOG] Creating FieldRelatedLabel 'Username' at (350, 270)
+2020-12-24T09:54:59.810Z [VVLOG] Creating FieldRelatedLabel 'Email' at (750, 270)
+2020-12-24T09:54:59.810Z [VVLOG] Creating InvalidFormEntryLabel 'Email must follow the format:
+example@domain.tld' at (910, 290)
+2020-12-24T09:54:59.811Z [VVLOG] Creating FieldRelatedLabel 'Password' at (350, 370)
+2020-12-24T09:54:59.811Z [VVLOG] Creating InvalidFormEntryLabel 'Password must contain at least:
+8 characters, a letter and
+a number' at (510, 380)
+2020-12-24T09:54:59.812Z [VVLOG] Creating FieldRelatedLabel 'Confirm Password' at (750, 370)
+2020-12-24T09:54:59.812Z [VVLOG] Creating InvalidFormEntryLabel 'Does not match with the other password' at (910, 400)
+2020-12-24T09:54:59.812Z [VVLOG] Creating FieldRelatedLabel 'Birthday' at (350, 470)
+2020-12-24T09:54:59.813Z [VVLOG] Creating InvalidFormEntryLabel 'Birthday must not be
+a day in the future' at (540, 490)
+2020-12-24T09:54:59.817Z [VVLOG] Creating FieldRelatedLabel 'Country' at (750, 470)
+2020-12-24T09:54:59.819Z [VVLOG] Creating CountryComboBox at (750, 500)
+2020-12-24T09:54:59.836Z [VVLOG] Creating Regular button 'BACK' at (200, 600)
+2020-12-24T09:54:59.837Z [VVLOG] Creating Regular button 'SUBMIT' at (1000, 600)
+2020-12-24T09:54:59.837Z [VLOG] CHANGING SONG
+2020-12-24T09:54:59.837Z [VLOG] Setting song: pallet_town.mp3
+2020-12-24T09:56:35.002Z [VLOG] Stopping song
+2020-12-24T09:56:35.003Z [VVLOG] Setting musicOn image
