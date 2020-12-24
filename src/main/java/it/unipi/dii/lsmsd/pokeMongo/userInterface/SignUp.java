@@ -75,7 +75,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         surnameTF = new TextField();
         surnameTF.relocate(350, 200);
-        surnameTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleName(surnameTF, invalidSurnameLabel));
+        surnameTF.textProperty().addListener(e->FormValidatorPokeMongo.handleName(surnameTF, invalidSurnameLabel));
 
         sceneNodes.getChildren().add(surnameLabel);
         sceneNodes.getChildren().add(invalidSurnameLabel);
@@ -104,7 +104,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         passwordTF = new PasswordField();
         passwordTF.relocate(350, 400);
-        passwordTF.setOnKeyReleased(e->{
+        passwordTF.textProperty().addListener(e->{
             FormValidatorPokeMongo.handlePassword(passwordTF, invalidPasswordLabel);
             FormValidatorPokeMongo.handleConfirmField(passwordTF, confirmPasswordTF, invalidConfirmPasswordLabel);
         });
@@ -138,7 +138,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         nameTF = new TextField();
         nameTF.relocate(750, 200);
-        nameTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleName(nameTF, invalidNameLabel));
+        nameTF.textProperty().addListener(e->FormValidatorPokeMongo.handleName(nameTF, invalidNameLabel));
 
         sceneNodes.getChildren().addAll(nameLabel, invalidNameLabel, nameTF);
     }
@@ -153,7 +153,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         emailTF = new TextField();
         emailTF.relocate(750, 300);
-        emailTF.setOnKeyReleased(e->{FormValidatorPokeMongo.handleEmail(emailTF, invalidEmailLabel); });
+        emailTF.textProperty().addListener(e->{FormValidatorPokeMongo.handleEmail(emailTF, invalidEmailLabel); });
 
         sceneNodes.getChildren().addAll(emailLabel, invalidEmailLabel, emailTF);
     }
@@ -168,7 +168,7 @@ public class SignUp extends PokeSceneWithTitle {
 
         confirmPasswordTF = new PasswordField();
         confirmPasswordTF.relocate(750, 400);
-        confirmPasswordTF.setOnKeyReleased(e->FormValidatorPokeMongo.handleConfirmField(passwordTF, confirmPasswordTF, invalidConfirmPasswordLabel));
+        confirmPasswordTF.textProperty().addListener(e->FormValidatorPokeMongo.handleConfirmField(passwordTF, confirmPasswordTF, invalidConfirmPasswordLabel));
 
         sceneNodes.getChildren().addAll(confirmPasswordLabel, invalidConfirmPasswordLabel, confirmPasswordTF);
     }
