@@ -118,12 +118,18 @@ public class AdminAddRemovePane extends Pane {
             if(size == 2){
                 types[1] = type2TF.getValue().toString();
             }
+
+            double catchrate = Double.parseDouble(catchRateTF.getText());
+            if (catchrate > 255)
+                catchrate = 255;
+
+
             if (pokemonManager.addPokemon(
                     new Pokemon(
                             nameTF.getText(),
                             types,
                             Integer.parseInt(idTF.getText()),
-                            Double.parseDouble(catchRateTF.getText()),
+                            catchrate,
                             Integer.parseInt(heightTF.getText()),
                             Integer.parseInt(weightTF.getText()),
                             biologyTF.getText(),
