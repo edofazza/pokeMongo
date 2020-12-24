@@ -19,6 +19,20 @@ public class FormValidatorPokeMongo {
             invalidNameLabel.setVisible(true);
     }
 
+    public static void handleUsername(TextField usernameTF, Label invalidUsernameLabel) {
+        if(FormValidatorPokeMongo.isValidUsername(usernameTF.getText()))
+            invalidUsernameLabel.setVisible(false);
+        else
+            invalidUsernameLabel.setVisible(true);
+    }
+
+    public static boolean isValidUsername(String username) {
+        Pattern pattern = Pattern.compile("^[a-zA-Z 0-9_'.]+$");
+        Matcher matcher = pattern.matcher(username);
+
+        return matcher.find();
+    }
+
     /**
      * Check if the string contains only letters, spaces, dots and apostrophes.
      */

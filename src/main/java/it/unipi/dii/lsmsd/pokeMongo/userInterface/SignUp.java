@@ -29,6 +29,7 @@ public class SignUp extends PokeSceneWithTitle {
     private DatePicker birthdayDP;
 
     private InvalidFormEntryLabel invalidSurnameLabel;
+    private InvalidFormEntryLabel invalidUsernameLabel;
     private InvalidFormEntryLabel invalidPasswordLabel;
     private InvalidFormEntryLabel invalidBirthdayLabel;
 
@@ -88,10 +89,13 @@ public class SignUp extends PokeSceneWithTitle {
     private void displayNicknameFields() {
         FieldRelatedLabel usernameLabel = new FieldRelatedLabel("Username", 350, 270);
 
+        invalidUsernameLabel = new InvalidFormEntryLabel("Surname must only contain letters,\nnumbers, spaces and _", 510, 290, false);
+
         usernameTF = new TextField();
         usernameTF.relocate(350, 300);
+        usernameTF.textProperty().addListener(e->FormValidatorPokeMongo.handleUsername(usernameTF, invalidUsernameLabel));
 
-        sceneNodes.getChildren().addAll(usernameLabel, usernameTF);
+        sceneNodes.getChildren().addAll(usernameLabel, usernameTF, invalidUsernameLabel);
     }
 
     /**

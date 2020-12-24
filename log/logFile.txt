@@ -2445,3 +2445,49 @@ a day in the future' at (540, 490)
 2020-12-24T09:54:59.837Z [VLOG] Setting song: pallet_town.mp3
 2020-12-24T09:56:35.002Z [VLOG] Stopping song
 2020-12-24T09:56:35.003Z [VVLOG] Setting musicOn image
+2020-12-24T10:11:21.025Z [LOG] Starting of the application
+2020-12-24T10:11:21.536Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T10:11:21.537Z [VVLOG] Setting musicOn image
+2020-12-24T10:11:21.544Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T10:11:21.653Z [VVLOG] Loading BackgroundImage at 'blastoise.png'(80, 300)
+2020-12-24T10:11:21.699Z [VVLOG] Loading BackgroundImage at 'charizard.png'(800, 300)
+2020-12-24T10:11:21.699Z [LOG] SHOWING LOGIN PAGE
+2020-12-24T10:11:21.700Z [VVLOG] Creating FieldRelatedLabel 'Username' at (550, 170)
+2020-12-24T10:11:21.721Z [VVLOG] Creating FieldRelatedLabel 'Password' at (550, 270)
+2020-12-24T10:11:21.721Z [VVLOG] Creating Regular button 'LOG IN' at (700, 370)
+2020-12-24T10:11:21.722Z [VVLOG] Creating Regular button 'SIGN UP' at (500, 370)
+2020-12-24T10:11:21.723Z [VLOG] Setting song: opening.mp3
+2020-12-24T10:11:21.827Z [VLOG] CHANGING SONG
+2020-12-24T10:11:21.890Z [VLOG] Setting song: opening.mp3
+2020-12-24T10:11:23.999Z [LOG] CHANGE OF SCENE
+2020-12-24T10:11:24.002Z [VVLOG] Creating MusicButton at (1250, 670)
+2020-12-24T10:11:24.015Z [VVLOG] Creating InvalidFormEntryLabel 'Birthday must not be
+a day in the future' at (540, 490)
+2020-12-24T10:11:24.015Z [VVLOG] Creating FieldRelatedLabel 'Birthday' at (350, 470)
+2020-12-24T10:11:24.014Z [VVLOG] Creating InvalidFormEntryLabel 'Does not match with the other password' at (910, 400)
+2020-12-24T10:11:24.014Z [VVLOG] Creating FieldRelatedLabel 'Confirm Password' at (750, 370)
+2020-12-24T10:11:24.013Z [VVLOG] Creating InvalidFormEntryLabel 'Password must contain at least:
+8 characters, a letter and
+a number' at (510, 380)
+2020-12-24T10:11:24.013Z [VVLOG] Creating FieldRelatedLabel 'Password' at (350, 370)
+2020-12-24T10:11:24.012Z [VVLOG] Creating InvalidFormEntryLabel 'Email must follow the format:
+example@domain.tld' at (910, 290)
+2020-12-24T10:11:24.006Z [VVLOG] Creating FieldRelatedLabel 'Email' at (750, 270)
+2020-12-24T10:11:24.005Z [VVLOG] Creating InvalidFormEntryLabel 'Surname must only contain letters,
+numbers, spaces and _' at (510, 290)
+2020-12-24T10:11:24.005Z [VVLOG] Creating FieldRelatedLabel 'Username' at (350, 270)
+2020-12-24T10:11:24.004Z [VVLOG] Creating InvalidFormEntryLabel 'Name must only contain letters,
+spaces, dots and apostrophes' at (910, 190)
+2020-12-24T10:11:24.004Z [VVLOG] Creating FieldRelatedLabel 'Name' at (750, 170)
+2020-12-24T10:11:24.003Z [VVLOG] Creating InvalidFormEntryLabel 'Surname must only contain letters,
+spaces, dots and apostrophes' at (510, 190)
+2020-12-24T10:11:24.003Z [VVLOG] Creating FieldRelatedLabel 'Surname' at (350, 170)
+2020-12-24T10:11:24.003Z [LOG] SHOWING SIGN-UP PAGE
+2020-12-24T10:11:24.002Z [VVLOG] Creating TitleLabel 'PokeMongo'
+2020-12-24T10:11:24.002Z [VVLOG] Setting musicOn image
+2020-12-24T10:11:24.332Z [VLOG] Setting song: pallet_town.mp3
+2020-12-24T10:11:24.332Z [VLOG] CHANGING SONG
+2020-12-24T10:11:24.332Z [VVLOG] Creating Regular button 'SUBMIT' at (1000, 600)
+2020-12-24T10:11:24.331Z [VVLOG] Creating Regular button 'BACK' at (200, 600)
+2020-12-24T10:11:24.177Z [VVLOG] Creating CountryComboBox at (750, 500)
+2020-12-24T10:11:24.174Z [VVLOG] Creating FieldRelatedLabel 'Country' at (750, 470)
