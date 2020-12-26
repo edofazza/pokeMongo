@@ -1,3 +1,5 @@
+#COMANDI PER INSTALLARE NEO4J in una particolare virtual machine
+
 #install neo4j ****INSTALLATO SULL' 86
 wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
 echo 'deb https://debian.neo4j.com stable 4.2' | sudo tee -a /etc/apt/sources.list.d/neo4j.list
@@ -7,3 +9,14 @@ sudo apt-get update
 sudo apt-get install neo4j=1:4.2.0
 #Enterprise Edition
 sudo apt-get install neo4j-enterprise=1:4.2.0
+
+
+# Comandi per avviare l'istanza Neo4j
+
+> ssh workgroup-01@172.16.3.86
+(ccT4G6 la pwd)
+
+# Per runnare neo4j
+> service neo4j start 
+
+#Per importare i file dalla repo alla virtual machine usa wget con gli url dei raw files 

@@ -56,7 +56,7 @@
 \BOOKMARK [2][-]{subsection.4.3}{Business Logic}{section.4}% 56
 \BOOKMARK [3][-]{subsubsection.4.3.1}{Points computing}{subsection.4.3}% 57
 \BOOKMARK [3][-]{subsubsection.4.3.2}{Dynamic Catch Rate computing}{subsection.4.3}% 58
-\BOOKMARK [2][-]{subsection.4.4}{Analytics queries}{section.4}% 59
+\BOOKMARK [2][-]{subsection.4.4}{Analytics queries and MongoDB Aggregations}{section.4}% 59
 \BOOKMARK [3][-]{subsubsection.4.4.1}{User Rankings}{subsection.4.4}% 60
 \BOOKMARK [3][-]{subsubsection.4.4.2}{Pokemon Rankings}{subsection.4.4}% 61
 \BOOKMARK [3][-]{subsubsection.4.4.3}{Usage Statistics}{subsection.4.4}% 62

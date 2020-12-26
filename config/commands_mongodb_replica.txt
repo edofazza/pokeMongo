@@ -28,7 +28,7 @@ mongod --replSet lsmdb --dbpath ~/data --port 27017 --bind_ip localhost,172.16.3
 mongod --replSet lsmdb --dbpath ~/data --port 27017 --bind_ip localhost,172.16.3.87 --oplogSize 200
 
 #in the fouth virtual machine configure the replica set
-mongo --port 27020
+mongo --port 27017
 rsconf = {_id: "lsmdb",	members: [{_id: 0, host: "172.16.3.85:27017"},{_id: 1, host: "172.16.3.86:27017"},{_id: 2, host: "172.16.3.87:27017"}]};
 
 #initiate the replica set
@@ -38,6 +38,12 @@ rs.status();
 #change configuration
 rs.reconfig(rsconfig);
 
+
+#access URI local cluster
+mongodb://localhost:27018,localhost:27019,localhost:27020?retryWrites=true&w=majority&wtimeout=10000
+
+#access URI virtual cluster
+mongodb://172.16.3.85:27017,172.16.3.86:27017,172.16.3.87:27017?retryWrites=true&w=majority&wtimeout=10000
 
 #######################################################################################
 [LOCAL CLUSTER ON WINDOWS]

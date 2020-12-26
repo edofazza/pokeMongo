@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  24 DEC 2020 18:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  26 DEC 2020 22:55
 entering extended mode
 **./pokeMongo.tex
 (pokeMongo.tex
@@ -1398,8 +1398,14 @@ Package pdftex.def Info: img/privacy_3.png  used on input line 29.
 [77 <./img/privacy_3.png>] [78]) [79] (pokeMongo.aux (chapters/introduction.aux
 ) (chapters/analysis.aux) (chapters/project.aux) (chapters/implementation.aux)
 (chapters/test.aux))
-Package rerunfilecheck Info: File `pokeMongo.out' has not changed.
-(rerunfilecheck)             Checksum: EDDD0D5C992A45C1C7396C28C4623DF7;5235.
+
+Package rerunfilecheck Warning: File `pokeMongo.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `pokeMongo.out':
+(rerunfilecheck)             Before: EDDD0D5C992A45C1C7396C28C4623DF7;5235
+(rerunfilecheck)             After:  E4350D52C64BD9C1EC51C27DE3C62E3A;5260.
  ) 
 Here is how much of TeX's memory you used:
  12775 strings out of 480236
@@ -1428,7 +1434,7 @@ public/amsfonts/cm/cmr8.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts
 TeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/gxhan/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/gxhan/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on pokeMongo.pdf (80 pages, 4905204 bytes).
+Output written on pokeMongo.pdf (80 pages, 4905220 bytes).
 PDF statistics:
  1603 PDF objects out of 1728 (max. 8388607)
  729 named destinations out of 1000 (max. 500000)
