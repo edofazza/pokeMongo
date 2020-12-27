@@ -16,7 +16,7 @@ public class AutoLogIn {
         ArrayList<User> allUsers = userManager.getEveryUser();
 
         for (User user: allUsers) {
-            if (Math.random() < .7)
+            if (Math.random() < .997)
                 continue;
             userManager.login(user.getUsername(),user.getName() + user.getSurname() + "000");
 

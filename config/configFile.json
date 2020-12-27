@@ -2,7 +2,7 @@
   "numRowsRanking": 25,
   "usernameSpeedLogin": "ciaomamma",
   "passwordSpeedLogin": "ciaomamma2",
-  "verbosityLevel": 3,
+  "verbosityLevel": 1,
 
   "userDbArchitecture": "MongoDb",
   "pokemonDbArchitecture": "MongoDb",
