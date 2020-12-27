@@ -50,24 +50,27 @@ public class LineChartThirtyDaysFactory {
     public static void addDataToLineChart(LineChart lineChart, List<Double> xy){
         lineChart.getData().clear();
 
-        XYChart.Series series = new XYChart.Series();
-        int i=0;
-        for(Double p: xy){
-            series.getData().add(new XYChart.Data<>(i,p));
-            i++;
+        if(lineChart!=null && xy!=null) {
+            XYChart.Series series = new XYChart.Series();
+            int i = 0;
+            for (Double p : xy) {
+                series.getData().add(new XYChart.Data<>(i, p));
+                i++;
+            }
+
+            lineChart.getData().add(series);
+
+            lineChart.setLegendVisible(false);
+            lineChart.setCreateSymbols(false);
+
+            DropShadow dropShadow = new DropShadow();
+            dropShadow.setOffsetX(0);
+            dropShadow.setOffsetY(3);
+            dropShadow.setColor(Color.GRAY);
+            dropShadow.setBlurType(BlurType.GAUSSIAN);
+            series.getNode().setEffect(dropShadow);
+            series.getNode().setStyle("-fx-stroke: #34abeb;");
         }
-
-        lineChart.getData().add(series);
-        lineChart.setLegendVisible(false);
-        lineChart.setCreateSymbols(false);
-
-        DropShadow dropShadow = new DropShadow();
-        dropShadow.setOffsetX(0);
-        dropShadow.setOffsetY(3);
-        dropShadow.setColor(Color.GRAY);
-        dropShadow.setBlurType(BlurType.GAUSSIAN);
-        series.getNode().setEffect(dropShadow);
-        series.getNode().setStyle("-fx-stroke: #34abeb;");
     }
 
     /**
