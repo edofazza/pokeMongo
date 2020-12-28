@@ -1,6 +1,8 @@
 package it.unipi.dii.lsmsd.pokeMongo.persistence;
 
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
+import it.unipi.dii.lsmsd.pokeMongo.config.ConfigData;
+import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.exceptions.DuplicateUserException;
 import org.neo4j.driver.Record;
 
@@ -116,7 +118,7 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
     @Override
     public List<String> getLikedPokemonNames(User u){
         List<String> liked = new ArrayList<>();
-        String query = "MATCH (to:Pokemon)<-[h:LIKES]-(from:User) WHERE from.username = $username RETURN to.name";
+        String query = "MATCH (to:Pokemon)<-[h:LIKES]-(from:User) WHERE from.username = $username RETURN to.name LIMIT " + ConfigDataHandler.getInstance().configData.numRowsRanking;
         ArrayList<Object> res = getWithFilter(query, parameters("username", u.getUsername()));
         for(Object o: res){
             Record r =(Record)o;
@@ -129,7 +131,7 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
     @Override
     public List<String> getSuggestedUser(User u) {
         List<String> usernameList = new ArrayList<>();
-        String query = "MATCH (u:User)-[:FOLLOW]->(u1:User)-[:FOLLOW]->(u2:User) where NOT (u)-[:FOLLOW]->(u2) and u2 <> u and u.username = $username return u2.username LIMIT 20";
+        String query = "MATCH (u:User)-[:FOLLOW]->(u1:User)-[:FOLLOW]->(u2:User) where NOT (u)-[:FOLLOW]->(u2) and u2 <> u and u.username = $username return u2.username LIMIT " + ConfigDataHandler.getInstance().configData.numRowsRanking;
         ArrayList<Object> res = getWithFilter(query, parameters("username", u.getUsername()));
         for(Object o: res){
             Record r =(Record)o;
@@ -143,7 +145,7 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
     @Override
     public List<String> getSuggestedUserByFavoritesPokemon(User u) {
         List<String> usernameList = new ArrayList<>();
-        String query = "MATCH (p:Pokemon)<-[:LIKES]-(u:User)-[:FOLLOW]->(u1:User)-[:FOLLOW]->(u2:User)-[:LIKES]->(p2:Pokemon) where NOT (u)-[:FOLLOW]->(u2) and u2 <> u and u.username = $username and p2 = p return u2.username LIMIT 20";
+        String query = "MATCH (p:Pokemon)<-[:LIKES]-(u:User)-[:FOLLOW]->(u1:User)-[:FOLLOW]->(u2:User)-[:LIKES]->(p2:Pokemon) where NOT (u)-[:FOLLOW]->(u2) and u2 <> u and u.username = $username and p2 = p return u2.username LIMIT " + ConfigDataHandler.getInstance().configData.numRowsRanking;
         ArrayList<Object> res = getWithFilter(query, parameters("username", u.getUsername()));
         for(Object o: res){
             Record r =(Record)o;
