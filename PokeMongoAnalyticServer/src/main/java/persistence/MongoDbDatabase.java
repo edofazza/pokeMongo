@@ -21,13 +21,13 @@ public abstract class MongoDbDatabase implements Database{
     private final String writeConcern = "w=majority&journal=true";
     private final String writeTimeout = "wtimeout=10000";
     private final String readPreference = "readPreference=secondaryPreferred&maxStalenessSeconds=120";
-    private final String readConcern = "readConcernLevel=snapshot";
+    private final String readConcern = "readConcernLevel=majority"; //todo
 
     @Override
     public void startConnection(){
-        //connection=MongoClients.create(clusterAddress + "?" + retryWrites + "&" + writeConcern + "&" +
-        //        writeTimeout + "&" + readPreference + "&" + readConcern);
-        connection= MongoClients.create("mongodb://" + host + ":" + port);
+        connection=MongoClients.create(clusterAddress + "?" + retryWrites + "&" + writeConcern + "&" +
+                writeTimeout + "&" + readPreference + "&" + readConcern);
+//        connection= MongoClients.create("mongodb://" + host + ":" + port);
     }
 
     @Override
