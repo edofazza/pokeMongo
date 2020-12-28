@@ -28,10 +28,10 @@ public abstract class MongoDbDatabase implements Database{
     public void startConnection(){
         Logger.vlog("Starting connection with MongoDB");
 
-        //connection=MongoClients.create(clusterAddress + "?" + retryWrites + "&" + writeConcern + "&" + writeTimeout
-        //                            + "&" + readPreference + "&" + readConcern);
+        connection=MongoClients.create(clusterAddress + "?" + retryWrites + "&" + writeConcern + "&" + writeTimeout
+                                    + "&" + readPreference + "&" + readConcern);
 
-        connection = MongoClients.create("mongodb://" + host + ":" + port);
+        //connection = MongoClients.create("mongodb://" + host + ":" + port);
 
     }
 
