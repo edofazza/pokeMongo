@@ -80,7 +80,12 @@ public class RankingScene extends PokeSceneWithHeaderAndBackButton {
 
         RankingScollPane friends = new RankingScollPane(900, 200, 320, 350, RankingTypes.FRIENDS);
 
-        sceneNodes.getChildren().addAll(friendsLabel, friends);
+        double currentPoints = CurrentUI.getUser().getPoints();
+        currentPoints = Math.round(currentPoints*100);
+        currentPoints = currentPoints/100;
+        FieldRelatedLabel ownPoints = new FieldRelatedLabel("YOUR POINTS: " + currentPoints, 900, 600);
+
+        sceneNodes.getChildren().addAll(friendsLabel, friends, ownPoints);
     }
 
     /**
