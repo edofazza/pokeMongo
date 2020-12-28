@@ -18,9 +18,9 @@ class UserNetworkManagerOnNeo4j extends Neo4jDbDatabase implements UserNetworkMa
 
     @Override
     public boolean deleteUser(String username){
-        String query = "MATCH (u:User) OPTIONAL MATCH (u)-[:CREATED]->(p:Post) " +
+        String query = "MATCH (u:User) WHERE u.username = $username OPTIONAL MATCH (u)-[:CREATED]->(p:Post) " +
                 "OPTIONAL MATCH (p)<-[:TOPIC]-(p1:Post)" +
-                "WHERE u.username = $username DETACH DELETE u, p, p1";
+                "DETACH DELETE u, p, p1";
         return remove(query, parameters("username", username));
     }
 
