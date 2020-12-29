@@ -45,7 +45,9 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager, 
 
     @Override
     public boolean deletePokemon(String pokemonName){
-        String query = "MATCH (p:Pokemon) WHERE p.name = $name DETACH DELETE p";
+        String query = "MATCH (p:Pokemon) WHERE p.name = $name " +
+                "OPTIONAL MATCH (p:Pokemon)<-[:TOPIC]-(pp:Post)<-[:TOPIC]-(pp1:Post)" +
+                "DETACH DELETE p,pp,pp1";
         return remove(query, parameters("name", pokemonName));
     }
 
@@ -55,8 +57,8 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager, 
             throw new DuplicatePokemonException();
 
 
-        String query = "MERGE (b:Pokemon { name: $name, type: " + (p.getTypesSingleStringForCipher()) +
-                ",sprite: $sprite, capture_rate: $capture_rate})";
+        String query = "MERGE (b:Pokemon { name: $name, type: [" + (p.getTypesSingleStringForCipher()) +
+                "],sprite: $sprite, capture_rate: $capture_rate})";
 
         return insert(query, parameters("name", p.getName(), "sprite", p.getSprite(), "capture_rate", p.getCapture_rate()));
     }
