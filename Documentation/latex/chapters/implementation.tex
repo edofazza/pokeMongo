@@ -1058,9 +1058,68 @@ We created few function for handling some simple statistics that can be useful f
 	}
 \end{lstlisting}
 
+\subsection{Neo4j: Recommendation and main queries implementation}
+
+\paragraph{Best Pokemon by Country}: Return \textbf{Pokèmon} most captured by \textit{country}:
+\begin{lstlisting}[language=SQL]
+	MATCH (u:User)-[h:HAS]->(p:Pokemon) 
+	WHERE u.country = $country return p.name, count(h) AS held, p.sprite 
+	ORDER BY held 
+	DESC LIMIT
+\end{lstlisting}
+
+\paragraph{Delete User}: Delele a \textbf{User} from Neo4j Database. Also all the posts/replies written by that \textbf{User} (and the related replies) will be removed. 
+\begin{lstlisting}[language=SQL]
+	MATCH (u:User) WHERE u.username = $username 
+	OPTIONAL MATCH (u)-[:CREATED]->(p:Post)
+	OPTIONAL MATCH (p)<-[:TOPIC]-(p1:Post)
+	DETACH DELETE u, p, p1
+\end{lstlisting}
+
+\paragraph{Delete Pokemon}: Delele a \textbf{Pokèmon} from Neo4j Database. Also all the posts and replies regarding that \textbf{Pokèmon} will be removed. 
+\begin{lstlisting}[language=SQL]
+	MATCH (p:Pokemon) WHERE p.name = $name
+	OPTIONAL MATCH (p:Pokemon)<-[:TOPIC]-(pp:Post)<-[:TOPIC]-(pp1:Post) 
+	DETACH DELETE p, pp, pp1
+\end{lstlisting}
+
+\paragraph{Friends Recommendation by Followers}: friends recommended by followers (friends) are all the different \textit{followers of the followers} of the \textbf{User} (an already followed \textbf{User} is not returned).
+\begin{lstlisting}[language=SQL]
+	MATCH (u:User)-[:FOLLOW]->(u1:User)-[:FOLLOW]->(u2:User) 
+	WHERE NOT (u)-[:FOLLOW]->(u2) and u2 <> u and u.username = $username 
+	RETURN u2.username 
+	LIMIT 20 
+\end{lstlisting}
+\paragraph{Friends Recommendation by Pokemon} friends recommended by \textbf{Pokèmon}are all the different \textit{followers of the followers} of the User that shares at least one liked \textbf{Pokèmon} (an already followed user is not returned). These recommended \textbf{Users} are a subset of the latter.
+\begin{lstlisting}[language=SQL]
+	MATCH (p:Pokemon)<-[:LIKES]-(u:User)-[:FOLLOW]->(u1:User) -[:FOLLOW]->(u2:User)-[:LIKES]->(p2:Pokemon) 
+	WHERE NOT (u)-[:FOLLOW]->(u2) and u2 <> u and u.username = $username and p2 = p 
+	RETURN u2.username 
+	LIMIT 20
+\end{lstlisting}
 
 
-\subsubsection{Dynamic Catch Rate}
+\paragraph{Insert Post}: Insert a new \textbf{Post} referred to a particular \textbf{Pokèmon}.
+\begin{lstlisting}[language=SQL]
+	MATCH (u:User) 
+	WHERE u.username = $username 
+	MATCH (p:Pokemon) 
+	WHERE p.name = $name 
+	CREATE (u)-[:CREATED]->(p1:Post{creationDate: $date, content: $content})-[:TOPIC]->(p)
+\end{lstlisting}
+
+\paragraph{Insert Response}: Insert a new \textbf{Reply} referred to a particular \textbf{Post}.
+\begin{lstlisting}[language=SQL]
+	MATCH (u:User) WHERE u.username = $username 
+	MATCH (uTopic:User)-[:CREATED]->(pTopic:Post)-[:TOPIC]-> (pokTopic:Pokemon)
+	WHERE uTopic.username = $username2 and pTopic.creationDate = $date2 and pTopic.content = $content2 and pokTopic.name = $name2
+	CREATE (u)-[:CREATED]->(p1:Post{content: $content, creationDate: $date})-[:TOPIC]->(pTopic)
+\end{lstlisting}
+
+
+
+
+\subsection{Dynamic Catch Rate}
 The \textit{dynamic catch rate} is saved in the \textbf{Pokèmon} json as an array of 30 values, in which the first one indicates the current catch rate of the \textbf{Pokèmon} (the other 29 values are using for plotting the catch rate chart). Let’s analyze it step by step.
 The first thing we have to do is to retrieve from the databases all the \textbf{Pokèmon}.
 
