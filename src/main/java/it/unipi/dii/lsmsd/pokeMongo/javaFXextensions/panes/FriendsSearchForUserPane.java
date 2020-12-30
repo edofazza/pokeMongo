@@ -1,5 +1,6 @@
 package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 
+import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.RegularButton;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import javafx.scene.layout.Pane;
@@ -20,13 +21,16 @@ public class FriendsSearchForUserPane extends Pane {
         setPrefSize(width, height);
 
         FieldRelatedLabel textFieldTitle = new FieldRelatedLabel("SEARCH USERS", 75, 100);
+        RegularButton find = new RegularButton("FIND", 135, 180);
+
 
         CatchEmAllTextField userSearchInput = new CatchEmAllTextField("Type for searching", 50, 130);
-        userSearchInput.setOnKeyReleased(e->loadUserInfoByUsername(userSearchInput.getText()));
+        //userSearchInput.setOnKeyReleased(e->loadUserInfoByUsername(userSearchInput.getText()));
+        find.setOnAction(e -> loadUserInfoByUsername(userSearchInput.getText()));
 
         friendsScrollPaneFiltered = new FriendsScrollPane(300, 30, 320, 200);
 
-        getChildren().addAll(textFieldTitle, userSearchInput, friendsScrollPaneFiltered);
+        getChildren().addAll(textFieldTitle, userSearchInput, friendsScrollPaneFiltered, find);
     }
 
     /**

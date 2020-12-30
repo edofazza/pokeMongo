@@ -6,8 +6,11 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.comboBox.CountryComboBox;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.FieldRelatedLabel;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -64,12 +67,16 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
      * @param yLabel label in the y axis
      */
     private void displayNumUsersChart(int x, int y, String yLabel) {
-        LineChart<Number, Number> nUser = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,170000, 0, 10000);
         List<Long> list = AdminAnalysisFactory.buildRanker().getUserNumber();
 
+        int[] parameters = generateChartDimensionParametersLong(list);
+
+        LineChart<Number, Number> nUser = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel, parameters[0], parameters[1], parameters[2]);
         LineChartThirtyDaysFactory.addDataToLineChartLong(nUser, list);
 
-        sceneNodes.getChildren().addAll(nUser);
+        FieldRelatedLabel totalUserNumber = new FieldRelatedLabel("Total User Current Value: " + list.get(list.size()-1).toString(), 70, 35);
+
+        sceneNodes.getChildren().addAll(nUser, totalUserNumber);
     }
 
     /**
@@ -79,8 +86,11 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
      * @param yLabel label in the y axis
      */
     private void displayLogIn(int x, int y, String yLabel) {
-        LineChart<Number, Number> nLogin = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,170000, 0, 10000);
         List<Long> list = AdminAnalysisFactory.buildRanker().getLastLogins();
+
+        int[] parameters = generateChartDimensionParametersLong(list);
+
+        LineChart<Number, Number> nLogin = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel,parameters[0], parameters[1], parameters[2]);
 
         LineChartThirtyDaysFactory.addDataToLineChartLong(nLogin, list);
 
@@ -113,6 +123,7 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
 
         loginByCountry.getYAxis().setLabel("Number of logins in " + countryComboBox.getValue().toString());
 
+
         // QUERYING BY COUNTRY
         List<Map<String, Long>> listOfMap = AdminAnalysisFactory.buildRanker().getLastLoginsByCountry();
         List<Long> list = new ArrayList<>();
@@ -121,6 +132,47 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
             list.add(m.get(countryComboBox.getValue().toString()));
         }
 
+        int[] parameters = generateChartDimensionParametersLong(list);
+
+        System.out.println(parameters[0] + " " + parameters[1] + " " + parameters[2]);
+        ((NumberAxis)loginByCountry.getYAxis()).setUpperBound(parameters[0]);
+        ((NumberAxis)loginByCountry.getYAxis()).setLowerBound(parameters[1]);
+        ((NumberAxis)loginByCountry.getYAxis()).setTickUnit(parameters[2]);
+
         LineChartThirtyDaysFactory.addDataToLineChartLong(loginByCountry, list);
     }
+
+
+    // ********************************
+    // UTILS
+    // ********************************
+    private int[] generateChartDimensionParametersLong(List<Long> list) {
+        if (list == null)
+            return new int[]{0,0,0};
+
+        int yMaxInt = 0;
+        int yMinInt = 999999999;
+
+        boolean hasValues = false;
+        for (int i = 0; i < list.size(); ++i) {
+
+            if (list.get(i) != null) {
+                yMinInt = (int) (yMinInt > list.get(i) ? list.get(i) : yMinInt);
+                yMaxInt = (int) (yMaxInt > list.get(i) ? yMaxInt : list.get(i));
+                hasValues = true;
+            }
+        }
+        if (!hasValues)
+            return new int[] {0, 0, 0};
+
+        System.out.println(yMaxInt + " " + yMinInt);
+
+        yMaxInt = yMaxInt > 5000 ? yMaxInt + 1000 : yMaxInt > 500 ? 1000 : yMaxInt > 200 ? 400 : 50;
+        yMinInt = yMinInt - 1000 < 0 ? yMinInt : yMinInt - 1000;
+
+        int diff = (yMaxInt - yMinInt) / 30;
+
+        return new int[] {yMaxInt, yMinInt, diff};
+    }
+
 }
