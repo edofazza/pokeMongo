@@ -1,5 +1,3 @@
 /target/
 /PokeMongoAnalyticServer/target/
-log/logFile.txt
-log/logFile.txt
-log/logFile.txt
+/log/logFile.txt
