@@ -102,7 +102,7 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager, 
     public ArrayList<Pokemon> getBestPokemon(String country) {
         ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
         String query = "MATCH (u:User)-[h:HAS]->(p:Pokemon) WHERE u.country = $country return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT " + ConfigDataHandler.getInstance().configData.numRowsRanking;
-        ArrayList<Object> res = getWithFilter(query, parameters("country", country));
+        ArrayList<Object> res = getWithFilter(query, parameters("country", " " + country));
         return getPokemons(pokemonArrayList, res);
     }
 

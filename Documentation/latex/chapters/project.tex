@@ -630,7 +630,7 @@ The applicative code runs entirely on the clients: every interaction with the GU
 In order to minimize servers’ computational load, they do not execute applicative code, but they only are in charge of providing answers to queries.\\
 This means that the application has not been designed as independent from the database infrastructure, but as we will discuss in chapter 4 an accurate information hiding mechanism prevents strong dependencies on the backend implementation.\\
 Apart from the usage analytics (and image download/caching), the applicative code is synchronized with query responses: it stops waiting for an answer from the database. \medskip \\
-As already cited before, an analytic function is performed in a deferred fashion every day at 00:00:00, and it is in charge of computing usage statistics rather than updating all Pokémon’s catch rates. \\
+As already cited before, an analytic function is performed in a deferred fashion every day at 00:00:00, and it is in charge of computing usage statistics rather than updating all \textbf{Pokémon}’s catch rates. \\
 Thus, a \textbf{daemon thread} is required: it wakes up at 00:00:00, aggregates data as described in par. 2.5, updates the \textbf{Analytics} collection on the Document Database and eventually sleeps for 24 hours.\\
 This operation cannot be performed by normal clients, since it can be computed only once for everyone and it would require a \textbf{User} to have his own device always on; anyway we wanted not to make it be performed by servers, both to reduce their computational efforts and because we cannot take for granted physical access to the server’s file system. \medskip \\
 
@@ -641,7 +641,7 @@ In the following picture a schema of the application architecture is reported.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{img/architecture.png}
+	\includegraphics[width=\textwidth]{img/schema2.pdf}
 	\caption{Service Architecture}
 \end{figure}
 
