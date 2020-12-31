@@ -29,7 +29,7 @@ mongod --replSet lsmdb --dbpath ~/data --port 27017 --bind_ip localhost,172.16.3
 
 #in the fouth virtual machine configure the replica set
 mongo --port 27017
-rsconf = {_id: "lsmdb",	members: [{_id: 0, host: "172.16.3.85:27017"},{_id: 1, host: "172.16.3.86:27017"},{_id: 2, host: "172.16.3.87:27017"}]};
+rsconf = {_id: "lsmdb",	members: [{_id: 0, host: "172.16.3.85:27017", priority: 0.5},{_id: 1, host: "172.16.3.86:27017", priority: 1},{_id: 2, host: "172.16.3.87:27017", priority: 1}]};
 
 #initiate the replica set
 rs.initiate(rsconf);

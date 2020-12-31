@@ -917,14 +917,17 @@ The\textbf{ dynamic catch rate} is expatiate as follows:
 \begin{equation}
 	dyn.\ catch\ rate= catch\ rate \times \left(1-\frac{\# users\ that\ has\ the\ Pokemon}{total\ number\ of\ users}\right)
 \end{equation}
-\subsection{Analytics queries and MongoDB Aggregations}
-In this chapter are present how the analytic are really compute in our system.
+
+
+\subsection{MongoDB: Analytics queries implementation}
+In this chapter are present how the analytic queries are computed by exploiting the MongoDB database.
+
 \subsubsection{User Rankings}
 We have three different types of ranking that regards the \textbf{Users}: the \textit{World Best Team}, the \textit{Friend Best Team} and the \textit{“Country” Ranking} (where \textit{country} is a specific country, e.g. Italy).
 \paragraph{World Best Team}
-The \textit{World Best Team} consider all the \textbf{User} in the world and retrieve a limited number of \textbf{User} who has the highest value of \textit{points}. This is done querying MongoDb as follow (function present in UserManagerOnMongoDB):
+The \textit{World Best Team} consider all the \textbf{User} in the world and retrieve a limited number of \textbf{User} who has the highest value of \textit{points}. This is done querying MongoDb as follow:
 
-
+\begin{comment}
 \begin{lstlisting}[language=Java]
 	public List<User> bestWorldTeams() {
 		Bson match = match(and(eq("admin", false), lte("lastLogin", getDateThresholdForRanking())));
@@ -934,129 +937,85 @@ The \textit{World Best Team} consider all the \textbf{User} in the world and ret
 		return aggregate(Arrays.asList(match, sort, limit, project));
 	}
 \end{lstlisting}
+\end{comment}
+
+\begin{lstlisting}[language=Java]
+	db.user.aggregate([
+		{$match: {"admin": {$eq: false}, "lastLogin": {$lte: $tresholdDate}}},
+		{$sort: {"points": -1, "birthDay": -1}},
+		{$limit: $limitNum},
+		{$project: {"_id": 0, "username": 1, "teamName": 1, "birthDay":1, "country": 1}}
+	]);
+\end{lstlisting}
+
 What is done is matching \textbf{Users} that aren’t admin and that have the \textit{lastLogin} field within a certain range of days. Then we order the result in a descending way, considering the \textit{points} and the birth day, this one just to order \textbf{Users} that have the same value for \textit{points} in order to greeting younger players. As said before we limit the number of result (this can be modified in the configuration file) and we project only the feature we are interested into.\\
 We have limited the ranking based on \textit{lastLogin}, because the \textbf{User} \textit{points} are only updated when the \textbf{User} use the application,  in order to have a less computational effort in the server databases. This, also, makes the \textbf{User} \textit{points} something that \textbf{lose meaning after a certain period of time}.
 
 \paragraph{Friends Best Team}
-This kind of ranking is made thanks to the combination of MongoDb and Neo4j, because friends are retrieve from Neo4j and all information about them are, then, retrieve from MongoDb. To do that in our code we use two function, one from UserNetworkManagerOnNeo4j
-
+After obtaining friends \textit{usernames} on Neo4j we compute:
 \begin{lstlisting}[language=Java]
-	public List<String> getFollowersUsernames(User target){
-		List<String> followersUsernames = new ArrayList<String>();
-		String query = "MATCH (to:User)-[h:FOLLOW]->(from:User) WHERE from.username = $username RETURN to.username";
-		ArrayList<Object> res = getWithFilter(query, parameters("username", target.getUsername()));
-		for(Object o: res){
-			Record r =(Record)o;
-			String username = r.get("to.username").asString();
-			followersUsernames.add(username);
-		}
-		return followersUsernames;
-	}
+	db.user.aggregate([
+	{$match: {"admin": {$eq: false}, "lastLogin": {$lte: $tresholdDate, "username": {$in: $friendsUsernames}}}},
+	{$sort: {"points": -1, "birthDay": -1}},
+	{$limit: $limitNum},
+	{$project: {"_id": 0, "username": 1, "teamName": 1, "birthDay":1, "country": 1}}
+	]);
 \end{lstlisting}
-
-And the other from UserManagerOnMongoDb
-
-\begin{lstlisting}[language=Java]
-	public List<User> bestFriendsTeams(List<String> friendsUsername) {
-		Logger.vlog("COMPUTING BEST FRIENDS TEAMS");
-		Bson sort = sort(descending("points", "birthDay"));
-		Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
-		Bson match = match(and(eq("admin", false), in("username", friendsUsername), lte("lastLogin", getDateThresholdForRanking())));
-		Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
-		return aggregate(Arrays.asList(match, sort, limit, project));
-	}
-\end{lstlisting}
-
 \paragraph{Country Best Team}
 This is similar to the \textit{World Best Team}, but we use an additional match for the country.
 
+\begin{comment}
 \begin{lstlisting}[language=Java]
-public List<User> bestCountryTeams(String country) {
+	public List<User> bestCountryTeams(String country) {
 	Bson match = match(and(eq("country", country), eq("admin", false), lte("lastLogin", getDateThresholdForRanking())));
 	Bson sort = sort(descending("points", "birthDay"));
 	Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
 	Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
 	return aggregate(Arrays.asList(match, sort, limit, project));
-}
-
-\end{lstlisting}
-
-
-\subsubsection{Pokemon Rankings}
-We only perform two types of ranking regarding the \textbf{Pokemons}, the \textbf{\textit{World} Best Pokemon} and \textbf{\textit{Country} Best Pokemon}.
-
-\paragraph{World Best Pokemon}
-Most used \textbf{Pokemons} in the whole world. We compute them using Neo4j (TeamManagerOnNeo4j):
-
-\begin{lstlisting}[language=Java]
-	public ArrayList<Pokemon> getBestPokemon() {
-		ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
-		String query = "MATCH ()-[h:HAS]->(p:Pokemon) return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT " +  + ConfigDataHandler.getInstance().configData.numRowsRanking;
-		ArrayList<Object> res = getWithFilter(query);
-		return getPokemons(pokemonArrayList, res);
 	}
 \end{lstlisting}
-
-\paragraph{Country Best Pokemon}
-Most used \textbf{Pokemons} in a specific country. We compute them using Neo4j (TeamManagerOnNeo4j)
+\end{comment}
 
 \begin{lstlisting}[language=Java]
-public ArrayList<Pokemon> getBestPokemon(String country) {
-	ArrayList<Pokemon> pokemonArrayList = new ArrayList<>();
-	String query = "MATCH (u:User)-[h:HAS]->(p:Pokemon) WHERE u.country = $country return p.name, count(h) AS held, p.sprite ORDER BY held DESC LIMIT " + ConfigDataHandler.getInstance().configData.numRowsRanking;
-	ArrayList<Object> res = getWithFilter(query, parameters("country", country));
-	return getPokemons(pokemonArrayList, res);
-}
+	db.user.aggregate([
+		{$match: {"country": $country, "admin": {$eq: false}, "lastLogin": {$lte: $tresholdDate}}},
+		{$sort: {"points": -1}},
+		{$limit: $limitNum},
+		{$project: {"_id": 0, "username": 1, "teamName": 1, "birthDay":1, "country": 1}}
+	]);
 \end{lstlisting}
+
+
+
 
 \subsubsection{Usage Statistics}
 We created few function for handling some simple statistics that can be useful for the \textbf{admin User}, in order to see how many the people in the world use the application and how often. We decided to include three types of statistic: \textit{total number of users}, \textit{users that logged during a single day}, \textit{users that logged during a single day in a specific country}. Because all the information needed is stored in MongoDb we query the database in order to create a new document with all the information specific for the analytics of a single day.
 
 \paragraph{Total Users}:
 \begin{lstlisting}[language=Java]
-	public long getUserNumber() {
-		Bson match = match(ne("admin", true));
-		Bson count = group("$admin", sum("userNumber", 1));
-		Bson project = project(fields(include("userNumber")));
-		Document result = aggregate(Arrays.asList(match, count, project)).get(0);
-		return result.getInteger("userNumber").longValue();
-	}
+	db.user.aggregate([
+		{$match: {"admin": {$eq: false}}},
+		{$group: {_id: "admin", "userNumber": {$sum: 1}}},
+		{$project: {"_id": 0, "userNumber": 1}}
+	]);
 \end{lstlisting}
 \paragraph{Today Login}:
-
 \begin{lstlisting}[language=Java]
-	public long getTodayLogin(){
-		Calendar lastDay = Calendar.getInstance();
-		lastDay.setTime(new Date());
-		lastDay.add(Calendar.DATE, -1);
-		String yesterday = new SimpleDateFormat ("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US).format(lastDay.getTime());
-		Bson match = match(and(gte("lastLogin", yesterday), ne("admin", true)));
-		Bson count = group("$admin", sum("loginNumber", 1));
-		Bson project = project(fields(include("loginNumber")));
-		Document result = aggregate(Arrays.asList(match, count, project)).get(0);
-		return result.getInteger("loginNumber").longValue();
-	}
+	db.user.aggregate([
+		{$match: {"lastLogin": {$gte: $yesterdayDate}, "admin": {$eq: false}}},
+		{$group: {_id: "admin", "userNumber": {$sum: 1}}},
+		{$project: {"_id": 0, "userNumber": 1}}
+	]);
 \end{lstlisting}
-
 \paragraph{Country Today Login}:
 \begin{lstlisting}[language=Java]
-	public Map<String, Long> getLastLoginsByCountry() {
-		Calendar lastDay = Calendar.getInstance();
-		lastDay.setTime(new Date());
-		lastDay.add(Calendar.DATE, -1);
-		String yesterday = new SimpleDateFormat ("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US).format(lastDay.getTime());
-		Bson match = match(and(gte("lastLogin", yesterday), ne("admin", true)));
-		Bson count = group("$country", sum("lastLogin", 1));
-		Bson sort = sort(descending("lastLogin"));
-		Bson project = project(fields( include( "_id", "lastLogin")));
-		List<Document> result = aggregate(Arrays.asList(match, count, sort, project));
-		Map<String, Long> map = new HashMap<>();
-		for(Document d: result)
-		map.put(d.getString("_id"), d.getInteger("lastLogin").longValue());
-		return map;
-	}
+	db.user.aggregate([
+		{$match: {"lastLogin": {$gte: $yesterdayDate}, "admin": {$eq: false}}},
+		{$group: {_id: "country", "lastLogin": {$sum: 1}}},
+		{$sort: {"lastLogin": -1}},
+		{$project: {"_id": 1, "lastLogin": 1}}
+	]);
 \end{lstlisting}
-
 \subsection{Neo4j: Recommendation and main queries implementation}
 
 \paragraph{Best Pokemon by Country}: Return \textbf{Pokèmon} most captured by \textit{country}:
@@ -1098,6 +1057,27 @@ We created few function for handling some simple statistics that can be useful f
 \end{lstlisting}
 
 
+\paragraph{World Best Pokemon}
+Most used \textbf{Pokemons} in the whole world. We compute them using Neo4j (TeamManagerOnNeo4j):
+
+\begin{lstlisting}[language=SQL]
+MATCH ()-[h:HAS]->(p:Pokemon) 
+RETURN p.name, count(h) AS held, p.sprite 
+ORDER BY held DESC 
+LIMIT $rowLimit
+}
+\end{lstlisting}
+
+\paragraph{Country Best Pokemon}
+Most used \textbf{Pokemons} in a specific country. We compute them using Neo4j (TeamManagerOnNeo4j)
+
+\begin{lstlisting}[language=SQL]
+MATCH (u:User)-[h:HAS]->(p:Pokemon) 
+WHERE u.country = $country 
+RETURN p.name, count(h) AS held, p.sprite ORDER BY held DESC 
+LIMIT $rowLimit}
+\end{lstlisting}
+
 \paragraph{Insert Post}: Insert a new \textbf{Post} referred to a particular \textbf{Pokèmon}.
 \begin{lstlisting}[language=SQL]
 	MATCH (u:User) 
@@ -1117,10 +1097,11 @@ We created few function for handling some simple statistics that can be useful f
 
 
 
-
-\subsection{Dynamic Catch Rate}
-The \textit{dynamic catch rate} is saved in the \textbf{Pokèmon} json as an array of 30 values, in which the first one indicates the current catch rate of the \textbf{Pokèmon} (the other 29 values are using for plotting the catch rate chart). Let’s analyze it step by step.
-The first thing we have to do is to retrieve from the databases all the \textbf{Pokèmon}.
+\subsection{MongoDB and Neo4j Interactions}
+In this section of the documentation are shown some examples in which queries into different databases are performed.
+\subsubsection{Dynamic Catch Rate}
+The \textit{dynamic catch rate} is saved in the \textbf{Pokèmon} json as an array of 30 values, in which the first one indicates the current catch rate of the \textbf{Pokèmon} (the other 29 values are using for plotting the catch rate chart). Let’s analyse it step by step.
+The first thing we have to do is to retrieve from the database (\textbf{MongoDB})) all the \textbf{Pokèmon}.
 
 
 \begin{lstlisting}[language=Java]
@@ -1130,7 +1111,7 @@ The first thing we have to do is to retrieve from the databases all the \textbf{
 	ArrayList<Pokemon> pokemons = pokemonManager.getEveryPokemon();
 \end{lstlisting}
 
-Then for each of them we retrieve how many trainers has it.
+Then for each of them we retrieve how many trainers has it (from \textbf{Neo4j}).
 
 \begin{lstlisting}[language=Java]
 	List<Pair<String, Integer>> trainersPerPokemon = teamManager.getUsersNumberThatOwnsAPokemonNotFiltered();
@@ -1146,6 +1127,7 @@ List<Double> capture_rates;
 for(Pokemon p: pokemons){
 	oldPokemon = new Pokemon(p.getName(), p.getTypes(), p.getId(), p.getCapture_rate(), p.getCapture_rates(), (int)p.getHeight(), (int)p.getWeight(), p.getBiology(), p.getPortrait(), p.getSprite());
 	Pair<String, Integer> currentTrainers = trainersPerPokemon.get(index);
+	
 	if(trainersPerPokemon.get(index).getKey().equals(p.getName())){
 		numTrainers = currentTrainers.getValue();
 		index++;
@@ -1162,10 +1144,10 @@ Then we want to ensure that in the array are only present 29 values, not one mor
 \begin{lstlisting}[language=Java]
 	capture_rates = p.getCapture_rates();
 	
-	if(capture_rates.size() >= 30){
+	if(capture_rates.size() >= 30)
 		while(capture_rates.size() < 30)
-		capture_rates.remove(0);
-	}
+			capture_rates.remove(0);
+	
 \end{lstlisting}
 Then we add the new value computed to a list that will be used to update the \textit{catch rate} of every single \textbf{Pokèmon} using the operation called at last.
 \begin{lstlisting}[language=Java]
@@ -1176,5 +1158,34 @@ Then we add the new value computed to a list that will be used to update the \te
 teamManager.updateCatchRateOfPokemon(catchRatesOfPokemons);
 \end{lstlisting}
 
+\subsubsection{Friends Best Team}
+This kind of ranking is made thanks to the combination of MongoDb and Neo4j, because friends are retrieved from \textbf{Neo4j} and all information about them are, then, retrieved from \textbf{MongoDb}. To do that in our code we use two function, one from UserNetworkManagerOnNeo4j
+
+\begin{lstlisting}[language=Java]
+public List<String> getFollowersUsernames(User target){
+	List<String> followersUsernames = new ArrayList<String>();
+	String query = "MATCH (to:User)-[h:FOLLOW]->(from:User) WHERE from.username = $username RETURN to.username";
+	ArrayList<Object> res = getWithFilter(query, parameters("username", target.getUsername()));
+	
+	for(Object o: res){
+		Record r =(Record)o;
+		String username = r.get("to.username").asString();
+		followersUsernames.add(username);
+	}
+	return followersUsernames;
+}
+\end{lstlisting}
+
+And the other from UserManagerOnMongoDb:
+
+\begin{lstlisting}[language=Java]
+public List<User> bestFriendsTeams(List<String> friendsUsername) {
+	Bson sort = sort(descending("points", "birthDay"));
+	Bson limit = limit(ConfigDataHandler.getInstance().configData.numRowsRanking);
+	Bson match = match(and(eq("admin", false), in("username", friendsUsername), lte("lastLogin", getDateThresholdForRanking())));
+	Bson project = project(fields(excludeId(), include("username", "teamName", "points", "birthDay", "country")));
+	return aggregate(Arrays.asList(match, sort, limit, project));
+}
+\end{lstlisting}
 
 
