@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  30 DEC 2020 21:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  31 DEC 2020 00:00
 entering extended mode
 **./pokeMongo.tex
 (pokeMongo.tex
@@ -6,8 +6,8 @@ LaTeX2e <2020-10-01> patch level 1
 L3 programming layer <2020-10-05> xparse <2020-03-03>
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
-(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
-File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
+File: size11.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
 \c@part=\count175
 \c@section=\count176
@@ -21,23 +21,47 @@ File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
 )
-(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
-Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count183
+\Gm@cntv=\count184
+\c@Gm@tempcnt=\count185
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
+\Gm@dimlist=\toks16
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
+Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count183
-\calc@Bcount=\count184
-\calc@Adimen=\dimen139
-\calc@Bdimen=\dimen140
+\calc@Acount=\count186
+\calc@Bcount=\count187
+\calc@Adimen=\dimen147
+\calc@Bdimen=\dimen148
 \calc@Askip=\skip49
 \calc@Bskip=\skip50
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count185
+\calc@Ccount=\count188
 \calc@Cskip=\skip51
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
@@ -53,51 +77,51 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks16
-\ex@=\dimen141
+\@emptytoks=\toks17
+\ex@=\dimen149
 ))
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen142
+\pmbraise@=\dimen150
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count186
+\inf@bad=\count189
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count187
-\leftroot@=\count188
+\uproot@=\count190
+\leftroot@=\count191
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count189
-\DOTSCASE@=\count190
+\classnum@=\count192
+\DOTSCASE@=\count193
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
 \Mathstrutbox@=\box47
 \strutbox@=\box48
-\big@size=\dimen143
+\big@size=\dimen151
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count191
-\c@MaxMatrixCols=\count192
+\macc@depth=\count194
+\c@MaxMatrixCols=\count195
 \dotsspace@=\muskip16
-\c@parentequation=\count193
-\dspbrk@lvl=\count194
-\tag@help=\toks17
-\row@=\count195
-\column@=\count196
-\maxfields@=\count197
-\andhelp@=\toks18
-\eqnshift@=\dimen144
-\alignsep@=\dimen145
-\tagshift@=\dimen146
-\tagwidth@=\dimen147
-\totwidth@=\dimen148
-\lineht@=\dimen149
-\@envbody=\toks19
+\c@parentequation=\count196
+\dspbrk@lvl=\count197
+\tag@help=\toks18
+\row@=\count198
+\column@=\count199
+\maxfields@=\count266
+\andhelp@=\toks19
+\eqnshift@=\dimen152
+\alignsep@=\dimen153
+\tagshift@=\dimen154
+\tagwidth@=\dimen155
+\totwidth@=\dimen156
+\lineht@=\dimen157
+\@envbody=\toks20
 \multlinegap=\skip53
 \multlinetaggap=\skip54
-\mathdisplay@stack=\toks20
+\mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
 )
@@ -105,17 +129,17 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
-\g_MT_multlinerow_int=\count198
-\l_MT_multwidth_dim=\dimen150
+\g_MT_multlinerow_int=\count267
+\l_MT_multwidth_dim=\dimen158
 \origjot=\skip55
-\l_MT_shortvdotswithinadjustabove_dim=\dimen151
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen152
-\l_MT_above_intertext_sep=\dimen153
-\l_MT_below_intertext_sep=\dimen154
-\l_MT_above_shortintertext_sep=\dimen155
-\l_MT_below_shortintertext_sep=\dimen156
+\l_MT_shortvdotswithinadjustabove_dim=\dimen159
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen160
+\l_MT_above_intertext_sep=\dimen161
+\l_MT_below_intertext_sep=\dimen162
+\l_MT_above_shortintertext_sep=\dimen163
+\l_MT_below_shortintertext_sep=\dimen164
 \xmathstrut@box=\box49
-\xmathstrut@dim=\dimen157
+\xmathstrut@dim=\dimen165
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
 Package: pdfpages 2020/01/28 v0.5q Insert pages of external PDF documents (AM)
@@ -125,8 +149,8 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
 Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
-\ESO@tempdima=\dimen158
-\ESO@tempdimb=\dimen159
+\ESO@tempdima=\dimen166
+\ESO@tempdimb=\dimen167
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
@@ -164,39 +188,39 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 )
-\Gin@req@height=\dimen160
-\Gin@req@width=\dimen161
+\Gin@req@height=\dimen168
+\Gin@req@width=\dimen169
 )
-\AM@pagewidth=\dimen162
-\AM@pageheight=\dimen163
+\AM@pagewidth=\dimen170
+\AM@pageheight=\dimen171
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
 File: pppdftex.def 2020/01/28 v0.5q Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box50
-\AM@global@opts=\toks21
-\AM@pagecnt=\count199
-\AM@toc@title=\toks22
-\c@AM@survey=\count266
+\AM@global@opts=\toks22
+\AM@pagecnt=\count268
+\AM@toc@title=\toks23
+\c@AM@survey=\count269
 \AM@templatesizebox=\box51
 ) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count267
+\lst@mode=\count270
 \lst@gtempboxa=\box52
-\lst@token=\toks23
-\lst@length=\count268
-\lst@currlwidth=\dimen164
-\lst@column=\count269
-\lst@pos=\count270
-\lst@lostspace=\dimen165
-\lst@width=\dimen166
-\lst@newlines=\count271
-\lst@lineno=\count272
-\lst@maxwidth=\dimen167
+\lst@token=\toks24
+\lst@length=\count271
+\lst@currlwidth=\dimen172
+\lst@column=\count272
+\lst@pos=\count273
+\lst@lostspace=\dimen173
+\lst@width=\dimen174
+\lst@newlines=\count274
+\lst@lineno=\count275
+\lst@maxwidth=\dimen175
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count273
-\lst@skipnumbers=\count274
+\c@lstnumber=\count276
+\lst@skipnumbers=\count277
 \lst@framebox=\box53
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
@@ -208,14 +232,14 @@ Package: babel 2020/10/06 3.50 The Babel package
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.def
 File: babel.def 2020/10/06 3.50 Babel common definitions
-\babel@savecnt=\count275
-\U@D=\dimen168
+\babel@savecnt=\count278
+\U@D=\dimen176
 \l@babelnohyphens=\language79
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 )
-\bbl@dirlevel=\count276
+\bbl@dirlevel=\count279
 
 *************************************
 * Local config file bblopts.cfg used
@@ -239,17 +263,17 @@ Package: caption 2020/09/12 v3.5b Customizing captions (AR)
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2020/09/17 v2.1b caption3 kernel (AR)
-\captionmargin=\dimen169
-\captionmargin@=\dimen170
-\captionwidth=\dimen171
-\caption@tempdima=\dimen172
-\caption@indent=\dimen173
-\caption@parindent=\dimen174
-\caption@hangindent=\dimen175
+\captionmargin=\dimen177
+\captionmargin@=\dimen178
+\captionwidth=\dimen179
+\caption@tempdima=\dimen180
+\caption@indent=\dimen181
+\caption@parindent=\dimen182
+\caption@hangindent=\dimen183
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count277
-\c@continuedfloat=\count278
+\c@caption@flags=\count280
+\c@continuedfloat=\count281
 Package caption Info: listings package is loaded.
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
@@ -257,9 +281,6 @@ Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-)
-(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2020/03/06 v1.0d TeX engine tests
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
 .sty
@@ -298,9 +319,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen176
-\Hy@linkcounter=\count279
-\Hy@pagecounter=\count280
+\@linkdim=\dimen184
+\Hy@linkcounter=\count282
+\Hy@pagecounter=\count283
  (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -312,7 +333,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count281
+\Hy@SavedSpaceFactor=\count284
 Package hyperref Info: Hyper figures OFF on input line 4464.
 Package hyperref Info: Link nesting OFF on input line 4469.
 Package hyperref Info: Hyper index ON on input line 4472.
@@ -320,13 +341,13 @@ Package hyperref Info: Plain pages OFF on input line 4479.
 Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count282
+\c@Hy@tempcnt=\count285
  (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5076.
-\XeTeXLinkMargin=\dimen177
+\XeTeXLinkMargin=\dimen185
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -336,9 +357,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count283
-\Field@Width=\dimen178
-\Fld@charsize=\dimen179
+\Fld@menulength=\count286
+\Field@Width=\dimen186
+\Fld@charsize=\dimen187
 Package hyperref Info: Hyper figures OFF on input line 6347.
 Package hyperref Info: Link nesting OFF on input line 6352.
 Package hyperref Info: Hyper index ON on input line 6355.
@@ -354,9 +375,9 @@ Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
 )
-\Hy@abspage=\count284
-\c@Item=\count285
-\c@Hfootnote=\count286
+\Hy@abspage=\count287
+\c@Item=\count288
+\c@Hfootnote=\count289
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
@@ -367,8 +388,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count287
-\c@bookmark@seq@number=\count288
+\Fld@listcount=\count290
+\c@bookmark@seq@number=\count291
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -385,14 +406,14 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2020/08/23 v1.3g Sub-captions (AR)
-\c@subfigure=\count289
-\c@subtable=\count290
+\c@subfigure=\count292
+\c@subtable=\count293
 ) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen180
+\col@sep=\dimen188
 \ar@mcellbox=\box54
-\extrarowheight=\dimen181
-\NC@list=\toks24
+\extrarowheight=\dimen189
+\NC@list=\toks25
 \extratabsurround=\skip57
 \backup@length=\skip58
 \ar@cellbox=\box55
@@ -403,102 +424,137 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip60
 \LTpre=\skip61
 \LTpost=\skip62
-\LTchunksize=\count291
-\LTcapwidth=\dimen182
+\LTchunksize=\count294
+\LTcapwidth=\dimen190
 \LT@head=\box56
 \LT@firsthead=\box57
 \LT@foot=\box58
 \LT@lastfoot=\box59
-\LT@cols=\count292
-\LT@rows=\count293
-\c@LT@tables=\count294
-\c@LT@chunks=\count295
-\LT@p@ftn=\toks25
+\LT@cols=\count295
+\LT@rows=\count296
+\c@LT@tables=\count297
+\c@LT@chunks=\count298
+\LT@p@ftn=\toks26
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \ttl@box=\box60
 \beforetitleunit=\skip63
 \aftertitleunit=\skip64
-\ttl@plus=\dimen183
-\ttl@minus=\dimen184
-\ttl@toksa=\toks26
-\titlewidth=\dimen185
-\titlewidthlast=\dimen186
-\titlewidthfirst=\dimen187
+\ttl@plus=\dimen191
+\ttl@minus=\dimen192
+\ttl@toksa=\toks27
+\titlewidth=\dimen193
+\titlewidthlast=\dimen194
+\titlewidthfirst=\dimen195
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/blindtext\blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count296
-\c@Blindtext=\count297
-\c@blind@countparstart=\count298
-\blind@countxx=\count299
-\blindtext@numBlindtext=\count300
-\blind@countyy=\count301
-\c@blindlist=\count302
-\c@blindlistlevel=\count303
-\c@blindlist@level=\count304
-\blind@listitem=\count305
-\c@blind@listcount=\count306
-\c@blind@levelcount=\count307
-\blind@mathformula=\count308
-\blind@Mathformula=\count309
-\c@blind@randomcount=\count310
-\c@blind@randommax=\count311
-\c@blind@pangramcount=\count312
-\c@blind@pangrammax=\count313
+\c@blindtext=\count299
+\c@Blindtext=\count300
+\c@blind@countparstart=\count301
+\blind@countxx=\count302
+\blindtext@numBlindtext=\count303
+\blind@countyy=\count304
+\c@blindlist=\count305
+\c@blindlistlevel=\count306
+\c@blindlist@level=\count307
+\blind@listitem=\count308
+\c@blind@listcount=\count309
+\c@blind@levelcount=\count310
+\blind@mathformula=\count311
+\blind@Mathformula=\count312
+\c@blind@randomcount=\count313
+\c@blind@randommax=\count314
+\c@blind@pangramcount=\count315
+\c@blind@pangrammax=\count316
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count314
-\float@exts=\toks27
+\c@float@type=\count317
+\float@exts=\toks28
 \float@box=\box61
-\@float@everytoks=\toks28
+\@float@everytoks=\toks29
 \@floatcapt=\box62
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count315
+\l__kernel_color_stack_int=\count318
 \l__pdf_internal_box=\box63
 ) (pokeMongo.aux (chapters/introduction.aux) (chapters/analysis.aux)
 (chapters/project.aux) (chapters/implementation.aux) (chapters/test.aux))
 \openout1 = `pokeMongo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count316
-\scratchdimen=\dimen188
+\scratchcounter=\count319
+\scratchdimen=\dimen196
 \scratchbox=\box64
-\nofMPsegments=\count317
-\nofMParguments=\count318
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count319
-\MPscratchDim=\dimen189
-\MPnumerator=\count320
-\makeMPintoPDFobject=\count321
-\everyMPtoPDFconversion=\toks30
+\nofMPsegments=\count320
+\nofMParguments=\count321
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count322
+\MPscratchDim=\dimen197
+\MPnumerator=\count323
+\makeMPintoPDFobject=\count324
+\everyMPtoPDFconversion=\toks31
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -513,7 +569,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-\c@lstlisting=\count322
+\c@lstlisting=\count325
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -523,7 +579,7 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 58.
+Package hyperref Info: Link coloring OFF on input line 59.
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -535,11 +591,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count323
+\c@section@level=\count326
 )
-LaTeX Info: Redefining \ref on input line 58.
-LaTeX Info: Redefining \pageref on input line 58.
-LaTeX Info: Redefining \nameref on input line 58.
+LaTeX Info: Redefining \ref on input line 59.
+LaTeX Info: Redefining \pageref on input line 59.
+LaTeX Info: Redefining \nameref on input line 59.
  (pokeMongo.out) (pokeMongo.out)
 \@outlinefile=\write3
 \openout3 = `pokeMongo.out'.
@@ -554,8 +610,8 @@ t>
 File: img/marchio_unipi_pant541-eps-converted-to.pdf Graphic file (type pdf)
 <use img/marchio_unipi_pant541-eps-converted-to.pdf>
 Package pdftex.def Info: img/marchio_unipi_pant541-eps-converted-to.pdf  used o
-n input line 62.
-(pdftex.def)             Requested size: 390.0pt x 207.81781pt.
+n input line 63.
+(pdftex.def)             Requested size: 452.9679pt x 241.37358pt.
 [1
 
 {C:/Users/gxhan/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./img/marchio_u
@@ -564,7 +620,7 @@ ation with the same identifier (name{page.1}) has been already used, duplicate
 ignored
 <to be read again> 
                    \relax 
-l.48 ...mberline {4}Implementation}{40}{section.4}
+l.66 ... Analysis: utils}{42}{subsubsection.4.1.9}
                                                   % [1])
 \tf@toc=\write4
 \openout4 = `pokeMongo.toc'.
@@ -574,39 +630,33 @@ l.48 ...mberline {4}Implementation}{40}{section.4}
 
 
 (chapters/introduction.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 5--86
+Underfull \hbox (badness 10000) in paragraph at lines 5--87
 
  []
 
 [3
 
-] [4]
+]
 \openout2 = `chapters/analysis.aux'.
 
- (chapters/analysis.tex [5
+ (chapters/analysis.tex [4
 
 
 
 ]
-Overfull \hbox (1.83833pt too wide) in paragraph at lines 55--56
-[]\OT1/cmr/m/n/12 Select a \OT1/cmr/bx/n/12 Pokemon \OT1/cmr/m/n/12 you want t
-o catch from the list of favourites 
- []
-
-[6]
 
 pdfTeX warning: pdflatex.exe (file ./img/uml_use_case_2.pdf): PDF inclusion: fo
 und PDF version <1.7>, but at most version <1.5> allowed
-<img/uml_use_case_2.pdf, id=416, 492.18193pt x 218.63377pt>
+<img/uml_use_case_2.pdf, id=408, 492.18193pt x 218.63377pt>
 File: img/uml_use_case_2.pdf Graphic file (type pdf)
 <use img/uml_use_case_2.pdf>
 Package pdftex.def Info: img/uml_use_case_2.pdf  used on input line 109.
-(pdftex.def)             Requested size: 390.0pt x 173.2492pt.
-
+(pdftex.def)             Requested size: 452.9679pt x 201.22223pt.
+[5]
 
 pdfTeX warning: pdflatex.exe (file ./img/uml_use_case_1.pdf): PDF inclusion: fo
 und PDF version <1.7>, but at most version <1.5> allowed
-<img/uml_use_case_1.pdf, id=417, 597.50804pt x 845.0471pt>
+<img/uml_use_case_1.pdf, id=413, 597.50804pt x 845.0471pt>
 File: img/uml_use_case_1.pdf Graphic file (type pdf)
 <use img/uml_use_case_1.pdf>
 Package pdftex.def Info: img/uml_use_case_1.pdf  used on input line 113.
@@ -627,7 +677,7 @@ und PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex.exe (file ./img/uml_use_case_1.pdf): PDF inclusion: fo
 und PDF version <1.7>, but at most version <1.5> allowed
-<img/uml_use_case_1.pdf, id=420, page=1, 597.50804pt x 845.0471pt>
+<img/uml_use_case_1.pdf, id=416, page=1, 597.50804pt x 845.0471pt>
 File: img/uml_use_case_1.pdf Graphic file (type pdf)
 <use img/uml_use_case_1.pdf, page 1>
 Package pdftex.def Info: img/uml_use_case_1.pdf , page1 used on input line 113.
@@ -638,7 +688,7 @@ File: img/uml_use_case_1.pdf Graphic file (type pdf)
 Package pdftex.def Info: img/uml_use_case_1.pdf , page1 used on input line 113.
 
 (pdftex.def)             Requested size: 597.53392pt x 845.08372pt.
-[7 <./img/uml_use_case_2.pdf>]
+[6 <./img/uml_use_case_2.pdf>]
 File: img/uml_use_case_1.pdf Graphic file (type pdf)
 <use img/uml_use_case_1.pdf, page 1>
 Package pdftex.def Info: img/uml_use_case_1.pdf , page1 used on input line 113.
@@ -654,68 +704,45 @@ File: img/uml_use_case_1.pdf Graphic file (type pdf)
 Package pdftex.def Info: img/uml_use_case_1.pdf , page1 used on input line 113.
 
 (pdftex.def)             Requested size: 597.53392pt x 845.08372pt.
- [8 <./img/uml_use_case_1.pdf>]
-Overfull \hbox (94.5707pt too wide) in paragraph at lines 134--135
-[]\OT1/cmr/bx/n/12 Countries data $\OMS/cmsy/m/n/12 !$ []$\OT1/cmtt/m/n/12 http
-s : / / gist . github . com / kalinchernev / 486393efcca01623b18d$[] 
+ [7 <./img/uml_use_case_1.pdf>]
+Overfull \hbox (41.39488pt too wide) in paragraph at lines 135--136
+[]\OT1/cmr/bx/n/10.95 Data for the gen-er-a-tion of re-al-is-tic users $\OMS/cm
+sy/m/n/10.95 !$ []$\OT1/cmtt/m/n/10.95 https : / / github . com / smashew / Nam
+eDatabases /
  []
 
 
-Overfull \hbox (22.22488pt too wide) in paragraph at lines 135--136
-\OT1/cmtt/m/n/12 com / smashew / NameDatabases / blob / master / NamesDatabases
- / surnames /
- []
-
-[9]
 Underfull \hbox (badness 10000) in paragraph at lines 138--142
 
  []
 
-<img/entity_diagram.png, id=463, 880.28876pt x 564.1075pt>
+<img/entity_diagram.png, id=451, 880.28876pt x 564.1075pt>
 File: img/entity_diagram.png Graphic file (type png)
 <use img/entity_diagram.png>
 Package pdftex.def Info: img/entity_diagram.png  used on input line 145.
-(pdftex.def)             Requested size: 390.0pt x 249.92096pt.
-[10 <./img/entity_diagram.png>]
-Overfull \hbox (1.72878pt too wide) in paragraph at lines 150--151
-[]\OT1/cmr/m/n/12 A \OT1/cmr/bx/n/12 Team \OT1/cmr/m/n/12 is com-posed of a max
--i-mum of six \OT1/cmr/bx/n/12 Pokemons\OT1/cmr/m/n/12 , ev-ery \OT1/cmr/bx/n/
-12 Pokemon
- []
-
-[11]
-Overfull \hbox (21.4975pt too wide) in paragraph at lines 187--188
-[]\OT1/cmr/m/n/12 Analytics: evo-lu-tion on time of num-ber of lo-gins per day/
--to-tal \OT1/cmr/bx/n/12 Users\OT1/cmr/m/n/12 /logins
- []
-
-[12]) [13]
+(pdftex.def)             Requested size: 452.9679pt x 290.26468pt.
+[8] [9 <./img/entity_diagram.png>] [10]) [11]
 \openout2 = `chapters/project.aux'.
 
  (chapters/project.tex
-Overfull \hbox (3.38075pt too wide) in paragraph at lines 8--9
-[]\OT1/cmr/m/n/12 Rankings are real-time OLAP queries: they need fast ag-gre-ga
--tion strate-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
-[14
+[12
 
 
 
 ]
-Overfull \hbox (28.58829pt too wide) in paragraph at lines 37--38
-[]\OT1/cmr/bx/n/12 Analytics\OT1/cmr/m/n/12 : evo-lu-tion on time of num-ber of
- lo-gins per day/-to-tal \OT1/cmr/bx/n/12 Users\OT1/cmr/m/n/12 /logins
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
-
+Overfull \hbox (3.52441pt too wide) in paragraph at lines 42--43
+[]\OT1/cmr/m/n/10.95 In par-tic-u-lar it re-mem-bers \OT1/cmr/bx/n/10.95 User\O
+T1/cmr/m/n/10.95 's ana-graph-ics and lo-gin data, last lo-gin, re-main-ing Pok
+eballs,
  []
 
 
@@ -728,697 +755,543 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
  []
 
-[15]
-<img/user_collection.png, id=507, 706.13812pt x 181.42781pt>
+<img/user_collection.png, id=495, 706.13812pt x 181.42781pt>
 File: img/user_collection.png Graphic file (type png)
 <use img/user_collection.png>
 Package pdftex.def Info: img/user_collection.png  used on input line 51.
-(pdftex.def)             Requested size: 390.0pt x 100.20363pt.
-<img/pokemon_collection.png, id=508, 682.80093pt x 188.20313pt>
+(pdftex.def)             Requested size: 452.9679pt x 116.38193pt.
+[13 <./img/user_collection.png>]
+<img/pokemon_collection.png, id=502, 682.80093pt x 188.20313pt>
 File: img/pokemon_collection.png Graphic file (type png)
 <use img/pokemon_collection.png>
 Package pdftex.def Info: img/pokemon_collection.png  used on input line 67.
-(pdftex.def)             Requested size: 390.0pt x 107.498pt.
- [16 <./img/user_collection.png>]
-Overfull \hbox (6.03691pt too wide) in paragraph at lines 75--76
-[]\OT1/cmr/m/it/12 Portrait/Sprite\OT1/cmr/m/n/12 : URLs of the graph-i-cal rep
--re-sen-ta-tions of this \OT1/cmr/bx/n/12 Pokemon 
- []
+(pdftex.def)             Requested size: 452.9679pt x 124.85483pt.
 
-
-Overfull \hbox (54.61667pt too wide) in paragraph at lines 85--100
- [] 
- []
-
-[17 <./img/pokemon_collection.png>]
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-<img/UsernameNoIndex.png, id=521, 237.13594pt x 73.02281pt>
+[14 <./img/pokemon_collection.png>]
+<img/UsernameNoIndex.png, id=509, 237.13594pt x 73.02281pt>
 File: img/UsernameNoIndex.png Graphic file (type png)
 <use img/UsernameNoIndex.png>
 Package pdftex.def Info: img/UsernameNoIndex.png  used on input line 115.
-(pdftex.def)             Requested size: 175.49881pt x 54.04381pt.
-<img/UsernameIndex.png, id=522, 209.28188pt x 73.02281pt>
+(pdftex.def)             Requested size: 203.83417pt x 62.77051pt.
+<img/UsernameIndex.png, id=510, 209.28188pt x 73.02281pt>
 File: img/UsernameIndex.png Graphic file (type png)
 <use img/UsernameIndex.png>
 Package pdftex.def Info: img/UsernameIndex.png  used on input line 119.
-(pdftex.def)             Requested size: 175.49881pt x 61.23509pt.
+(pdftex.def)             Requested size: 203.83417pt x 71.12172pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 114--122
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 114--122
 []$[]$ $[]$ 
  []
 
-
-Overfull \hbox (5.50058pt too wide) in paragraph at lines 128--129
-[] [] \OT1/cmr/bx/n/12 Coun-try[] \OT1/cmr/m/n/12 As seen be-fore, start-ing fr
-om the ap-pli-ca-tion queries we demon-
- []
-
-[18 <./img/UsernameNoIndex.png> <./img/UsernameIndex.png>]
-<img/CountryNoIndex.png, id=538, 224.33812pt x 72.27pt>
+<img/CountryNoIndex.png, id=511, 224.33812pt x 72.27pt>
 File: img/CountryNoIndex.png Graphic file (type png)
 <use img/CountryNoIndex.png>
 Package pdftex.def Info: img/CountryNoIndex.png  used on input line 159.
-(pdftex.def)             Requested size: 175.49881pt x 56.53796pt.
-<img/CountryIndex.png, id=539, 204.765pt x 73.02281pt>
+(pdftex.def)             Requested size: 203.83417pt x 65.66653pt.
+<img/CountryIndex.png, id=512, 204.765pt x 73.02281pt>
 File: img/CountryIndex.png Graphic file (type png)
 <use img/CountryIndex.png>
 Package pdftex.def Info: img/CountryIndex.png  used on input line 163.
-(pdftex.def)             Requested size: 175.49881pt x 62.59001pt.
+(pdftex.def)             Requested size: 203.83417pt x 72.69502pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 158--166
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 158--166
 []$[]$ $[]$ 
  []
 
-
-Overfull \hbox (43.24022pt too wide) in paragraph at lines 177--192
- [] 
- []
-
-[19 <./img/CountryNoIndex.png> <./img/CountryIndex.png>]
-<img/PokemonNameNoIndex.png, id=549, 207.02344pt x 73.02281pt>
+[15 <./img/UsernameNoIndex.png> <./img/UsernameIndex.png> <./img/CountryNoIndex
+.png> <./img/CountryIndex.png>]
+<img/PokemonNameNoIndex.png, id=530, 207.02344pt x 73.02281pt>
 File: img/PokemonNameNoIndex.png Graphic file (type png)
 <use img/PokemonNameNoIndex.png>
 Package pdftex.def Info: img/PokemonNameNoIndex.png  used on input line 203.
-(pdftex.def)             Requested size: 168.47736pt x 59.42781pt.
-<img/PokemonNameIndex.png, id=550, 210.7875pt x 72.27pt>
+(pdftex.def)             Requested size: 195.67905pt x 69.0236pt.
+<img/PokemonNameIndex.png, id=531, 210.7875pt x 72.27pt>
 File: img/PokemonNameIndex.png Graphic file (type png)
 <use img/PokemonNameIndex.png>
 Package pdftex.def Info: img/PokemonNameIndex.png  used on input line 207.
-(pdftex.def)             Requested size: 168.47736pt x 57.76422pt.
+(pdftex.def)             Requested size: 195.67905pt x 67.09128pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--236
-\OT1/cmr/m/n/12 f)|FOLLOWS $\OMS/cmsy/m/n/12 !$\OT1/cmr/m/n/12 (USER
+Underfull \hbox (badness 5231) in paragraph at lines 234--236
+[]|\OT1/cmr/m/n/10.95 Match all the USER nodes at dis-
+ []
+
+
+Underfull \hbox (badness 3514) in paragraph at lines 234--236
+\OT1/cmr/m/n/10.95 tance 2 from the given USER node
+ []
+
+
+Underfull \hbox (badness 1337) in paragraph at lines 234--236
+\OT1/cmr/m/n/10.95 U ac-cord-ing to one of these pat-terns:
+ []
+
+
+Underfull \hbox (badness 5231) in paragraph at lines 238--240
+[]|\OT1/cmr/m/n/10.95 Match all the USER nodes at dis-
+ []
+
+
+Underfull \hbox (badness 3514) in paragraph at lines 238--240
+\OT1/cmr/m/n/10.95 tance 2 from the given USER node
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 238--240
-[]|\OT1/cmr/m/n/12 Match all the USER nodes
- []
-
-
-Underfull \hbox (badness 3118) in paragraph at lines 238--240
-\OT1/cmr/m/n/12 at dis-tance 2 from the given
+\OT1/cmr/m/n/10.95 U ac-cord-ing to one of these pat-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 238--240
-\OT1/cmr/m/n/12 USER node U ac-cord-ing
+\OT1/cmr/m/n/10.95 terns: (U)|LIKES$\OMS/cmsy/m/n/10.95 !$\OT1/cmr/m/n/10.95 (P
+OKEMON
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--240
-\OT1/cmr/m/n/12 to one of these pat-terns:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 238--240
-\OT1/cmr/m/n/12 (U)|LIKES$\OMS/cmsy/m/n/12 !$\OT1/cmr/m/n/12 (POKEMON
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
-[]|\OT1/cmr/m/n/12 Retrieve \OT1/cmr/bx/n/12 User\OT1/cmr/m/n/12 's favourite
- []
-
-
-Underfull \hbox (badness 1454) in paragraph at lines 247--248
-[]|\OT1/cmr/m/n/12 Remove a \OT1/cmr/bx/n/12 Pokemon \OT1/cmr/m/n/12 from the
- []
-
-
-Overfull \hbox (2.1976pt too wide) in alignment at lines 223--263
- [] [] 
+Underfull \hbox (badness 1152) in paragraph at lines 260--262
+[]|\OT1/cmr/m/n/10.95 Count out-com-ing HAS edges from the
  []
 
 
 Underfull \vbox (badness 10000) detected at line 263
  []
 
-[20 <./img/PokemonNameNoIndex.png> <./img/PokemonNameIndex.png>]
-Underfull \hbox (badness 1603) in paragraph at lines 279--280
-[]|\OT1/cmr/m/n/12 Add a OWNS re-la-tion-ship be-
- []
-
-
-Overfull \hbox (2.1976pt too wide) in alignment at lines 271--281
- [] [] 
+[16 <./img/PokemonNameNoIndex.png> <./img/PokemonNameIndex.png>]
+Underfull \hbox (badness 2261) in paragraph at lines 279--280
+[]|\OT1/cmr/m/n/10.95 Add a OWNS re-la-tion-ship be-tween a
  []
 
 
 Underfull \vbox (badness 10000) detected at line 281
  []
 
-[21]
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 305.
+Underfull \hbox (badness 2941) in paragraph at lines 303--304
+[]|\OT1/cmr/bx/n/10.95 Analytics\OT1/cmr/m/n/10.95 : rank-ing of most pop-u-lar
 
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 305.
-
-
-Overfull \hbox (2.1976pt too wide) in alignment at lines 290--307
- [] [] 
  []
+
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 305.
+
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 305.
 
 
 Underfull \vbox (badness 10000) detected at line 307
  []
 
+[17]
+Underfull \hbox (badness 4156) in paragraph at lines 326--327
+[]|\OT1/cmr/m/n/10.95 Retrieve all the \OT1/cmr/bx/n/10.95 Posts \OT1/cmr/m/n/1
+0.95 re-lated to a
+ []
 
-Overfull \hbox (2.1976pt too wide) in alignment at lines 316--335
- [] [] 
+
+Underfull \hbox (badness 1158) in paragraph at lines 327--328
+\OT1/cmr/m/n/10.95 to the POKE-MON node P through a
  []
 
 
 Underfull \vbox (badness 10000) detected at line 335
  []
 
-[22]
-<img/graph_structure2.png, id=574, 688.07062pt x 569.62813pt>
+[18]
+<img/graph_structure2.png, id=556, 688.07062pt x 569.62813pt>
 File: img/graph_structure2.png Graphic file (type png)
 <use img/graph_structure2.png>
 Package pdftex.def Info: img/graph_structure2.png  used on input line 357.
-(pdftex.def)             Requested size: 390.0pt x 322.86612pt.
- [23] [24 <./img/graph_structure2.png>]
-Overfull \hbox (45.99782pt too wide) in paragraph at lines 380--393
- [] 
- []
-
+(pdftex.def)             Requested size: 452.9679pt x 374.99094pt.
+ [19 <./img/graph_structure2.png>]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
 398.
+
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<img/user_without_index_1.png, id=586, 185.69376pt x 273.02pt>
+<img/user_without_index_1.png, id=563, 185.69376pt x 273.02pt>
 File: img/user_without_index_1.png Graphic file (type png)
 <use img/user_without_index_1.png>
 Package pdftex.def Info: img/user_without_index_1.png  used on input line 403.
-(pdftex.def)             Requested size: 175.49881pt x 258.03859pt.
-<img/user_with_index_1.png, id=587, 183.68625pt x 227.34938pt>
+(pdftex.def)             Requested size: 203.83417pt x 299.69803pt.
+<img/user_with_index_1.png, id=564, 183.68625pt x 227.34938pt>
 File: img/user_with_index_1.png Graphic file (type png)
 <use img/user_with_index_1.png>
 Package pdftex.def Info: img/user_with_index_1.png  used on input line 406.
-(pdftex.def)             Requested size: 175.49881pt x 217.22954pt.
+(pdftex.def)             Requested size: 203.83417pt x 252.30528pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 402--408
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 402--408
 []$[]$ $[]$ 
  []
 
-<img/user_without_index_2.png, id=588, 111.41624pt x 27.10126pt>
+<img/user_without_index_2.png, id=565, 111.41624pt x 27.10126pt>
 File: img/user_without_index_2.png Graphic file (type png)
 <use img/user_without_index_2.png>
 Package pdftex.def Info: img/user_without_index_2.png  used on input line 411.
-(pdftex.def)             Requested size: 175.49881pt x 42.69254pt.
-<img/user_with_index_2.png, id=589, 101.37875pt x 19.57312pt>
+(pdftex.def)             Requested size: 203.83417pt x 49.58528pt.
+<img/user_with_index_2.png, id=566, 101.37875pt x 19.57312pt>
 File: img/user_with_index_2.png Graphic file (type png)
 <use img/user_with_index_2.png>
 Package pdftex.def Info: img/user_with_index_2.png  used on input line 415.
-(pdftex.def)             Requested size: 175.49881pt x 33.8843pt.
+(pdftex.def)             Requested size: 203.83417pt x 39.35518pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 410--418
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 410--418
 []$[]$ $[]$ 
  []
 
-[25]
-Overfull \hbox (55.28595pt too wide) in paragraph at lines 426--441
- [] 
- []
-
-[26 <./img/user_without_index_1.png> <./img/user_with_index_1.png> <./img/user_
-without_index_2.png> <./img/user_with_index_2.png>]
-<img/pokemon_without_index_1.png, id=607, 181.17688pt x 269.50688pt>
+[20 <./img/user_without_index_1.png> <./img/user_with_index_1.png>]
+<img/pokemon_without_index_1.png, id=577, 181.17688pt x 269.50688pt>
 File: img/pokemon_without_index_1.png Graphic file (type png)
 <use img/pokemon_without_index_1.png>
 Package pdftex.def Info: img/pokemon_without_index_1.png  used on input line 44
 9.
-(pdftex.def)             Requested size: 175.49881pt x 261.06357pt.
-<img/pokemon_with_index_1.png, id=608, 180.675pt x 226.34563pt>
+(pdftex.def)             Requested size: 203.83417pt x 303.21504pt.
+<img/pokemon_with_index_1.png, id=578, 180.675pt x 226.34563pt>
 File: img/pokemon_with_index_1.png Graphic file (type png)
 <use img/pokemon_with_index_1.png>
 Package pdftex.def Info: img/pokemon_with_index_1.png  used on input line 452.
-(pdftex.def)             Requested size: 175.49881pt x 219.86237pt.
+(pdftex.def)             Requested size: 203.83417pt x 255.36002pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 448--454
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 448--454
 []$[]$ $[]$ 
  []
 
-<img/pokemon_without_index_2.png, id=609, 116.435pt x 18.56938pt>
+<img/pokemon_without_index_2.png, id=579, 116.435pt x 18.56938pt>
 File: img/pokemon_without_index_2.png Graphic file (type png)
 <use img/pokemon_without_index_2.png>
 Package pdftex.def Info: img/pokemon_without_index_2.png  used on input line 45
 7.
-(pdftex.def)             Requested size: 175.49881pt x 27.99196pt.
-<img/pokemon_with_index_2.png, id=610, 115.93312pt x 24.09pt>
+(pdftex.def)             Requested size: 203.83417pt x 32.51132pt.
+<img/pokemon_with_index_2.png, id=580, 115.93312pt x 24.09pt>
 File: img/pokemon_with_index_2.png Graphic file (type png)
 <use img/pokemon_with_index_2.png>
 Package pdftex.def Info: img/pokemon_with_index_2.png  used on input line 461.
-(pdftex.def)             Requested size: 175.49881pt x 36.47047pt.
+(pdftex.def)             Requested size: 203.83417pt x 42.3588pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 456--464
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 456--464
 []$[]$ $[]$ 
  []
 
-[27 <./img/pokemon_without_index_1.png> <./img/pokemon_with_index_1.png> <./img
-/pokemon_without_index_2.png> <./img/pokemon_with_index_2.png>]
-Overfull \hbox (11.04253pt too wide) in paragraph at lines 471--484
- [] 
- []
-
-<img/post_without_index_1.png, id=623, 191.21437pt x 277.53688pt>
+[21 <./img/user_without_index_2.png> <./img/user_with_index_2.png>] [22 <./img/
+pokemon_without_index_1.png> <./img/pokemon_with_index_1.png> <./img/pokemon_wi
+thout_index_2.png> <./img/pokemon_with_index_2.png>]
+<img/post_without_index_1.png, id=600, 191.21437pt x 277.53688pt>
 File: img/post_without_index_1.png Graphic file (type png)
 <use img/post_without_index_1.png>
 Package pdftex.def Info: img/post_without_index_1.png  used on input line 494.
-(pdftex.def)             Requested size: 175.49881pt x 254.7399pt.
-<img/post_with_index_1.png, id=624, 185.69376pt x 232.36812pt>
+(pdftex.def)             Requested size: 203.83417pt x 295.86893pt.
+<img/post_with_index_1.png, id=601, 185.69376pt x 232.36812pt>
 File: img/post_with_index_1.png Graphic file (type png)
 <use img/post_with_index_1.png>
 Package pdftex.def Info: img/post_with_index_1.png  used on input line 497.
-(pdftex.def)             Requested size: 175.49881pt x 219.61739pt.
+(pdftex.def)             Requested size: 203.83417pt x 255.07385pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 493--499
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 493--499
 []$[]$ $[]$ 
  []
 
-<img/post_without_index_2.png, id=625, 104.39pt x 23.08624pt>
+<img/post_without_index_2.png, id=602, 104.39pt x 23.08624pt>
 File: img/post_without_index_2.png Graphic file (type png)
 <use img/post_without_index_2.png>
 Package pdftex.def Info: img/post_without_index_2.png  used on input line 502.
-(pdftex.def)             Requested size: 175.49881pt x 38.81734pt.
-<img/post_with_index_2.png, id=626, 109.91063pt x 24.59187pt>
+(pdftex.def)             Requested size: 203.83417pt x 45.08488pt.
+<img/post_with_index_2.png, id=603, 109.91063pt x 24.59187pt>
 File: img/post_with_index_2.png Graphic file (type png)
 <use img/post_with_index_2.png>
 Package pdftex.def Info: img/post_with_index_2.png  used on input line 506.
-(pdftex.def)             Requested size: 175.49881pt x 39.26822pt.
+(pdftex.def)             Requested size: 203.83417pt x 45.60829pt.
 
-Overfull \hbox (2.61108pt too wide) in paragraph at lines 501--509
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 501--509
 []$[]$ $[]$ 
  []
 
-[28] [29 <./img/post_without_index_1.png> <./img/post_with_index_1.png> <./img/
-post_without_index_2.png> <./img/post_with_index_2.png>] [30]
-<img/analytic_collection.png, id=648, 200.24812pt x 298.11375pt>
+[23 <./img/post_without_index_1.png> <./img/post_with_index_1.png> <./img/post_
+without_index_2.png> <./img/post_with_index_2.png>] [24]
+<img/analytic_collection.png, id=621, 200.24812pt x 298.11375pt>
 File: img/analytic_collection.png Graphic file (type png)
 <use img/analytic_collection.png>
 Package pdftex.def Info: img/analytic_collection.png  used on input line 562.
-(pdftex.def)             Requested size: 155.99762pt x 232.2503pt.
- [31] [32 <./img/analytic_collection.png>]
-Overfull \hbox (0.86632pt too wide) in paragraph at lines 578--583
-\OT1/cmr/m/n/12 the clus-ter, over-com-ing pos-si-ble server's crash-es/break-d
-owns. Fault-tolerance
+(pdftex.def)             Requested size: 181.18439pt x 269.75098pt.
+ [25 <./img/analytic_collection.png>]
+Overfull \hbox (9.03143pt too wide) in paragraph at lines 590--592
+\OT1/cmr/m/n/10.95 men-ta-tion of Mongo at https://docs.mongodb.com/manual/ ref
+erence/read-concern/#read-
  []
 
-
-Overfull \hbox (1.49733pt too wide) in paragraph at lines 585--589
-\OT1/cmr/m/n/12 game play-ers, since they ex-pect that, at the catch-ing/free-i
-ng up of a Pokemon,
- []
-
-[33]
-Overfull \hbox (23.9832pt too wide) in paragraph at lines 590--592
-\OT1/cmr/m/n/12 the of-fi-cial doc-u-men-ta-tion of Mongo at https://docs.mongo
-db.com/manual/
- []
-
-
-Overfull \hbox (1.36212pt too wide) in paragraph at lines 592--593
-[]\OT1/cmr/bx/n/12 Social Net-work's causal con-sis-tency \OT1/cmr/m/n/12 is en
--sured by the Neo4J frame-
- []
-
+[26]
 
 LaTeX Warning: Command \textemdash invalid in math mode on input line 598.
 
-[34] [35]
+[27]
 Underfull \hbox (badness 10000) in paragraph at lines 628--636
 
  []
 
-[36]
-<img/schema2.pdf, id=681, 954.4458pt x 659.5842pt>
+[28]
+<img/schema2.pdf, id=645, 954.4458pt x 659.5842pt>
 File: img/schema2.pdf Graphic file (type pdf)
 <use img/schema2.pdf>
 Package pdftex.def Info: img/schema2.pdf  used on input line 644.
-(pdftex.def)             Requested size: 390.0pt x 269.5154pt.
- [37 <./img/schema2.pdf>]) [38]
+(pdftex.def)             Requested size: 452.9679pt x 313.02394pt.
+ [29 <./img/schema2.pdf>]) [30]
 \openout2 = `chapters/implementation.aux'.
 
  (chapters/implementation.tex
-Overfull \hbox (0.80345pt too wide) in paragraph at lines 3--5
-\OT1/cmr/m/n/12 Package struc-ture de-ci-sion was as im-por-tant task in \OT1/c
-mr/bx/it/12 PokeMongo\OT1/cmr/m/n/12 , we wanted
- []
-
-<img/package_structure.png, id=712, 365.365pt x 676.5275pt>
+<img/package_structure.png, id=677, 365.365pt x 676.5275pt>
 File: img/package_structure.png Graphic file (type png)
 <use img/package_structure.png>
 Package pdftex.def Info: img/package_structure.png  used on input line 8.
-(pdftex.def)             Requested size: 117.00119pt x 216.63774pt.
-<img/bean_package.png, id=713, 2109.8825pt x 2071.74pt>
+(pdftex.def)             Requested size: 135.89174pt x 251.62227pt.
+<img/bean_package.png, id=678, 2109.8825pt x 2071.74pt>
 File: img/bean_package.png Graphic file (type png)
 <use img/bean_package.png>
 Package pdftex.def Info: img/bean_package.png  used on input line 20.
-(pdftex.def)             Requested size: 350.99762pt x 344.63583pt.
-[39
+(pdftex.def)             Requested size: 407.66833pt x 400.27325pt.
+ [31
 
 
 
  <./img/package_structure.png>]
-Overfull \hbox (15.4462pt too wide) in alignment at lines 28--42
- [] [] 
- []
-
-
 Underfull \vbox (badness 10000) detected at line 42
  []
 
-[40 <./img/bean_package.png>]
-<img/cache_package.png, id=727, 780.9175pt x 770.88pt>
+<img/cache_package.png, id=685, 780.9175pt x 770.88pt>
 File: img/cache_package.png Graphic file (type png)
 <use img/cache_package.png>
 Package pdftex.def Info: img/cache_package.png  used on input line 50.
-(pdftex.def)             Requested size: 155.99762pt x 153.98506pt.
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 58--68
- [] [] 
- []
-
-
+(pdftex.def)             Requested size: 181.18439pt x 178.85133pt.
+[32 <./img/bean_package.png>]
 Underfull \vbox (badness 10000) detected at line 68
  []
 
-
-Overfull \vbox (9.59317pt too high) has occurred while \output is active []
-
-
-[41 <./img/cache_package.png>]
-<img/dataAnalysis_package.png, id=735, 1393.205pt x 1013.7875pt>
+<img/dataAnalysis_package.png, id=693, 1393.205pt x 1013.7875pt>
 File: img/dataAnalysis_package.png Graphic file (type png)
 <use img/dataAnalysis_package.png>
 Package pdftex.def Info: img/dataAnalysis_package.png  used on input line 77.
-(pdftex.def)             Requested size: 272.99881pt x 198.63911pt.
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 85--101
- [] [] 
- []
-
-
+(pdftex.def)             Requested size: 317.07614pt x 230.7221pt.
+[33 <./img/cache_package.png>]
 Underfull \vbox (badness 10000) detected at line 101
  []
 
-[42 <./img/dataAnalysis_package.png>]
-<img/exceptions_package.png, id=744, 1244.65pt x 439.6425pt>
+<img/exceptions_package.png, id=701, 1244.65pt x 439.6425pt>
 File: img/exceptions_package.png Graphic file (type png)
 <use img/exceptions_package.png>
 Package pdftex.def Info: img/exceptions_package.png  used on input line 109.
-(pdftex.def)             Requested size: 272.99881pt x 96.42647pt.
-
-Underfull \hbox (badness 2158) in paragraph at lines 121--122
-[]|\OT1/cmr/m/n/12 Exception thrown when a user try to
+(pdftex.def)             Requested size: 317.07614pt x 111.99666pt.
+[34 <./img/dataAnalysis_package.png>]
+Underfull \hbox (badness 2142) in paragraph at lines 121--122
+[]|\OT1/cmr/m/n/10.95 Exception thrown when a user try to
  []
 
 
-Underfull \hbox (badness 2617) in paragraph at lines 125--126
-[]|\OT1/cmr/m/n/12 Exception thrown when an anony-mous
- []
-
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 117--129
- [] [] 
+Underfull \hbox (badness 2608) in paragraph at lines 125--126
+[]|\OT1/cmr/m/n/10.95 Exception thrown when an anony-mous
  []
 
 
 Underfull \vbox (badness 10000) detected at line 129
  []
 
-[43 <./img/exceptions_package.png>]
-<img/javafx_buttons_package.png, id=752, 2278.5125pt x 1696.3375pt>
+<img/javafx_buttons_package.png, id=709, 2278.5125pt x 1696.3375pt>
 File: img/javafx_buttons_package.png Graphic file (type png)
 <use img/javafx_buttons_package.png>
 Package pdftex.def Info: img/javafx_buttons_package.png  used on input line 139
 .
-(pdftex.def)             Requested size: 272.99881pt x 203.2411pt.
-
-Overfull \hbox (4.62637pt too wide) in paragraph at lines 166--166
-[]|\OT1/cmr/m/n/12 FavoritePokemonSingleResultFor
- []
-
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 146--170
- [] [] 
+(pdftex.def)             Requested size: 317.07614pt x 236.03613pt.
+[35 <./img/exceptions_package.png>]
+Overfull \hbox (4.37976pt too wide) in paragraph at lines 166--166
+[]|\OT1/cmr/m/n/10.95 FavoritePokemonSingleResultFor
  []
 
 
 Underfull \vbox (badness 10000) detected at line 170
  []
 
-[44 <./img/javafx_buttons_package.png>]
-<img/javafx_charts_package.png, id=760, 1178.4025pt x 208.78pt>
+[36 <./img/javafx_buttons_package.png>]
+<img/javafx_charts_package.png, id=725, 1178.4025pt x 208.78pt>
 File: img/javafx_charts_package.png Graphic file (type png)
 <use img/javafx_charts_package.png>
 Package pdftex.def Info: img/javafx_charts_package.png  used on input line 178.
 
-(pdftex.def)             Requested size: 272.99881pt x 48.36562pt.
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 185--191
- [] [] 
- []
-
+(pdftex.def)             Requested size: 317.07614pt x 56.17702pt.
 
 Underfull \vbox (badness 10000) detected at line 191
  []
 
-<img/javafx_choicebox_package.png, id=761, 467.7475pt x 128.48pt>
+<img/javafx_choicebox_package.png, id=726, 467.7475pt x 128.48pt>
 File: img/javafx_choicebox_package.png Graphic file (type png)
 <use img/javafx_choicebox_package.png>
 Package pdftex.def Info: img/javafx_choicebox_package.png  used on input line 1
 99.
-(pdftex.def)             Requested size: 195.0pt x 53.56325pt.
-
-Overfull \hbox (9.85725pt too wide) in paragraph at lines 196--201
-[] [] \OT1/cmr/bx/n/12 javafx-ex-ten-sions: choice-box[] \OT1/cmr/m/n/12 It con
--tains a class that ex-tends LineChart
- []
-
-[45 <./img/javafx_charts_package.png>]
-Overfull \hbox (38.94595pt too wide) in alignment at lines 207--213
- [] [] 
- []
-
+(pdftex.def)             Requested size: 226.48395pt x 62.21077pt.
 
 Underfull \vbox (badness 10000) detected at line 213
  []
 
-<img/javafx_combobox_package.png, id=769, 983.675pt x 250.9375pt>
+<img/javafx_combobox_package.png, id=727, 983.675pt x 250.9375pt>
 File: img/javafx_combobox_package.png Graphic file (type png)
 <use img/javafx_combobox_package.png>
 Package pdftex.def Info: img/javafx_combobox_package.png  used on input line 22
 1.
-(pdftex.def)             Requested size: 312.00119pt x 79.59326pt.
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 228--238
- [] [] 
- []
-
-
+(pdftex.def)             Requested size: 362.37569pt x 92.44336pt.
+[37 <./img/javafx_charts_package.png> <./img/javafx_choicebox_package.png>]
 Underfull \vbox (badness 10000) detected at line 238
  []
 
-<img/javafx_group_package.png, id=770, 1899.095pt x 664.4825pt>
+<img/javafx_group_package.png, id=738, 1899.095pt x 664.4825pt>
 File: img/javafx_group_package.png Graphic file (type png)
 <use img/javafx_group_package.png>
 Package pdftex.def Info: img/javafx_group_package.png  used on input line 246.
-(pdftex.def)             Requested size: 312.00119pt x 109.16847pt.
-[46 <./img/javafx_choicebox_package.png> <./img/javafx_combobox_package.png>]
-Overfull \hbox (38.94595pt too wide) in alignment at lines 253--261
- [] [] 
- []
-
+(pdftex.def)             Requested size: 362.37569pt x 126.79036pt.
 
 Underfull \vbox (badness 10000) detected at line 261
  []
 
-<img/javafx_imageviews_package.png, id=781, 586.19pt x 182.6825pt>
+<img/javafx_imageviews_package.png, id=739, 586.19pt x 182.6825pt>
 File: img/javafx_imageviews_package.png Graphic file (type png)
 <use img/javafx_imageviews_package.png>
 Package pdftex.def Info: img/javafx_imageviews_package.png  used on input line 
 269.
-(pdftex.def)             Requested size: 195.0pt x 60.77043pt.
-
-Overfull \hbox (38.94595pt too wide) in paragraph at lines 276--283
- [] 
- []
-
-<img/javafx_labels_package.png, id=782, 1887.05pt x 349.305pt>
+(pdftex.def)             Requested size: 226.48395pt x 70.57967pt.
+[38 <./img/javafx_combobox_package.png> <./img/javafx_group_package.png>]
+<img/javafx_labels_package.png, id=750, 1887.05pt x 349.305pt>
 File: img/javafx_labels_package.png Graphic file (type png)
 <use img/javafx_labels_package.png>
 Package pdftex.def Info: img/javafx_labels_package.png  used on input line 290.
 
-(pdftex.def)             Requested size: 312.00119pt x 57.75009pt.
-[47 <./img/javafx_group_package.png> <./img/javafx_imageviews_package.png>]
-Overfull \hbox (38.94595pt too wide) in paragraph at lines 297--312
- [] 
- []
-
-<img/javafx_panes_package.png, id=792, 483.552pt x 304.191pt>
+(pdftex.def)             Requested size: 362.37569pt x 67.07751pt.
+<img/javafx_panes_package.png, id=751, 483.552pt x 304.191pt>
 File: img/javafx_panes_package.png Graphic file (type png)
 <use img/javafx_panes_package.png>
 Package pdftex.def Info: img/javafx_panes_package.png  used on input line 319.
-(pdftex.def)             Requested size: 390.0pt x 245.349pt.
-<img/javafx_panes_package2.png, id=793, 483.552pt x 253.9305pt>
+(pdftex.def)             Requested size: 452.9679pt x 284.96019pt.
+<img/javafx_panes_package2.png, id=752, 483.552pt x 253.9305pt>
 File: img/javafx_panes_package2.png Graphic file (type png)
 <use img/javafx_panes_package2.png>
 Package pdftex.def Info: img/javafx_panes_package2.png  used on input line 323.
 
-(pdftex.def)             Requested size: 390.0pt x 204.81078pt.
-[48 <./img/javafx_labels_package.png>]
+(pdftex.def)             Requested size: 452.9679pt x 237.87714pt.
+
+[39 <./img/javafx_imageviews_package.png> <./img/javafx_labels_package.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 338--338
-[]|\OT1/cmr/m/n/12 PokemonTeamForUserSelected
+[]|\OT1/cmr/m/n/10.95 PokemonTeamForUserSelected
  []
 
 
-Underfull \hbox (badness 3849) in paragraph at lines 344--345
-[]|\OT1/cmr/m/n/12 Specific Scroll-Pane to vi-su-al-ize friends
+Underfull \hbox (badness 3826) in paragraph at lines 344--345
+[]|\OT1/cmr/m/n/10.95 Specific Scroll-Pane to vi-su-al-ize friends
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 350--351
-[]|\OT1/cmr/m/n/12 Specific Scroll-Pane to vi-su-al-ize the
+[]|\OT1/cmr/m/n/10.95 Specific Scroll-Pane to vi-su-al-ize the
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 354--354
-[]|\OT1/cmr/m/n/12 RankingPokemonSingleResult
- []
-
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 330--360
- [] [] 
+[]|\OT1/cmr/m/n/10.95 RankingPokemonSingleResult
  []
 
 
 Underfull \vbox (badness 10000) detected at line 360
  []
 
-[49 <./img/javafx_panes_package.png> <./img/javafx_panes_package2.png>]
-<img/javafx_panes_package3.png, id=810, 1389.19pt x 1369.115pt>
+[40 <./img/javafx_panes_package.png> <./img/javafx_panes_package2.png>]
+<img/javafx_panes_package3.png, id=770, 1389.19pt x 1369.115pt>
 File: img/javafx_panes_package3.png Graphic file (type png)
 <use img/javafx_panes_package3.png>
 Package pdftex.def Info: img/javafx_panes_package3.png  used on input line 367.
 
-(pdftex.def)             Requested size: 272.99881pt x 269.05501pt.
+(pdftex.def)             Requested size: 317.07614pt x 312.48737pt.
 
-[50]
-Underfull \hbox (badness 4291) in paragraph at lines 379--380
-[]|\OT1/cmr/m/n/12 Specific Pane for the AD-D/RE-MOVE
- []
-
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 375--383
- [] [] 
+[41]
+Underfull \hbox (badness 4266) in paragraph at lines 379--380
+[]|\OT1/cmr/m/n/10.95 Specific Pane for the AD-D/RE-MOVE
  []
 
 
 Underfull \vbox (badness 10000) detected at line 383
  []
 
-<img/persistence_package.png, id=815, 2543.5025pt x 3953.77126pt>
+<img/persistence_package.png, id=775, 2543.5025pt x 3953.77126pt>
 File: img/persistence_package.png Graphic file (type png)
 <use img/persistence_package.png>
 Package pdftex.def Info: img/persistence_package.png  used on input line 392.
-(pdftex.def)             Requested size: 350.99762pt x 545.5607pt.
-[51 <./img/javafx_panes_package3.png>]
-Underfull \hbox (badness 4660) in paragraph at lines 408--409
-[]|\OT1/cmr/m/n/12 Shared in-ter-face for the man-ag-ing of
+(pdftex.def)             Requested size: 407.66833pt x 633.70227pt.
+
+Overfull \hbox (0.4843pt too wide) in paragraph at lines 389--394
+\OT1/cmr/m/n/10.95 The per-sis-tence pack-age con-tains all the classes re-late
+d to the com-mu-ni-ca-tion with the databases.
+ []
+
+[42 <./img/javafx_panes_package3.png>]
+Underfull \hbox (badness 4621) in paragraph at lines 408--409
+[]|\OT1/cmr/m/n/10.95 Shared in-ter-face for the man-ag-ing of
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 410--411
-[]|\OT1/cmr/m/n/12 Shared in-ter-face for the man-ag-ing of
+Underfull \hbox (badness 4621) in paragraph at lines 410--411
+[]|\OT1/cmr/m/n/10.95 Shared in-ter-face for the man-ag-ing of
  []
 
 
-Underfull \hbox (badness 1342) in paragraph at lines 414--415
-[]|\OT1/cmr/m/n/12 Implementation of Database spe-cific for
+Underfull \hbox (badness 1337) in paragraph at lines 414--415
+[]|\OT1/cmr/m/n/10.95 Implementation of Database spe-cific for
  []
 
 
-Underfull \hbox (badness 2884) in paragraph at lines 414--415
-\OT1/cmr/m/n/12 Mon-goDB, to be ex-tended with other
+Underfull \hbox (badness 2865) in paragraph at lines 414--415
+\OT1/cmr/m/n/10.95 Mon-goDB, to be ex-tended with other
  []
 
 
-Underfull \hbox (badness 1342) in paragraph at lines 422--423
-[]|\OT1/cmr/m/n/12 Implementation of Database spe-cific for
- []
-
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 400--441
- [] [] 
+Underfull \hbox (badness 1337) in paragraph at lines 422--423
+[]|\OT1/cmr/m/n/10.95 Implementation of Database spe-cific for
  []
 
 
 Underfull \vbox (badness 10000) detected at line 441
  []
 
-[52 <./img/persistence_package.png>]
-Overfull \hbox (38.94595pt too wide) in alignment at lines 441--442
- [] [] 
- []
-
-[53]
-<img/userInterface_package.png, id=834, 4111.36pt x 2272.49pt>
+[43 <./img/persistence_package.png>] [44]
+<img/userInterface_package.png, id=795, 4111.36pt x 2272.49pt>
 File: img/userInterface_package.png Graphic file (type png)
 <use img/userInterface_package.png>
 Package pdftex.def Info: img/userInterface_package.png  used on input line 454.
 
-(pdftex.def)             Requested size: 390.0pt x 215.54204pt.
- [54]
+(pdftex.def)             Requested size: 452.9679pt x 250.3561pt.
+
 Underfull \hbox (badness 10000) in paragraph at lines 473--473
-[]|\OT1/cmr/m/n/12 PokeSceneWithBlastoise
+[]|\OT1/cmr/m/n/10.95 PokeSceneWithBlastoise
  []
 
 
-Underfull \hbox (badness 2932) in paragraph at lines 477--478
-\OT1/cmr/m/n/12 neWith-Header and the PokeSce-neWith-
+Underfull \hbox (badness 2913) in paragraph at lines 477--478
+\OT1/cmr/m/n/10.95 neWith-Header and the PokeSce-neWith-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 481--481
-[]|\OT1/cmr/m/n/12 PokeSceneWithHeaderAndBack
+[]|\OT1/cmr/m/n/10.95 PokeSceneWithHeaderAndBack
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 501--502
-[]|\OT1/cmr/m/n/12 Enum con-tain-ing the dif-fer-ent types of
- []
-
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 461--502
- [] [] 
+Underfull \hbox (badness 1571) in paragraph at lines 501--502
+[]|\OT1/cmr/m/n/10.95 Enum con-tain-ing the dif-fer-ent types of
  []
 
 
 Underfull \vbox (badness 10000) detected at line 502
  []
 
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 502--509
- [] [] 
- []
-
-[55 <./img/userInterface_package.png>] [56]
-<img/utils_package.png, id=851, 663.47874pt x 377.41pt>
+[45 <./img/userInterface_package.png>] [46]
+<img/utils_package.png, id=807, 663.47874pt x 377.41pt>
 File: img/utils_package.png Graphic file (type png)
 <use img/utils_package.png>
 Package pdftex.def Info: img/utils_package.png  used on input line 516.
-(pdftex.def)             Requested size: 272.99881pt x 155.29195pt.
-
-Overfull \hbox (38.94595pt too wide) in alignment at lines 523--533
- [] [] 
- []
-
+(pdftex.def)             Requested size: 317.07614pt x 180.36578pt.
 
 Underfull \vbox (badness 10000) detected at line 533
  []
@@ -1426,102 +1299,96 @@ Underfull \vbox (badness 10000) detected at line 533
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-[57 <./img/utils_package.png>] [58] [59]
-Overfull \hbox (10.76668pt too wide) in paragraph at lines 628--630
-\OT1/cmr/m/n/12 From this in-ter-face we cre-ated dif-fer-ent im-ple-men-ta-tio
-ns, one for ev-ery database
- []
-
-
+[47 <./img/utils_package.png>] [48]
 Underfull \hbox (badness 10000) in paragraph at lines 647--647
-[]|\OT1/cmr/m/n/12 Managing the net-work be-tween
- []
-
-
-Overfull \hbox (27.19608pt too wide) in alignment at lines 635--649
- [] [] 
+[]|\OT1/cmr/m/n/10.95 Managing the net-work be-tween
  []
 
 
 Underfull \vbox (badness 10000) detected at line 649
  []
 
-[60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71]
+[49] [50]
+Overfull \hbox (29.4917pt too wide) in paragraph at lines 726--728
+\OT1/cmr/m/n/10.95 does the en-cryp-tion is done? We de-cided to use the class 
+org.apache.commons.codec.digest.DigestUtils,
+ []
+
+
+Overfull \hbox (17.0209pt too wide) in paragraph at lines 726--728
+\OT1/cmr/m/n/10.95 that has op-er-a-tions to sim-plify com-mon Mes-sageDi-gest 
+tasks. Thus, we use Di-ges-tU-tils.sha256Hex()
+ []
+
+[51] [52] [53] [54] [55] [56]
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-Overfull \hbox (39.85051pt too wide) in paragraph at lines 1093--1094
-[] []\OT1/cmr/bx/n/12 Friends Rec-om-men-da-tion by Poke-mon[] \OT1/cmr/m/n/12 
-friends rec-om-mended by \OT1/cmr/bx/n/12 Pokemon\OT1/cmr/m/n/12 are
- []
-
-[72] [73]) [74]
+[57] [58]) [59]
 \openout2 = `chapters/test.aux'.
 
  (chapters/test.tex
-<img/privacy_1.png, id=1380, 862.72313pt x 488.57532pt>
+<img/privacy_1.png, id=1315, 862.72313pt x 488.57532pt>
 File: img/privacy_1.png Graphic file (type png)
 <use img/privacy_1.png>
 Package pdftex.def Info: img/privacy_1.png  used on input line 18.
-(pdftex.def)             Requested size: 390.0pt x 220.8633pt.
-<img/privacy_2.png, id=1381, 837.88031pt x 493.845pt>
+(pdftex.def)             Requested size: 452.9679pt x 256.5208pt.
+<img/privacy_2.png, id=1316, 837.88031pt x 493.845pt>
 File: img/privacy_2.png Graphic file (type png)
 <use img/privacy_2.png>
 Package pdftex.def Info: img/privacy_2.png  used on input line 22.
-(pdftex.def)             Requested size: 390.0pt x 229.8616pt.
- [75
+(pdftex.def)             Requested size: 452.9679pt x 266.97374pt.
+ [60
 
 
 
-]
-<img/privacy_3.png, id=1386, 783.67781pt x 462.97969pt>
+ <./img/privacy_1.png>]
+<img/privacy_3.png, id=1324, 783.67781pt x 462.97969pt>
 File: img/privacy_3.png Graphic file (type png)
 <use img/privacy_3.png>
 Package pdftex.def Info: img/privacy_3.png  used on input line 29.
-(pdftex.def)             Requested size: 390.0pt x 230.4084pt.
- [76 <./img/privacy_1.png> <./img/privacy_2.png>] [77 <./img/privacy_3.png>] [7
-8] [79]
-<img/wrong_input.png, id=1485, 771.63281pt x 435.12563pt>
+(pdftex.def)             Requested size: 452.9679pt x 267.61002pt.
+ [61 <./img/privacy_2.png> <./img/privacy_3.png>] [62]
+<img/wrong_input.png, id=1388, 771.63281pt x 435.12563pt>
 File: img/wrong_input.png Graphic file (type png)
 <use img/wrong_input.png>
 Package pdftex.def Info: img/wrong_input.png  used on input line 130.
-(pdftex.def)             Requested size: 390.0pt x 219.91928pt.
- [80 <./img/wrong_input.png>]
-[81]) [82] (pokeMongo.aux (chapters/introduction.aux) (chapters/analysis.aux)
+(pdftex.def)             Requested size: 452.9679pt x 255.42719pt.
+ [63] [64 <./img/wrong_input.png>])
+[65] (pokeMongo.aux (chapters/introduction.aux) (chapters/analysis.aux)
 (chapters/project.aux) (chapters/implementation.aux) (chapters/test.aux))
 Package rerunfilecheck Info: File `pokeMongo.out' has not changed.
 (rerunfilecheck)             Checksum: 64ABF7DE204C44372C9EDFB24DC26870;5549.
  ) 
 Here is how much of TeX's memory you used:
- 13703 strings out of 480236
- 217181 string characters out of 2880557
- 1033268 words of memory out of 3000000
- 29193 multiletter control sequences out of 15000+200000
- 543660 words of font info for 58 fonts, out of 3000000 for 9000
+ 14147 strings out of 480236
+ 224033 string characters out of 2880557
+ 1114280 words of memory out of 3000000
+ 29647 multiletter control sequences out of 15000+200000
+ 543663 words of font info for 58 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,17n,81p,910b,1973s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt
-1000.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\tcrm1200.pk><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+0900.pk> <C:\Users\gxhan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcrm1095.pk><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmbx10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmbx12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/gxhan/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/gxhan/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/gxhan/Ap
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/gxhan/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/
 gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C
 :/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr1
 2.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr17.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmr6.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmr8.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/gxhan/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/gxhan/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on pokeMongo.pdf (83 pages, 5014429 bytes).
+/cm/cmr6.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr8.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/gxhan/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/gxhan/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on pokeMongo.pdf (66 pages, 4999685 bytes).
 PDF statistics:
- 1717 PDF objects out of 1728 (max. 8388607)
- 771 named destinations out of 1000 (max. 500000)
+ 1636 PDF objects out of 1728 (max. 8388607)
+ 754 named destinations out of 1000 (max. 500000)
  853 words of extra memory for PDF output out of 10000 (max. 10000000)
 
