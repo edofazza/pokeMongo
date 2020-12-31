@@ -1010,7 +1010,7 @@ public ArrayList<Pokemon> getBestPokemon(String country) {
 \end{lstlisting}
 
 \subsubsection{Usage Statistics}
-We created few function for handling some simple statistics that can be useful for the \textbf{admin User}, in order to see how many the people in the world use the application and how often. We decided to include three types of statistic: \textit{total number of users}, \textit{users that logged during a single day}, \textit{users that logged during a single day in a specific country} (we limit the number of country to the top 15). Because all the information needed is stored in MongoDb we query the database in order to create a new document with all the information specific for the analytics of a single day.
+We created few function for handling some simple statistics that can be useful for the \textbf{admin User}, in order to see how many the people in the world use the application and how often. We decided to include three types of statistic: \textit{total number of users}, \textit{users that logged during a single day}, \textit{users that logged during a single day in a specific country}. Because all the information needed is stored in MongoDb we query the database in order to create a new document with all the information specific for the analytics of a single day.
 
 \paragraph{Total Users}:
 \begin{lstlisting}[language=Java]
@@ -1048,9 +1048,8 @@ We created few function for handling some simple statistics that can be useful f
 		Bson match = match(and(gte("lastLogin", yesterday), ne("admin", true)));
 		Bson count = group("$country", sum("lastLogin", 1));
 		Bson sort = sort(descending("lastLogin"));
-		Bson limit = limit(15);
 		Bson project = project(fields( include( "_id", "lastLogin")));
-		List<Document> result = aggregate(Arrays.asList(match, count, sort, limit, project));
+		List<Document> result = aggregate(Arrays.asList(match, count, sort, project));
 		Map<String, Long> map = new HashMap<>();
 		for(Document d: result)
 		map.put(d.getString("_id"), d.getInteger("lastLogin").longValue());
