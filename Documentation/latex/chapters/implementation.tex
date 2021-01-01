@@ -1187,5 +1187,120 @@ public List<User> bestFriendsTeams(List<String> friendsUsername) {
 	return aggregate(Arrays.asList(match, sort, limit, project));
 }
 \end{lstlisting}
+\subsubsection{Adding a User}
+This operation is done both in MongoDb and in Neo4j.
+For MongoDb we use a method in UserManagerOnMongoDb.java:
 
+\begin{lstlisting}[language=Java]
+@Override
+public boolean removeUser(User target) {
+	if(target.isAdmin())
+		return false;
+	return remove(target);
+}
+
+@Override
+public boolean removeUser(String username) {
+	Bson query = eq("username", username);
+	ArrayList<Object> target = getWithFilter(query);
+	if(target.size()!=1 || ((User)(target.get(0))).isAdmin())
+		return false;
+	return remove(query);
+}
+
+public boolean remove(Object o) {
+	MongoCollection<Document> collection = getCollection(collectionName);
+	DeleteResult dr;
+	if (o instanceof User){
+		dr = collection.deleteOne(eq("username", ((User) o).getUsername()));
+	}
+	else if(o instanceof Bson){
+		dr = collection.deleteMany((Bson)o);
+	}
+	else {
+		closeConnection();
+		return false;
+	}
+	closeConnection();
+	return dr.getDeletedCount()>0;
+}
+\end{lstlisting}
+
+For Neo4j we use a method in PokemonManagerOnMongoDb.java:
+\begin{lstlisting}[language=Java]
+@Override
+public boolean deleteUser(User u){
+	return deleteUser(u.getUsername());
+}
+
+@Override
+public boolean deleteUser(String username){
+	String query = "MATCH (u:User) WHERE u.username = $username OPTIONAL MATCH (u)-[:CREATED]->(p:Post) " +
+	"OPTIONAL MATCH (p)<-[:TOPIC]-(p1:Post)" +
+	"DETACH DELETE u, p, p1";
+	return remove(query, parameters("username", username));
+}
+
+Where the remove method, in this case, is implemented in Neo4jDbDatabase.java:
+public boolean remove(Object query){
+	if(!(query instanceof String))
+	return false;
+	getConnection();
+	try (Session session = driver.session()) {
+		session.writeTransaction((TransactionWork<Void>) tx -> {
+			tx.run((String)query);
+			return null;
+		});
+	}
+	closeConnection();
+	return true;
+}
+\end{lstlisting}
+
+\subsubsection{Removing a User}
+This operation is done both in MongoDb and in Neo4j.
+For MongoDb we use a method in PokemonManagerOnMongoDb.java:
+\begin{lstlisting}[language=Java]
+	public boolean remove(Object o) {
+		MongoCollection<Document> collection = getCollection(collectionName);
+		DeleteResult dr;
+		if (o instanceof Pokemon){
+			dr = collection.deleteOne(eq("id", ((Pokemon) o).getId()));
+		}
+		else if(o instanceof Bson){
+			dr = collection.deleteMany((Bson)o);
+		}
+		else {
+			closeConnection();
+			return false;
+		}
+		closeConnection();
+		
+		Logger.vvlog("DELETED " + dr.getDeletedCount() + " pokemon");
+		return dr.getDeletedCount()>0;
+	}
+	
+	public boolean removePokemon(Pokemon toRemove) {
+		return remove(toRemove);
+	}
+	
+	public boolean removePokemon(String name) {
+		return remove(eq("name", name));
+	}
+	
+\end{lstlisting}
+
+For Neo4j we use a method in TeamManagerOnNeo4j:
+\begin{lstlisting}[language=Java]
+	@Override
+	public boolean deletePokemon(String pokemonName){
+		String query = "MATCH (p:Pokemon) WHERE p.name = $name " +
+		"OPTIONAL MATCH (p:Pokemon)<-[:TOPIC]-(pp:Post)<-[:TOPIC]-(pp1:Post)" +
+		"DETACH DELETE p,pp,pp1";
+		return remove(query, parameters("name", pokemonName));
+	}
+	
+\end{lstlisting}
+
+Where the remove method is the one shown above in the Neo4jDbDatabase.java file.
 
