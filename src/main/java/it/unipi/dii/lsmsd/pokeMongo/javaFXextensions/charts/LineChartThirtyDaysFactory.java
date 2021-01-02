@@ -24,7 +24,7 @@ public class LineChartThirtyDaysFactory {
      */
     public static LineChart getLineChartThirtyDays(double width, double height, double x, double y, String yLabelName, int yMax, int yMin, int yTick){
         final NumberAxis xAxis = new NumberAxis();
-        xAxis.setLabel("Days");
+        xAxis.setLabel("Days Ago");
         xAxis.setAutoRanging(false);
         xAxis.setTickUnit(3);
         xAxis.setLowerBound(0);

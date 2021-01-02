@@ -2,15 +2,15 @@
 \subsection{Adopted Databases}
 According to concept presented in the previous chapter we can make the following considerations:
 \begin{enumerate}
-\item Because of the performance constraint, a fast backend is required. Moreover, since the aim is to spread the application worldwide, the database infrastructure should be easy to distribute.
+\item Because of the performance constraint, a fast back-end is required. Moreover, since the aim is to spread the application worldwide, the database infrastructure should be \textbf{easy to distribute}.
 \item \textbf{Pokémon} must store heterogeneous data like URLs, different kinds of bios, float arrays and so on.
 \item \textbf{Users} are divided into \textit{normal users} and \textit{admins}. Although the second ones are few, a denormalized approach could be better to handle the fact that these two categories have very different attributes.
 \item Rankings are real-time OLAP queries: they need fast aggregation strategies.
-\item Favorite \textbf{Pokémon}, Friends, \textbf{Posts} and \textbf{Answers} together form a real Social Network.
+\item Favourite \textbf{Pokémon}, \textbf{Friends}, \textbf{Posts} and \textbf{Answers} together form a real Social Network.
 \item A \textbf{Team}, in a normalized relational model, could be seen as a relationship table between \textbf{Users} and \textbf{Pokémon}. Anyway, a huge table with a lot of duplicated PokémonID is not scalable due to the requirements of this application. There is a need to find the best way to perform quickly both the retrieving of a \textbf{User}’s team and the ranking of the most used \textbf{Pokémon}, optimizing if possible memory consumption.
 \end{enumerate}
 
-The points 1 to 4 guided the choice of a \textbf{Document Database} for handling \textbf{User} and \textbf{Pokémon} data. The flexibility, denormalization and performance of this kind of the database make it the most appropriate one.\medspace \\
+The points 1 to 4 guided the choice of a \textbf{Document Database} for handling \textbf{User} and \textbf{Pokémon} data. The \textbf{flexibility}, \textbf{denormalization} and \textbf{performance} of this kind of the database make it the most appropriate one.\medspace \\
 
 The point 5 is best handled by a \textbf{Graph DB}, optimized for networks and different kinds of relationships. Moreover, we realized that the best way to handle a \textbf{Team} is to decompose it in a set of Graph Relationships (USER – OWNS $\rightarrow$ POKEMON).  Indeed, in this way queries mentioned at point 6 are very fast (just counting incoming/outcoming edges, see paragraph 3.3.1), and there are no useless, waste-memory repetitions of User IDs/Pokémon IDs (for a more detailed motivation of this choice see Paragraph 3.4.1). \\
 Since each \textbf{User} can have only a \textbf{Team}, \textit{team name} and \textit{points} are stored in the \textbf{User} collection.
@@ -18,7 +18,7 @@ Since each \textbf{User} can have only a \textbf{Team}, \textit{team name} and \
 
 \subsection{Document Database}
 \subsubsection{Queries Handled}
-\textbf{NOTE: the queries implementation will be presented in the Chapter 4}
+\textbf{NOTE: the main queries implementation will be presented in the Chapter 4}
 \begin{itemize}
 	\item Insert a \textbf{User} into the system at registration time
 	\item Create a new \textbf{Pokémon} (\textit{admin} only)
@@ -39,7 +39,7 @@ Since each \textbf{User} can have only a \textbf{Team}, \textit{team name} and \
 \subsubsection{Entities handled}
 Document Database stores information about \textbf{Users} and \textbf{Pokèmons}. \medspace \\ 
 
-In particular it remembers \textbf{User}’s anagraphics and login data, last login, remaining Pokéballs, \textit{team name} and earned \textit{points}; a Boolean field distinguish admin from normal users. Admins have no points nor team or Pokéballs.\\
+In particular it remembers \textbf{User}’s anagraphic and login data, last login, remaining Pokéballs, \textit{team name} and earned \textit{points}; a Boolean field distinguish admin from normal users. Admins have no points nor team or Pokéballs.\\
 
 In a separate collection are stored data about \textbf{Pokémon}: PokédexId (source: PokeAPI), characteristics, one or more types, bio, images URLs, current capture$\_$rate and its last 30 catch$\_$rates stored into an array of floats.\\
 
@@ -77,7 +77,7 @@ Relevant Attributes:
 \end{itemize}
 
 \subsubsection{Indexes}
-
+All performance tests in this paragraph were made in \textbf{local}.
 \subparagraph{Username}
 The first field in which we study the possibility of indexing is the \textit{username} one in the \textbf{User} collection. A \textit{username} is a REQUIRED and UNIQUE field of each \textbf{User}, and it is his/her mnemonic id inside the application.
 The field \textit{username} is involved in the following queries:
@@ -211,7 +211,7 @@ In terms of execution time, the final report is the following:
 
 
 Even if we have little changes on execution time due to the limited number of \textbf{Pokémon}, we can see how the index permits to decrease very much the number of examined documents. \\
-For the reasons explained before and because of the very high ratio between reads and writes, we consider this little improvement enough relevant for the application purposes. All things considered, \textbf{an index on \textit{pokemon name} has been introduced}. 
+For the reasons explained before and because of the very high ratio between reads and writes, we consider this little improvement enough relevant for the application purposes. All things considered, \textbf{an index on \textit{pokèmon name} has been introduced}. 
 
 \subsection{Graph Database}
 \subsubsection{Queries Handled}
@@ -230,11 +230,11 @@ For the reasons explained before and because of the very high ratio between read
 		Create a \textit{follow} relationship between the current \textbf{User} and the selected \textbf{User}		
 		& Add a new FOLLOW edge from the current \textbf{User} Node to the selected \textbf{User} Node \\ 
 		\hline
-		Retrieve \textit{recommended} \textbf{Users} (1)
+		Retrieve \textit{recommended} \textbf{Users} \textit{by friends}(1)
 		& Match all the USER nodes at distance 2 from the given USER node U according to one of these patterns:
 		(U)—FOLLOWS$\rightarrow$(USER f)—FOLLOWS $\rightarrow$(USER recomm.)\\
 		\hline
-		Retrieve \textit{recommended} \textbf{Users} (2)
+		Retrieve \textit{recommended} \textbf{Users} \textit{by common favourite pokèmons}(2)
 		& Match all the USER nodes at distance 2 from the given USER node U according to one of these patterns:
 		(U)—LIKES$\rightarrow$(POKEMON p)$\leftarrow$LIKES—(USER recomm.)\\
 		\hline
@@ -391,8 +391,8 @@ The properties stored are the following:
 		\hline
 	\end{tabular}
 \end{center}
-Assuming that the number of new registration is far more higher that the number of \textbf{Users} deletion, we can state that $|W1| \gg |W2|$. Furthermore, is likely that the numbers of login per day are far more than the new registrations at high User number loads, as stated in the Paragraph 2.6.\\
-So, let $x$ be the number of new logins per day, we can say that the number of each read operation will probably be a multiple of $x$, so, at the end, we can state that $|Ri| \gg |W1| \gg |W2|, i = 1,2$. Hence, the application, at the GraphDB side, is \textbf{read intensive} and this statement leads to prove that an usage of an index for this field is good.\\
+Assuming that the number of new registrations is far more higher that the number of \textbf{Users} deletion, we can state that $|W1| \gg |W2|$. Furthermore, is likely that the number of logins per day are far more than the new registrations at high User number loads, as stated in the Paragraph 2.6 with the load estimation.\\
+So, let $x$ be the number of new logins per day, we can say that the number of each read operation will probably be a multiple of $x$, so, at the end, we can state that $|Ri| \gg |W1| \gg |W2|, i = 1,2$. Hence, the application, at the GraphDB side, is \textbf{read intensive} and this statement leads to prove that an usage of an index for this field is good in terms of \textbf{read/write trade-off}.\\
 All things considered, from Neo4j Desktop we can compute the following command, which is a simple find by username, in order to get some performance statistics before and after the index addition:
 \begin{lstlisting}[language=python]
 	neo4j$ explain match (p:User) where p.username = "Grahm_Gschwendtner1989" return p
@@ -417,7 +417,7 @@ All things considered, from Neo4j Desktop we can compute the following command, 
 	\end{subfigure}
 \end{figure}
 
-In this case we can notice a huge improvement in the number of rows handled with several order of magnitude and a slightly improvement on the timing. Even if the timing improvement is not huge we have to take into consideration the extreme simplicity of the "find by username" query, which does not show properly the benefits of handling only one row at the beginning of the query computation. All things considered, \textbf{an index on the field \textit{username} has been created.}
+In this case we can notice a \textbf{huge improvement in the number of rows} handled with several order of magnitude and a \textbf{slightly improvement on the timing}. Even if the timing improvement is not huge we have to take into consideration the extreme simplicity of the "find by username" query, which does not show properly the benefits of handling only one row at the beginning of the query computation. All things considered, \textbf{an index on the field \textit{username} has been created.}
 
 \subparagraph{Pokèmon Name}
 The queries that involve the \textit{name} field are the following
@@ -463,7 +463,7 @@ As said before, the number of addition or deletion of a \textbf{Pokèmon} are ex
 	\end{subfigure}
 \end{figure}
 
-Even in this case we can see a slightly improvement on the timing performance and an improvement on the rows considered at the beginning of the query computation. The total number of Pokèmon is small with respect to other entities but surely the 3 grade of magnitude of difference for the estimated row should grant a big advantage with bigger and more complicated queries on Neo4j. All things considered, \textbf{an index on the field \textit{pokèmon name} has been added}.
+Even in this case we can see a \textbf{slightly improvement on the timing} performance and an improvement on the rows considered at the beginning of the query computation. The total number of Pokèmon is small with respect to other entities but surely the 3 grade of magnitude of difference for the estimated row should grant a big advantage with bigger and more complicated queries on Neo4j. All things considered, \textbf{an index on the field \textit{pokèmon name} has been added}.
 \subparagraph{Post Creation Date}
 The queries that involve the \textit{creation date} field are the following
 
@@ -483,7 +483,7 @@ The queries that involve the \textit{creation date} field are the following
 	\end{tabular}
 \end{center}
 
-In this case we can say $|W1| \gg |W2|$ because only admins and the \textbf{User} who created the it can delete a \textbf{Post}. Then, in general, we can state even that if a \textbf{User} writes, say 1 \textbf{Post} per day, we can surely expect that he isn't the only one who has written a \textbf{Post}. So, in order to write a \textbf{Post} the \textbf{User} will view other \textbf{Posts} of a specific \textbf{Pokemon} (see UML Use Case Diagram for details). We can make the same reasoning even to the replies to a \textbf{Post}, because in order to make a reply the viewing action will come first. All things considered, we can assume that all the operation on the \textit{creationDate} of a \textbf{Post} are \textbf{read intensive}. In the following figure are presented the query and the relative performance results.
+In this case we can say $|W1| \gg |W2|$ because only admins and the \textbf{User} who created the it can delete a \textbf{Post}. Then, in general, we can state even that if a \textbf{User} writes, say 1 \textbf{Post} per day, we can surely expect that he isn't the only one who has written a \textbf{Post}. So, in order to write a \textbf{Post} the \textbf{User} will view other \textbf{Posts} of a specific \textbf{Pokemon} (see UML Use Case Diagram for details). We can make the same reasoning even to the replies to a \textbf{Post}, because, in order to make a reply, the viewing action will come first. All things considered, we can assume that all the operation on the \textit{creationDate} of a \textbf{Post} are \textbf{read intensive}. In the following figure are presented the query and the relative performance results.
 
 \begin{lstlisting}[language=python]
 	neo4j$ explain match (p:Post) where p.creationDate = "2020-12-15T22:05:32.382000000" return p
