@@ -7,9 +7,10 @@ import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import java.util.ArrayList;
 
 import org.neo4j.driver.*;
+import org.neo4j.driver.Record;
 
 public abstract class Neo4jDbDatabase implements Database {
-    public Driver driver;
+    public static Driver driver;
 
 
     private String uri = ConfigDataHandler.getInstance().configData.remoteUriNeo4j;
@@ -27,6 +28,7 @@ public abstract class Neo4jDbDatabase implements Database {
 
     @Override
     public void closeConnection() {
+        Logger.vlog("Closing connection with Neo4j");
         driver.close();
         driver=null;
     }
@@ -50,7 +52,6 @@ public abstract class Neo4jDbDatabase implements Database {
                 return null;
             });
         }
-        closeConnection();
         return true;
     }
 
@@ -65,7 +66,6 @@ public abstract class Neo4jDbDatabase implements Database {
                 return null;
             });
         }
-        closeConnection();
         return true;
     }
 
@@ -80,7 +80,6 @@ public abstract class Neo4jDbDatabase implements Database {
                 return null;
             });
         }
-        closeConnection();
         return true;
     }
 
@@ -94,7 +93,6 @@ public abstract class Neo4jDbDatabase implements Database {
                 return null;
             });
         }
-        closeConnection();
         return true;
     }
 
@@ -112,7 +110,6 @@ public abstract class Neo4jDbDatabase implements Database {
                 return null;
             });
         }
-        closeConnection();
         return records;
     }
 
@@ -132,7 +129,6 @@ public abstract class Neo4jDbDatabase implements Database {
                 return null;
             });
         }
-        closeConnection();
         return records;
     }
 
@@ -151,7 +147,6 @@ public abstract class Neo4jDbDatabase implements Database {
                 return null;
             });
         }
-        closeConnection();
         return records;
     }
 
@@ -166,7 +161,6 @@ public abstract class Neo4jDbDatabase implements Database {
                 return null;
             });
         }
-        closeConnection();
         return true;
     }
 

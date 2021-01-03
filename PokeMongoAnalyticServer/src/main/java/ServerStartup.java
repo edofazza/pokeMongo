@@ -105,5 +105,6 @@ public class ServerStartup {
             catchRatesOfPokemons.add(new PokemonAndCatchRate(p.getName(), new_catch_rate));
         }
         teamManager.updateCatchRateOfPokemon(catchRatesOfPokemons);
+        ((Database) teamManager).closeConnection();
     }
 }
