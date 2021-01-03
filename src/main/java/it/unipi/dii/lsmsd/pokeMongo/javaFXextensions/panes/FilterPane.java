@@ -219,6 +219,11 @@ public class FilterPane extends Pane {
         if (!maxPointsTF.getText().equals(""))
             tmpFilterMap.put(Filter.MAX_POINTS, maxPointsTF.getText());
 
+        if(tmpFilterMap.isEmpty()) {
+            PokedexResultScrollPane.clearVBox();
+            return;
+        }
+
         // CALL MONGODB FUNCTION
         PokemonManager pokemonManager = PokemonManagerFactory.buildManager();
 
