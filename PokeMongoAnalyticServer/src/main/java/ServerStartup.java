@@ -72,7 +72,8 @@ public class ServerStartup {
         List<Double> capture_rates;
         for(Pokemon p: pokemons){
             oldPokemon = new Pokemon(p.getName(), p.getTypes(), p.getId(), p.getCapture_rate(), p.getCapture_rates(), (int)p.getHeight(), (int)p.getWeight(), p.getBiology(), p.getPortrait(), p.getSprite());
-            Pair<String, Integer> currentTrainers = trainersPerPokemon.get(index);;
+
+            Pair<String, Integer> currentTrainers = trainersPerPokemon.get(index);
             if(trainersPerPokemon.get(index).getKey().equals(p.getName())){
                 numTrainers = currentTrainers.getValue();
                 index++;
@@ -80,21 +81,23 @@ public class ServerStartup {
                 numTrainers = 0;
             }
 
-            new_catch_rate = p.getCapture_rate()*(1 - (numTrainers*1.0)/(userNumber));
-            System.out.println(p.getName() + "|" + currentTrainers.getKey() + " " + numTrainers + " " + userNumber + " " + new_catch_rate);
+            new_catch_rate = p.getCapture_rate()*(1 - (numTrainers*1.0)/(userNumber + 1));
+
+            //System.out.println(p.getName() + "|" + currentTrainers.getKey() + " " + numTrainers + " " + userNumber + " " + new_catch_rate);
             capture_rates = p.getCapture_rates();
 
             if(capture_rates.size() >= 30){
-                while(capture_rates.size() < 30)
-                    capture_rates.remove(0);
+                while(capture_rates.size() >= 30)
+                    capture_rates.remove(capture_rates.size() - 1);
             }
 
 
 
-            capture_rates.add(new_catch_rate);
-            for(Double d: capture_rates){
-                System.out.println(p.getName() + " " + d.doubleValue());
-            }
+
+            capture_rates.add(0, new_catch_rate);
+//            for(Double d: capture_rates){
+//                System.out.println(p.getName() + " " + d.doubleValue());
+//            }
             long start3 = System.currentTimeMillis();
             long count = pokemonManager.updatePokemon(oldPokemon, p);
             long end3 = System.currentTimeMillis();

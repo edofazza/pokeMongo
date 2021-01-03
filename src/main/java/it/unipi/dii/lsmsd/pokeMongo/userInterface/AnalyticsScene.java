@@ -74,7 +74,7 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
         LineChart<Number, Number> nUser = LineChartThirtyDaysFactory.getLineChartThirtyDays(570, 260, x, y, yLabel, parameters[0], parameters[1], parameters[2]);
         LineChartThirtyDaysFactory.addDataToLineChartLong(nUser, list);
 
-        FieldRelatedLabel totalUserNumber = new FieldRelatedLabel("Total User Current Value: " + list.get(list.size()-1).toString(), 70, 35);
+        FieldRelatedLabel totalUserNumber = new FieldRelatedLabel("Total User Current Value: " + list.get(0).toString(), 70, 35);
 
         sceneNodes.getChildren().addAll(nUser, totalUserNumber);
     }

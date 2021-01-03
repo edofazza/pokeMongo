@@ -22,8 +22,8 @@ public class TeamManagerOnNeo4j extends Neo4jDbDatabase implements TeamManager{
     }
 
     public List<Pair<String, Integer>> getUsersNumberThatOwnsAPokemonNotFiltered(){
-        String query = " MATCH (p:Pokemon)<-[w:HAS]-(u:User) \n" +
-                "RETURN p.name, count(u) as user_count";
+        String query = " MATCH (p:Pokemon) OPTIONAL MATCH (p)<-[w:HAS]-(u:User) \n" +
+                "RETURN p.name, count(distinct u) as user_count";
         ArrayList<Object> res = getWithFilter(query);
         List<Pair<String, Integer>> return_list = new ArrayList<>();
         for(Object o: res){

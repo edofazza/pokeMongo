@@ -24,6 +24,7 @@ class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
     }
 
     private Pokemon DocumentToPokemon(Document doc){
+//        System.out.println(doc);
         return new Gson().fromJson(doc.toJson(), Pokemon.class);
     }
 
