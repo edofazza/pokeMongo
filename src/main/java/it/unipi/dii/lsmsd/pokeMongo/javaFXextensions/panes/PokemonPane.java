@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.TrashCanButton;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -54,7 +55,14 @@ public class PokemonPane extends Pane {
 
         if (pokemon != null) {
             ImageView img = new ImageView();
-            CurrentUI.getImage(pokemon.getSprite()).thenAccept(k -> img.setImage(k));
+            CurrentUI.getImage(pokemon.getSprite()).thenAccept(k -> {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                img.setImage(k);
+                            }
+                        });
+                    });
             img.setFitWidth(80);
             img.setFitHeight(80);
             img.relocate(50, 20);

@@ -12,6 +12,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.FavoriteCatchEmAllScr
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.textfields.CatchEmAllTextField;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.*;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
+import javafx.application.Platform;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -153,11 +154,25 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
         if (arrayList.size() != 0) {
             pokemon = arrayList.get(0);
             oddLabel.setText("ODD: " + String.format("%.2f", (pokemon.getCapture_rate() *100/255)) + "%");
-            CurrentUI.getImage(pokemon.getPortrait()).thenAccept(k -> selectedPokemon.setImage(k));
+            CurrentUI.getImage(pokemon.getPortrait()).thenAccept(k -> {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        selectedPokemon.setImage(k);
+                    }
+                });
+            });
         } else {
             pokemon = null;
             oddLabel.setText("ODD: ");
-            CurrentUI.getImage(imgLocation + "portraits/0.png").thenAccept(k -> selectedPokemon.setImage(k)); // not fx thread error
+            CurrentUI.getImage(imgLocation + "portraits/0.png").thenAccept(k -> {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        selectedPokemon.setImage(k);
+                    }
+                });
+            }); // not fx thread error
         }
     }
 

@@ -3,6 +3,7 @@ package it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes;
 import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.buttons.FilterPokemonResultButton;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -43,7 +44,14 @@ public class PokemonTeamForUserSelectedWindow extends Pane {
 
         ImageView sprite = new ImageView();
         CurrentUI.getImage(pokemon.getSprite())
-                .thenAccept(k -> sprite.setImage(k)); // not fx thread
+                .thenAccept(k -> {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            sprite.setImage(k);
+                        }
+                    });
+                }); // not fx thread
         sprite.setFitHeight(90);
         sprite.setFitWidth(90);
 

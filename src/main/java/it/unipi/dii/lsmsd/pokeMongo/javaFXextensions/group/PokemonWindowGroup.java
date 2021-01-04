@@ -6,6 +6,7 @@ import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.labels.PokemonWindowLabel;
 import it.unipi.dii.lsmsd.pokeMongo.javaFXextensions.panes.PostsPane;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
+import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.Label;
@@ -71,7 +72,15 @@ public class PokemonWindowGroup extends Group {
         portrait.relocate(20, 30);
         getChildren().add(portrait);
 
-        CurrentUI.getImage(url).thenAccept(k -> {portrait.setImage(k);}); // not fx thread error
+        CurrentUI.getImage(url).thenAccept(k -> {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    portrait.setImage(k);
+                }
+            });
+
+        }); // not fx thread error
     }
 
     /**
@@ -86,7 +95,14 @@ public class PokemonWindowGroup extends Group {
 
         getChildren().add(sprite);
 
-        CurrentUI.getImage(url).thenAccept(k -> {sprite.setImage(k);}); // not fx thread error
+        CurrentUI.getImage(url).thenAccept(k -> {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    sprite.setImage(k);
+                }
+            });
+        }); // not fx thread error
     }
 
     /**
