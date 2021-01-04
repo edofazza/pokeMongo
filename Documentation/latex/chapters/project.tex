@@ -621,14 +621,14 @@ Starting from the characteristics of the database infrastructure described in th
 	\item \textbf{Availability} is ensured by always-on servers and use of replicas. However there could be little delays when analytics are written. 
 	\item There is \textbf{no strict consistency} among different servers, for no service. For our purposes, \textbf{eventual consistencies} are been finely designed depending on the specific task. They can be consulted at the paragraph 3.5.3.
 	\item The \textbf{architecture is the master-slave one}: this means that master can be a \textit{single point of failure}. Although, DBs adopted are capable of performing an \textit{election} in case of primary’s fault, in this case the system will be still capable of working but every NON-JOURNALED write will be lost.  
-	\item In spite the fact that this is a performance-centered project, we decide to \textbf{repeat rankings computing} each time a read request arrives. Surely this is not the fastest approach, but we thought that providing a user each time the most updated ranking possible was the best way to encourage him/her to play and try to climb the charts.
+	\item In spite the fact that this is a performance-centred project, we decide to \textbf{repeat rankings computing} each time a read request arrives. Surely this is not the fastest approach, but we thought that providing a user each time the most updated ranking possible was the best way to encourage him/her to play and try to climb the charts.
 \end{enumerate}
 
 \subsection{Client, Server and Daemon Thread}
 The \textit{architecture} of our application involves the presence of clients, that will be the \textbf{Users}’ devices, and of some servers that will run in one ore more clusters of machines and that will handle all the data according to the instructions given by clients.\\
 The applicative code runs entirely on the clients: every interaction with the GUI is handled locally and may trigger a send of a request to the database.\\
 In order to minimize servers’ computational load, they do not execute applicative code, but they only are in charge of providing answers to queries.\\
-This means that the application has not been designed as independent from the database infrastructure, but as we will discuss in chapter 4 an accurate information hiding mechanism prevents strong dependencies on the backend implementation.\\
+This means that the application has not been designed as independent from the database infrastructure, but as we will discuss in chapter 4 an accurate information hiding mechanism prevents strong dependencies on the back-end implementation.\\
 Apart from the usage analytics (and image download/caching), the applicative code is synchronized with query responses: it stops waiting for an answer from the database. \medskip \\
 As already cited before, an analytic function is performed in a deferred fashion every day at 00:00:00, and it is in charge of computing usage statistics rather than updating all \textbf{Pokémon}’s catch rates. \\
 Thus, a \textbf{daemon thread} is required: it wakes up at 00:00:00, aggregates data as described in par. 2.5, updates the \textbf{Analytics} collection on the Document Database and eventually sleeps for 24 hours.\\

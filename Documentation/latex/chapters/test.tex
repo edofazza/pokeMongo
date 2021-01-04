@@ -25,7 +25,7 @@ The application does not deal with Record \& Playback attacks, anyway having no 
 
 \begin{figure}[H]
 	\centering
-	\caption{Example 2: input validation on the signup form blocks code injection attempts (it would have removed all the collection)}
+	\caption{Example 2: input validation on the sign-up form blocks code injection attempts (it would have removed all the collection)}
 	\includegraphics[width=\textwidth]{img/privacy_3.png}
 \end{figure}
 
@@ -146,9 +146,9 @@ Generalizing this discussion, the application is dependent on the following modu
 	\item \textbf{Document Db} and \textbf{Graph Db} as discussed before are vital for the application
 	\item A \textbf{Caching System} speeds up image loading (par. 4.3.2). If it fails, the application will still be available and capable of loading them but the \textbf{latency will be higher}
     \item The \textbf{Internet connection} is required also for the downloading of the Pokémon images (before caching). Let us suppose that we are no more able to connect ourselves to Internet but to have a backup connection through the databases: in this case the application will still work correctly, but non-cached images will not be displayed.
-	\item A \textbf{configuration file} divides the parameter data from the applicative one, and modularizes the code. If this file goes lost or corrupted, a \textbf{default-values} collection inside ConfigDataHandler will ensure a sub-optimal but correct behavior of the application.
+	\item A \textbf{configuration file} divides the parameter data from the applicative one, and modularizes the code. If this file goes lost or corrupted, a \textbf{default-values} collection inside ConfigDataHandler will ensure a sub-optimal but correct behaviour of the application.
 	\item The \textbf{Logger} has only event-recording purposes, in order to restore quickly possible faults. As specified in the paragraph 4.3.4 this tool is handled by a parallel thread, if it fails no consequences will be reflected into the application
 	\item As discussed in the paragraph 3.6, admins’ analytic queries are handled by an \textbf{external client} that also strictly requires the correct working of the databases. 
-	If this external client fails, analytic data will be no more updated, which means that a\textbf{dmins will visualize always the same data}; this event has no other impact on the application.  
+	If this external client fails, analytic data will be no more updated, which means that \textbf{admins will visualize always the same data}; this event has no other impact on the application.  
 	\item The \textbf{Password Encryptor} is involved to ensure the privacy of users’ sensible data. If, for any reason, this module stops working, there will be access problems for any user that will try to login. No issue will be experimented by users already logged.
 \end{itemize}
