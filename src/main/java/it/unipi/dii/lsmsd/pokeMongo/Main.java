@@ -1,10 +1,15 @@
 package it.unipi.dii.lsmsd.pokeMongo;
 
+import it.unipi.dii.lsmsd.pokeMongo.persistence.Database;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+
 import java.util.logging.LogManager;
 
 /**
@@ -21,6 +26,10 @@ public class Main extends Application {
         primaryStage.setTitle("pokeMongo");
         primaryStage.setScene(scene);
         primaryStage.show();
+        primaryStage.setOnCloseRequest(event -> {
+            Database d = new TeamManagerOnNeo4j();
+            d.closeConnection();
+        });
     }
 
     /**
