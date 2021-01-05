@@ -133,7 +133,7 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
         }
 
         int[] parameters = generateChartDimensionParametersLong(list);
-        
+
         ((NumberAxis)loginByCountry.getYAxis()).setUpperBound(parameters[0]);
         ((NumberAxis)loginByCountry.getYAxis()).setLowerBound(parameters[1]);
         ((NumberAxis)loginByCountry.getYAxis()).setTickUnit(parameters[2]);
