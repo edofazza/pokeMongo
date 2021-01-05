@@ -219,7 +219,9 @@ public class FilterPane extends Pane {
         if (!maxPointsTF.getText().equals(""))
             tmpFilterMap.put(Filter.MAX_POINTS, maxPointsTF.getText());*/
 
-        if(tmpFilterMap.isEmpty() || type1CB.getValue().toString().equals(type2CB.getValue().toString())) {
+        if(tmpFilterMap.isEmpty() ||
+                (type1CB.getValue().toString().equals(type2CB.getValue().toString())
+                        && !type1CB.getValue().toString().equals("") ) ){
             PokedexResultScrollPane.clearVBox();
             return;
         }
