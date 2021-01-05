@@ -46,6 +46,8 @@ public class PostButton extends Button {
         this.currentPost = currentPost;
         this.numberOfAnswers = numberOfAnswers;
 
+        this.postButtonAnswer = this;
+
         setOnAction(e -> fillVBox());
     }
 
@@ -63,6 +65,7 @@ public class PostButton extends Button {
         this(text, x, y, subPostsVBox, currentPost, numberOfAnswers);
 
         this.postButtonAnswer = postButton;
+        this.postButtonComment = this;
     }
 
     /**
@@ -121,7 +124,7 @@ public class PostButton extends Button {
             setTextButton("Answers (" + numberOfAnswers + ")");
         }
 
-        if (canComment)
+        if (postButtonComment.getCanComment())
             addCommentPane();
     }
 
