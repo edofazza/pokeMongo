@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  18 DEC 2020 18:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  5 JAN 2021 16:18
 entering extended mode
 **./pokeMongoUserManual.tex
 (pokeMongoUserManual.tex
@@ -6,8 +6,8 @@ LaTeX2e <2020-10-01> patch level 1
 L3 programming layer <2020-10-05> xparse <2020-03-03>
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
-(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
-File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
+File: size11.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
 \c@part=\count175
 \c@section=\count176
@@ -21,23 +21,47 @@ File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
 )
-(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
-Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count183
+\Gm@cntv=\count184
+\c@Gm@tempcnt=\count185
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
+\Gm@dimlist=\toks16
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+
+(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
+Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count183
-\calc@Bcount=\count184
-\calc@Adimen=\dimen139
-\calc@Bdimen=\dimen140
+\calc@Acount=\count186
+\calc@Bcount=\count187
+\calc@Adimen=\dimen147
+\calc@Bdimen=\dimen148
 \calc@Askip=\skip49
 \calc@Bskip=\skip50
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count185
+\calc@Ccount=\count188
 \calc@Cskip=\skip51
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
@@ -53,51 +77,51 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks16
-\ex@=\dimen141
+\@emptytoks=\toks17
+\ex@=\dimen149
 ))
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen142
+\pmbraise@=\dimen150
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count186
+\inf@bad=\count189
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count187
-\leftroot@=\count188
+\uproot@=\count190
+\leftroot@=\count191
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count189
-\DOTSCASE@=\count190
+\classnum@=\count192
+\DOTSCASE@=\count193
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
 \Mathstrutbox@=\box47
 \strutbox@=\box48
-\big@size=\dimen143
+\big@size=\dimen151
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count191
-\c@MaxMatrixCols=\count192
+\macc@depth=\count194
+\c@MaxMatrixCols=\count195
 \dotsspace@=\muskip16
-\c@parentequation=\count193
-\dspbrk@lvl=\count194
-\tag@help=\toks17
-\row@=\count195
-\column@=\count196
-\maxfields@=\count197
-\andhelp@=\toks18
-\eqnshift@=\dimen144
-\alignsep@=\dimen145
-\tagshift@=\dimen146
-\tagwidth@=\dimen147
-\totwidth@=\dimen148
-\lineht@=\dimen149
-\@envbody=\toks19
+\c@parentequation=\count196
+\dspbrk@lvl=\count197
+\tag@help=\toks18
+\row@=\count198
+\column@=\count199
+\maxfields@=\count266
+\andhelp@=\toks19
+\eqnshift@=\dimen152
+\alignsep@=\dimen153
+\tagshift@=\dimen154
+\tagwidth@=\dimen155
+\totwidth@=\dimen156
+\lineht@=\dimen157
+\@envbody=\toks20
 \multlinegap=\skip53
 \multlinetaggap=\skip54
-\mathdisplay@stack=\toks20
+\mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
 )
@@ -105,36 +129,36 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
-\g_MT_multlinerow_int=\count198
-\l_MT_multwidth_dim=\dimen150
+\g_MT_multlinerow_int=\count267
+\l_MT_multwidth_dim=\dimen158
 \origjot=\skip55
-\l_MT_shortvdotswithinadjustabove_dim=\dimen151
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen152
-\l_MT_above_intertext_sep=\dimen153
-\l_MT_below_intertext_sep=\dimen154
-\l_MT_above_shortintertext_sep=\dimen155
-\l_MT_below_shortintertext_sep=\dimen156
+\l_MT_shortvdotswithinadjustabove_dim=\dimen159
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen160
+\l_MT_above_intertext_sep=\dimen161
+\l_MT_below_intertext_sep=\dimen162
+\l_MT_above_shortintertext_sep=\dimen163
+\l_MT_below_shortintertext_sep=\dimen164
 \xmathstrut@box=\box49
-\xmathstrut@dim=\dimen157
+\xmathstrut@dim=\dimen165
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count199
+\lst@mode=\count268
 \lst@gtempboxa=\box50
-\lst@token=\toks21
-\lst@length=\count266
-\lst@currlwidth=\dimen158
-\lst@column=\count267
-\lst@pos=\count268
-\lst@lostspace=\dimen159
-\lst@width=\dimen160
-\lst@newlines=\count269
-\lst@lineno=\count270
-\lst@maxwidth=\dimen161
+\lst@token=\toks22
+\lst@length=\count269
+\lst@currlwidth=\dimen166
+\lst@column=\count270
+\lst@pos=\count271
+\lst@lostspace=\dimen167
+\lst@width=\dimen168
+\lst@newlines=\count272
+\lst@lineno=\count273
+\lst@maxwidth=\dimen169
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count271
-\lst@skipnumbers=\count272
+\c@lstnumber=\count274
+\lst@skipnumbers=\count275
 \lst@framebox=\box51
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
@@ -168,14 +192,14 @@ Package: babel 2020/10/06 3.50 The Babel package
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.def
 File: babel.def 2020/10/06 3.50 Babel common definitions
-\babel@savecnt=\count273
-\U@D=\dimen162
+\babel@savecnt=\count276
+\U@D=\dimen170
 \l@babelnohyphens=\language79
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 )
-\bbl@dirlevel=\count274
+\bbl@dirlevel=\count277
 
 *************************************
 * Local config file bblopts.cfg used
@@ -199,17 +223,17 @@ Package: caption 2020/09/12 v3.5b Customizing captions (AR)
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2020/09/17 v2.1b caption3 kernel (AR)
-\captionmargin=\dimen163
-\captionmargin@=\dimen164
-\captionwidth=\dimen165
-\caption@tempdima=\dimen166
-\caption@indent=\dimen167
-\caption@parindent=\dimen168
-\caption@hangindent=\dimen169
+\captionmargin=\dimen171
+\captionmargin@=\dimen172
+\captionwidth=\dimen173
+\caption@tempdima=\dimen174
+\caption@indent=\dimen175
+\caption@parindent=\dimen176
+\caption@hangindent=\dimen177
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count275
-\c@continuedfloat=\count276
+\c@caption@flags=\count278
+\c@continuedfloat=\count279
 Package caption Info: listings package is loaded.
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
@@ -217,9 +241,6 @@ Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-)
-(C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2020/03/06 v1.0d TeX engine tests
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
 .sty
@@ -258,9 +279,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen170
-\Hy@linkcounter=\count277
-\Hy@pagecounter=\count278
+\@linkdim=\dimen178
+\Hy@linkcounter=\count280
+\Hy@pagecounter=\count281
  (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -272,7 +293,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count279
+\Hy@SavedSpaceFactor=\count282
 Package hyperref Info: Hyper figures OFF on input line 4464.
 Package hyperref Info: Link nesting OFF on input line 4469.
 Package hyperref Info: Hyper index ON on input line 4472.
@@ -280,13 +301,13 @@ Package hyperref Info: Plain pages OFF on input line 4479.
 Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count280
+\c@Hy@tempcnt=\count283
  (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5076.
-\XeTeXLinkMargin=\dimen171
+\XeTeXLinkMargin=\dimen179
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -296,9 +317,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count281
-\Field@Width=\dimen172
-\Fld@charsize=\dimen173
+\Fld@menulength=\count284
+\Field@Width=\dimen180
+\Fld@charsize=\dimen181
 Package hyperref Info: Hyper figures OFF on input line 6347.
 Package hyperref Info: Link nesting OFF on input line 6352.
 Package hyperref Info: Hyper index ON on input line 6355.
@@ -314,9 +335,9 @@ Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
 )
-\Hy@abspage=\count282
-\c@Item=\count283
-\c@Hfootnote=\count284
+\Hy@abspage=\count285
+\c@Item=\count286
+\c@Hfootnote=\count287
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
@@ -327,8 +348,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count285
-\c@bookmark@seq@number=\count286
+\Fld@listcount=\count288
+\c@bookmark@seq@number=\count289
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -345,14 +366,14 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2020/08/23 v1.3g Sub-captions (AR)
-\c@subfigure=\count287
-\c@subtable=\count288
+\c@subfigure=\count290
+\c@subtable=\count291
 ) (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen174
+\col@sep=\dimen182
 \ar@mcellbox=\box52
-\extrarowheight=\dimen175
-\NC@list=\toks22
+\extrarowheight=\dimen183
+\NC@list=\toks23
 \extratabsurround=\skip57
 \backup@length=\skip58
 \ar@cellbox=\box53
@@ -363,86 +384,120 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip60
 \LTpre=\skip61
 \LTpost=\skip62
-\LTchunksize=\count289
-\LTcapwidth=\dimen176
+\LTchunksize=\count292
+\LTcapwidth=\dimen184
 \LT@head=\box54
 \LT@firsthead=\box55
 \LT@foot=\box56
 \LT@lastfoot=\box57
-\LT@cols=\count290
-\LT@rows=\count291
-\c@LT@tables=\count292
-\c@LT@chunks=\count293
-\LT@p@ftn=\toks23
+\LT@cols=\count293
+\LT@rows=\count294
+\c@LT@tables=\count295
+\c@LT@chunks=\count296
+\LT@p@ftn=\toks24
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \ttl@box=\box58
 \beforetitleunit=\skip63
 \aftertitleunit=\skip64
-\ttl@plus=\dimen177
-\ttl@minus=\dimen178
-\ttl@toksa=\toks24
-\titlewidth=\dimen179
-\titlewidthlast=\dimen180
-\titlewidthfirst=\dimen181
+\ttl@plus=\dimen185
+\ttl@minus=\dimen186
+\ttl@toksa=\toks25
+\titlewidth=\dimen187
+\titlewidthlast=\dimen188
+\titlewidthfirst=\dimen189
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/blindtext\blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count294
-\c@Blindtext=\count295
-\c@blind@countparstart=\count296
-\blind@countxx=\count297
-\blindtext@numBlindtext=\count298
-\blind@countyy=\count299
-\c@blindlist=\count300
-\c@blindlistlevel=\count301
-\c@blindlist@level=\count302
-\blind@listitem=\count303
-\c@blind@listcount=\count304
-\c@blind@levelcount=\count305
-\blind@mathformula=\count306
-\blind@Mathformula=\count307
-\c@blind@randomcount=\count308
-\c@blind@randommax=\count309
-\c@blind@pangramcount=\count310
-\c@blind@pangrammax=\count311
+\c@blindtext=\count297
+\c@Blindtext=\count298
+\c@blind@countparstart=\count299
+\blind@countxx=\count300
+\blindtext@numBlindtext=\count301
+\blind@countyy=\count302
+\c@blindlist=\count303
+\c@blindlistlevel=\count304
+\c@blindlist@level=\count305
+\blind@listitem=\count306
+\c@blind@listcount=\count307
+\c@blind@levelcount=\count308
+\blind@mathformula=\count309
+\blind@Mathformula=\count310
+\c@blind@randomcount=\count311
+\c@blind@randommax=\count312
+\c@blind@pangramcount=\count313
+\c@blind@pangrammax=\count314
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count312
-\float@exts=\toks25
+\c@float@type=\count315
+\float@exts=\toks26
 \float@box=\box59
-\@float@everytoks=\toks26
+\@float@everytoks=\toks27
 \@floatcapt=\box60
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count313
+\l__kernel_color_stack_int=\count316
 \l__pdf_internal_box=\box61
 ) (pokeMongoUserManual.aux (chapters/userManual.aux))
 \openout1 = `pokeMongoUserManual.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
@@ -459,25 +514,25 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 )
-\Gin@req@height=\dimen182
-\Gin@req@width=\dimen183
+\Gin@req@height=\dimen190
+\Gin@req@width=\dimen191
 )
-\c@lstlisting=\count314
+\c@lstlisting=\count317
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count315
-\scratchdimen=\dimen184
+\scratchcounter=\count318
+\scratchdimen=\dimen192
 \scratchbox=\box62
-\nofMPsegments=\count316
-\nofMParguments=\count317
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count318
-\MPscratchDim=\dimen185
-\MPnumerator=\count319
-\makeMPintoPDFobject=\count320
-\everyMPtoPDFconversion=\toks28
+\nofMPsegments=\count319
+\nofMParguments=\count320
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count321
+\MPscratchDim=\dimen193
+\MPnumerator=\count322
+\makeMPintoPDFobject=\count323
+\everyMPtoPDFconversion=\toks29
 )
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -494,7 +549,7 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 54.
+Package hyperref Info: Link coloring OFF on input line 55.
 
 (C:\Users\gxhan\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -506,11 +561,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count321
+\c@section@level=\count324
 )
-LaTeX Info: Redefining \ref on input line 54.
-LaTeX Info: Redefining \pageref on input line 54.
-LaTeX Info: Redefining \nameref on input line 54.
+LaTeX Info: Redefining \ref on input line 55.
+LaTeX Info: Redefining \pageref on input line 55.
+LaTeX Info: Redefining \nameref on input line 55.
  (pokeMongoUserManual.out) (pokeMongoUserManual.out)
 \@outlinefile=\write3
 \openout3 = `pokeMongoUserManual.out'.
@@ -525,8 +580,8 @@ d
 File: img/marchio_unipi_pant541-eps-converted-to.pdf Graphic file (type pdf)
 <use img/marchio_unipi_pant541-eps-converted-to.pdf>
 Package pdftex.def Info: img/marchio_unipi_pant541-eps-converted-to.pdf  used o
-n input line 58.
-(pdftex.def)             Requested size: 390.0pt x 207.81781pt.
+n input line 59.
+(pdftex.def)             Requested size: 452.9679pt x 241.37358pt.
 [1
 
 {C:/Users/gxhan/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./img/marchio_u
@@ -538,148 +593,148 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.82 \include{chapters/userManual}
+l.83 \include{chapters/userManual}
                                    [1]
 \openout2 = `chapters/userManual.aux'.
 
  (chapters/userManual.tex
-<img/userManual/login.png, id=99, 1284.8pt x 731.73375pt>
+<img/userManual/login.png, id=100, 1284.8pt x 731.73375pt>
 File: img/userManual/login.png Graphic file (type png)
 <use img/userManual/login.png>
 Package pdftex.def Info: img/userManual/login.png  used on input line 7.
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
-<img/userManual/registration.png, id=101, 1284.8pt x 731.73375pt>
+(pdftex.def)             Requested size: 452.9679pt x 257.97527pt.
+<img/userManual/registration.png, id=102, 1284.8pt x 731.73375pt>
 File: img/userManual/registration.png Graphic file (type png)
 <use img/userManual/registration.png>
 Package pdftex.def Info: img/userManual/registration.png  used on input line 13
 .
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
+(pdftex.def)             Requested size: 452.9679pt x 257.97527pt.
  [2
 
  <./img/userManual/login.png>]
-<img/userManual/main.png, id=108, 1284.8pt x 731.73375pt>
+<img/userManual/main.png, id=109, 1284.8pt x 731.73375pt>
 File: img/userManual/main.png Graphic file (type png)
 <use img/userManual/main.png>
 Package pdftex.def Info: img/userManual/main.png  used on input line 20.
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
- [3 <./img/userManual/registration.png> <./img/userManual/main.png>]
-<img/userManual/pokedex.png, id=117, 1284.8pt x 731.73375pt>
+(pdftex.def)             Requested size: 452.9679pt x 257.97527pt.
+<img/userManual/pokedex.png, id=110, 964.10187pt x 549.55313pt>
 File: img/userManual/pokedex.png Graphic file (type png)
 <use img/userManual/pokedex.png>
 Package pdftex.def Info: img/userManual/pokedex.png  used on input line 29.
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
-<img/userManual/pokedex2.png, id=118, 1284.8pt x 731.73375pt>
+(pdftex.def)             Requested size: 452.9679pt x 258.19777pt.
+ [3 <./img/userManual/registration.png> <./img/userManual/main.png>]
+<img/userManual/pokedex2.png, id=119, 964.10187pt x 549.55313pt>
 File: img/userManual/pokedex2.png Graphic file (type png)
 <use img/userManual/pokedex2.png>
 Package pdftex.def Info: img/userManual/pokedex2.png  used on input line 36.
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
- [4 <./img/userManual/pokedex.png>]
-<img/userManual/pokemon_info.png, id=125, 1108.14pt x 684.5575pt>
+(pdftex.def)             Requested size: 452.9679pt x 258.19777pt.
+<img/userManual/pokemon_info.png, id=120, 828.59563pt x 511.41063pt>
 File: img/userManual/pokemon_info.png Graphic file (type png)
 <use img/userManual/pokemon_info.png>
 Package pdftex.def Info: img/userManual/pokemon_info.png  used on input line 42
 .
-(pdftex.def)             Requested size: 390.0pt x 240.92528pt.
- [5 <./img/userManual/pokedex2.png>]
-<img/userManual/team.png, id=132, 1284.8pt x 731.73375pt>
+(pdftex.def)             Requested size: 452.9679pt x 279.57555pt.
+ [4 <./img/userManual/pokedex.png> <./img/userManual/pokedex2.png>]
+<img/userManual/team.png, id=129, 1284.8pt x 731.73375pt>
 File: img/userManual/team.png Graphic file (type png)
 <use img/userManual/team.png>
 Package pdftex.def Info: img/userManual/team.png  used on input line 52.
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
+(pdftex.def)             Requested size: 452.9679pt x 257.97527pt.
 
-[6 <./img/userManual/pokemon_info.png>]
-<img/userManual/catch.png, id=140, 1284.8pt x 731.73375pt>
+[5 <./img/userManual/pokemon_info.png>]
+<img/userManual/catch.png, id=136, 1284.8pt x 731.73375pt>
 File: img/userManual/catch.png Graphic file (type png)
 <use img/userManual/catch.png>
 Package pdftex.def Info: img/userManual/catch.png  used on input line 61.
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
- [7 <./img/userManual/team.png>]
-<img/userManual/friends.png, id=147, 1284.8pt x 729.72626pt>
+(pdftex.def)             Requested size: 452.9679pt x 257.97527pt.
+ [6 <./img/userManual/team.png>]
+<img/userManual/friends.png, id=144, 964.10187pt x 549.55313pt>
 File: img/userManual/friends.png Graphic file (type png)
 <use img/userManual/friends.png>
 Package pdftex.def Info: img/userManual/friends.png  used on input line 68.
-(pdftex.def)             Requested size: 390.0pt x 221.50282pt.
-<img/userManual/team_popup.png, id=148, 602.25pt x 430.60875pt>
+(pdftex.def)             Requested size: 452.9679pt x 258.19777pt.
+<img/userManual/team_popup.png, id=145, 602.25pt x 430.60875pt>
 File: img/userManual/team_popup.png Graphic file (type png)
 <use img/userManual/team_popup.png>
 Package pdftex.def Info: img/userManual/team_popup.png  used on input line 75.
-(pdftex.def)             Requested size: 390.0pt x 278.86078pt.
+(pdftex.def)             Requested size: 452.9679pt x 323.8822pt.
 
-[8 <./img/userManual/catch.png> <./img/userManual/friends.png>]
-<img/userManual/ranking.png, id=157, 1286.8075pt x 731.73375pt>
+[7 <./img/userManual/catch.png> <./img/userManual/friends.png>]
+<img/userManual/ranking.png, id=154, 1286.8075pt x 731.73375pt>
 File: img/userManual/ranking.png Graphic file (type png)
 <use img/userManual/ranking.png>
 Package pdftex.def Info: img/userManual/ranking.png  used on input line 83.
-(pdftex.def)             Requested size: 390.0pt x 221.76605pt.
- [9 <./img/userManual/team_popup.png>]
-<img/userManual/settings.png, id=164, 1284.8pt x 731.73375pt>
+(pdftex.def)             Requested size: 452.9679pt x 257.5733pt.
+ [8 <./img/userManual/team_popup.png>]
+<img/userManual/settings.png, id=161, 1284.8pt x 731.73375pt>
 File: img/userManual/settings.png Graphic file (type png)
 <use img/userManual/settings.png>
 Package pdftex.def Info: img/userManual/settings.png  used on input line 92.
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
- [10 <./img/userManual/ranking.png>]
-<img/userManual/admin_homepage.png, id=171, 1284.8pt x 731.73375pt>
+(pdftex.def)             Requested size: 452.9679pt x 257.97527pt.
+<img/userManual/admin_homepage.png, id=162, 1284.8pt x 731.73375pt>
 File: img/userManual/admin_homepage.png Graphic file (type png)
 <use img/userManual/admin_homepage.png>
 Package pdftex.def Info: img/userManual/admin_homepage.png  used on input line 
 100.
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
- [11 <./img/userManual/settings.png> <./img/userManual/admin_homepage.png>]
-<img/userManual/admin_pokemon_window.png, id=180, 1106.1325pt x 681.54625pt>
+(pdftex.def)             Requested size: 452.9679pt x 257.97527pt.
+ [9 <./img/userManual/ranking.png> <./img/userManual/settings.png>]
+<img/userManual/admin_pokemon_window.png, id=171, 1106.1325pt x 681.54625pt>
 File: img/userManual/admin_pokemon_window.png Graphic file (type png)
 <use img/userManual/admin_pokemon_window.png>
 Package pdftex.def Info: img/userManual/admin_pokemon_window.png  used on input
  line 109.
-(pdftex.def)             Requested size: 390.0pt x 240.29189pt.
-<img/userManual/usage_statistics.png, id=181, 1286.8075pt x 731.73375pt>
+(pdftex.def)             Requested size: 452.9679pt x 279.09259pt.
+ [10 <./img/userManual/admin_homepage.png>]
+<img/userManual/usage_statistics.png, id=178, 964.10187pt x 549.55313pt>
 File: img/userManual/usage_statistics.png Graphic file (type png)
 <use img/userManual/usage_statistics.png>
 Package pdftex.def Info: img/userManual/usage_statistics.png  used on input lin
 e 119.
-(pdftex.def)             Requested size: 390.0pt x 221.76605pt.
- [12 <./img/userManual/admin_pokemon_window.png>]
-<img/userManual/add_pokemon.png, id=189, 1284.8pt x 731.73375pt>
+(pdftex.def)             Requested size: 452.9679pt x 258.19777pt.
+ [11 <./img/userManual/admin_pokemon_window.png>]
+<img/userManual/add_pokemon.png, id=185, 1284.8pt x 731.73375pt>
 File: img/userManual/add_pokemon.png Graphic file (type png)
 <use img/userManual/add_pokemon.png>
 Package pdftex.def Info: img/userManual/add_pokemon.png  used on input line 128
 .
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
- [13 <./img/userManual/usage_statistics.png>]
-<img/userManual/remove_pokemon.png, id=196, 1284.8pt x 731.73375pt>
+(pdftex.def)             Requested size: 452.9679pt x 257.97527pt.
+<img/userManual/remove_pokemon.png, id=186, 1284.8pt x 731.73375pt>
 File: img/userManual/remove_pokemon.png Graphic file (type png)
 <use img/userManual/remove_pokemon.png>
 Package pdftex.def Info: img/userManual/remove_pokemon.png  used on input line 
 134.
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
-<img/userManual/delete_user.png, id=197, 1284.8pt x 731.73375pt>
+(pdftex.def)             Requested size: 452.9679pt x 257.97527pt.
+ [12 <./img/userManual/usage_statistics.png> <./img/userManual/add_pokemon.png>
+]
+<img/userManual/delete_user.png, id=196, 1284.8pt x 731.73375pt>
 File: img/userManual/delete_user.png Graphic file (type png)
 <use img/userManual/delete_user.png>
 Package pdftex.def Info: img/userManual/delete_user.png  used on input line 141
 .
-(pdftex.def)             Requested size: 390.0pt x 222.11217pt.
- [14 <./img/userManual/add_pokemon.png> <./img/userManual/remove_pokemon.png>])
- [15 <./img/userManual/delete_user.png>] (pokeMongoUserManual.aux
-(chapters/userManual.aux))
+(pdftex.def)             Requested size: 452.9679pt x 257.97527pt.
+) [13 <./img/userManual/remove_pokemon.png>] [14 <./img/userManual/delete_user.
+png>] (pokeMongoUserManual.aux (chapters/userManual.aux))
 Package rerunfilecheck Info: File `pokeMongoUserManual.out' has not changed.
 (rerunfilecheck)             Checksum: A286FA10BF256B90485ADBB5ED4C835A;1036.
  ) 
 Here is how much of TeX's memory you used:
- 11008 strings out of 480236
- 175137 string characters out of 2880557
- 510166 words of memory out of 3000000
- 27314 multiletter control sequences out of 15000+200000
- 541021 words of font info for 49 fonts, out of 3000000 for 9000
+ 11468 strings out of 480236
+ 182104 string characters out of 2880557
+ 524724 words of memory out of 3000000
+ 27768 multiletter control sequences out of 15000+200000
+ 541023 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,7n,77p,973b,365s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmbxti10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/gxhan/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on pokeMongoUserManual.pdf (16 pages, 5674990 bytes).
+cmbx10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmbxti10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/gxhan/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/gxhan/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on pokeMongoUserManual.pdf (15 pages, 5307038 bytes).
 PDF statistics:
  243 PDF objects out of 1000 (max. 8388607)
- 50 named destinations out of 1000 (max. 500000)
+ 49 named destinations out of 1000 (max. 500000)
  216 words of extra memory for PDF output out of 10000 (max. 10000000)
 
