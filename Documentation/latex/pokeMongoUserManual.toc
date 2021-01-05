@@ -3,14 +3,14 @@
 \contentsline {subsection}{\numberline {1.1}Normal User Manual}{2}{subsection.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.1}Login and Registration}{2}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.2}Pokedex}{4}{subsubsection.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}Team}{6}{subsubsection.1.1.3}%
-\contentsline {subsubsection}{\numberline {1.1.4}Catch'em All}{7}{subsubsection.1.1.4}%
-\contentsline {subsubsection}{\numberline {1.1.5}Friends}{8}{subsubsection.1.1.5}%
-\contentsline {subsubsection}{\numberline {1.1.6}Ranking}{9}{subsubsection.1.1.6}%
-\contentsline {subsubsection}{\numberline {1.1.7}Settings}{10}{subsubsection.1.1.7}%
-\contentsline {subsection}{\numberline {1.2}Admin Manual}{11}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Admin Homepage}{11}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Differences with Normal User}{12}{subsubsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Analytics}{12}{subsubsection.1.2.3}%
-\contentsline {subsubsection}{\numberline {1.2.4}Add/Remove Pokemon}{13}{subsubsection.1.2.4}%
-\contentsline {subsubsection}{\numberline {1.2.5}Remove Users}{15}{subsubsection.1.2.5}%
+\contentsline {subsubsection}{\numberline {1.1.3}Team}{5}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Catch'em All}{6}{subsubsection.1.1.4}%
+\contentsline {subsubsection}{\numberline {1.1.5}Friends}{7}{subsubsection.1.1.5}%
+\contentsline {subsubsection}{\numberline {1.1.6}Ranking}{8}{subsubsection.1.1.6}%
+\contentsline {subsubsection}{\numberline {1.1.7}Settings}{9}{subsubsection.1.1.7}%
+\contentsline {subsection}{\numberline {1.2}Admin Manual}{10}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Admin Homepage}{10}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Differences with Normal User}{10}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Analytics}{11}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Add/Remove Pokemon}{12}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Remove Users}{13}{subsubsection.1.2.5}%
