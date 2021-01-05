@@ -24,7 +24,7 @@
 \contentsline {subsubsection}{\numberline {3.3.1}Queries Handled}{15}{subsubsection.3.3.1}%
 \contentsline {subparagraph}{Users related}{15}{subsubsection.3.3.1}%
 \contentsline {subparagraph}{Team related}{16}{table.1}%
-\contentsline {subparagraph}{Pokemon related}{17}{table.2}%
+\contentsline {subparagraph}{Pokemon related}{16}{table.2}%
 \contentsline {subparagraph}{Post/Answer related}{17}{table.3}%
 \contentsline {subsubsection}{\numberline {3.3.2}Entities handled}{17}{subsubsection.3.3.2}%
 \contentsline {subsubsection}{\numberline {3.3.3}Graph structure}{18}{subsubsection.3.3.3}%

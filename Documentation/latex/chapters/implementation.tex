@@ -979,7 +979,7 @@ This is similar to the \textit{World Best Team}, but we use an additional match 
 \begin{lstlisting}[language=Java]
 	db.user.aggregate([
 		{$match: {"country": $country, "admin": {$eq: false}, "lastLogin": {$lte: $tresholdDate}}},
-		{$sort: {"points": -1}},
+		{$sort: {"points": -1, "birthDay": -1}},
 		{$limit: $limitNum},
 		{$project: {"_id": 0, "username": 1, "teamName": 1, "birthDay":1, "country": 1}}
 	]);

@@ -132,7 +132,7 @@ As seen before, starting from the application queries we demonstrate the benefit
 		\hline
 		\textbf{Type} & \textbf{Query} \\ [0.5ex] 
 		\hline
-		\textbf{W1} & Insert the \textit{country} data at registration timer \\ 
+		\textbf{W1} & Insert the \textit{country} data at registration time \\ 
 		\hline
 		\textbf{W2} & Remove all the \textbf{User}’s data if a \textbf{User} is banned by an \textit{admin} \\
 		\hline
@@ -231,11 +231,11 @@ For the reasons explained before and because of the very high ratio between read
 		& Add a new FOLLOW edge from the current \textbf{User} Node to the selected \textbf{User} Node \\ 
 		\hline
 		Retrieve \textit{recommended} \textbf{Users} \textit{by friends}(1)
-		& Match all the USER nodes at distance 2 from the given USER node U according to one of these patterns:
+		& Match all the USER nodes at distance 2 from the given USER node U according to this pattern:
 		(U)—FOLLOWS$\rightarrow$(USER f)—FOLLOWS $\rightarrow$(USER recomm.)\\
 		\hline
 		Retrieve \textit{recommended} \textbf{Users} \textit{by common favourite pokèmons}(2)
-		& Match all the USER nodes at distance 2 from the given USER node U according to one of these patterns:
+		& Match all the USER nodes at distance 2 from the given USER node U according to this pattern:
 		(U)—LIKES$\rightarrow$(POKEMON p)$\leftarrow$LIKES—(USER recomm.)\\
 		\hline
 		Retrieve friend list of a \textbf{User} U
@@ -359,7 +359,7 @@ The Graph Database stores all the information needed to build the NETWORK INFRAS
 \end{figure}
 
 In the previous image a portion of the graph structure is reported. 
-\textbf{Pokémon} nodes are pink, \textbf{User} ones are green, blue nodes represent \textbf{Posts}.
+\textbf{Pokémon} nodes are red, \textbf{User} ones are brown, green nodes represent \textbf{Posts}.
 
 The properties stored are the following:
 \begin{itemize}
