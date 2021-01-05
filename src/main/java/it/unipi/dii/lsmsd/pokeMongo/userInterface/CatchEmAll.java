@@ -196,7 +196,7 @@ public class CatchEmAll extends PokeSceneWithHeaderAndBackButton {
                 UserManager userManager = UserManagerFactory.buildManager();
                 userManager.updateNumberOfPokeball(CurrentUI.getUser());
 
-                if ((Math.random() * 254 + 1) < pokemon.getCapture_rate() || CurrentUI.getUser().getUsername().equals("edofazza")) {
+                if ((Math.random() * 254 + 1) < pokemon.getCapture_rate()) {
                     invalidFormEntryLabel.setText(pokemon.getName() + " caught");
                     invalidFormEntryLabel.setVisible(true);
                     invalidFormEntryLabel.setStyle("-fx-background-color: green");
