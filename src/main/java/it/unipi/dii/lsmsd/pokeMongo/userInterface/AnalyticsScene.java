@@ -133,8 +133,7 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
         }
 
         int[] parameters = generateChartDimensionParametersLong(list);
-
-        System.out.println(parameters[0] + " " + parameters[1] + " " + parameters[2]);
+        
         ((NumberAxis)loginByCountry.getYAxis()).setUpperBound(parameters[0]);
         ((NumberAxis)loginByCountry.getYAxis()).setLowerBound(parameters[1]);
         ((NumberAxis)loginByCountry.getYAxis()).setTickUnit(parameters[2]);
@@ -164,8 +163,6 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
         }
         if (!hasValues)
             return new int[] {0, 0, 0};
-
-        System.out.println(yMaxInt + " " + yMinInt);
 
         yMaxInt = yMaxInt > 5000 ? yMaxInt + 1000 : yMaxInt > 500 ? 1000 : yMaxInt > 200 ? yMaxInt+50 : yMaxInt + 10;
         yMinInt = yMinInt - 1000 < 0 ? yMinInt : yMinInt - 1000;
