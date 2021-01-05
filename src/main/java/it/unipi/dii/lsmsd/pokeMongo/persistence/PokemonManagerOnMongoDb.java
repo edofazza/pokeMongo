@@ -52,10 +52,16 @@ class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
         else if(params.get(MAX_HEIGHT)!=null)
             toReturn.append("height", new Document("$lte", Integer.parseInt(params.get(MAX_HEIGHT))));
 
-        if(params.get(TYPE1)!=null)
-            toReturn.append("types", params.get(TYPE1));
-        if(params.get(TYPE2)!=null)
-            toReturn.append("types", params.get(TYPE2));
+        if(params.get(TYPE1)!=null || params.get(TYPE2)!=null){
+            if(params.get(TYPE1)!=null && params.get(TYPE2)!=null){
+                toReturn.append("types", Document.parse("{$all : [\"" + params.get(TYPE1) + "\", \"" + params.get(TYPE2) + "\"]}"));
+            }
+            else if(params.get(TYPE1)!=null)
+                toReturn.append("types", params.get(TYPE1));
+            else if(params.get(TYPE2)!=null)
+                toReturn.append("types", params.get(TYPE2));
+        }
+
 
         if(params.get(MIN_CATCH_RATE)!=null && params.get(MAX_CATCH_RATE)!=null)
             toReturn.append("capture_rate", new Document("$gte", Integer.parseInt(params.get(MIN_CATCH_RATE))).append("$lte", Integer.parseInt(params.get(MAX_CATCH_RATE))));

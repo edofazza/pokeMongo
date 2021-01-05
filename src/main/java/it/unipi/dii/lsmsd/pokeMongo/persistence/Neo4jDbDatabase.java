@@ -29,8 +29,10 @@ public abstract class Neo4jDbDatabase implements Database {
     @Override
     public void closeConnection() {
         Logger.vlog("Closing connection with Neo4j");
-        driver.close();
-        driver=null;
+        if(driver!=null) {
+            driver.close();
+            driver = null;
+        }
     }
 
     private Driver getConnection() {
