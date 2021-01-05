@@ -57,7 +57,7 @@ public class FilterPane extends Pane {
         displayHeight();
         displayTypes();
         displayCatchRate();
-        displayPoints();
+        //displayPoints();
         displayFilterButton();
     }
 
@@ -213,11 +213,11 @@ public class FilterPane extends Pane {
         if (!catchRateMaxTF.getText().equals(""))
             tmpFilterMap.put(Filter.MAX_CATCH_RATE, catchRateMaxTF.getText());
 
-        if (!minPointsTF.getText().equals(""))
+        /*if (!minPointsTF.getText().equals(""))
             tmpFilterMap.put(Filter.MIN_POINTS, minPointsTF.getText());
 
         if (!maxPointsTF.getText().equals(""))
-            tmpFilterMap.put(Filter.MAX_POINTS, maxPointsTF.getText());
+            tmpFilterMap.put(Filter.MAX_POINTS, maxPointsTF.getText());*/
 
         if(tmpFilterMap.isEmpty()) {
             PokedexResultScrollPane.clearVBox();
