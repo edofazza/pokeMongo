@@ -167,7 +167,7 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
 
         System.out.println(yMaxInt + " " + yMinInt);
 
-        yMaxInt = yMaxInt > 5000 ? yMaxInt + 1000 : yMaxInt > 500 ? 1000 : yMaxInt > 200 ? 400 : 50;
+        yMaxInt = yMaxInt > 5000 ? yMaxInt + 1000 : yMaxInt > 500 ? 1000 : yMaxInt > 200 ? yMaxInt+50 : yMaxInt + 10;
         yMinInt = yMinInt - 1000 < 0 ? yMinInt : yMinInt - 1000;
 
         int diff = (yMaxInt - yMinInt) / 30;
