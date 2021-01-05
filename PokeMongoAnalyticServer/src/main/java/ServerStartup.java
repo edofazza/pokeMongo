@@ -30,7 +30,7 @@ public class ServerStartup {
 //                    timeToSleep=24*60*60*1000; //once per day
 //                }
 //                Thread.sleep(timeToSleep);
-                updateAll();
+                  updateAll();
 //            }
 //        }
 //        catch (InterruptedException i){

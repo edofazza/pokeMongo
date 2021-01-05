@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  4 JAN 2021 21:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  5 JAN 2021 11:20
 entering extended mode
 **./pokeMongo.tex
 (pokeMongo.tex
@@ -626,7 +626,7 @@ ation with the same identifier (name{page.1}) has been already used, duplicate
 ignored
 <to be read again> 
                    \relax 
-l.66 ... Analysis: utils}{45}{subsubsection.4.1.9}
+l.66 ... Analysis: utils}{46}{subsubsection.4.1.9}
                                                   % [1])
 \tf@toc=\write4
 \openout4 = `pokeMongo.toc'.
@@ -1331,12 +1331,12 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 \openout2 = `chapters/test.aux'.
 
  (chapters/test.tex
-<img/privacy_1.png, id=1435, 862.72313pt x 488.57532pt>
+<img/privacy_1.png, id=1434, 862.72313pt x 488.57532pt>
 File: img/privacy_1.png Graphic file (type png)
 <use img/privacy_1.png>
 Package pdftex.def Info: img/privacy_1.png  used on input line 18.
 (pdftex.def)             Requested size: 452.9679pt x 256.5208pt.
-<img/privacy_2.png, id=1436, 837.88031pt x 493.845pt>
+<img/privacy_2.png, id=1435, 837.88031pt x 493.845pt>
 File: img/privacy_2.png Graphic file (type png)
 <use img/privacy_2.png>
 Package pdftex.def Info: img/privacy_2.png  used on input line 22.
@@ -1346,14 +1346,14 @@ Package pdftex.def Info: img/privacy_2.png  used on input line 22.
 
 
  <./img/privacy_1.png>]
-<img/privacy_3.png, id=1443, 783.67781pt x 462.97969pt>
+<img/privacy_3.png, id=1442, 783.67781pt x 462.97969pt>
 File: img/privacy_3.png Graphic file (type png)
 <use img/privacy_3.png>
 Package pdftex.def Info: img/privacy_3.png  used on input line 29.
 (pdftex.def)             Requested size: 452.9679pt x 267.61002pt.
 
 [62 <./img/privacy_2.png> <./img/privacy_3.png>] [63]
-<img/wrong_input.png, id=1507, 771.63281pt x 435.12563pt>
+<img/wrong_input.png, id=1506, 771.63281pt x 435.12563pt>
 File: img/wrong_input.png Graphic file (type png)
 <use img/wrong_input.png>
 Package pdftex.def Info: img/wrong_input.png  used on input line 130.
@@ -1362,13 +1362,19 @@ Package pdftex.def Info: img/wrong_input.png  used on input line 130.
 aux)
 (chapters/analysis.aux) (chapters/project.aux) (chapters/implementation.aux)
 (chapters/test.aux))
-Package rerunfilecheck Info: File `pokeMongo.out' has not changed.
-(rerunfilecheck)             Checksum: 7D156D864BD19CB4E9748ADD2E80F20A;5787.
+
+Package rerunfilecheck Warning: File `pokeMongo.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `pokeMongo.out':
+(rerunfilecheck)             Before: 1B67C8721AB961BDEA4A06804456A8CB;5842
+(rerunfilecheck)             After:  D6ED67DC692F62DDEE9D09AE25EEC01B;5765.
  ) 
 Here is how much of TeX's memory you used:
- 14287 strings out of 480236
- 226307 string characters out of 2880557
- 1058516 words of memory out of 3000000
+ 14286 strings out of 480236
+ 226292 string characters out of 2880557
+ 1058378 words of memory out of 3000000
  29698 multiletter control sequences out of 15000+200000
  543663 words of font info for 58 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1391,9 +1397,9 @@ ublic/amsfonts/cm/cmsy10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/gxhan/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/gxhan/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on pokeMongo.pdf (67 pages, 5175247 bytes).
+Output written on pokeMongo.pdf (67 pages, 5174917 bytes).
 PDF statistics:
- 1774 PDF objects out of 2073 (max. 8388607)
- 841 named destinations out of 1000 (max. 500000)
+ 1772 PDF objects out of 2073 (max. 8388607)
+ 840 named destinations out of 1000 (max. 500000)
  877 words of extra memory for PDF output out of 10000 (max. 10000000)
 

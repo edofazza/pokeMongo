@@ -9,7 +9,7 @@
 \contentsline {subsection}{\numberline {2.3}Sources, Velocity properties and Volume of data}{7}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}UML Entities Diagram}{8}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Main application queries}{9}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Feasibility Study and Load Estimation}{10}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.6}Load Estimation}{10}{subsection.2.6}%
 \contentsline {section}{\numberline {3}Project}{11}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Adopted Databases}{11}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Document Database}{11}{subsection.3.2}%
