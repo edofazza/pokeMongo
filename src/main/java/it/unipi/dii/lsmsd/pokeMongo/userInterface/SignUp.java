@@ -249,20 +249,23 @@ public class SignUp extends PokeSceneWithTitle {
 
             // Create a connection to MongoDB and insert the user
             UserManager userManager = UserManagerFactory.buildManager();
-            if(userManager.register(user)) {
-                resultLabel = new InvalidFormEntryLabel("Sign up successfully done", 800, 600, true);
-                resultLabel.setStyle("-fx-background-color: green;");
 
-                // ADD IT ALSO IN NEO4J
-                UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
-                try{
+            resultLabel = new InvalidFormEntryLabel("", 800, 600, false);
+            try {
+                if(userManager.register(user)) {
+                    resultLabel.setText("Sign up successfully done");
+                    resultLabel.setVisible(true);
+                    resultLabel.setStyle("-fx-background-color: green;");
+
+                    // ADD IT ALSO IN NEO4J
+                    UserNetworkManager userNetworkManager = UserNetworkManagerFactory.buildManager();
                     userNetworkManager.addUser(user);
-                } catch(DuplicateUserException due){
-                    System.out.println("Duplicate of user");
                 }
+            } catch (Exception e) {
+                resultLabel.setText("Username already exists");
+                resultLabel.setVisible(true);
             }
-            else
-                resultLabel = new InvalidFormEntryLabel("Username already exists", 800, 600, true);
+
 
             sceneNodes.getChildren().add(resultLabel);
         }
