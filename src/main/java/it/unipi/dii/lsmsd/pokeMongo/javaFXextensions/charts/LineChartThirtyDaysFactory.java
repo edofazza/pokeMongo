@@ -84,7 +84,10 @@ public class LineChartThirtyDaysFactory {
         XYChart.Series series = new XYChart.Series();
         int i=0;
         for(Long p: xy){
-            series.getData().add(new XYChart.Data<>(i,p));
+            if (p != null)
+                series.getData().add(new XYChart.Data<>(i,p));
+            else
+                series.getData().add(new XYChart.Data<>(i,0));
             i++;
         }
 

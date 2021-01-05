@@ -159,7 +159,8 @@ public class AnalyticsScene extends PokeSceneWithHeaderAndBackButton {
                 yMinInt = (int) (yMinInt > list.get(i) ? list.get(i) : yMinInt);
                 yMaxInt = (int) (yMaxInt > list.get(i) ? yMaxInt : list.get(i));
                 hasValues = true;
-            }
+            } else
+                yMinInt = 0;
         }
         if (!hasValues)
             return new int[] {0, 0, 0};
