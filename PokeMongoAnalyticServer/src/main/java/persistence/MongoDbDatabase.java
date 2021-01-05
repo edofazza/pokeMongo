@@ -21,7 +21,7 @@ public abstract class MongoDbDatabase implements Database{
     private final String writeConcern = "w=majority&journal=true";
     private final String writeTimeout = "wtimeout=10000";
     private final String readPreference = "readPreference=secondaryPreferred&maxStalenessSeconds=120";
-    private final String readConcern = "readConcernLevel=majority"; //todo
+    private final String readConcern = "readConcernLevel=local"; //todo
 
     @Override
     public void startConnection(){

@@ -590,7 +590,7 @@ Eventually, for what concerns admins’ analytic data, there is no real consiste
 	\item The \textbf{read-your-write consistency} is been implemented according to the official documentation of Mongo at https://docs.mongodb.com/manual/ reference/read-concern/\#read-your-own-writes. \\
 	So write-concern is majority, read-concern is also majority and read-preference is on the primary when possible (preferred). 
  	\item \textbf{Social Network’s causal consistency} is ensured by the Neo4J framework, that is the specific Graph Database we decided to use(see par. 3.7 for further details)
-	\item The \textbf{eventual consistency for usage analytic data} is structured this way: On write operations, the control is returned to the application if the majority of the servers in the cluster have acknowledged it and only after the operation has been correctly journaled. As described by MongoDb documentation, this is enough to guarantee that the operation cannot be lost. Other servers’ data will be eventually consistent, anyway reads are performed in just one of the secondaries, immediately after taking a snapshot of the database, so that the aggregation operations will not deteriorate server’s performance. Since we have no control on which secondary server will be in charge of each read operation, we cannot ensure any kind of consistency, in fact:
+	\item The \textbf{eventual consistency for usage analytic data} is structured this way: On write operations, the control is returned to the application if the majority of the servers in the cluster have acknowledged it and only after the operation has been correctly journaled. As described by MongoDb documentation, this is enough to guarantee that the operation cannot be lost. Other servers’ data will be eventually consistent, anyway reads are performed in just one of the secondaries, regardless the received data is updated, so that the aggregation operations will not deteriorate server’s performance. Since we have no control on which secondary server will be in charge of each read operation, we cannot ensure any kind of consistency, in fact:
 
 	\begin{itemize}
 		\item \textbf{Read} and \textbf{writes} are made from different actors, so is \textit{meaningless} talking about \textbf{read-your-writes consistency}
@@ -602,6 +602,7 @@ Eventually, for what concerns admins’ analytic data, there is no real consiste
 	\end{itemize}
 \end{itemize}
 
+Anyway, there is no need to achieve a strict consistency on admin analytic data, so we preferred to guarantee a lower level of latency, accepting temporary inconsistencies on this kind of data.
 \subsubsection{Sharding}
 \textbf{N.B.} Despite the fact that we projected here a Sharding mechanism, this is not been implemented in the database cluster. \medskip \\
 \textit{Sharding} consists on partitioning data according to a specific policy. Data can be retrieved in the right server/cluster/partition using a Sharding Key.\\

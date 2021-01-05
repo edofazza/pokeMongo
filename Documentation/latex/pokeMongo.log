@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  5 JAN 2021 11:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.24)  5 JAN 2021 12:33
 entering extended mode
 **./pokeMongo.tex
 (pokeMongo.tex
@@ -1028,7 +1028,7 @@ erence/read-concern/#read-
 LaTeX Warning: Command \textemdash invalid in math mode on input line 598.
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 628--636
+Underfull \hbox (badness 10000) in paragraph at lines 629--637
 
  []
 
@@ -1036,7 +1036,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 628--636
 <img/schema2.pdf, id=673, 954.4458pt x 659.5842pt>
 File: img/schema2.pdf Graphic file (type pdf)
 <use img/schema2.pdf>
-Package pdftex.def Info: img/schema2.pdf  used on input line 644.
+Package pdftex.def Info: img/schema2.pdf  used on input line 645.
 (pdftex.def)             Requested size: 452.9679pt x 313.02394pt.
  [28 <./img/schema2.pdf>]) [29]
 \openout2 = `chapters/implementation.aux'.
@@ -1362,14 +1362,8 @@ Package pdftex.def Info: img/wrong_input.png  used on input line 130.
 aux)
 (chapters/analysis.aux) (chapters/project.aux) (chapters/implementation.aux)
 (chapters/test.aux))
-
-Package rerunfilecheck Warning: File `pokeMongo.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `pokeMongo.out':
-(rerunfilecheck)             Before: 1B67C8721AB961BDEA4A06804456A8CB;5842
-(rerunfilecheck)             After:  D6ED67DC692F62DDEE9D09AE25EEC01B;5765.
+Package rerunfilecheck Info: File `pokeMongo.out' has not changed.
+(rerunfilecheck)             Checksum: D6ED67DC692F62DDEE9D09AE25EEC01B;5765.
  ) 
 Here is how much of TeX's memory you used:
  14286 strings out of 480236
@@ -1397,7 +1391,7 @@ ublic/amsfonts/cm/cmsy10.pfb><C:/Users/gxhan/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/gxhan/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/gxhan/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on pokeMongo.pdf (67 pages, 5174917 bytes).
+Output written on pokeMongo.pdf (67 pages, 5175126 bytes).
 PDF statistics:
  1772 PDF objects out of 2073 (max. 8388607)
  840 named destinations out of 1000 (max. 500000)
