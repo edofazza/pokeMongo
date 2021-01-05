@@ -5,7 +5,6 @@ conf
 it.unipi.dii.lsmsd.pokeMongo
 it.unipi.dii.lsmsd.pokeMongo.bean
 it.unipi.dii.lsmsd.pokeMongo.cache
-it.unipi.dii.lsmsd.pokeMongo.cipherCodeGenerator
 it.unipi.dii.lsmsd.pokeMongo.config
 it.unipi.dii.lsmsd.pokeMongo.dataAnalysis
 it.unipi.dii.lsmsd.pokeMongo.exceptions
@@ -26,4 +25,5 @@ it.unipi.dii.lsmsd.pokeMongo.userInterface
 it.unipi.dii.lsmsd.pokeMongo.utils
 it.unipi.dii.lsmsd.pokeMongo.utils.DbPopulators
 it.unipi.dii.lsmsd.pokeMongo.utils.autoLog
+it.unipi.dii.lsmsd.pokeMongo.utils.cipherCodeGenerator
 persistence

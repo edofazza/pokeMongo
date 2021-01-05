@@ -1,4 +1,4 @@
-package it.unipi.dii.lsmsd.pokeMongo.cipherCodeGenerator;
+package it.unipi.dii.lsmsd.pokeMongo.utils.cipherCodeGenerator;
 
 import java.io.*;
 
