@@ -1044,14 +1044,14 @@ We created few function for handling some simple statistics that can be useful f
 \begin{lstlisting}[language=SQL]
 	MATCH (u:User)-[:FOLLOW]->(u1:User)-[:FOLLOW]->(u2:User) 
 	WHERE NOT (u)-[:FOLLOW]->(u2) and u2 <> u and u.username = $username 
-	RETURN u2.username 
+	RETURN DISTINCT u2.username 
 	LIMIT 20 
 \end{lstlisting}
 \paragraph{Friends Recommendation by Pokemon} friends recommended by \textbf{Pokèmon}are all the different \textit{followers of the followers} of the User that shares at least one liked \textbf{Pokèmon} (an already followed user is not returned). These recommended \textbf{Users} are a subset of the latter.
 \begin{lstlisting}[language=SQL]
 	MATCH (p:Pokemon)<-[:LIKES]-(u:User)-[:FOLLOW]->(u1:User) -[:FOLLOW]->(u2:User)-[:LIKES]->(p2:Pokemon) 
 	WHERE NOT (u)-[:FOLLOW]->(u2) and u2 <> u and u.username = $username and p2 = p 
-	RETURN u2.username 
+	RETURN DISTINCT u2.username 
 	LIMIT 20
 \end{lstlisting}
 
