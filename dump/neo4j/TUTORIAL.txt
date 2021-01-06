@@ -1,12 +1,10 @@
-//METODO TESTATO SU WINDOWS 10
+// METHOD TESTED ON WINDOWS 10 AND macOS Big Sur
 
-1) Apri Neo4j Desktop, scheda DBMS, seleziona il database di PokeMongo e clicca su "Open Folder"
-2) Copia dentro la cartella import tutti i file ".csv"
-3) Sempre dalla stessa pagina di Neo4j Desktop vai su settings e setta "dbms.memory.heap.max_size=4G" (1G non basta per inserire i post)
-   Clicca su Apply ed eventualmente riavvia il db se era acceso
-
-4) Fai copia incolla di addPokemonCypher
-5) Esegui nel seguente ordine queste query
+1) Open Neo4j Desktop, open the DBMS page, select the Pokemongo db and, then, click on "Open Folder"
+2) Copy inside the "import" folder all the .csv files
+3) In the same page of Neo4j Desktop go to "Settings" and set "dbms.memory.heap.max_size=4G" (1G is not enough for inserting all the Posts). Click on "Apply" and start/restart the db 
+4) Copy and paste addPokemonCypher.cipher in the Neo4j Browser
+5) Execute in the following order this queries:
 
 //1
 LOAD CSV FROM "file:///cipherUserWhole.csv" AS line
@@ -45,5 +43,6 @@ DROP INDEX index_username
 DROP INDEX index_name
 DROP INDEX index_post_date
 
-//PER CANCELLARE TUTTO IL DB
+
+// FOR DELETING THE ENTIRE DB
 match (p) detach delete p
