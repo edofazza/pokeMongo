@@ -10,7 +10,7 @@ import org.bson.conversions.Bson;
 import java.util.*;
 
 public abstract class MongoDbDatabase implements Database{
-    private MongoClient connection;
+    private static MongoClient connection;
 
     private String host="localhost";
     private int port = 27017;

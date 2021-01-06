@@ -2,6 +2,7 @@ package it.unipi.dii.lsmsd.pokeMongo;
 
 import it.unipi.dii.lsmsd.pokeMongo.persistence.Database;
 import it.unipi.dii.lsmsd.pokeMongo.persistence.TeamManagerOnNeo4j;
+import it.unipi.dii.lsmsd.pokeMongo.persistence.UserManagerOnMongoDb;
 import it.unipi.dii.lsmsd.pokeMongo.userInterface.CurrentUI;
 import it.unipi.dii.lsmsd.pokeMongo.utils.Logger;
 import javafx.application.Application;
@@ -28,6 +29,8 @@ public class Main extends Application {
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> {
             Database d = new TeamManagerOnNeo4j();
+            d.closeConnection();
+            d= new UserManagerOnMongoDb();
             d.closeConnection();
         });
     }

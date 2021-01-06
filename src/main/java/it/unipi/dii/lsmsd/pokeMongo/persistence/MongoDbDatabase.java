@@ -10,7 +10,7 @@ import org.bson.Document;
 import java.util.ArrayList;
 
 public abstract class MongoDbDatabase implements Database{
-    private MongoClient connection;
+    private static MongoClient connection;
 
     //read-your-writes consistency as guaranteed by https://docs.mongodb.com/manual/reference/read-concern/#read-concern-levels
     private final String clusterAddress = "mongodb://172.16.3.85:27017,172.16.3.86:27017,172.16.3.87:27017/";

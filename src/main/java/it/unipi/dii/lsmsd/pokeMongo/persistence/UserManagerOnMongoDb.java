@@ -6,7 +6,6 @@ import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
-import it.unipi.dii.lsmsd.pokeMongo.bean.Pokemon;
 import it.unipi.dii.lsmsd.pokeMongo.bean.User;
 import it.unipi.dii.lsmsd.pokeMongo.config.ConfigDataHandler;
 import it.unipi.dii.lsmsd.pokeMongo.dataAnalysis.UserRanker;
@@ -45,7 +44,6 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         for(Document d:result){
             toReturn.add(DocumentToUser(d));
         }
-        closeConnection();
         return toReturn;
     }
 
@@ -58,7 +56,6 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
 
         for(Object o: toInsert){
             if(!(o instanceof User)){
-                closeConnection();
                 return false;
             }
             User userToInsert = (User)o;
@@ -79,7 +76,6 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
             }
             collection.insertMany(l);
         }
-        closeConnection();
         return true;
     }
 
@@ -95,7 +91,6 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         Document doc = UserToDocument(userToInsert);
         Logger.vvlog("ADDED " + doc.toJson());
         collection.insertOne(doc);
-        closeConnection();
         return true;
     }
 
@@ -126,7 +121,6 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         for(Document d:docs){
             users.add(DocumentToUser(d));
         }
-        closeConnection();
         return users;
     }
 
@@ -140,7 +134,6 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
         for(Document d:docs){
             users.add(DocumentToUser(d));
         }
-        closeConnection();
         return users;
     }
 
@@ -158,10 +151,8 @@ public class UserManagerOnMongoDb extends MongoDbDatabase implements UserManager
             ur = collection.updateMany((Bson)target, (Bson)newValue);
         }
         else {
-            closeConnection();
             return false;
         }
-        closeConnection();
         Logger.vvlog("UPDATED " + ur.getModifiedCount() + " user");
         return ur.getModifiedCount()>0;
     }

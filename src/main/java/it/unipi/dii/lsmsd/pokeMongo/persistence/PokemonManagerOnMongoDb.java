@@ -100,7 +100,6 @@ class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
             }
             collection.insertMany(l);
         }
-        closeConnection();
         return true;
     }
 
@@ -113,7 +112,6 @@ class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
         Document doc = PokemonToDocument((Pokemon)toInsert);
         Logger.vvlog("ADDED " + doc.toJson());
         collection.insertOne(doc);
-        closeConnection();
         return true;
     }
 
@@ -131,7 +129,6 @@ class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
             closeConnection();
             return false;
         }
-        closeConnection();
 
         Logger.vvlog("DELETED " + dr.getDeletedCount() + " pokemon");
         return dr.getDeletedCount()>0;
@@ -144,7 +141,6 @@ class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
         for(Document d:docs){
             pokemons.add(DocumentToPokemon(d));
         }
-        closeConnection();
         return pokemons;
     }
 
@@ -158,7 +154,6 @@ class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
         for(Document d:docs){
             pokemons.add(DocumentToPokemon(d));
         }
-        closeConnection();
         return pokemons;
     }
 
@@ -176,10 +171,8 @@ class PokemonManagerOnMongoDb extends MongoDbDatabase implements PokemonManager{
             ur = collection.updateMany((Bson)target, (Bson)newValue);
         }
         else {
-            closeConnection();
             return false;
         }
-        closeConnection();
         Logger.vvlog("UPDATED " + ur.getModifiedCount() + " pokemon");
         return ur.getModifiedCount()>0;
     }
