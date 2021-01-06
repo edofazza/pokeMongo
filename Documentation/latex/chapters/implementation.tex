@@ -657,7 +657,6 @@ The structure of a factory class is the following, here the \textit{PokemonManag
 	public class PokemonManagerFactory {
 		public static PokemonManager buildManager(){
 			String technology = getConfiguration();
-			Logger.vlog("Obtaining technology: " + technology);
 			switch (technology){
 				case "MongoDb":
 				return new PokemonManagerOnMongoDb();
@@ -715,7 +714,6 @@ The images about the \textbf{Pokèmons} are not stored locally, because this wil
 		}
 		
 		public CompletableFuture<Image> getDataIfPresent(String url){
-			Logger.vlog("Attemp to get image at: " + url);
 			return cache.get(url);
 		}
 	}
@@ -1217,10 +1215,8 @@ public boolean remove(Object o) {
 		dr = collection.deleteMany((Bson)o);
 	}
 	else {
-		closeConnection();
 		return false;
 	}
-	closeConnection();
 	return dr.getDeletedCount()>0;
 }
 \end{lstlisting}
@@ -1251,7 +1247,6 @@ public boolean remove(Object query){
 			return null;
 		});
 	}
-	closeConnection();
 	return true;
 }
 \end{lstlisting}
@@ -1270,12 +1265,8 @@ For MongoDb we use a method in PokemonManagerOnMongoDb.java:
 			dr = collection.deleteMany((Bson)o);
 		}
 		else {
-			closeConnection();
 			return false;
 		}
-		closeConnection();
-		
-		Logger.vvlog("DELETED " + dr.getDeletedCount() + " pokemon");
 		return dr.getDeletedCount()>0;
 	}
 	
