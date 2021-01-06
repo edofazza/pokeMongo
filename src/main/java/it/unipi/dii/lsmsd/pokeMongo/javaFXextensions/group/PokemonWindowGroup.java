@@ -132,7 +132,7 @@ public class PokemonWindowGroup extends Group {
      * @param weight weight of the pokemon
      */
     private void displayWeight(String weight) {
-        PokemonWindowLabel weightLabel = new PokemonWindowLabel("WEIGHT: " + weight, 250, 110);
+        PokemonWindowLabel weightLabel = new PokemonWindowLabel("WEIGHT: " + weight + " hg", 250, 110);
 
         getChildren().add(weightLabel);
     }
@@ -142,7 +142,7 @@ public class PokemonWindowGroup extends Group {
      * @param height height of the pokemon
      */
     private void displayHeight(String height) {
-        PokemonWindowLabel heightLabel = new PokemonWindowLabel("HEIGHT: " + height, 250, 140);
+        PokemonWindowLabel heightLabel = new PokemonWindowLabel("HEIGHT: " + height + " dm", 250, 140);
 
         getChildren().add(heightLabel);
     }
